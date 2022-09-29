@@ -1,0 +1,75 @@
+%!TEX root = main.tex
+
+
+
+\section{Introduction}
+
+The adoption of online services, such as online banking and e-commerce, has been swiftly increasing, and so has the effort of adversaries to gain unauthorised access to such services.  For clients to prove their identity to a remote service provider, they provide a piece of evidence, called an ``authentication factor''. Authentication factors can be based on (i) knowledge factors, e.g., PIN or password, (ii)  possession factors, e.g., access card or physical hardware token, or (iii) inherent factors, e.g., fingerprint.  
+%
+Knowledge factors are still the most predominant factors used for authentication \cite{bonneau2010password,JacommeK21}. 
+%
+%, mainly because their implementations impose low costs on the verifiers and require clients to invest minimal effort to authenticate themselves.
+%
+ The knowledge factors themselves are not strong enough to adequately prevent impersonation 
+ %
+% ; for instance, because clients may pick weak passwords that can be easily guessed 
+ %
+ \cite{SinigagliaCCZ20,JacommeK21}.  Multi-factor authentication methods that depend on more than one factor are more difficult to compromise than single-factor methods. Recently (on January 26, 2022), the ``Executive Office of the US President'' released a memorandum requiring
+the Federal Government's agencies to meet specific cybersecurity standards, including the use of multi-factor authentication, to reinforce the Government’s defences against increasingly sophisticated threat campaigns \cite{Zero-Trust-Cybersecurity}. 
+% 
+Among multi-factor authentication schemes, two-factor authentication (2FA) methods, including those that rely on a combination of PIN and device possession, have attracted special attention, from banks and e-commerce, due to their low cost and good usability. % than those methods that rely on more than two factors. 
+%
+
+
+Researchers and companies have proposed various 2FA solutions based on a combination of PIN and device possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a client and server, and (b) have physical access to the client's device, or its PIN, or breaches the server. These solutions do not rely on trusted chipsets and still ensure that even such a strong adversary cannot succeed during the authentication. Nevertheless, these solutions (i) require a client to remember multiple secret values (instead of a single PIN)  to prove its identity which ultimately harms these solutions' usability, (ii) involve several modular exponentiations that make the device battery power run out fast, and (iii) are in the non-standard random oracle model. 
+
+
+\paragraph{\textbf{\textit{Our Contributions.}}}  In this work, we present a 2FA protocol that resists the strong adversary above while addressing the aforementioned shortcomings and imposing a lower communication cost. Specifically, our protocol:
+
+\begin{itemize}
+\item[$\bullet$] requires a client to remember only a single PIN.
+
+\item[$\bullet$] {allows the device to generate a short authentication message.} 
+
+\item[$\bullet$] does not involve any modular exponentiations.
+
+\item[$\bullet$] is in a standard model.
+
+\item[$\bullet$]  imposes up to $40\%$ lower communication costs than the state-of-the-art does. 
+
+
+\end{itemize}
+
+
+ To attain its goals, our protocol does not use any trusted chipsets; instead, it relies on a novel combination of the following two approaches. First, it requires only the server  (not the device) to verify a client’s PIN. This would allow separating the location where the PIN’s secret key (used to compute the PIN’s authenticator) is stored from the location where the authenticator itself is stored. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location.  Second, it  (a) requires that the server and device use key-evolving symmetric-key encryption (i.e., a combination of forward-secure pseudorandom bit generator and authenticated encryption) to encrypt sensitive messages they exchange,  and (b) requires that used keys be discarded right after their use. This approach ensures the secrecy of the communication between the parties and guarantees that the adversary cannot learn the PIN, even if it eavesdrops on the parties' communication and breaks into the device or server. We formally prove the security of this protocol. 
+
+
+%Our protocol also allows a client to see a description of the transaction that the server will perform after successful authentication. For instance, in the context of online banking, a transaction's description includes the transaction amount, destination account number, and payee's details. This description is displayed on the device to allow the client to verify that it matches their intention. This ``dynamic binding'' between transaction and response is necessary to meet the requirements for payment authentication set out by the EU
+%Payment Services Directive 2.
+
+
+
+%
+%Including the transaction
+%within the computation of the authentication, response allows the server
+%to detect if a man-in-the-middle attack changes a payment transaction,
+%e.g. to redirect funds to an account under control by the criminals.
+%
+%This ``dynamic binding'' between transaction and response is necessary
+%to meet the requirements for payment authentication set out by the EU
+%Payment Services Directive 2. 
+
+
+
+
+
+%These methods allow clients to generate one-time passwords (OTPs) when a client inserts its knowledge factor into the device. An OTP might be sent to and checked by a remote verifier to authenticate a client. 
+% 
+% 2FA schemes that rely on the combination of a PIN and a hardware token have gained popularity among banks and e-commerce.
+
+
+
+%Very recently (January 2022), the ``Executive Office of the US President'' has released a memorandum requiring
+%agencies to meet specific cybersecurity standards, including the use of multi-factor authentication, to reinforce the Government’s defences against increasingly sophisticated threat campaigns \cite{Zero-Trust-Cybersecurity}.
+
+

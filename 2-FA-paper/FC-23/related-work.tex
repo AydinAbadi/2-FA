@@ -1,0 +1,87 @@
+%!TEX root = main.tex
+
+
+\section{Related Work}
+
+
+
+
+
+%In order for clients to prove their identity to a (local/remote) computer resource, they provide a piece of evidence, called an ``authentication factor''. The authentication factors can be broadly categorised based on (a) what clients know (a.k.a. knowledge factors), such as PIN, password, (b)  what a client possesses (a.k.a. possession factors), such as an access card or physical hardware token, or (c) what clients are (a.k.a. inherent factors), such as a fingerprint, or iris. 
+%
+%
+%The knowledge factors are still the most predominant factors used for authentication \cite{bonneau2010password,JacommeK21}, mainly because their implementations impose low costs on the verifiers and require clients to invest minimal efforts to authenticate themselves. However, the knowledge factors themselves are not strong enough to adequately prevent impersonation, for various reasons, e.g., clients may pick weak passwords that can be easily guessed, or reuse them to authenticate themselves to many servers which would increase their leakage if one of the servers is penetrated by adversaries \cite{SinigagliaCCZ20,JacommeK21}. 
+%
+%In general, authentication methods that depend on more than one factor are more difficult to compromise
+%than single-factor methods. Although the authentication mechanisms that rely on more than two factors may guarantee stronger security, they would impose higher costs and negatively affect clients' experience; therefore, two-factor authentications have gained special attention; including those that rely on a combination of password/PIN and device possession that allows clients to generate one-time passwords (OTPs) when a client inserts its secret (e.g., password or PIN) into the device. An OTP can be sent to and checked by a remote verifier to authenticate a client. The combination of a password or PIN and a hardware token has gained popularity among various e-commerce and banks.  
+
+
+In this section, first, we briefly discuss the common approaches for generating a One-Time Password (OTP) which yields from a combination of a PIN and a hardware token.  After that, we provide an overview of hardware token variants. 
+
+
+\subsection{Common Approaches for Generating OTP}
+
+In the authentication that relies on a combination of knowledge and possession factors, once the client enters the secret into the hardware token, the device (in some cases after validating the secret) combines this secret with the output of one of the following methods to generate a unique OTP:  (i) a random challenge: this approach requires the server to send a random challenge to the device (through the client); those protocols that use this approach needs to ensure the random challenges themselves remain confidential in the presence of an eavesdropping adversary,  (ii) an internal counter:  the solutions that use this approach needs to take into account the situation where the token-side counter becomes out of synchronisation, or (iii) the current accurate time: this approach requires the authentication server and token use a synchronised clock and the two endpoints may get out of synchronisation after a certain time. There exist 2FA solutions (including the one we propose in this paper) that employ a combination of the above approaches. 
+\subsection{Variants of OTP Hardware Tokens}
+
+\subsubsection{Connected Tokens.}
+This type of token requires a client to physically connect the token to their computer (e.g., a laptop or card reader) via which the client is authenticating. Once it is connected, the device transmits the authentication information to the computer (either automatically or after pressing a button on the token). USB tokens and smart cards are two popular token technologies in this category.  Various companies including Google, Dropbox, and  ``Fast IDentity Online'' (FIDO) Alliance have developed USB hardware tokens. YubiKey\footnote{https://www.yubico.com} is one of the well-known ones developed by FIDO. The FIDO  Alliance has proposed a standard that aims at allowing clients to log in to remote services with a local and trusted authenticator. It supports a wide range of authentication technologies including USB (security) tokens. However, researchers have discovered various vulnerabilities within this standard via manual, e.g., in \cite{PanosMNPX17,ChangMSS17,LoutfiJ15} and formal analysis, e.g., in \cite{ndss/FengLP021}. 
+
+Smart card technology is another authentication means which has been widely used. Often it comprises two separate components; namely, a smart card and a card reader, where the former includes an integrated secure chipset while the former includes a keypad and a screen. Since its introduction in \cite{chang1991remote}, there have been numerous protocols for smart card-based 2FA (e.g., in \cite{gupta2021machine,WangW18,radhakrishnan2022dependable}) along with a few works that identify vulnerabilities of existing solutions, e.g., in \cite{TianLHL20,WangGCW16,ChaturvediDMM16}. However, the existing smart card-based solutions (e.g., in \cite{gupta2021machine,WangW18,radhakrishnan2022dependable}) are often based on public-key cryptography which imposes a high computation cost and makes the card reader's battery run out relatively fast; also some solutions (e.g., in \cite{kim2009more}) rely on tamper-proof secure chipsets embedded in the card which would ultimately increase the device's cost. 
+
+
+%There are a number of different types, including USB tokens, smart cards and wireless tags.[7] Increasingly, FIDO2 capable tokens, supported by the FIDO Alliance and the World Wide Web Consortium (W3C), have become popular with mainstream browser support beginning in 2015.
+
+
+
+
+
+\subsubsection{Disconnected Tokens.}
+
+This type of token does not have a physical connection to a client's computer making them more convenient than connected tokens. A disconnected token is often equipped with a built-in screen and a keypad letting a client type in the knowledge factor and view the OTP on the screen (see below for an exception).  Below, we provide an overview of two main categories of disconnected tokens.
+
+\begin{enumerate}
+\item \underline{Dedicated hardware-based Tokens}, such as RSA SecureID \cite{secureID}, OneSpan Digipass 770 \cite{Digipass-website}, and Thales Gemalto SWYS QR Token Eco \cite{Gemalto}.   RSA SecureID (unlike the other two tokens) does not have a keypad. Briefly, in RSA SecureID, the OTP is generated using the current time and a secret key (allocated to the client and) stored in the token \cite{biryukov2003cryptanalysis}. Thus, not only the token has to have a synchronised clock with the server, but also the token's OTP can be generated by an adversary who has physical access to the device, as it can extract the device's secret key.  The main advantage of  Digipass 770 and Thales Gemalto SWYS QR Token Eco to RSA SecureID is that they allow clients to see and verify the transaction details through the token. Therefore, the client is given more understandable information about the transaction it is approving,
+so phishing (by Man-in-the-Browser attacks or social engineering attacks) becomes harder. 
+
+ 
+
+Our investigation suggests that Digipass 770 also \emph{locally stores and verifies} clients' PINs. 
+%
+% later, when the client enters a PIN, the token locally verifies the PIN and if it accepts the PIN, then it generates an OTP. 
+Specifically, once a client receives the token, it also receives an activation code from the verifier, e.g., the client's bank.  Then, the client (i) registers the activation code in the device and (ii) registers the activation code to the verifier, so the verifier knows that this specific client has a device with the provided activation code. Then, the client registers its PIN in the device which stores it locally. Every time a client uses the verifier's online system  (e.g., online banking) and makes a transaction, the system generates and displays an encrypted visual image. The client uses its token (camera) to scan the image, and then enters its PIN into the device. Next, the device checks the PIN; if the PIN matches the previously registered PIN, then it decrypts the image and displays the transaction's content on the token's screen which allows the client to check whether the transaction is the one it has made. If the client accepts the transaction and presses a certain button, then the token generates and displays an OTP that the client can insert into the verifier's online system \cite{Digipass-website,DIGIPASS-doc}.  Thales Gemalto SWYS QR Token Eco also uses a mechanism similar to the one we described above. 
+
+%Thus, in the above solutions, an attacker who has physical access to the token can extract the PIN and impersonate the client. 
+
+Jules et al. \cite{juels2016configurable} discussed that the adversary who can intercept the client and server's communication and also has physical access to the client's token or the server's storage can extract the client's PIN and impersonate the client. To address the issue they also suggested a solution that can address the above issue by using (i) a forward-secure pseudorandom number generation, (ii) multiple servers, etc. However, the proposed scheme lacks formal proof and does not consider the case where transactions' details must be verified by clients on the token.  
+
+Moreover, Jarecki \textit{et al.} \cite{JareckiJKSS21} proposed a (single server) protocol to ensure that even if the server or the device is corrupted a client's PIN cannot be extracted and the adversary cannot impersonate an honest client. It is mainly based on a hash function, both symmetric and asymmetric key encryptions, and (Diffie–Hellman) key exchange. This scheme has a high computation and communication cost due to its complexity,  the use of public-key cryptography, and numerous rounds of communication, even between the client and token. Also, it requires the token to perform asymmetric-key operations and invoke symmetric key primitives many times, which would make the token's battery run out quickly. This protocol requires the client (in addition to remembering its PIN) to remember/store a cryptographic secret key locally (but not on the token), as a result of invoking a subroutine called asymmetric  ``password-authenticated key exchange'' (PAKE). Furthermore, there is another authentication protocol, that does not rely on a trusted chipset, presented in \cite{zhang2020strong}. Nevertheless, it has been designed for ``federated identity systems'' and is not suitable for two/multi-factor authentication settings. 
+
+
+
+%Thus, unlike the above solutions, offer all the following features simultaneously; it (a) efficient, (b) is provably secure, (c) is resilient against the adversary which may corrupt the server or have access to the client's token, (d) relies on a single server, and (e) allows the client to also check the transaction detail on its token. 
+
+
+
+
+%
+\item \underline{Mobile phone-based Tokens}, such as the solutions presented in \cite{SARA22,KoganMB17,KonothFFARB20}. There have been protocols that generate an OTP with the use of a mobile phone as a hardware token. Such solutions often rely on the added features that mobile phones offer, such as possessing a Trusted Execution Environment (TEE), being able to communicate directly with the server, or having a rechargeable battery. The scheme in \cite{KoganMB17} relies on a combination of time-based OTP and a hash chain. This scheme ensures that even if the adversary corrupts the server at some point, then it cannot extract the client's secret. Nevertheless, it  (a) requires the client to store a sufficiently long secret key (on the mobile phone), (b) requires the laptop/PC that the client uses to be equipped with a camera, and (c) needs the mobile phone to invoke a hash function over a million times that can cause the phone's battery to run out fast. The protocol proposed in \cite{KonothFFARB20} mainly relies on a phone's TEE (i.e.,  ARM TrustZone technology) and messages that the server can directly send to the phone. Later,  Imran \textit{et al.} \cite{SARA22} proposes a new protocol that also relies on a phone's TEE, but it improves the protocol presented in \cite{KonothFFARB20}, in the sense that it is compatible with more android devices and supports biometric authentication too. 
+
+A primary limitation of mobile phone-based OTP tokens is that they cannot be used when there is no (mobile phone) network coverage. Another limitation is that in certain cases (beyond internet banking) sharing phone numbers with the authentication server may not suit all clients, e.g., transactions' details along with the phone number might be sold for targeted advertisements. 
+%
+\end{enumerate}
+
+
+
+
+%
+%. Disconnected tokens are the most common type of security token used (usually in combination with a password) in two-factor authentication for online identification
+
+
+
+% We refer readers to \cite{SinigagliaCCZ20} for a survey of different methods of authentications and their adoptions by banks.  
+
+
+
+
+%Therefore, instead of using only a (clientname and) password/PIN, clients need to prove the possession of an additional device and/or an inherent factor. 
