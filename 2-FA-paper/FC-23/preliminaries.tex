@@ -4,11 +4,11 @@
 
 
 
-
+\vspace{-3mm}
 
 \section{Notations and Preliminaries}
  In this section, we present the main notations and tools used in this work. 
- 
+ \vspace{-3mm}
  \subsection{Notations}
  
  To disambiguate the different uses of keys and other items of data, variables are annotated with a superscript to indicate their origin. $\VC{\cdot}$ indicates data stored at the client, $\VS{\cdot}$ indicates stored at the server, and $\VM{\cdot}$ indicates the data item has been extracted from a protocol message. A summary of variables can be found in \prettyref{tab:variables}.
@@ -17,7 +17,7 @@
  \input{notation-Table}
  
 
- 
+ \vspace{-3mm}
 \subsection{Pseudorandom Function}\label{subsec:PRF}
 
 Informally, a pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value  indistinguishable from that of a truly random function with the same domain and range.   A $\prf$ is formally defined as follows \cite{KatzLindell2014}. 
@@ -67,7 +67,7 @@ Recall, $\mathsf{FS\text{-}RPG.next}$ updates the state of the forward-secure ge
 %state and meets the security definitions of forward-secure key updating
 %for $n < 2^{64}$.
 
- \vspace{2mm}
+ \vspace{-2mm}
  
 \subsection{Authenticated Symmetric-key Encryption} 
 Informally, authenticated encryption $\Pi=(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$ is an encryption scheme that simultaneously ensures the secrecy and integrity of a massage. It can be built via symmetric or asymmetric key encryptions. In this work, we use authenticated symmetric-key encryption, due to its efficiency. $\mathsf{Gen}$ is a probabilistic key generating algorithm that takes a security parameter and returns an encryption key $k$. $\mathsf{Enc}$ is a deterministic encryption algorithm that takes the secret key $k$ and a message $m$, it returns a ciphertext $M$ along with the corresponding tag $t$. $\mathsf{Dec}$ is a deterministic algorithm that takes the ciphertext $M$, the tag $t$, and the secret key $k$. It first checks the tag's validity, if it accepts the tag, then it decrypts the message and returns $(m,1)$. Otherwise, it returns $(.,0)$. 
