@@ -68,7 +68,7 @@ Recall, $\mathsf{FS\text{-}RPG.next}$ updates the state of the forward-secure ge
 %state and meets the security definitions of forward-secure key updating
 %for $n < 2^{64}$.
 
- \vspace{-2mm}
+ \vspace{-3mm}
  
 \subsection{Authenticated Symmetric-key Encryption} 
 Informally, authenticated encryption $\Pi=(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$ is an encryption scheme that simultaneously ensures the secrecy and integrity of a massage. It can be built via symmetric or asymmetric key encryptions. In this work, we use authenticated symmetric-key encryption, due to its efficiency. $\mathsf{Gen}$ is a probabilistic key generating algorithm that takes a security parameter and returns an encryption key $k$. $\mathsf{Enc}$ is a deterministic encryption algorithm that takes the secret key $k$ and a message $m$, it returns a ciphertext $M$ along with the corresponding tag $t$. $\mathsf{Dec}$ is a deterministic algorithm that takes the ciphertext $M$, the tag $t$, and the secret key $k$. It first checks the tag's validity, if it accepts the tag, then it decrypts the message and returns $(m,1)$. Otherwise, it returns $(.,0)$. 

@@ -62,7 +62,7 @@ Now, we analyse the communication cost of the protocol in \cite{JareckiJKSS21}. 
 Hence, our protocol imposes a $10\%$ and $40\%$ lower communication cost than the protocols in \cite{WangW18} and \cite{JareckiJKSS21} do respectively.
 
 %\subsection{The Number of Secrets a client Must Know}
-
+\vspace{-2mm}
 \subsection{Other Features}
 
  In our protocol, a client needs to know only a single secret (i.e., a  PIN). Nevertheless, in the protocol in \cite{WangW18} a client requires to know (and insert into the verification algorithm) an additional secret; namely, a secret random ID. Thus, the client needs to remember two secrets in total.  As shown in \cite{Scott12a}, this scheme will not remain secure, even if only the client's ID is revealed. Furthermore, the protocol in \cite{JareckiJKSS21} requires the client to remember or locally store at least one cryptographic secret key of sufficient length, e.g., $128$ bits; this secret key is generated via invocation of a subroutine protocol (called PAKE) and must not be kept on the device. 
