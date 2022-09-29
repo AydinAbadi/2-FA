@@ -184,7 +184,7 @@ Two-factor authentication (2FA) schemes that rely on a combination of knowledge 
 
 
 
-\vspace{-3mm}
+\vspace{-4mm}
 
 \section{The Protocol}\label{sec::the-protocol}
 \vspace{-3mm}
@@ -362,7 +362,7 @@ Our protocol consists of three main phases; namely, (i) a setup phase, performed
 
 
 
-
+ \vspace{-3mm}
 
 \subsection{Setup Phase}
 \label{sec:setup}
@@ -413,7 +413,7 @@ manufacture or can be sent (via a secure channel) to the client who can use the 
     \label{fig:setup}
 \end{figure}
 
-\vspace{-8mm}
+\vspace{-5mm}
 \subsection{Enrolment Phase}
 \label{sec:enrollment}
 
@@ -504,10 +504,11 @@ The steps involved in this phase are shown in \prettyref{fig:enrollment} in deta
 %}}
 \end{tcolorbox}
 \end{center}
-\vspace{-3.6mm}
+\vspace{-3.8mm}
     \caption{Enrolment phase.}
     \label{fig:enrollment}
 \end{figure}
+\vspace{-2mm}
 %%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%
@@ -606,7 +607,7 @@ If the challenge does match, the server stores the verifier associated with the 
 
 Finally, the device discards the challenge, \VC{\keyt_{\sss 1}}, PIN, and \VC{\verifier} so that the PIN can no longer be recovered from the device. Note that the device can re-generate \VC{\verifier} using \VC{\salt} when the client types in its PIN again. The server also discards the challenge and \VC{\keyt{\sss 1}} as they are no longer needed. Following the successful completion of this protocol, the server will store the verifier corresponding to the client's selected PIN and both server and device will have synchronised their FS-PRG's state.
 
-\vspace{-3mm}
+\vspace{-4mm}
 \subsection{Authentication Phase}
 \label{sec:authentication}
 
@@ -618,7 +619,7 @@ The goal of the authentication process is to give the server assurance that the 
 \begin{figure}[!htbp]
 
 \begin{center}
-     \begin{tcolorbox}[enhanced,width=4.75in, height=195mm, left=1mm,top=-3mm,
+     \begin{tcolorbox}[enhanced,width=4.75in, height=194mm, left=1mm,top=-3.4mm,
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
 %{\small{
@@ -710,7 +711,7 @@ The goal of the authentication process is to give the server assurance that the 
  %
 \end{tcolorbox}
 \end{center}
-\vspace{-3.2mm}
+\vspace{-3.4mm}
     \caption{Authentication phase.}
     \label{fig:auth}
 \end{figure}
@@ -871,7 +872,7 @@ let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties
 %
 \end{theorem}
 
-
+ \vspace{-4mm}
 
 \section{Informal Security Analysis}
 \label{sec:security}
