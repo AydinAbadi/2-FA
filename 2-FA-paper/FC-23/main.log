@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  29 SEP 2022 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  29 SEP 2022 16:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -149,6 +149,9 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \c@solution=\count269
 \c@remark=\count270
 \headlineindent=\dimen156
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
@@ -1397,7 +1400,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./pre
 liminaries.tex (./notation-Table.tex
 Underfull \hbox (badness 1087) in paragraph at lines 74--74
-[]|$[][]$\OT1/cmr/m/n/7 , $[][]$, $[][]$,
+[]|$[][]$\T1/cmr/m/n/7 , $[][]$, $[][]$,
  []
 
 
@@ -1411,29 +1414,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--78
  []
 
 ) [2] [3]
-Overfull \hbox (3.50185pt too wide) in paragraph at lines 73--74
-\OT1/cmr/m/n/10 Informally, au-then-ti-cated en-cryp-tion $\OML/cmm/m/it/10 ^^E
- \OT1/cmr/m/n/10 = ([]\OML/cmm/m/it/10 ; []; []\OT1/cmr/m/n/10 )$ is an en-cryp
--tion scheme
+Overfull \hbox (3.43701pt too wide) in paragraph at lines 73--74
+\T1/cmr/m/n/10 Informally, au-then-ti-cated en-cryp-tion $\OML/cmm/m/it/10 ^^E 
+\OT1/cmr/m/n/10 = ([]\OML/cmm/m/it/10 ; []; []\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10
+ is an en-cryp-tion scheme
  []
 
 [4]) (./model.tex [5] [6]) [7]
-Overfull \hbox (11.80824pt too wide) detected at line 406
+Overfull \hbox (11.79578pt too wide) detected at line 406
 []
  []
 
 
-Overfull \hbox (13.80824pt too wide) in paragraph at lines 406--408
+Overfull \hbox (13.79578pt too wide) in paragraph at lines 406--408
  [] 
  []
 
 [8] [9]
-Overfull \hbox (7.71819pt too wide) detected at line 707
+Overfull \hbox (7.69835pt too wide) detected at line 707
 []
  []
 
 
-Overfull \hbox (10.91814pt too wide) in paragraph at lines 707--709
+Overfull \hbox (10.8983pt too wide) in paragraph at lines 707--709
  [] 
  []
 
@@ -1441,73 +1444,73 @@ Overfull \hbox (10.91814pt too wide) in paragraph at lines 707--709
 LaTeX Warning: Float too large for page by 49.38101pt on input line 714.
 
 [10] [11] [12] [13] [14] [15]
-<dp770.png, id=391, 630.355pt x 686.565pt>
+<dp770.png, id=398, 630.355pt x 686.565pt>
 File: dp770.png Graphic file (type png)
 <use dp770.png>
 Package pdftex.def Info: dp770.png  used on input line 1026.
 (pdftex.def)             Requested size: 170.71652pt x 185.94073pt.
  [16 <./dp770.png>] (./evaluation.tex
 (./evaluation-table.tex) [17] [18]) (./related-work.tex [19]
-Overfull \hbox (0.90485pt too wide) in paragraph at lines 30--31
-[]\OT1/cmr/m/n/10 Smart card tech-nol-ogy is an-other au-then-ti-ca-tion means 
-which has been widely
+Overfull \hbox (0.82294pt too wide) in paragraph at lines 30--31
+[]\T1/cmr/m/n/10 Smart card tech-nol-ogy is an-other au-then-ti-ca-tion means w
+hich has been widely
  []
 
 [20] [21]) (./main.bbl
-Underfull \hbox (badness 2435) in paragraph at lines 11--14
-[]\OT1/cmr/m/n/9 RSA Se-cu-rity LLC: Rsa se-curid hard-ware au-then-ti-ca-tors,
- tech-ni-cal spec-
+Underfull \hbox (badness 2452) in paragraph at lines 11--14
+[]\T1/cmr/m/n/9 RSA Se-cu-rity LLC: Rsa se-curid hard-ware au-then-ti-ca-tors, 
+tech-ni-cal spec-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
-\OT1/cmr/m/n/9 i-fi-ca-tions (2021), [][]$https : / / www . securid . com / wp-
-[]content / uploads / 2021 / 11 /
+\T1/cmr/m/n/9 i-fi-ca-tions (2021), [][]$https : / / www . securid . com / wp-[
+]content / uploads / 2021 / 11 /
  []
 
 [22] [23]
 Underfull \hbox (badness 10000) in paragraph at lines 125--128
-[]\OT1/cmr/m/n/9 OneSpan: Digi-pass 770 datasheet, [][]$https : / / www . onesp
-an . com / resources /
+[]\T1/cmr/m/n/9 OneSpan: Digi-pass 770 datasheet, [][]$https : / / www . onespa
+n . com / resources /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 125--128
-\OT1/cmr/m/n/9 digipass-[]770 / datasheet# : [] : text = Digipass % 20770 % 20i
-s % 20a % 20non ,[] capturing %
+\T1/cmr/m/n/9 digipass-[]770 / datasheet# : ~ : text = Digipass % 20770 % 20is 
+% 20a % 20non ,[] capturing %
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 130--132
-[]\OT1/cmr/m/n/9 OneSpan: Digi-pass 770 (2018), [][]$https : / / www . onespan 
-. com / sites / default / ^^Lles /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--159
-[]\OT1/cmr/m/n/9 Thales: Gemalto dy-namic sign-ing to-ken a user-friendly to-ke
-n that
+Underfull \hbox (badness 1968) in paragraph at lines 130--132
+[]\T1/cmr/m/n/9 OneSpan: Digi-pass 770 (2018), [][]$https : / / www . onespan .
+ com / sites / default / ^^\les /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 155--159
-\OT1/cmr/m/n/9 en-ables strong au-then-ti-ca-tion and trans-ac-tion data sign-i
-ng (2020),
+[]\T1/cmr/m/n/9 Thales: Gemalto dy-namic sign-ing to-ken a user-friendly to-ken
+ that
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 155--159
-[][]$\OT1/cmr/m/n/9 https : / / www . thalesgroup . com / sites / default / ^^L
-les / database / document / 2020-[]12 /
+\T1/cmr/m/n/9 en-ables strong au-then-ti-ca-tion and trans-ac-tion data sign-in
+g (2020),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--159
+[][]$\T1/cmr/m/n/9 https : / / www . thalesgroup . com / sites / default / ^^\l
+es / database / document / 2020-[]12 /
  []
 
 ) (./strawman.tex [24]
-Overfull \hbox (14.6138pt too wide) detected at line 61
+Overfull \hbox (14.5554pt too wide) detected at line 61
 []
  []
 
 
-Overfull \hbox (16.6138pt too wide) in paragraph at lines 61--62
+Overfull \hbox (16.5554pt too wide) in paragraph at lines 61--62
 [] []
  []
 
@@ -1517,12 +1520,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--62
  []
 
 [25] [26]
-Overfull \hbox (11.25937pt too wide) detected at line 156
+Overfull \hbox (11.19966pt too wide) detected at line 156
 []
  []
 
 
-Overfull \hbox (13.25937pt too wide) in paragraph at lines 156--157
+Overfull \hbox (13.19966pt too wide) in paragraph at lines 156--157
 [] []
  []
 
@@ -1532,12 +1535,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
  []
 
 ) (./forward-PRF-extra.tex
-Overfull \hbox (31.28444pt too wide) in paragraph at lines 70--90
+Overfull \hbox (31.27872pt too wide) in paragraph at lines 70--90
 []$[] $ 
  []
 
 
-Overfull \hbox (11.28441pt too wide) in paragraph at lines 94--116
+Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
 []$[]$ 
  []
 
@@ -1546,9 +1549,9 @@ Overfull \vbox (72.11476pt too high) has occurred while \output is active []
 
 
 [28]) (./proof.tex
-Overfull \hbox (17.5578pt too wide) in paragraph at lines 25--29
-\OT1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the 
-en-cryp-tion/decryption
+Overfull \hbox (17.47673pt too wide) in paragraph at lines 25--29
+\T1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the e
+n-cryp-tion/decryption
  []
 
 [29] [30] [31] (./simulation.tex
@@ -1562,19 +1565,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--58
  []
 
 
-Underfull \hbox (badness 5578) in paragraph at lines 113--115
-[]\OT1/cmr/m/n/9 updates its state one more time as fol-lows, $(\OML/cmm/m/it/9
- k[]; [][]\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  
+Underfull \hbox (badness 5592) in paragraph at lines 113--115
+[]\T1/cmr/m/n/9 updates its state one more time as fol-lows, $\OT1/cmr/m/n/9 (\
+OML/cmm/m/it/9 k[]; [][]\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 126--127
-[]\OT1/cmr/m/n/9 To keep track of all the ex-changed mes-sages, it stores the a
-bove in-
+Underfull \hbox (badness 1371) in paragraph at lines 126--127
+[]\T1/cmr/m/n/9 To keep track of all the ex-changed mes-sages, it stores the ab
+ove in-
  []
 
 [32]
-Overfull \vbox (99.19753pt too high) has occurred while \output is active []
+Overfull \vbox (99.14558pt too high) has occurred while \output is active []
 
 
 [33]
@@ -1583,16 +1586,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--147
  []
 
 
-Underfull \hbox (badness 5985) in paragraph at lines 168--170
-[]\OT1/cmr/m/n/9 authenticates and de-crypts the ci-pher-text $[]$ as $(\OML/cm
-m/m/it/9 p[]; b[]\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  
+Underfull \hbox (badness 6001) in paragraph at lines 168--170
+[]\T1/cmr/m/n/9 authenticates and de-crypts the ci-pher-text $[]$ as $\OT1/cmr/
+m/n/9 (\OML/cmm/m/it/9 p[]; b[]\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 190--192
-[]\OT1/cmr/m/n/9 computes $[][] \OMS/cmsy/m/n/9   [][]\OT1/cmr/m/n/9 ([]\OMS/cm
-sy/m/n/9 k\OML/cmm/m/it/9 t[]\OMS/cmsy/m/n/9 k\OML/cmm/m/it/9 v[]\OMS/cmsy/m/n/
-9 jj\OT1/cmr/m/n/9 1)$. It checks whether
+Underfull \hbox (badness 2012) in paragraph at lines 190--192
+[]\T1/cmr/m/n/9 computes $[][] \OMS/cmsy/m/n/9   [][]\OT1/cmr/m/n/9 ([]\OMS/cms
+y/m/n/9 k\OML/cmm/m/it/9 t[]\OMS/cmsy/m/n/9 k\OML/cmm/m/it/9 v[]\OMS/cmsy/m/n/9
+ jj\OT1/cmr/m/n/9 1)$\T1/cmr/m/n/9 . It checks whether
  []
 
 
@@ -1636,82 +1639,60 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1071.
  ) 
 Here is how much of TeX's memory you used:
- 37793 strings out of 480608
- 882717 string characters out of 5903630
- 1363503 words of memory out of 5000000
- 52581 multiletter control sequences out of 15000+600000
- 548689 words of font info for 90 fonts, out of 8000000 for 9000
+ 37986 strings out of 480608
+ 883935 string characters out of 5903630
+ 1362559 words of memory out of 5000000
+ 52765 multiletter control sequences out of 15000+600000
+ 561371 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,36n,102p,1459b,1817s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{equation.1.9.10} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.1.9.9} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.1.9.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.1.9.8} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.1.9.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.12} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.11} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.10} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.A.2.13} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.A.2.12} has been referenced but does not e
-xist, replaced by a fixed one
-
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/
-local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
-ublic/amsfonts/symbols/msam7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
-1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
-public/esvect/vect10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public
-/esvect/vect9.pfb>
-Output written on main.pdf (37 pages, 960284 bytes).
+/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
+sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><
+/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
+1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
+ype1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx0700.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/cm-super/sfbx0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/cm-super/sfbx1440.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+cm-super/sfrm0500.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm
+-super/sfrm0600.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0700.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
+/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
+fti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sft
+i1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect10.
+pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
+Output written on main.pdf (37 pages, 1131127 bytes).
 PDF statistics:
- 991 PDF objects out of 1000 (max. 8388607)
- 780 compressed objects within 8 object streams
- 359 named destinations out of 1000 (max. 500000)
+ 1015 PDF objects out of 1200 (max. 8388607)
+ 796 compressed objects within 8 object streams
+ 349 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
