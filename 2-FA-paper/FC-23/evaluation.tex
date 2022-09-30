@@ -1,8 +1,8 @@
 %!TEX root = main.tex
 
-\vspace{-2mm}
+\vspace{-4mm}
 \section{Evaluation}\label{sec::eval}
-
+\vspace{-2mm}
 In this section, we analyse and compare the 2FA protocol, we presented in Section \ref{sec::the-protocol}, with the smart-card-based protocol proposed in  \cite{WangW18} and the hardware token-based protocol in \cite{JareckiJKSS21} because the latter two protocols are relatively efficient, do not rely on secure chipsets, and they consider the same security threats as we do, e.g., resistance against card/token loss, against an offline attack, against a  corrupt server. We summarise the result of the analysis in Table \ref{comparisonTable}. 
 
 %Before we compare the two protocols' costs, we highlight a vital difference between the two. 
@@ -16,7 +16,7 @@ In this section, we analyse and compare the 2FA protocol, we presented in Sectio
 
 
 %In this section, we analyse and compare the complexities of Feather with those of delegated and traditional PSIs that support multi-client in the semi-honest model.
-
+\vspace{-3mm}
 \subsection{Computation Cost}
 
 We start by analysing our protocol's computation cost. First, we focus on the protocol's enrolment phase. The client's computation cost, in this phase, is as follows. It invokes the authenticated encryption scheme $2$ times. It also invokes once the pseudorandom function, $\prf$.
@@ -42,7 +42,7 @@ Now, we analyse the computation cost of the protocol presented in \cite{JareckiJ
 
 Thus,  our protocol and the ones in \cite{WangW18,JareckiJKSS21} involve a constant number of symmetric key primitive invocations; however, our protocol does not involve any modular exponentiations, whereas the protocol in  \cite{WangW18,JareckiJKSS21} involves a constant number of modular exponentiations which leads to a higher cost. 
 
-
+\vspace{-3mm}
 \subsection{Communication Cost}
 
 

@@ -380,7 +380,7 @@ manufacture or can be sent (via a secure channel) to the client who can use the 
 
 \begin{figure}[!htbp]
 \begin{center}
-    \begin{tcolorbox}[enhanced,width=4.75in, height=62mm, left=1mm,top=-3mm,
+    \begin{tcolorbox}[enhanced,width=4.75in, height=61mm, left=1mm,top=-4mm,
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
 %{\small{
@@ -408,14 +408,16 @@ manufacture or can be sent (via a secure channel) to the client who can use the 
 %}}
 \end{tcolorbox}
 \end{center}
-\vspace{-3.5mm}
+\vspace{-3.8mm}
     \caption{Setup phase.}
     \label{fig:setup}
 \end{figure}
 
-\vspace{-2mm}
+\vspace{-3mm}
 \subsection{Enrolment Phase}
 \label{sec:enrollment}
+
+
 
 The goal of the enrolment phase is to set the client's PIN, without providing the  
  server with sufficient information to discover this PIN. The server allows this phase to take place only over a channel through which the client has already proven their identity.  At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the client's selected PIN.
@@ -428,7 +430,7 @@ The steps involved in this phase are shown in \prettyref{fig:enrollment} in deta
 \begin{figure}[!htb]
 \setlength{\fboxsep}{1pt}
 \begin{center}
-    \    \begin{tcolorbox}[enhanced,width=4.75in, height=158mm, left=1mm,top=.5mm,
+    \    \begin{tcolorbox}[enhanced,width=4.75in, height=157mm, left=1mm,top=-.5mm,
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
 %{\small{
@@ -504,10 +506,11 @@ The steps involved in this phase are shown in \prettyref{fig:enrollment} in deta
 %}}
 \end{tcolorbox}
 \end{center}
-\vspace{-3.8mm}
+\vspace{-4mm}
     \caption{Enrolment phase.}
     \label{fig:enrollment}
 \end{figure}
+
 
 %%%%%%%%%%%%%%%%%
 
@@ -883,6 +886,8 @@ The scenarios are designed to assume a strong adversary so that the results are 
 
 %In addition to the threats listed, we assume the adversary has access to previous authentication messages and the challenge message to any ongoing authentication.
 
+
+\vspace{-4mm}
 \subsection{Threats and Protection objectives}
 In this section,  we first list a set of threats that our protocol must resist. 
 
