@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  1 OCT 2022 19:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  1 OCT 2022 20:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1450,8 +1450,8 @@ File: dp770.png Graphic file (type png)
 Package pdftex.def Info: dp770.png  used on input line 1021.
 (pdftex.def)             Requested size: 142.26378pt x 154.94188pt.
  [15 <./dp770.png>] (./evaluation.tex
-(./evaluation-table.tex) [16] [17]) (./short-related-work.tex [18]) (./main.bbl
-
+(./evaluation-table.tex) [16]) (./short-related-work.tex [17]) (./main.bbl
+[18]
 Underfull \hbox (badness 2452) in paragraph at lines 11--14
 []\T1/cmr/m/n/9 RSA Se-cu-rity LLC: Rsa se-curid hard-ware au-then-ti-ca-tors, 
 tech-ni-cal spec-
@@ -1463,7 +1463,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--14
 ]content / uploads / 2021 / 11 /
  []
 
-[19] [20]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 125--128
 []\T1/cmr/m/n/9 OneSpan: Digi-pass 770 datasheet, [][]$https : / / www . onespa
 n . com / resources /
@@ -1499,7 +1499,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--159
 es / database / document / 2020-[]12 /
  []
 
-) (./strawman.tex [21]
+[20]) (./strawman.tex
 Overfull \hbox (14.5554pt too wide) detected at line 61
 []
  []
@@ -1514,7 +1514,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-[22] [23]
+[21] [22]
 Overfull \hbox (11.19966pt too wide) detected at line 156
 []
  []
@@ -1529,7 +1529,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
-) (./forward-PRF-extra.tex
+) (./forward-PRF-extra.tex [23] [24]
 Overfull \hbox (31.27872pt too wide) in paragraph at lines 70--90
 []$[] $ 
  []
@@ -1539,17 +1539,13 @@ Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
 []$[]$ 
  []
 
-[24]
-Overfull \vbox (72.11476pt too high) has occurred while \output is active []
-
-
-[25]) (./proof.tex
+) (./proof.tex [25]
 Overfull \hbox (17.47673pt too wide) in paragraph at lines 25--29
 \T1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the e
 n-cryp-tion/decryption
  []
 
-[26] [27] [28] (./simulation.tex
+[26] [27] (./simulation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
@@ -1571,11 +1567,7 @@ Underfull \hbox (badness 1371) in paragraph at lines 126--127
 ove in-
  []
 
-[29]
-Overfull \vbox (99.14558pt too high) has occurred while \output is active []
-
-
-[30]
+[28] [29]
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
@@ -1593,7 +1585,7 @@ y/m/n/9 k\OML/cmm/m/it/9 t[]\OMS/cmsy/m/n/9 k\OML/cmm/m/it/9 v[]\OMS/cmsy/m/n/9
  jj\OT1/cmr/m/n/9 1)$\T1/cmr/m/n/9 . It checks whether
  []
 
-
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
@@ -1633,6 +1625,10 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1070.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 79FEA7DAAB545B6AF1B03A7C98D2AC19;96.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1070.
  ) 
 Here is how much of TeX's memory you used:
@@ -1686,10 +1682,10 @@ er/sfrm0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
 fti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sft
 i1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect10.
 pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (39 pages, 1143403 bytes).
+Output written on main.pdf (39 pages, 1142327 bytes).
 PDF statistics:
- 1118 PDF objects out of 1200 (max. 8388607)
- 855 compressed objects within 9 object streams
+ 1116 PDF objects out of 1200 (max. 8388607)
+ 854 compressed objects within 9 object streams
  360 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
