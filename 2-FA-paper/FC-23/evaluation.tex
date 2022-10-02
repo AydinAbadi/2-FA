@@ -15,35 +15,23 @@ In this section, we briefly analyse and compare our 2FA protocol with the smart-
 
 \input{evaluation-table}
 
-
 \vspace{-4mm}
 \subsection{Computation Cost}
 \vspace{-2mm}
 
 In our protocol, each party (client or server) invokes the authenticated encryption scheme $4$ times and the pseudorandom function $5$ times. In the protocol proposed in \cite{WangW18}, the client invokes a hash function $11$ times and performs $3$ modular exponentiations while the server invokes the hash function $8$ times and performs $2$ modular exponentiations. Moreover, in the protocol presented in \cite{JareckiJKSS21}, the client invokes a hash function $3$ times and runs symmetric key encryption once. It also performs $10$ modular exponentiations. While the server invokes a pseudorandom function once and performs at least $2$ modular exponentiations and $2$ symmetric-key encryptions. Thus,  our protocol and the ones in \cite{WangW18,JareckiJKSS21} involve a constant number of symmetric key primitive invocations; however, our protocol does not involve any modular exponentiations, whereas those in  \cite{WangW18,JareckiJKSS21} involve a constant number of modular exponentiations which leads to a higher cost. 
 
-\vspace{-3mm}
+\vspace{-4mm}
 \subsection{Communication Cost}
-
-In our protocol, in the enrolment phase, the total sizes of messages the client and server send are $762$ and $512$ respectively. In the authentication phase, the total sizes of messages the client and server send are $506$ and $1024$ respectively. 
-
-
-Next, we evaluate the cost of the protocol in \cite{WangW18}. The client's total communication cost in the enrolment and login phases is $1792$ bits. Note that we set the client's ID's size to $128$ bits and we set the hash function output size to $160$ bits, as done in \cite{WangW18}. In the verification phase, the client sends to the server a single value of size $160$ bits. In the verification, the server sends to the client two values that in total costs the server $1184$ bits. So, this protocol's total communication concrete cost is about $3136$ bits.%, and its complexity is $O(1)$.  
-
-
-Now, we analyse the communication cost of the protocol in \cite{JareckiJKSS21}. As before, in our cost evaluation, we estimate the protocol's minimum cost.  In the enrolment phase, a client sends a random key, of a pseudorandom function, to the server and the device, where the size of the key is about $128$ bits. It also, due to the initialisation of PAKE, sends a $128$-bit value to the server. In the login phase, the client sends out three parameters of size $128$ bits and a single parameter of size $20$ bits.  It also invokes PAKE with the server that requires the client to send out at least one signature of size $1024$ bits. The device sends to the client a ciphertext of asymmetric key encryption which is of size $1024$ bits along with a $20$-bit message. Thus, the client-side total communication cost is at least $2856$ bits. The server in the login phase sends out a message $zid$ of size $20$ bits and invokes PAKE that requires the server to send out at least a ciphertext of symmetric key encryption which is of size $1024$ bits.  So, the server-side communication cost is at least $1044$ bits. So, the total communication cost of this protocol is at least $3900$ bits. 
-
-
-
-
-
-Hence, our protocol imposes a $10\%$ and $40\%$ lower communication cost than the protocols in \cite{WangW18} and \cite{JareckiJKSS21} do respectively.
-
-%\subsection{The Number of Secrets a client Must Know}
 \vspace{-2mm}
-\subsection{Other Features}
 
- In our protocol, a client needs to know only a single secret (i.e., a  PIN). Nevertheless, in the protocol in \cite{WangW18} a client requires to know (and insert into the verification algorithm) an additional secret; namely, a secret random ID. Thus, the client needs to remember two secrets in total.  As shown in \cite{Scott12a}, this scheme will not remain secure, even if only the client's ID is revealed. Furthermore, the protocol in \cite{JareckiJKSS21} requires the client to remember or locally store at least one cryptographic secret key of sufficient length, e.g., $128$ bits; this secret key is generated via invocation of a subroutine protocol (called PAKE) and must not be kept on the device. 
+In our protocol, the communication cost of the client is $1268$ bits and the server is $1536$ bits. However, in the protocol proposed in \cite{WangW18},  the communication cost of the client is $1952$ bits and the server is  $1184$ bits; while in the protocol developed in \cite{JareckiJKSS21} the client's and server's communication cost is at least $2856$ and $1044$ bits respectively. Hence, our protocol imposes $10\%$ and $40\%$ lower communication costs than the protocols in \cite{WangW18} and \cite{JareckiJKSS21} do respectively.
+
+
+\vspace{-4mm}
+\subsection{Other Features}
+\vspace{-2mm}
+ In our protocol, a client needs to know only a single secret (i.e., a  PIN). But, in the protocol in \cite{WangW18}, a client has to know an additional secret (random ID). As shown in \cite{Scott12a}, this scheme will not remain secure, if only the client's ID is revealed. The protocol in \cite{JareckiJKSS21} requires the client (in addition to remembering its PIN) to locally store a cryptographic secret key of sufficient length, e.g., $128$ bits; this secret key must not be kept on the device. 
  % 
- Furthermore, our protocol is secure in the standard model while the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
+ Also, our protocol is secure in the standard model while the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
 

@@ -1,6 +1,6 @@
 %!TEX root = main.tex
 
-\vspace{-3mm}
+\vspace{-5mm}
 \section{Related Work}
 
 \vspace{-2mm}
@@ -18,7 +18,7 @@
 
 In this section, first, we briefly discuss the common approaches for generating a One-Time Password (OTP) which yields from a combination of a PIN and a hardware token.  Then, we provide an overview of hardware token variants. We refer readers to Appendix \ref{Survey-of-Related-Work} for a more detailed discussion. 
 
-\vspace{-4mm}
+\vspace{-5mm}
 \subsection{Common Approaches for Generating OTP}
 \vspace{-2mm}
 
@@ -41,7 +41,8 @@ Since the introduction of smart card technology, there have been numerous smart 
 
 \vspace{-4mm}
 \subsubsection{Disconnected Tokens.}
-
+\vspace{-2mm}
+%
 This type of token does not have a physical connection to a client's computer making them more convenient than connected tokens. Two main categories of disconnected tokens are (1) Dedicated hardware-based Tokens (e.g., in \cite{secureID,Digipass-website,Gemalto}) and (2) Mobile phone-based Tokens (e.g., in \cite{SARA22,KoganMB17,KonothFFARB20}). The first category includes RSA SecureID \cite{secureID}, OneSpan Digipass 770 \cite{Digipass-website}, and Thales Gemalto SWYS QR Token Eco \cite{Gemalto}. In RSA SecureID, an adversary who has access to the device can generate the OTP by extracting the secret key stored on the device.  The advantage of  Digipass 770 and Thales Gemalto to RSA SecureID is that they let clients see the transaction details through the token which gives them more information about the transaction they approve, so phishing becomes harder. 
 %
 Our investigation suggests that Digipass 770 and Thales Gemalto also \emph{locally store and verify} clients' PINs. Jarecki \textit{et al.} \cite{JareckiJKSS21} proposed a protocol to ensure that even if the server or device is corrupted a client's PIN cannot be extracted. But, it imposes high costs due to the use of public-key cryptography and numerous rounds of communication. This protocol requires the client (in addition to remembering its PIN) to locally store a cryptographic secret key. 

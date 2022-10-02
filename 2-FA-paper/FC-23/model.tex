@@ -4,31 +4,28 @@
 
 
  
-\vspace{-4mm}
+\vspace{-3mm}
 \section{Threat Model}\label{sec::model}
+ \vspace{-2mm}
+
+In this section, we present the threat model that this work considers. A two-factor authentication scheme involves two players,
+%
+%\vspace{-2mm}
+%\begin{itemize}
+%\item[$\bullet$] {Client ($C$)}: an honest party which tries to prove its identity to a server by using a combination of a PIN and a device. 
+%
+%
+%\item[$\bullet$] {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $C$'s PIN. It also tries to authenticate itself to $C$.  
+%\end{itemize}
+%
+ {Client ($C$)}: an honest party which tries to prove its identity to a server by using a combination of a PIN and a device and {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $C$'s PIN. It also tries to authenticate itself to $C$.  
 
 
-In this section, we present the threat model that we consider in this work. A two-factor authentication scheme involves two players:
-
-\vspace{-2mm}
-\begin{itemize}
-\item[$\bullet$] {Client ($C$)}: It is an honest party which tries to prove its identity to a server by using a combination of a PIN and a device. 
-
-
-
-
- %However, we assume its  authentication device might be stolen by an adversary (who may try to extract parameters of the token to find out $C$'s PIN and impersonate $C$ during the authentication procedure).  
-
-\item[$\bullet$] {Server ($S$)}:  It is a semi-honest (or passive) adversary which follows the protocol's instruction and tries to learn $C$'s PIN. It also tries to authenticate itself to $C$.  
-\end{itemize}
-
-
-
-We allow the server to communicate with the device through the client. In particular, similar to various previous works (e.g., those in \cite{JareckiJKSS21,Digipass-website,Gemalto}), we assume the device has a camera that lets the device scan the (QR code) messages the server sends to it via the client. Each of the above parties may have several instances possibly running concurrently. In this work, we denote instances of client and server by  $C^{i}$ and  $S^{j}$ respectively. Each instance is called an oracle.  
+We let the server communicate with the device through the client. Specifically, similar to previous works (e.g., those in \cite{JareckiJKSS21,Digipass-website,Gemalto}), we assume the device has a camera that lets the device scan the (QR code) messages the server sends to it via the client. Each of the above parties may have several instances running concurrently. In this work, we denote instances of client and server by  $C^{i}$ and  $S^{j}$ respectively. Each instance is called an oracle.  
  %
 %\subsection{Formal Model} \label{sec::model}
 %
-To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via various queries that it sends to different oracles, i.e., instances of the honest parties; the client and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key ($sk$), session id ($SID$), and partner id ($PID$). At any point in time, an oracle may ``\emph{accept}''. When an oracle accepts, it holds $sk$, $SID$, and $PID$. A client instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added a few more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries would allow an adversary to learn either of the client's factors (i.e., either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
+To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via various queries that it sends to different oracles, i.e., instances of the honest parties; the client and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key ($sk$), session id ($SID$), and partner id ($PID$). At any point in time, an oracle may \emph{``accept''}. When an oracle accepts, it holds $sk$, $SID$, and $PID$. A client instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added a few more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries would allow an adversary to learn either of the client's factors (i.e., either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
  
 
 
