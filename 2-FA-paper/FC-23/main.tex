@@ -209,7 +209,7 @@ manufacture or can be sent (via a secure channel) to the client who can use the 
   % \noindent\rule{4.6in}{1pt}
  \pcln \< \<\hspace{4mm} k \ssample \mathsf{Gen}(\secparam) \\
  \pcln \< \<\hspace{4mm} \state_{\sss 0} \ssample \mathsf{FS\text{-}RPG}.\kgen(\secparam) \\
-  \pcln \< \<\hspace{4mm} C_{\sss ID} \gets \mathsf{IDGen}() \pclb
+  \pcln \< \<\hspace{4mm} C_{\sss ID} \gets \mathsf{IDGen}(\secparam) \pclb
   %
  \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $C_{\sss ID}$)}} \< \\
  %
@@ -239,7 +239,11 @@ manufacture or can be sent (via a secure channel) to the client who can use the 
 
 
 The goal of the enrolment phase is to set the client's PIN, without providing the  
- server with sufficient information to discover this PIN. The server allows this phase to take place only over a channel through which the client has already proven their identity.  At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the client's selected PIN.
+ server with sufficient information to discover this PIN. 
+% 
+% The server allows this phase to take place only over a channel through which the client has already proven their identity. 
+ %
+  At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the client's selected PIN.
 The steps involved in this phase are shown in \prettyref{fig:enrollment} in detail.  
 
 
@@ -333,15 +337,15 @@ The steps involved in this phase are shown in \prettyref{fig:enrollment} in deta
 
 We briefly explain how this phase works.  The server first updates the FS-PRG's state, which results in a new state and random value \VS{\keyt_{\sss 1}}; it also increments its counter by one. Then, the server generates a random challenge \VS{\nonce}. The server sends the enrolment challenge message which is a combination of the current counter and the challenge encrypted via the AE under the shared key $k$.
 %
- On receiving this message, the client uses its device to scan the (QR) message it receives. The device decrypts the message using $k$ that was shared with the server during the setup phase.  If decryption succeeds, it  extracts the server's challenge and counter from the message.  If the device's local counter is greater than the counter it received from the server, it would be impossible for the device to recover the $\VS{\keyt_{\sss 1}}$ that the server will use, so the protocol must abort here. As we will discuss in \prettyref{sec:synchronisation}, this case would not occur, with a high probability. Next, the device requests the PIN from the client and ensures it is what the client intends by for example requesting it twice and checking that match.
+ On receiving this message, the client uses its device to scan the (QR) message it receives. The device decrypts the message using $k$ that was shared with the server during the setup phase.  If decryption succeeds, it  extracts the server's challenge and counter from the message.  If the device's local counter is greater than the counter it received from the server, it would be impossible for the device to recover the $\VS{\keyt_{\sss 1}}$ that the server will use, so the protocol must abort here. As we will discuss in Appendix \ref{sec:synchronisation}, this case would not occur, with a high probability. Next, the device requests the PIN from the client and ensures it is what the client intends, e.g., by requesting it twice and checking they match.
 
 
 
-The device then generates a verifier $\VC{\verifier}$, by deriving a pseudorandom value from the PIN using $\prf$ and the random key $\VC{\salt}$ it generated in the setup phase.  After that, the device locally synchronises the FS-PRG's state with the server by updating the state until it matches the counter received from the server; this yields \VC{\keyt_{\sss 1}}. This synchronisation is possible because the check at line \ref{enroll:clinet-check-counter} has already assured the device that its state is behind the server's state by at least one step. After the update, \VC{\keyt_{\sss 1}} will equal \VS{\keyt_{\sss 1}} because the initial FS-PRG's state is the same (from the setup phase) and the two generators have been updated the same number of times. The client then encrypts the verifier and challenge under \VC{\keyt_{\sss 1}} and sends this to the server. 
+The device then generates a verifier $\VC{\verifier}$, by deriving a pseudorandom value from the PIN using $\prf$ and the random key $\VC{\salt}$ it generated in the setup phase.  After that, the device locally synchronises the FS-PRG's state with the server by updating the state until it matches the counter received from the server; this yields \VC{\keyt_{\sss 1}}. This synchronisation is possible because the check at line \ref{enroll:clinet-check-counter} has already assured that the device's state is behind the server's state by at least one step. After the update, \VC{\keyt_{\sss 1}} will equal \VS{\keyt_{\sss 1}} because the initial FS-PRG's state is the same (from the setup phase) and the two generators have been updated the same number of times. The client then encrypts the verifier and challenge under \VC{\keyt_{\sss 1}} and sends this to the server. 
  %
 On receiving and validating this message, the server decrypts the message using \VS{\keyt{\sss 1}}, then extracts the challenge and verifier.
 If the challenge does not match the one corresponding to the current protocol exchange, the protocol halts.
-If the challenge does match, the server stores the verifier associated with the client's account.
+If the challenge does match, the server stores the verifier, $\VS{\verifier}$,  associated with the client's account.
 
 Finally, the device discards the challenge, \VC{\keyt_{\sss 1}}, PIN, and \VC{\verifier} so that the PIN can no longer be recovered from the device. Note that the device can re-generate \VC{\verifier} using \VC{\salt} when the client types in its PIN again. The server also discards the challenge and \VC{\keyt{\sss 1}} as they are no longer needed. Following the successful completion of this protocol, the server will store the verifier corresponding to the client's selected PIN and both server and device will have synchronised their FS-PRG's state.
 
@@ -494,6 +498,9 @@ let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties
  \end{equation*}
 %
 \end{theorem}
+
+
+We refer to Appendix \ref{sec:security} for informal security analysis and Appendix \ref{sec::Formal-Security-Analysis} for formal security proof where the above two theorems will be proven.  
 
 
 \vspace{-4mm}

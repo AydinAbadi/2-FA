@@ -34,7 +34,7 @@ To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware
 
 \begin{itemize}
 %
-\item [$\bullet$] \execute($C^{i}, S^{j}$): this query captures passive attacks in which the adversary, $\mathcal{A}$, has access to the messages exchanged between $C^{i}$ and $S^{j}$ during the correct executions of a 2FA protocol, $\pi$. 
+\item [$\bullet$] \execute($C^{i}, S^{j}$): this query captures \textbf{passive} attacks in which the adversary, $\mathcal{A}$, has access to the messages exchanged between $C^{i}$ and $S^{j}$ during the correct executions of a 2FA protocol, $\pi$. 
 
 
 
@@ -47,7 +47,7 @@ To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware
 
 
 
-\item [$\bullet$] \send($I, m$):  this query models active attacks where $\mathcal{A}$ sends a message, $m$, to instance $I$ which follows  $\pi$'s instruction, generates a response, and sends the response back to $\mathcal{A}$.  Query  \send($C^{\sss i}, \text{start}$) initialises $\pi$; when it is sent, $\mathcal{A}$ would receive the message that the client would send to the server. 
+\item [$\bullet$] \send($I, m$):  this query models \textbf{active} attacks where $\mathcal{A}$ sends a message, $m$, to instance $I$ which follows  $\pi$'s instruction, generates a response, and sends the response back to $\mathcal{A}$.  Query  \send($C^{\sss i}, \text{start}$) initialises $\pi$; when it is sent, $\mathcal{A}$ would receive the message that the client would send to the server. 
 
 %Query  \send($C^{i}, \text{start}$) initialises $\pi$; when it is sent, $\mathcal{A}$ would recive the message that the client would send to the server. 
 %
