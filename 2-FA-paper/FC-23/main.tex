@@ -471,6 +471,7 @@ Upon receiving the ciphertexts, the device validates and decrypts the messages. 
 
 For the device to generate the response message, first it updates its state one more time, which results in a pseudorandom value \VC{\keyt_{\sss 3}}. Then, it derives a pseudorandom value, \VC{\mathit{response}}, from a combination of the random challenge \VM{\nonce}, transaction \VM{\trans}, verifier \VC{\verifier}, and $x=1$  using $\prf$ and \VC{\keyt_{\sss 3}}. The device generates a session key, using the above combination and key with a difference that now $x=2$. The response message is sent to the server. The device discards the PIN, the verifier, all FS-PRG keys, the challenge, and the transaction's description, so as to protect the PIN from discovery. The server computes the expected response message based on its own values of the challenge, transaction, and verifier. Note that the verifier is retrieved from the value set during the enrolment phase. The server then compares the expected response with the response sent by the client. Only if these match, the authentication is considered to have succeeded. If the response does not match the one the server expects this could indicate that the message was tampered with, or that the client entered an incorrect PIN. Next, the server generates the session key the same way as the device does.  The server also discards the FS-PRG key, the challenge, and the transaction's description.
 
+In Appendix \ref{sec::Straw-man-Solutions}, we present a couple of straw-man solutions (that one might be tempted to use to achieve the same goals that our protocol attains) and explain why they would not work. 
 
 
 
@@ -500,6 +501,8 @@ let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties
 \end{theorem}
 
 
+
+
 We refer to Appendix \ref{sec:security} for informal security analysis and Appendix \ref{sec::Formal-Security-Analysis} for formal security proof where the above two theorems will be proven.  
 
 
@@ -515,10 +518,11 @@ We refer to Appendix \ref{sec:security} for informal security analysis and Appen
 Usability is of critical importance for an effective authentication system as otherwise, clients will refuse to use it or implement insecure workarounds \cite{de2013comparative}.
 As we highlighted in Section \ref{sec::model}, in our protocol, the server interacts with the device via the client. To accommodate usability and let the device easily receive the server's message, we require the device to be equipped with a scanner/camera, such as the one shown in \prettyref{fig:dp770}. 
 
-%\vspace{-3mm}
+
 \begin{figure}
     \centering
-    \includegraphics[width=5cm]{dp770}
+    \includegraphics[width=4cm]{dp770}
+    \vspace{-2mm}
     \caption{OneSpan Digipass 770 authentication device.}
     \label{fig:dp770}
 \end{figure}
@@ -534,7 +538,7 @@ Another consideration is handling mistyped or forgotten PINs. As we highlighted 
 
 \input{evaluation}
 
-
+\input{conclusion}
 
 
 

@@ -3,9 +3,7 @@
 \providecommand{\urlprefix}{URL }
 
 \bibitem{SARA22}
-{SARA}: Secure android remote authorization. In: 31st USENIX Security Symposium
-  (USENIX Security 22). USENIX Association, Boston, MA (2022),
-  \url{https://www.usenix.org/conference/usenixsecurity22/presentation/imran}
+{SARA}: Secure android remote authorization. In: USENIX Security (2022)
 
 \bibitem{secureID}
 { RSA Security LLC}: Rsa securid hardware authenticators, technical
@@ -17,16 +15,12 @@ Bellare, M., Pointcheval, D., Rogaway, P.: Authenticated key exchange secure
   against dictionary attacks. In: {EUROCRYPT} (2000)
 
 \bibitem{BellareY03}
-Bellare, M., Yee, B.S.: Forward-security in private-key cryptography. In: Joye,
-  M. (ed.) Topics in Cryptology - {CT-RSA} 2003, The Cryptographers' Track at
-  the {RSA} Conference 2003, San Francisco, CA, USA, April 13-17, 2003,
-  Proceedings. Lecture Notes in Computer Science, vol. 2612, pp. 1--18.
-  Springer (2003)
+Bellare, M., Yee, B.S.: Forward-security in private-key cryptography. In:
+  {CT-RSA} (2003)
 
 \bibitem{biryukov2003cryptanalysis}
 Biryukov, A., Lano, J., Preneel, B.: Cryptanalysis of the alleged securid hash
-  function. In: International Workshop on Selected Areas in Cryptography. pp.
-  130--144. Springer (2003)
+  function. In: International Workshop on Selected Areas in Cryptography (2003)
 
 \bibitem{bonneau2010password}
 Bonneau, J., Preibusch, S.: The password thicket: Technical and market failures
@@ -34,14 +28,11 @@ Bonneau, J., Preibusch, S.: The password thicket: Technical and market failures
 
 \bibitem{BressonCP03}
 Bresson, E., Chevassut, O., Pointcheval, D.: Security proofs for an efficient
-  password-based key exchange. In: Jajodia, S., Atluri, V., Jaeger, T. (eds.)
-  Proceedings of the 10th {ACM} Conference on Computer and Communications
-  Security, {CCS} 2003, Washington, DC, USA, October 27-30, 2003. pp. 241--250.
-  {ACM} (2003)
+  password-based key exchange. In: {CCS} (2003)
 
 \bibitem{chang1991remote}
 Chang, C.C., Wu, T.C.: Remote password authentication with smart cards. IEE
-  Proceedings E (Computers and Digital Techniques)  138(3),  165--168 (1991)
+  Computers and Digital Techniques  (1991)
 
 \bibitem{ChangMSS17}
 Chang, D., Mishra, S., Sanadhya, S.K., Singh, A.P.: On making {U2F} protocol
@@ -50,7 +41,7 @@ Chang, D., Mishra, S., Sanadhya, S.K., Singh, A.P.: On making {U2F} protocol
 \bibitem{ChaturvediDMM16}
 Chaturvedi, A., Das, A.K., Mishra, D., Mukhopadhyay, S.: Design of a secure
   smart card-based multi-server authentication scheme. J. Inf. Secur. Appl.
-  30,  64--80 (2016)
+  (2016)
 
 \bibitem{de2013comparative}
 De~Cristofaro, E., Du, H., Freudiger, J., Norcie, G.: A comparative usability
@@ -58,21 +49,17 @@ De~Cristofaro, E., Du, H., Freudiger, J., Norcie, G.: A comparative usability
 
 \bibitem{ndss/FengLP021}
 Feng, H., Li, H., Pan, X., Zhao, Z.: A formal analysis of the {FIDO} {UAF}
-  protocol. In: 28th Annual Network and Distributed System Security Symposium,
-  {NDSS} 2021, virtually, February 21-25, 2021. The Internet Society (2021)
+  protocol. In: {NDSS}. The Internet Society (2021)
 
 \bibitem{GentryMR06}
 Gentry, C., MacKenzie, P.D., Ramzan, Z.: A method for making password-based key
-  exchange resilient to server compromise. In: Dwork, C. (ed.) Advances in
-  Cryptology - {CRYPTO} 2006, 26th Annual International Cryptology Conference,
-  Santa Barbara, California, USA, August 20-24, 2006, Proceedings. Lecture
-  Notes in Computer Science, vol. 4117, pp. 142--159. Springer (2006)
+  exchange resilient to server compromise. In: {CRYPTO} (2006)
 
 \bibitem{gupta2021machine}
 Gupta, B., Prajapati, V., Nedjah, N., Vijayakumar, P., El-Latif, A.A.A., Chang,
   X.: Machine learning and smart card based two-factor authentication scheme
   for preserving anonymity in telecare medical information system (tmis).
-  Neural Computing and Applications pp. 1--26 (2021)
+  Neural Computing and Applications  (2021)
 
 \bibitem{JacommeK21}
 Jacomme, C., Kremer, S.: An extensive formal analysis of multi-factor
@@ -81,7 +68,7 @@ Jacomme, C., Kremer, S.: An extensive formal analysis of multi-factor
 \bibitem{JareckiJKSS21}
 Jarecki, S., Jubur, M., Krawczyk, H., Saxena, N., Shirvanian, M.: Two-factor
   password-authenticated key exchange with end-to-end security. {ACM} Trans.
-  Priv. Secur.  24(3),  17:1--17:37 (2021)
+  Priv. Secur.  (2021)
 
 \bibitem{juels2016configurable}
 Juels, A., Triandopoulos, N., Van~Dijk, M., Brainard, J., Rivest, R., Bowers,
@@ -94,27 +81,19 @@ Katz, J., Lindell, Y.: Introduction to Modern Cryptography, Second Edition.
 
 \bibitem{kim2009more}
 Kim, S.K., Chung, M.G.: More secure remote user authentication scheme. Computer
-  Communications  32(6),  1018--1021 (2009)
+  Communications  (2009)
 
 \bibitem{KoganMB17}
 Kogan, D., Manohar, N., Boneh, D.: T/key: Second-factor authentication from
-  secure hash chains. In: Thuraisingham, B.M., Evans, D., Malkin, T., Xu, D.
-  (eds.) Proceedings of the 2017 {ACM} {SIGSAC} Conference on Computer and
-  Communications Security, {CCS} 2017, Dallas, TX, USA, October 30 - November
-  03, 2017. pp. 983--999. {ACM} (2017)
+  secure hash chains. In: {CCS}. {ACM} (2017)
 
 \bibitem{KonothFFARB20}
 Konoth, R.K., Fischer, B., Fokkink, W.J., Athanasopoulos, E., Razavi, K., Bos,
   H.: Securepay: Strengthening two-factor authentication for arbitrary
-  transactions. In: {IEEE} European Symposium on Security and Privacy,
-  EuroS{\&}P 2020, Genoa, Italy, September 7-11, 2020. pp. 569--586. {IEEE}
-  (2020)
+  transactions. In: EuroS{\&}P (2020)
 
 \bibitem{LoutfiJ15}
-Loutfi, I., J{\o}sang, A.: {FIDO} trust requirements. In: Buchegger, S., Dam,
-  M. (eds.) Secure {IT} Systems, 20th Nordic Conference, NordSec 2015,
-  Stockholm, Sweden, October 19-21, 2015, Proceedings. Lecture Notes in
-  Computer Science, vol. 9417, pp. 139--155. Springer (2015)
+Loutfi, I., J{\o}sang, A.: {FIDO} trust requirements. In: NordSec 2015 (2015)
 
 \bibitem{Zero-Trust-Cybersecurity}
 of~the President-Office~of Management, E.O., Budget: Moving the u.s. government
@@ -123,8 +102,7 @@ of~the President-Office~of Management, E.O., Budget: Moving the u.s. government
 
 \bibitem{Digipass-website}
 {OneSpan}: Digipass 770 datasheet, \url
-  {https://www.onespan.com/resources/digipass-770/datasheet#:~:text=Digipass\%20770\%20is\%20a\%20non,capturing\%20the\%20Cronto\%20activation\%20code.},
-  visited on 2022.05.28
+  {https://www.onespan.com/resources/digipass-770/datasheet#:~:text=Digipass\%20770\%20is\%20a\%20non,capturing\%20the\%20Cronto\%20activation\%20code.}
 
 \bibitem{DIGIPASS-doc}
 {OneSpan}: Digipass 770 (2018),
@@ -132,16 +110,13 @@ of~the President-Office~of Management, E.O., Budget: Moving the u.s. government
 
 \bibitem{PanosMNPX17}
 Panos, C., Malliaros, S., Ntantogian, C., Panou, A., Xenakis, C.: A security
-  evaluation of fido's {UAF} protocol in mobile and embedded devices. In: Piva,
-  A., Tinnirello, I., Morosi, S. (eds.) Digital Communication. Towards a Smart
-  and Secure Future Internet - 28th International Tyrrhenian Workshop, {TIWDC}
-  2017, Palermo, Italy, September 18-20, 2017, Proceedings. Communications in
-  Computer and Information Science (2017)
+  evaluation of fido's {UAF} protocol in mobile and embedded devices. In:
+  {TIWDC} (2017)
 
 \bibitem{radhakrishnan2022dependable}
 Radhakrishnan, N., Muniyandi, A.P.: Dependable and provable secure two-factor
   mutual authentication scheme using ecc for iot-based telecare medical
-  information system. Journal of Healthcare Engineering  2022 (2022)
+  information system. Journal of Healthcare Engineering  (2022)
 
 \bibitem{Scott12a}
 Scott, M.: Cryptanalysis of a recent two factor authentication scheme. {IACR}
@@ -159,20 +134,17 @@ Sinigaglia, F., Carbone, R., Costa, G., Zannone, N.: A survey on multi-factor
 
 \bibitem{TianLHL20}
 Tian, Y., Li, Q., Hu, J., Lin, H.: Secure limitation analysis of public-key
-  cryptography for smart card settings. World Wide Web  23(2),  1423--1440
-  (2020)
+  cryptography for smart card settings. World Wide Web  (2020)
 
 \bibitem{WangGCW16}
 Wang, D., Gu, Q., Cheng, H., Wang, P.: The request for better measurement: {A}
-  comparative evaluation of two-factor authentication schemes. In: Chen, X.,
-  Wang, X., Huang, X. (eds.) Proceedings of the 11th {ACM} on Asia Conference
-  on Computer and Communications Security, AsiaCCS 2016, Xi'an, China, May 30 -
-  June 3, 2016. pp. 475--486. {ACM} (2016)
+  comparative evaluation of two-factor authentication schemes. In: AsiaCCS
+  (2016)
 
 \bibitem{WangW18}
 Wang, D., Wang, P.: Two birds with one stone: Two-factor authentication with
   security beyond conventional bound. {IEEE} Trans. Dependable Secur. Comput.
-  pp. 708--722 (2018)
+  (2018)
 
 \bibitem{zhang2020strong}
 Zhang, Z., Wang, Y., Yang, K.: Strong authentication without temper-resistant
