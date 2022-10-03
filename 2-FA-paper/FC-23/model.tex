@@ -25,7 +25,7 @@ We let the server communicate with the device through the client. Specifically, 
  %
 %\subsection{Formal Model} \label{sec::model}
 %
-To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via various queries that it sends to different oracles, i.e., instances of the honest parties; the client and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key ($sk$), session id ($SID$), and partner id ($PID$). At any point in time, an oracle may \emph{``accept''}. When an oracle accepts, it holds $sk$, $SID$, and $PID$. A client instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added a few more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries would allow an adversary to learn either of the client's factors (i.e., either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
+To formally capture the capabilities of an adversary, $\mathcal{A}$, in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via various queries that it sends to different oracles, i.e., instances of the honest parties; the client and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key ($sk$), session id ($SID$), and partner id ($PID$). At any point in time, an oracle may \emph{``accept''}. When an oracle accepts, it holds $sk$, $SID$, and $PID$. A client instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added a few more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries would allow an adversary to learn either of the client's factors (i.e., either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
  
 
 
@@ -85,7 +85,7 @@ To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware
 \end{itemize}
 
 
- \vspace{-3mm}
+ \vspace{-5mm}
 \subsubsection{Authenticated Key Exchange (AKE)  Security.} Security notions (i.e., session key's semantic security and authentication) are defined with regard to the executing of protocol $\pi$, in the presence of   $\mathcal{A}$. To this end, a game $Game^{\sss ake} (\mathcal{A},\pi)$ is initialized by drawing a PIN  from the PIN's universe,
 providing coin tosses to $\A$ as well as to the oracles, and then running the adversary by letting it ask a polynomial
 number of queries defined above. At the end of the game, $\A$  outputs its guess $b'$ for  bit $b$

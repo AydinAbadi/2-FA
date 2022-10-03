@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  3 OCT 2022 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  3 OCT 2022 14:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1499,7 +1499,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--134
 es / database / document / 2020-[]12 /
  []
 
-) (./strawman.tex [17]
+) (./related-work.tex [17]
+Overfull \hbox (0.82294pt too wide) in paragraph at lines 30--31
+[]\T1/cmr/m/n/10 Smart card tech-nol-ogy is an-other au-then-ti-ca-tion means w
+hich has been widely
+ []
+
+[18] [19]) (./forward-PRF-extra.tex [20]
+Overfull \hbox (31.27872pt too wide) in paragraph at lines 70--90
+[]$[] $ 
+ []
+
+
+Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
+[]$[]$ 
+ []
+
+) (./sync.tex [21]) (./strawman.tex [22]
 Overfull \hbox (14.5554pt too wide) detected at line 61
 []
  []
@@ -1514,7 +1530,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-[18]
+[23]
 Overfull \hbox (11.19966pt too wide) detected at line 156
 []
  []
@@ -1529,23 +1545,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
-) (./forward-PRF-extra.tex [19] [20]
-Overfull \hbox (31.27872pt too wide) in paragraph at lines 70--90
-[]$[] $ 
- []
-
-
-Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
-[]$[]$ 
- []
-
-[21]) (./informal-sec-analysis.tex [22] [23]) (./proof.tex
+) (./informal-sec-analysis.tex [24] [25] [26] [27]) (./proof.tex
 Overfull \hbox (17.47673pt too wide) in paragraph at lines 25--29
 \T1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the e
 n-cryp-tion/decryption
  []
 
-[24] [25] [26] (./simulation.tex
+[28] [29] [30] (./simulation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
@@ -1567,11 +1573,7 @@ Underfull \hbox (badness 1371) in paragraph at lines 126--127
 ove in-
  []
 
-[27]
-Overfull \vbox (99.14558pt too high) has occurred while \output is active []
-
-
-[28]
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
@@ -1589,7 +1591,7 @@ y/m/n/9 k\OML/cmm/m/it/9 t[]\OMS/cmsy/m/n/9 k\OML/cmm/m/it/9 v[]\OMS/cmsy/m/n/9
  jj\OT1/cmr/m/n/9 1)$\T1/cmr/m/n/9 . It checks whether
  []
 
-
+[32]
 Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
@@ -1614,26 +1616,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--251
 
  []
 
-) [29] [30]) (./sync.tex [31]) (./related-work.tex [32]
-Overfull \hbox (0.82294pt too wide) in paragraph at lines 30--31
-[]\T1/cmr/m/n/10 Smart card tech-nol-ogy is an-other au-then-ti-ca-tion means w
-hich has been widely
- []
-
-[33] [34]) (./evaluation-long.tex [35] [36]) [37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 559.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 559.
+) [33] [34]) (./evaluation-long.tex [35] [36] [37]) [38]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 564.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 564.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 559.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 559.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 564.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 564.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 79FEA7DAAB545B6AF1B03A7C98D2AC19;96.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 559.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 564.
  ) 
 Here is how much of TeX's memory you used:
- 38014 strings out of 480608
- 884410 string characters out of 5903630
- 1365747 words of memory out of 5000000
+ 38015 strings out of 480608
+ 884417 string characters out of 5903630
+ 1365749 words of memory out of 5000000
  52774 multiletter control sequences out of 15000+600000
  561371 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1681,10 +1681,10 @@ er/sfrm0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
 fti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sft
 i1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect10.
 pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (37 pages, 1134195 bytes).
+Output written on main.pdf (38 pages, 1135800 bytes).
 PDF statistics:
- 1106 PDF objects out of 1200 (max. 8388607)
- 847 compressed objects within 9 object streams
- 358 named destinations out of 1000 (max. 500000)
+ 1110 PDF objects out of 1200 (max. 8388607)
+ 850 compressed objects within 9 object streams
+ 359 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

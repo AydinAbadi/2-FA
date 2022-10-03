@@ -165,7 +165,7 @@ Two-factor authentication (2FA) schemes that rely on a combination of knowledge 
 \input{model}
 
 
-\vspace{-4mm}
+\vspace{-4.6mm}
 
 \section{The Protocol}\label{sec::the-protocol}
 \vspace{-3mm}
@@ -186,7 +186,7 @@ Our protocol consists of three main phases; namely, (i) a setup phase, performed
 \subsection{Setup Phase}
 \label{sec:setup}
 
-\vspace{-2mm}
+\vspace{-1mm}
 
 
 To bootstrap the protocol, in the setup phase, we require that the client
@@ -542,18 +542,23 @@ Another consideration is handling mistyped or forgotten PINs. As we highlighted 
 
 %\section{Acknowledgements}
 
-% Igor, Elena, Patent
-%\input{Acknowledgments}
+
 \bibliographystyle{splncs03}
 \bibliography{ref}
 \appendix
+\input{related-work}
+%
+\input{forward-PRF-extra}
+%
+\input{sync}
+%
 \input{strawman}
 
-\input{forward-PRF-extra}
+
 \input{informal-sec-analysis}
 \input{proof}
-\input{sync}
-\input{related-work}
+
+
 \input{evaluation-long}
 %\input{strawman}
 \end{document}
