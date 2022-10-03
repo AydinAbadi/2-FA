@@ -27,7 +27,7 @@ In this section,  we first list a set of threats that our protocol must resist.
 
 \item[$\bullet$]\textit{T.PIN: Knowledge of PIN.} An adversary may know the PIN entered by a client, for example from observing them type it in.
 
-\item[$\bullet$]\textit{T.SRV: Server compromise.} The server is the party relying on the authentication, so it does not make sense for the server to be wholly malicious.
+\item[$\bullet$]\textit{T.SRV: Server compromise.} The server is the party relying on the authentication, so it does not make sense for the server to be wholly malicious, i.e., an active adversary.
 However, it is reasonable to believe that the server database could be compromised, disclosing \VS{k}, \VS{\verifier}, and the current values of \VC{\counter} and \VC{\state}.
 
 
@@ -54,7 +54,7 @@ In this section, we briefly explain why the protocol meets its objective in diff
 
 \item\textit{O.AUTH against 
 T.PIN and T.MITM.}  The first scenario we consider is the case where the adversary does not have
-access to the authentication device but does know the client's PIN and communication between the client and server.  For the adversary to perform a successful authentication, it must compute $\prf_{\sss\VC{\keyt_{\sss 3}}}(\VM{\nonce} \|  \VM{\trans} \| \VC{\verifier}|| 1)$. However, it does not know \VC{\keyt_{\sss 3}} or the state from which \VC{\keyt_{\sss 3}} has been generated; since  \VC{\keyt_{\sss 3}} is an output of $\prf$ and is sufficiently large, it is computationally indistinguishable from a truly random value.  The probability of finding it is negligible in the security parameter.  Thus, the only party which will generate a valid response is the device itself (when the PIN is provided) at line \ref{auth:gen-res} of \prettyref{fig:auth}.  We have already assumed that the adversary does not have access to the device; therefore, it cannot generate a valid response.
+access to the authentication device but does know the client's PIN and communication between the client and server.  For the adversary to perform a successful authentication, it must compute $\prf_{\sss\VC{\keyt_{\sss 3}}}(\VM{\nonce} \|  \VM{\trans} \| \VC{\verifier}|| 1)$. Nevertheless, it does not know \VC{\keyt_{\sss 3}} or the state from which \VC{\keyt_{\sss 3}} has been generated; since  \VC{\keyt_{\sss 3}} is an output of $\prf$ and is sufficiently large, it is computationally indistinguishable from a truly random value.  The probability of finding it is negligible in the security parameter.  Thus, the only party which will generate a valid response is the device itself (when the PIN is provided) at line \ref{auth:gen-res} of \prettyref{fig:auth}.  We have already assumed that the adversary does not have access to the device; therefore, it cannot generate a valid response.
 
 \item\textit{O.AUTH against T.DEV and T.MITM.}\label{O.AUTH:T.DEV-plus-T.MITM}
 In this scenario, the adversary has compromised the client's device (but not its PIN), has records of previous messages, and wishes to impersonate the client.
