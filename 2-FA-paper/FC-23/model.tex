@@ -4,7 +4,7 @@
 
 
  
-\vspace{-3mm}
+\vspace{-4mm}
 \section{Threat Model}\label{sec::model}
  \vspace{-2mm}
 
@@ -85,7 +85,7 @@ To formally capture the capabilities of an adversary $\mathcal{A}$ in a hardware
 \end{itemize}
 
 
- \vspace{-5mm}
+ \vspace{-3mm}
 \subsubsection{Authenticated Key Exchange (AKE)  Security.} Security notions (i.e., session key's semantic security and authentication) are defined with regard to the executing of protocol $\pi$, in the presence of   $\mathcal{A}$. To this end, a game $Game^{\sss ake} (\mathcal{A},\pi)$ is initialized by drawing a PIN  from the PIN's universe,
 providing coin tosses to $\A$ as well as to the oracles, and then running the adversary by letting it ask a polynomial
 number of queries defined above. At the end of the game, $\A$  outputs its guess $b'$ for  bit $b$
@@ -93,7 +93,7 @@ involved in the Test-query.
 
 
 
-\noindent\textit{Semantic security.} It requires that the privacy of a session key be preserved in the presence of $\A$, which has access to the above queries. We say that $\A$  wins if it manages to correctly guess bit $b$ in the Test-query, i.e., manages to output $b'=b$. We denote its advantage as the probability that $\A$  can correctly guess the value of $b$; specifically, such an advantage is defined as $Adv_{\sss\pi}^{\sss ss}(\A)=2Pr[b=b']-1$, where the probability space is over all the random coins of the adversary and all the oracles\footnote{Note, more accurate advantage is $Adv_{\sss\pi}^{\sss ss}(\A)=Pr[b=b']-\frac{1}{2}$; however,  for simplicity in \cite{BellarePR00}, the righthand side of the equation was multiplied by $2$. Since we are in the security context, the advantage must still remain small. We use the same convention.}.  Protocol $\pi$ is said to be semantically secure if $\A$'s advantage is negligible in the security parameter, i.e., $Adv_{\sss\pi}^{\sss ss}(\A)\leq \mu(\lambda)$.
+\noindent\textit{Semantic security.} It requires that the privacy of a session key be preserved in the presence of $\A$, which has access to the above queries. We say that $\A$  wins if it manages to correctly guess bit $b$ in the Test-query, i.e., manages to output $b'=b$. We denote its advantage as the probability that $\A$  can correctly guess the value of $b$; specifically, such an advantage is defined as $Adv_{\sss\pi}^{\sss ss}(\A)=2Pr[b=b']-1$, where the probability space is over all the random coins of the adversary and all the oracles.  Protocol $\pi$ is said to be semantically secure if $\A$'s advantage is negligible in the security parameter, i.e., $Adv_{\sss\pi}^{\sss ss}(\A)\leq \mu(\lambda)$.
 
 
 %The authentication property is another  fundamental feature that a two-factor authentication scheme must offer; 

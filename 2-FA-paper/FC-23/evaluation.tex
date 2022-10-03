@@ -11,11 +11,11 @@ In this section, we briefly analyse and compare our 2FA protocol with the smart-
 
 
 
-
+\vspace{-2mm}
 
 \input{evaluation-table}
 
-\vspace{-5mm}
+\vspace{-2mm}
 \subsection{Computation Cost}
 %\vspace{-2mm}
 
@@ -30,7 +30,7 @@ In our protocol, the communication cost of the client is $1268$ bits and the ser
 
 \vspace{-4mm}
 \subsection{Other Features}
-\vspace{-2mm}
+\vspace{-1mm}
  In our protocol, a client needs to know only a single secret, i.e., a  PIN. Nevertheless, in the protocol in \cite{WangW18}, a client has to know an additional secret, i.e., a random ID. As shown in \cite{Scott12a}, the scheme in \cite{WangW18} will not remain secure, even if only the client's ID is revealed. The protocol in \cite{JareckiJKSS21} requires the client (in addition to remembering its PIN) to locally store a cryptographic secret key of sufficient length, e.g., $128$ bits; this secret key must not be kept on the device. 
  % 
  Furthermore, our protocol is secure in the standard model while the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
