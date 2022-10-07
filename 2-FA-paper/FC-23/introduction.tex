@@ -4,24 +4,27 @@
 
 \section{Introduction}
 
-The adoption of online services, such as online banking and e-commerce, has been swiftly increasing, and so has the effort of adversaries to gain unauthorised access to such services.  For clients to prove their identity to a remote service provider, they provide a piece of evidence, called an ``authentication factor''. Authentication factors can be based on (i) knowledge factors, e.g., PIN or password, (ii)  possession factors, e.g., access card or physical hardware token, or (iii) inherent factors, e.g., fingerprint.  
-%
-Knowledge factors are still the most predominant factors used for authentication \cite{bonneau2010password,JacommeK21}. 
-%
-%, mainly because their implementations impose low costs on the verifiers and require clients to invest minimal effort to authenticate themselves.
-%
- The knowledge factors themselves are not strong enough to adequately prevent impersonation 
- %
-% ; for instance, because clients may pick weak passwords that can be easily guessed 
- %
- \cite{SinigagliaCCZ20,JacommeK21}.  Multi-factor authentication methods that depend on more than one factor are more difficult to compromise than single-factor methods. Recently (on January 26, 2022), the ``Executive Office of the US President'' released a memorandum requiring
-the Federal Government's agencies to meet specific cybersecurity standards, including the use of multi-factor authentication, to reinforce the Government’s defences against increasingly sophisticated threat campaigns \cite{Zero-Trust-Cybersecurity}. 
-% 
-Among multi-factor authentication schemes, two-factor authentication (2FA) methods, including those that rely on a combination of PIN and device possession, have attracted special attention, from banks and e-commerce, due to their low cost and good usability.\todo{Note limitations of biometrics} % than those methods that rely on more than two factors. 
-%
+Two-factor authentication (2FA) is increasingly required for access to online services, as a way to mitigate the risk of a single factor (typically a password) being compromised.
+This trend has been accelerated by regulation, such as the Payment Services Directive 2 in the EU and federal requirements in the US~\cite{Zero-Trust-Cybersecurity}.
+2FA can bring significant security benefits, but only if the solution is secure, usable, and cost-effective.
+However existing systems fall short in these requirements.
+In this paper we propose a new 2FA protocol that significantly improves on existing systems and so facilitates the wider adoption of 2FA for authenticating access to online services, in particular authorizing financial transactions.
 
+2FA requires the combination of two factors out of knowledge (\eg PIN or a password), possession (\eg of a hardware device), and, biometrics (\eg a fingerprint).
+In this paper we will focus on combining knowledge and possession, since biometrics require that devices have a special sensor and so imposes a significant cost penalty.
+Biometrics also have the shortcomings that they cannot be effectively revoked, will fail to work for certain people, and create privacy concerns.
 
-Researchers and companies have proposed various 2FA solutions based on a combination of PIN and device possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a client and server, and (b) have physical access to the client's device, or its PIN, or breaches the server. These solutions do not rely on trusted hardware and still ensure that even such a strong adversary cannot succeed during the authentication. Nevertheless, these solutions (i) require a client to remember multiple secret values (instead of a single PIN)  to prove its identity which ultimately harms these solutions' usability, (ii) involve several modular exponentiations that make the device battery power run out fast, and (iii) are in the non-standard random oracle model. \todo{Note that for banking cheap devices are important and humans must enter authentication code}
+Our requirements for the 2FA protocol are that it be:
+\begin{description}
+\item[secure:] provably capable of preventing unauthorised access in as a wide range of circumstances as possible, including compromise of the server, compromise of the authentication device, compromise of the user's computer, and compromise of the communication network;
+\item[usable:] create a minimal imposition on the user and environment through not requiring special software to be installed on the user's computer and not requiring that the user remember long passwords or enter long strings into the computer or hardware device; and
+\item[cost-effective:] the hardware device must be cheap and so must not be required to have tamper resistant trusted hardware or the ability to perform complex computation
+\end{description}
+
+Furthermore the 2FA protocol must support \textbf{transaction authentication} \ie, be able to bind its execution to a particular transaction that is shown to the customer on a trusted display, as required by the Payment Services Directive 2.
+This means that for the authentication protocol to succeed the user must have had the ability to check the transaction details and so be able to detect if malware on their computer has tampered with the transaction details shown on screen.
+
+Researchers and companies have proposed various 2FA solutions based on a combination of PIN and device possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a client and server, and (b) have physical access to the client's device, or its PIN, or breaches the server. These solutions do not rely on trusted hardware and still ensure that even such a strong adversary cannot succeed during the authentication. Nevertheless, these solutions (i) require a client to remember multiple secret values (instead of a single PIN)  to prove its identity which ultimately harms these solutions' usability, (ii) involve several modular exponentiations that make the device battery power run out quickly, and (iii) are in the non-standard random oracle model.
 
 \vspace{-4mm}
 \paragraph{\textbf{\textit{Our Contributions.}}}  In this work, we present a 2FA protocol that resists the strong adversary above while addressing the aforementioned shortcomings and imposing a lower communication cost. Specifically, our protocol:
@@ -43,7 +46,7 @@ Researchers and companies have proposed various 2FA solutions based on a combina
 
 \vspace{-2mm}
 
- To attain its goals, our protocol does not use any trusted hardware; instead, it relies on a novel combination of the following two approaches. First, it requires only the server  (not the device) to verify a client’s PIN. This allows separating the location where the PIN’s secret key is stored from the location where the authenticator itself is stored. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location.  Second, it  (a) requires that the server and device use key-evolving symmetric-key encryption (i.e., a combination of forward-secure pseudorandom bit generator and authenticated encryption) to encrypt sensitive messages they exchange,  and (b) requires that used keys be discarded immediately after their use. This approach ensures the secrecy of the communication between the parties and guarantees that the adversary cannot learn the PIN, even if it eavesdrops on the parties' communication and breaks into the device or server. We formally prove the security of this protocol. 
+ To attain its goals, our protocol does not use any trusted hardware; instead, it relies on a novel combination of the following two approaches. First, it requires only the server  (not the device) to verify a client’s PIN. This allows separating the location where the PIN’s secret key is stored from the location where the authenticator itself is stored. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location.  Second, it  (a) requires that the server and device use key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption) to encrypt sensitive messages they exchange,  and (b) requires that used keys be discarded immediately after their use. This approach ensures the secrecy of the communication between the parties and guarantees that the adversary cannot learn the PIN, even if it eavesdrops on the parties' communication and breaks into the device or server. We formally prove the security of this protocol. 
 
 
 %Our protocol also allows a client to see a description of the transaction that the server will perform after successful authentication. For instance, in the context of online banking, a transaction's description includes the transaction amount, destination account number, and payee's details. This description is displayed on the device to allow the client to verify that it matches their intention. This ``dynamic binding'' between transaction and response is necessary to meet the requirements for payment authentication set out by the EU
