@@ -26,10 +26,8 @@ This means that for the authentication protocol to succeed the user must have ha
 
 Researchers and companies have proposed various 2FA solutions based on a combination of PIN and device possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a client and server, and (b) have physical access to the client's device, or its PIN, or breaches the server. These solutions do not rely on trusted hardware and still ensure that even such a strong adversary cannot succeed during the authentication. Nevertheless, these solutions (i) require a client to remember multiple secret values (instead of a single PIN)  to prove its identity which ultimately harms these solutions' usability, (ii) involve several modular exponentiations that make the device battery power run out quickly, and (iii) are in the non-standard random oracle model.
 
-\vspace{-4mm}
 \paragraph{\textbf{\textit{Our Contributions.}}}  In this work, we present a 2FA protocol that resists the strong adversary above while addressing the aforementioned shortcomings and imposing a lower communication cost. Specifically, our protocol:
 
-\vspace{-2mm}
 \begin{itemize}
 \item[$\bullet$] requires a client to remember only a single PIN.
 
@@ -43,8 +41,6 @@ Researchers and companies have proposed various 2FA solutions based on a combina
 
 
 \end{itemize}
-
-\vspace{-2mm}
 
  To attain its goals, our protocol does not use any trusted hardware; instead, it relies on a novel combination of the following two approaches. First, it requires only the server  (not the device) to verify a client’s PIN. This allows separating the location where the PIN’s secret key is stored from the location where the authenticator itself is stored. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location.  Second, it  (a) requires that the server and device use key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption) to encrypt sensitive messages they exchange,  and (b) requires that used keys be discarded immediately after their use. This approach ensures the secrecy of the communication between the parties and guarantees that the adversary cannot learn the PIN, even if it eavesdrops on the parties' communication and breaks into the device or server. We formally prove the security of this protocol. 
 

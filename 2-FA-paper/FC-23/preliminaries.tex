@@ -1,48 +1,19 @@
 %!TEX root = main.tex
 
-
-
-
-
-\vspace{-4mm}
-
 \section{Notations and Preliminaries}
 
- \vspace{-2mm}
  \subsection{Notations}
-  \vspace{-1mm}
   
  To disambiguate the different uses of keys and other items of data, variables are annotated with a superscript to indicate their origin. $\VC{\cdot}$ indicates data stored at the client, $\VS{\cdot}$ means data stored at the server, and $\VM{\cdot}$ indicates data item has been extracted from a message. \prettyref{tab:variables} presents  a summary of variables.
  
- \vspace{-5mm}
  \input{notation-Table}
 
+\subsection{Keyed pseudorandom Function}\label{subsec:PRF}
 
- \vspace{-6mm}
-\subsection{Pseudorandom Function}\label{subsec:PRF}
-  \vspace{-1mm}
-Informally, a pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value  indistinguishable from that of a truly random function with the same domain and range.   A $\prf$ is formally defined as follows \cite{KatzLindell2014}. \todo{Can we move to appendix}
-  \vspace{-1mm}
-\begin{definition} Let $\prf:\{0,1\}^{\sss\psi}\times \{0,1\}^{\sss \eta}\rightarrow \{0,1\}^{\sss  \lambda}$ be an efficient  keyed function. It is said $\prf$ is a pseudorandom function if for all probabilistic polynomial-time distinguishers $B$, there is a negligible function, $\mu(.)$, such that:
-%
- \vspace{-1mm}
-\begin{equation*}
-\bigg | \Pr[B^{\sss \prf_{\hat{k}}(.)}(1^{\sss \psi})=1]- \Pr[B^{\sss \omega(.)}(1^{\sss \psi})=1] \bigg |\leq\mu(\psi)
-\end{equation*}
-%
-where  the key, $\hat{k}\stackrel{\sss\$}\leftarrow\{0,1\}^{\sss\psi}$, is chosen uniformly at random and $\omega$ is chosen uniformly at random from the set of functions mapping $\eta$-bit strings to $\iota$-bit strings. We define $Adv^{\sss\prf}(\adv)$ as the advantage of the adversary which interacts with pseudorandom and random functions. 
+Informally, a keyed pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value indistinguishable from that of a truly random function with the same domain and range.  A formal definition of a $\prf$ is given by Katz and Lindell~\cite{KatzLindell2014} and is included in \prettyref{app:def-FS-PRG}.
 
-%We let public parameters $\zeta:(\psi,\eta, \iota)$ be the description of $\mathtt{PRF}$.
-\end{definition}
-
-Since a pseudorandom function is deterministic and outputs the same value if queried twice on the same inputs, when proving a protocol that uses a $\prf$, it is assumed that the distinguisher never queries oracles $\prf$ and $\omega$ twice on the same inputs \cite{KatzLindell2014}. 
-
-
-
-
- \vspace{-4mm}
 \subsection{Forward-Secure Pseudorandom Bit Generator}
- \vspace{-2mm}
+
  %
 A Forward-Secure Pseudorandom Bit Generator (FS-RPG), is a \emph{stateful} object which consists a pair of algorithms and a pair of positive integers, i.e., $\mathsf{FS\text{-}RPG} = \Big((\mathsf{FS\text{-}RPG}.\kgen, $ $ \mathsf{FS\text{-}RPG.next}),( b, n)\Big)$, as defined in \cite{BellareY03}.  The probabilistic key generation algorithm $\mathsf{FS\text{-}RPG}.\kgen$ takes a security parameter as input and outputs an initial state ${st}_{\sss 0}$ of length $s$ bits. $\mathsf{FS\text{-}RPG.next}$ is a key-updating algorithm which, given the current state ${st}_{\sss i-1}$, outputs a pair of a $b$-bit block ${out}_{\sss i}$ and the next state ${st}_{\sss i}$. We can produce a sequence  ${out}_{\sss 1},..., {out}_{\sss n}$  of  $b$-bit output blocks, by first generating a key  ${st}_{\sss 0}\stackrel{\sss \$}\leftarrow\mathsf{FS\text{-}RPG}.\kgen(1^{\sss \lambda})$ and then running $({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}RPG.next} (st_{\sss i-1})$ for all $i, 1\leq i\leq n$. As with a standard pseudorandom bit generator, output blocks of this generator should be computationally indistinguishable from a random bit
 string of the same length. The additional property required from a
@@ -66,10 +37,8 @@ Recall, $\mathsf{FS\text{-}RPG.next}$ updates the state of the forward-secure ge
 %state and meets the security definitions of forward-secure key updating
 %for $n < 2^{64}$.
 
- \vspace{-4mm}
  
 \subsection{Authenticated Encryption (AE)} 
- \vspace{-1mm}
 
 Informally, authenticated encryption $\Pi=(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$ is an encryption scheme that simultaneously ensures the secrecy and integrity of a massage. It can be built via symmetric or asymmetric key encryptions. In this work, we use authenticated symmetric-key encryption, due to its efficiency. $\mathsf{Gen}$ is a probabilistic key generating algorithm that takes a security parameter and returns an encryption key $k$. $\mathsf{Enc}$ is a deterministic encryption algorithm that takes the secret key $k$ and a message $m$, it returns a ciphertext $M$ along with the corresponding tag $t$. $\mathsf{Dec}$ is a deterministic algorithm that takes the ciphertext $M$, the tag $t$, and the secret key $k$. It first checks the tag's validity, if it accepts the tag, then it decrypts the message and returns $(m,1)$. Otherwise, it returns $(.,0)$. 
 

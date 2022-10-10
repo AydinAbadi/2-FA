@@ -1,11 +1,6 @@
 %!TEX root = main.tex
 
-\vspace{-5mm}
 \section{Related Work}
-
-\vspace{-2mm}
-
-
 
 %In order for clients to prove their identity to a (local/remote) computer resource, they provide a piece of evidence, called an ``authentication factor''. The authentication factors can be broadly categorised based on (a) what clients know (a.k.a. knowledge factors), such as PIN, password, (b)  what a client possesses (a.k.a. possession factors), such as an access card or physical hardware token, or (c) what clients are (a.k.a. inherent factors), such as a fingerprint, or iris. 
 %
@@ -28,7 +23,7 @@ One option is to store the PIN on the device and use trusted tamper-resistant ha
 However tamper-resistant hardware adds significantly to costs, and can be bypassed by a sufficiently well equipped adversary.
 Alternatively, as with OATH-OCRA, the PIN can be an input to the keyed hash and verified by the server, but this would allow the PIN to be obtained if the server is compromised.
 Additionally if the adversary captures one OTP and extracts the key from the hardware device they would be able to brute-force a low-entropy PIN.
-\todo{Can we pull in Appendix A and C}?
+\todo{Can we pull in Appendix A and C?}
 
 Our investigation suggests that Digipass 770 and Thales Gemalto also \emph{locally store and verify} users' PINs. Jarecki \textit{et al.} \cite{JareckiJKSS21} proposed a protocol to ensure that even if the server or device is corrupted a client's PIN cannot be extracted. But, it imposes high costs due to the use of public-key cryptography and numerous rounds of communication. This protocol requires the client (in addition to remembering its PIN) to locally store a cryptographic secret key. The protocol we propose does not require trusted tamper-resistant hardware, needs a single round of communication, and involves no public-key cryptography.
 

@@ -1,9 +1,9 @@
 %!TEX root = main.tex
 
 
-\section{Definition and Construction of Forward-Secure Pseudorandom Bit Generator}\label{sec::def-FS-PRG}
+\section{Definition and Construction of Forward-Secure Pseudorandom Bit Generator and Keyed Pseudorandom Function}\label{app:def-FS-PRG}
 
-In this section, we restate the formal definition of the forward-secure pseudorandom bit generator (taken from \cite{BellareY03}), and then briefly explain how it can be constructed. A standard pseudorandom generator is said to be secure if its output is computationally indistinguishable from a random string of the same length. However, the forward security of a stateful generator requires more security guarantees. Specifically, in this setting,  an adversary $\mathcal{A}$ may at some point penetrate the machine in which the state is stored and obtain the current state. In this case, the adversary is able to compute the future output of the generator. But, it is required that the bit strings generated in the past still be secure, i.e., the strings are computationally indistinguishable from random bit strings. This implies that it is computationally infeasible for the adversary to recover the previous state from the current one. 
+In this section, we restate the formal definition of the forward-secure pseudorandom bit generator (taken from \cite{BellareY03}), briefly explain how it can be constructed, and also define a keyed pseudorandom function \prf. A standard pseudorandom generator is said to be secure if its output is computationally indistinguishable from a random string of the same length. However, the forward security of a stateful generator requires more security guarantees. Specifically, in this setting,  an adversary $\mathcal{A}$ may at some point penetrate the machine in which the state is stored and obtain the current state. In this case, the adversary is able to compute the future output of the generator. But, it is required that the bit strings generated in the past still be secure, i.e., the strings are computationally indistinguishable from random bit strings. This implies that it is computationally infeasible for the adversary to recover the previous state from the current one. 
 
 
 
@@ -148,5 +148,17 @@ Bellare \textit{et al.} \cite{BellareY03} proposed various instantiations of FS-
 %state and meets the security definitions of forward-secure key updating
 %for $n < 2^{\sss 64}$.
 
+\begin{definition} Let $\prf:\{0,1\}^{\sss\psi}\times \{0,1\}^{\sss \eta}\rightarrow \{0,1\}^{\sss  \lambda}$ be an efficient  keyed function. It is said $\prf$ is a pseudorandom function if for all probabilistic polynomial-time distinguishers $B$, there is a negligible function, $\mu(.)$, such that:
+%
+ \vspace{-1mm}
+\begin{equation*}
+\bigg | \Pr[B^{\sss \prf_{\hat{k}}(.)}(1^{\sss \psi})=1]- \Pr[B^{\sss \omega(.)}(1^{\sss \psi})=1] \bigg |\leq\mu(\psi)
+\end{equation*}
+%
+where  the key, $\hat{k}\stackrel{\sss\$}\leftarrow\{0,1\}^{\sss\psi}$, is chosen uniformly at random and $\omega$ is chosen uniformly at random from the set of functions mapping $\eta$-bit strings to $\iota$-bit strings. We define $Adv^{\sss\prf}(\adv)$ as the advantage of the adversary which interacts with pseudorandom and random functions. 
 
+%We let public parameters $\zeta:(\psi,\eta, \iota)$ be the description of $\mathtt{PRF}$.
+\end{definition}
+
+Since a pseudorandom function is deterministic and outputs the same value if queried twice on the same inputs, when proving a protocol that uses a $\prf$, it is assumed that the distinguisher never queries oracles $\prf$ and $\omega$ twice on the same inputs \cite{KatzLindell2014}. 
 
