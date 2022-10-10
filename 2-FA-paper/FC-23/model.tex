@@ -3,7 +3,7 @@
 %\subsection{The Model} \label{sec::model}
 
 
-\section{Threat Model}\label{sec::model}
+\section{Threat Mode and System Design}\label{sec::model}
 
 In this section, we present the threat model that this work considers. A two-factor authentication scheme involves two players,
 %
@@ -24,7 +24,7 @@ We let the server communicate with the device through the client. Specifically, 
 \begin{centering}
 \includegraphics[width=12cm]{setup}
 \end{centering}
-\caption{\label{fig:setup}Participants and message flows}
+\caption{\label{fig:setup}Protocol participants and message flows}
 \end{figure}
 
  %
@@ -48,7 +48,7 @@ To formally capture the capabilities of an adversary, $\mathcal{A}$, in a hardwa
 
 
 
-\item [$\bullet$] \test($I$): this query models the semantic security of the session key. It is sent at most once by $\A$ if the attacked instance $I$  is ``fresh'' (i.e., in the current protocol execution $I$ has accepted and neither it nor the other instance with the same $SID$ was asked for a Reveal query). This query is answered as follows. Upon receiving the query, a coin $b$ is flipped. If $b=1$, then session key $sk$ is given to $\A$; otherwise (if $b=0$), a random value is given to $\A$. 
+\item [$\bullet$] \test($I$): this query models the semantic security of the session key. It is sent at most once by $\A$ if the attacked instance $I$  is ``fresh'' (i.e., in the current protocol execution $I$ has accepted and neither it nor the other instance with the same $\SID$ was asked for a Reveal query). This query is answered as follows. Upon receiving the query, a coin $b$ is flipped. If $b=1$, then session key $sk$ is given to $\A$; otherwise (if $b=0$), a random value is given to $\A$. 
 
 
 
@@ -103,12 +103,12 @@ involved in the Test-query.
 
 
 
-\noindent\textit{Authentication.} It requires that $\A$ must not be able: (a)  to impersonate $C$, even if it has access to the traffic between the two parties as well as having access to either $C$'s PIN, or its authentication device, or (b) to impersonate  $S$, although it has access to the traffic between the two parties.   We say that   $\A$  violates mutual authentication if some oracle accepts a session key and terminates, but has no partner oracle, which shares the same key.  Protocol $\pi$ is said to achieve mutual authentication if for any adversary $\A$  interacting with the parties, there exists a negligible function $\mu(.)$ such that for any security parameter $\lambda$ the advantage of $\A$ (i.e., the probability of successfully impersonating a party)  is negligible in the security parameter, i.e., 
+\noindent\textit{Authentication.} It requires that $\A$ must not be able: (a)  to impersonate $C$, even if it has access to the traffic between the two parties as well as having access to either $C$'s PIN, or its authentication device, or (b) to impersonate  $S$, although it has access to the traffic between the two parties.   We say that   $\A$  violates mutual authentication if some oracle accepts a session key and terminates, but has no partner oracle, which shares the same key.  Protocol $\pi$ is said to achieve mutual authentication if for any adversary $\A$  interacting with the parties, there exists a negligible function $\mu(.)$ such that for any security parameter $\lambda$ the advantage of $\A$ (\ie, the probability of successfully impersonating a party)  is negligible in the security parameter, i.e., 
 %
 $Adv_{\sss\pi}^{\sss aut}(\mathcal{A})\leq \mu(\lambda)$.
 
 
-In certain schemes (including ours), during the key agreement and authentication phase, the client needs to also verify a message, e.g., a bank transaction. To allow such verification to be carried out deterministically, which will be particularly useful in the schemes proof, we define a predicate $y\leftarrow \phi(m, \pi)$, where $y\in \{0,1\}$. This predicate takes as input a message $m$ (e.g., bank's transactions) and a policy $\pi$ (e.g., a client's policy specifying a payment amount and destination account number). It checks if the message matches the policy. If they match, it outputs $1$; otherwise, it outputs $0$.  
+In certain schemes (including ours), during the key agreement and authentication phase, the client needs to also verify a message, e.g., a bank transaction. To allow such verification to be carried out deterministically, which will be particularly useful in the scheme's proof, we define a predicate $y\leftarrow \phi(m, \pi)$, where $y\in \{0,1\}$. This predicate takes as input a message $m$ (\eg., bank's transactions) and a policy $\pi$ (e.g., a client's policy specifying a payment amount and destination account number). It checks if the message matches the policy. If they match, it outputs $1$; otherwise, it outputs $0$.  
 
 
 
