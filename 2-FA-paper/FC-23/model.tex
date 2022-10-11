@@ -22,17 +22,19 @@ We let the server communicate with the device through the client. Specifically, 
 
 Figure \ref{fig:setup.} outlines the workflow of the 2FA scheme during the authentication phase.  At a very high level, the authentication phase works as follows. Any time the user wants to authenticate itself to the server, it sends a message to it via the client.  The server replies to the client with a challenge and transaction details (Step 1). The user uses the device to scan the message that the client received (Step 2). The device shows the transaction details on the screen (Step 3). The user inserts the PIN into the device (Step 4). The device generates a verifier (Step 5). The user manually inserts the verifier into the client (Step 6).  The client sends the verifier to the server for authentication (Step 7). 
 
+
+\vspace{-3mm}
 \begin{figure}
 \begin{centering}
 \includegraphics[width=12cm]{setup}
 \end{centering}
 \caption{\label{fig:setup.}Protocol participants and message flows}
 \end{figure}
-
+\vspace{-4mm}
  %
 %\subsection{Formal Model} \label{sec::model}
 %
-To formally capture the capabilities of an adversary, $\mathcal{A}$, in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via various queries that it sends to different oracles, i.e., instances of the honest parties; the client and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key (\seckey), session id (\SID), and partner id (\PID). At any point in time, an oracle may \emph{``accept''}. When an oracle accepts, it holds \seckey, \SID, and \PID. A client instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added a few more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries would allow an adversary to learn either of the client's factors (i.e., either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
+To formally capture the capabilities of an adversary, $\mathcal{A}$, in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via various queries that it sends to different oracles, i.e., instances of the honest parties; the client and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key (\seckey), session id (\SID), and partner id (\PID). At any point in time, an oracle may \emph{``accept''}. When an oracle accepts, it holds \seckey, \SID, and \PID. A client instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries allow an adversary to learn either of the client's factors (i.e., either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
  
 
 
