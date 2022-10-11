@@ -21,7 +21,7 @@ FS-RPG is that even when the
 adversary learns the state, output blocks generated before the point of
 compromise remain computationally indistinguishable from random bits.
 This requirement implies that it is computationally infeasible to
-recover a previous state from the current state. We restate a formal definition and construction of a forward-secure pseudorandom bit generator in Appendix \ref{sec::def-FS-PRG}. 
+recover a previous state from the current state. We restate a formal definition and construction of a forward-secure pseudorandom bit generator in Appendix \ref{app:def-FS-PRG}. 
 
 
 Recall, $\mathsf{FS\text{-}RPG.next}$ updates the state of the forward-secure generation by one step; however, our protocol sometimes needs to invoke $\mathsf{FS\text{-}RPG.next}$ multiple times sequentially. Thus, for the sake of simplicity, we define a wrapper algorithm $ \update(\state_{\sss a}, d)$ which wraps  $\mathsf{FS\text{-}RPG.next}$. Algorithm $\update$  as input takes a current state (similar to $\mathsf{FS\text{-}RPG.next}$) and new parameter $d$ that determines how many times   $\mathsf{FS\text{-}RPG.next}$ must be invoked internally. It invokes  $\mathsf{FS\text{-}RPG.next}$ $d$ times and outputs the pair  $({out}_{\sss b}, \state_{\sss b})$  which are the output of $\mathsf{FS\text{-}RPG.next}$ when it is invoked for $d$-th time, where $ b> a$. 
