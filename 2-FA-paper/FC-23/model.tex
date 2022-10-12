@@ -52,7 +52,7 @@ To formally capture the capabilities of an adversary, $\mathcal{A}$, in a hardwa
 
 
 
-\item [$\bullet$] \test($I$): this query models the semantic security of the session key. It is sent at most once by $\A$ if the attacked instance $I$  is ``fresh'' (i.e., in the current protocol execution $I$ has accepted and neither it nor the other instance with the same $\SID$ was asked for a Reveal query). This query is answered as follows. Upon receiving the query, a coin $b$ is flipped. If $b=1$, then session key $sk$ is given to $\A$; otherwise (if $b=0$), a random value is given to $\A$. 
+\item [$\bullet$] \test($I$): this query models the semantic security of the session key. It is sent at most once by $\A$ if the attacked instance $I$  is ``fresh'' (\ie, in the current protocol execution $I$ has accepted and neither it nor the other instance with the same $\SID$ was asked for a Reveal query). This query is answered as follows. Upon receiving the query, a coin $b$ is flipped. If $b=1$, then session key $sk$ is given to $\A$; otherwise (if $b=0$), a random value is given to $\A$. 
 
 
 
