@@ -54,29 +54,29 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
 % 
 % \noindent\rule{5.1in}{1pt}
  
-  \doubleunderline{\send($C^{\sss i}, .$)}\\
+  \doubleunderline{\send($U^{\sss i}, .$)}\\
  
  This query is dealt with as below: 
  
  \begin{itemize}[leftmargin=.4cm]
  %
- \item if the client's instance is not in the ``expecting'' state and it receives query  \send($C^{\sss i}, \text{start}, \text{phase}$), where $\text{phase}\in \{\text {enrolment, authentication}\}$ then it: 
+ \item if the user's instance is not in the ``expecting'' state and it receives query  \send($U^{\sss i}, \text{start}, \text{phase}$), where $\text{phase}\in \{\text {enrolment, authentication}\}$ then it: 
  %
   \begin{enumerate}
   %
-  \item generates pair $(C_{\sss ID},  \text{phase})$. 
+  \item generates pair $(U_{\sss ID},  \text{phase})$. 
   %
-  \item responds to the query with $(C_{\sss ID},  \text{phase})$. 
+  \item responds to the query with $(U_{\sss ID},  \text{phase})$. 
   %
-  \item sets the client's instance state to expecting.
+  \item sets the user's instance state to expecting.
   %
   \end{enumerate}
  % 
- \item if the client's instance state is in expecting, then: 
+ \item if the user's instance state is in expecting, then: 
  %
  \begin{itemize}[leftmargin=.4cm]
  %
- \item upon receiving \underline{\send($C^{\sss i}, (\bar M, \bar t)$)}, it:
+ \item upon receiving \underline{\send($U^{\sss i}, (\bar M, \bar t)$)}, it:
  % 
   \begin{enumerate}
   %
@@ -88,11 +88,11 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
   %
   \item encrypts $p'=\VM{\nonce}||\VC{\verifier}$ using key $k$  as follows: $(\bar M', \bar t') \gets \enc_{\sss k}(p')$, which results in a ciphertext $\bar M'$ and tag $\bar t'$. 
   %
-  \item responds to the query with $(\bar M', \bar t')$. It sets the client's instance state to ``not expecting''.  
+  \item responds to the query with $(\bar M', \bar t')$. It sets the user's instance state to ``not expecting''.  
   %
   \end{enumerate}
  %
- \item  upon receiving \underline{\send($C^{\sss i}, (\ddot M', \ddot t'), (\hat M', \hat t')$)}, it: 
+ \item  upon receiving \underline{\send($U^{\sss i}, (\ddot M', \ddot t'), (\hat M', \hat t')$)}, it: 
  %
  \begin{enumerate}
  %
@@ -112,9 +112,9 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
  %
  \item updates its state one more time as follows, $(k',  \VC{\state}) \gets \update(\VC{\state}, \VM{\counter})$.
  %
- \item computes  the authenticator: $\bar{\VC{\mathit{response}}} \gets \prf_{\sss k'}( \VM{\nonce} || \VM{\trans} || \VC{\verifier}|| 1)$ and session key:  $\bar {sk}^{\sss C} \gets \prf_{\sss k'}( \VM{\nonce} || \VM{\trans} || \VC{\verifier}|| 2)$.
+ \item computes  the authenticator: $\bar{\VC{\mathit{response}}} \gets \prf_{\sss k'}( \VM{\nonce} || \VM{\trans} || \VC{\verifier}|| 1)$ and session key:  $\bar {sk}^{\sss U} \gets \prf_{\sss k'}( \VM{\nonce} || \VM{\trans} || \VC{\verifier}|| 2)$.
  %
- \item responds the send query with  $\bar{\VC{\mathit{response}}}$. It makes the client's instance accept the key and then terminates the instance. 
+ \item responds the send query with  $\bar{\VC{\mathit{response}}}$. It makes the user's instance accept the key and then terminates the instance. 
  %
  \end{enumerate}
  %
@@ -123,11 +123,11 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
  \end{itemize}
  %
 }}
-To keep track of all the exchanged messages, it stores the above incoming and going messages in vector $\vv L$. So, we have $\Big((C_{\sss ID},  \text{enrolment}),$ $ (C_{\sss ID},  \text{authentication}), $ $(\bar M, \bar t), $ $(\bar M', \bar t'),$ $(\ddot M', \ddot t'), $ $(\hat M', \hat t'), $ $\bar{\VC{\mathit{response}}}\Big)\in \vv L$.
+To keep track of all the exchanged messages, it stores the above incoming and going messages in vector $\vv L$. So, we have $\Big((U_{\sss ID},  \text{enrolment}),$ $ (U_{\sss ID},  \text{authentication}), $ $(\bar M, \bar t), $ $(\bar M', \bar t'),$ $(\ddot M', \ddot t'), $ $(\hat M', \hat t'), $ $\bar{\VC{\mathit{response}}}\Big)\in \vv L$.
 \end{tcolorbox}
 \end{center}
 \vspace{-5mm}
-\caption{Simulators for \send\ query to  a client's instance.} 
+\caption{Simulators for \send\ query to  a user's instance.} 
 \label{fig::Send-sim-to-client}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,7 +149,7 @@ To keep track of all the exchanged messages, it stores the above incoming and go
  
  \begin{itemize}[leftmargin=.4cm]
  %
- \item upon receiving  \underline{\send($S^{\sss j}, (C_{\sss ID},  \text{enrolment})$)}, it:
+ \item upon receiving  \underline{\send($S^{\sss j}, (U_{\sss ID},  \text{enrolment})$)}, it:
  %
  \begin{enumerate}
  %
@@ -171,7 +171,7 @@ To keep track of all the exchanged messages, it stores the above incoming and go
  %
  \end{enumerate}
  %
- \item upon receiving  \underline{\send($S^{\sss j}, (C_{\sss ID},  \text{authentication})$)}, it:
+ \item upon receiving  \underline{\send($S^{\sss j}, (U_{\sss ID},  \text{authentication})$)}, it:
  %
  \begin{enumerate}
  %
@@ -214,25 +214,25 @@ It accepts the key and terminates.
     colframe=black,colback=white]
 {\small{
 
- \doubleunderline{\execute($C^{\sss i}, S^{\sss j}$)}\\
+ \doubleunderline{\execute($U^{\sss i}, S^{\sss j}$)}\\
  
  This query is dealt with as below: 
  %
  \begin{enumerate} 
  %
- \item $(C_{\sss ID},  \text{enrolment})\gets$\send($C^{\sss i}, \text{start}, \text{enrolment}$).%, where $\text{phase}\in \{\text {enrollment, authentication}\}$. 
+ \item $(U_{\sss ID},  \text{enrolment})\gets$\send($U^{\sss i}, \text{start}, \text{enrolment}$).%, where $\text{phase}\in \{\text {enrollment, authentication}\}$. 
  %
-\item  $(\bar M,\bar t)\gets$\send($S^{\sss j}, (C_{\sss ID},  \text{enrolment})$).
+\item  $(\bar M,\bar t)\gets$\send($S^{\sss j}, (U_{\sss ID},  \text{enrolment})$).
   %
-\item $(\bar M', \bar t')\gets$\send($C^{\sss i}, (\bar M, \bar t)$).
+\item $(\bar M', \bar t')\gets$\send($U^{\sss i}, (\bar M, \bar t)$).
   %
-\item $(C_{\sss ID},  \text{authentication})\gets$\send($C^{\sss i}, \text{start}, \text{authentication}$).
+\item $(U_{\sss ID},  \text{authentication})\gets$\send($U^{\sss i}, \text{start}, \text{authentication}$).
   %
-\item $(\ddot M', \ddot t', \hat M', \hat t')\gets$\send($S^{\sss j}, (C_{\sss ID},  \text{authentication})$).
+\item $(\ddot M', \ddot t', \hat M', \hat t')\gets$\send($S^{\sss j}, (U_{\sss ID},  \text{authentication})$).
   %
-\item $\bar{\VC{\mathit{response}}}\gets$\send($C^{\sss i}, (\ddot M', \ddot t'), (\hat M', \hat t')$).
+\item $\bar{\VC{\mathit{response}}}\gets$\send($U^{\sss i}, (\ddot M', \ddot t'), (\hat M', \hat t')$).
   %
-  \item outputs the following transcript: $[(C_{\sss ID},  \text{enrolment}), (\bar M, \bar t), (\bar M', \bar t'),(C_{\sss ID},  $ $\text{authentication}), $ $(\ddot M', \ddot t'), (\hat M', \hat t'), \bar{\VC{\mathit{response}}}]$.
+  \item outputs the following transcript: $[(U_{\sss ID},  \text{enrolment}), (\bar M, \bar t), (\bar M', \bar t'),(U_{\sss ID},  $ $\text{authentication}), $ $(\ddot M', \ddot t'), (\hat M', \hat t'), \bar{\VC{\mathit{response}}}]$.
   %
  \end{enumerate} 
  %
@@ -242,7 +242,7 @@ It accepts the key and terminates.
   
 This query is processed as follows.
   
-\ $\bullet$ returns session key $\bar {sk}^{\sss I}$ (computed by $I\in\{C,S \}$), if $I$ has already accepted the key.
+\ $\bullet$ returns session key $\bar {sk}^{\sss I}$ (computed by $I\in\{U,S \}$), if $I$ has already accepted the key.
   
    %
   \noindent\rule{4.6in}{1pt}

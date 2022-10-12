@@ -22,7 +22,7 @@ game $G_{\sss 0}$ and ending up at $G_{\sss  7}$. We first define various events
 
 \begin{itemize}
 %
-\item[$\bullet$] \textit{\textbf{Game}} $G_{\sss  0}$: This is the real attack game. Several oracles are  available to the adversary; namely, the pseudorandom function ($\prf$),  the encryption/decryption oracles ($\mathtt{Enc}$ and $\mathtt{Dec}$) and all instances $C^{\sss  i}$ and $S^{\sss  j}$.
+\item[$\bullet$] \textit{\textbf{Game}} $G_{\sss  0}$: This is the real attack game. Several oracles are  available to the adversary; namely, the pseudorandom function ($\prf$),  the encryption/decryption oracles ($\mathtt{Enc}$ and $\mathtt{Dec}$) and all instances $U^{\sss  i}$ and $S^{\sss  j}$.
 %
 According to the definition we presented in Section \ref{sec::model}, the advantage of the adversary in this protocol is: 
 %
@@ -55,7 +55,7 @@ The above also captures both the send and execute queries. Since we have used a 
 
 
 
-\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, i.e., via predicate $\phi$ defined in Section \ref{sec::model}. Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  C}$ and policy $\pi$, it always returns the same output as the client does when verifying $t^{\sss  C}$ in the previous game.  Therefore, both $\phi$ and the client would output identical values, given pair $(t^{\sss  C}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, i.e., via predicate $\phi$ defined in Section \ref{sec::model}. Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  U}$ and policy $\pi$, it always returns the same output as the user's device does when verifying $t^{\sss  U}$ in the previous game.  Therefore, both $\phi$ and the user's device would output identical values, given pair $(t^{\sss  U}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
 %
 \begin{equation}\label{eq::game_3}
 Pr[S_{\sss  3}]-Pr[S_{\sss  2}]=0
@@ -86,7 +86,7 @@ the adversary correctly guesses the authenticator. Therefore, we modify the way 
 %
 \item checks if $\bar{\VC{\mathit{response}}}=\VS{\mathit{expected}}$. It proceeds to the next step if the equation holds. 
 %
-\item\label{Game::check-sim} checks if $\Big((C_{\sss  ID},  \text{enrolment}), (C_{\sss  ID},  \text{authentication}), (\bar M, \bar t),$ $ (\bar M',$ $ \bar t'),$ $ (\ddot M', $ $\ddot t'), $ $(\hat M', \hat t'), \bar{\VC{\mathit{response}}}\Big)\in \vv L$.
+\item\label{Game::check-sim} checks if $\Big((U_{\sss  ID},  \text{enrolment}), (U_{\sss  ID},  \text{authentication}), (\bar M, \bar t),$ $ (\bar M',$ $ \bar t'),$ $ (\ddot M', $ $\ddot t'), $ $(\hat M', \hat t'), \bar{\VC{\mathit{response}}}\Big)\in \vv L$.
 
 \item\label{Game::prf} checks if $ \bar{\VC{\mathit{response}}}\in L_{\sss \adv}$. 
 %
@@ -110,7 +110,7 @@ This game ensures that if the message (i.e., the authenticator) does not come fr
 %
 \item checks if $\bar{\VC{\mathit{response}}}=\VS{\mathit{expected}}$. It proceeds to the next step if the equation holds. 
 %
-\item\label{Game::check-sim-} checks if $\Big((C_{\sss  ID},  \text{enrolment}), (C_{\sss  ID},  \text{authentication}), (\bar M, \bar t),$ $ (\bar M',$ $ \bar t'),$ $ (\ddot M', $ $\ddot t'), $ $(\hat M', \hat t'), \bar{\VC{\mathit{response}}}\Big)\in \vv L$. If this check fails, then it rejects authenticator  $\bar{\VC{\mathit{response}}}$ and terminates, without accepting any key.
+\item\label{Game::check-sim-} checks if $\Big((U_{\sss  ID},  \text{enrolment}), (U_{\sss  ID},  \text{authentication}), (\bar M, \bar t),$ $ (\bar M',$ $ \bar t'),$ $ (\ddot M', $ $\ddot t'), $ $(\hat M', \hat t'), \bar{\VC{\mathit{response}}}\Big)\in \vv L$. If this check fails, then it rejects authenticator  $\bar{\VC{\mathit{response}}}$ and terminates, without accepting any key.
 
 \item\label{Game::prf-} checks if $(\ddot{\VS{\nonce}}  \| \VS{\trans} \| *,\bar{\VC{\mathit{response}}})\in L_{\sss \adv}$.  
 %
@@ -129,18 +129,18 @@ We know that $\hat {Auth}_{\sss  6}$ occurs with probability $ \frac{q_{\sss  s}
 |Pr[S_{\sss  6}]-Pr[S_{\sss  5}]|\leq \frac{q_{\sss  s}}{2^{\sss \lambda}}
 \end{equation}
 
-\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  7}$: In this game, we modify the simulator such that it would abort if the adversary comes up with the authenticator and session key without decrypting  $ (\ddot M', \ddot t', \hat M', \hat t')$.  Therefore, we modify  the way the client processes query \send($C^{\sss  i}, (\ddot M', \ddot t'), (\hat M', \hat t')$) as follows.
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  7}$: In this game, we modify the simulator such that it would abort if the adversary comes up with the authenticator and session key without decrypting  $ (\ddot M', \ddot t', \hat M', \hat t')$.  Therefore, we modify  the way the user's device processes query \send($U^{\sss  i}, (\ddot M', \ddot t'), (\hat M', \hat t')$) as follows.
  %
  \begin{enumerate}
  \item compute $\bar{\VC{\mathit{response}}} \gets \prf_{\sss  \ddot t'}( \ddot M'|| 1)$.
- \item compute $\bar {sk}^{\sss C}\gets \prf_{\sss  \ddot t'}( \ddot M'|| 2)$.
+ \item compute $\bar {sk}^{\sss U}\gets \prf_{\sss  \ddot t'}( \ddot M'|| 2)$.
  \end{enumerate}
 
 We also amend the way the server compiles query \send($S^{\sss  j},   \bar{\VC{\mathit{response}}}$) as follows. 
 %
 \begin{enumerate}[label=\alph*]
 %
-\item\label{Game::prf--}  checks if  $(\ddot M'||1, \bar{\VC{\mathit{response}}})\in L_{\sss \adv}$ or  $(\ddot M'||2, \bar {sk}^{\sss C})\in L_{\sss \adv}$. 
+\item\label{Game::prf--}  checks if  $(\ddot M'||1, \bar{\VC{\mathit{response}}})\in L_{\sss \adv}$ or  $(\ddot M'||2, \bar {sk}^{\sss U})\in L_{\sss \adv}$. 
 %
 \item aborts, if either of the above checks (in step \ref{Game::prf--}) passes.
 %
@@ -153,7 +153,7 @@ We also amend the way the server compiles query \send($S^{\sss  j},   \bar{\VC{\
 $$|Pr[S_{\sss  7}]-Pr[S_{\sss  6}]|\leq Pr[\hat {Auth}_{\sss  7}]$$
 
 
-Event $\hat {Auth}_{\sss  7}$ occurs with probability $ \frac{2q_{\sss  s}}{2^{\sss \lambda}}$ when the query $q=\ddot M'||1$ to $\prf$ results in $\bar{\VC{\mathit{response}}}$ or $q=\ddot M'||2$ to $\prf$ results in $\bar {sk}^{\sss C}$. Thus, 
+Event $\hat {Auth}_{\sss  7}$ occurs with probability $ \frac{2q_{\sss  s}}{2^{\sss \lambda}}$ when the query $q=\ddot M'||1$ to $\prf$ results in $\bar{\VC{\mathit{response}}}$ or $q=\ddot M'||2$ to $\prf$ results in $\bar {sk}^{\sss U}$. Thus, 
 %
 \begin{equation}\label{eq::game_7}
 |Pr[S_{\sss  7}]-Pr[S_{\sss  6}]|\leq \frac{2q_{\sss  s}}{2^{\sss \lambda}}
@@ -193,7 +193,7 @@ This completes the proof.
 
 \subsection{Authentication}
 
-In this section, we prove the protocol's authentication. We begin with the case where the adversary $\adv$ has access to the traffic between the two parties and wants to impersonate the client, $C$; we denote such a case with $\bar {aut}$. The Authentication proof relies on the semantic security proof (and games) we presented in Section \ref{sec::semSec-proof}.  Now, we outline the proof.  By definition, it holds that:
+In this section, we prove the protocol's authentication. We begin with the case where the adversary $\adv$ has access to the traffic between the two parties and wants to impersonate the user, $U$; we denote such a case with $\bar {aut}$. The Authentication proof relies on the semantic security proof (and games) we presented in Section \ref{sec::semSec-proof}.  Now, we outline the proof.  By definition, it holds that:
 %
  \begin{equation}\label{eq::adv-ake}
 Adv_{\sss \psi}^{\sss \bar {aut}}(\A)=Pr[Auth_{\sss  0}]

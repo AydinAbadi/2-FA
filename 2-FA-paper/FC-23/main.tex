@@ -210,15 +210,15 @@ manufacture or can be sent (via a secure channel) to the user who can use the de
   % \noindent\rule{4.6in}{1pt}
  \pcln \< \<\hspace{4mm} k \ssample \mathsf{Gen}(\secparam) \\
  \pcln \< \<\hspace{4mm} \state_{\sss 0} \ssample \mathsf{FS\text{-}RPG}.\kgen(\secparam) \\
-  \pcln \< \<\hspace{4mm} C_{\sss ID} \gets \mathsf{IDGen}(\secparam) \pclb
+  \pcln \< \<\hspace{4mm} U_{\sss ID} \gets \mathsf{IDGen}(\secparam) \pclb
   %
- \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $C_{\sss ID}$)}} \< \\
+ \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $U_{\sss ID}$)}} \< \\
  %
  \pcln \text{set  $\VC{k}$ to $k$} \< \<\hspace{4mm} \text{set $\VS{k}$ to $k$}\\
  %
  \pcln \text{set $\VC{\state}$ to  $\state_{\sss 0}$} \< \<\hspace{4mm} \text{set  $\VS{\state}$ to $\state_{\sss 0}$}\\
  %
-  \pcln \text{store$(C_{\sss ID}, \VC{k}, \VC{\state})$} \< \<\hspace{4mm} \text{store $(C_{\sss ID}, \VS{k}, \VS{\state})$}\\
+  \pcln \text{store$(U_{\sss ID}, \VC{k}, \VC{\state})$} \< \<\hspace{4mm} \text{store $(U_{\sss ID}, \VS{k}, \VS{\state})$}\\
   %
  \pcln \VC{\counter} \gets 0 \< \<\hspace{4mm} \VS{\counter} \gets 0 \\
  %
@@ -264,7 +264,7 @@ The steps involved in this phase are shown in \prettyref{fig:enrollment} in deta
  %
 \pclb
  %
- \sendmessagerightx[5cm]{6}{(C_{\sss ID},  \text{enrolment})} \\% encrypt
+ \sendmessagerightx[5cm]{6}{(U_{\sss ID},  \text{enrolment})} \\% encrypt
  %%%%%% Server
  \pcln \< \<\hspace{2.6mm} \VS{\counter} \gets \VS{\counter} + 1  \\
  \pcln \< \<\hspace{2.6mm} \VS{\keyt_{\sss 1}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% update
