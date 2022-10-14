@@ -185,13 +185,13 @@ Recall that we wish to build an authentication protocol for which the server can
 These properties must be assured even when the PIN is small enough to be brute-forced.
 We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (i.e., a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise by never directly sending the PIN to the server.
 
-Our protocol consists of three main phases; namely, (i) a setup phase, performed once when the authentication device is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. In the protocol, we assume the parties include their IDs in their outgoing messages.  Similar to other two-factor authentication schemes, we assume the server maintains a local threshold, and if the number of incorrect responses from a user within a fixed time exceeds the threshold, then the user and its device will be locked out. Such a check is implicit in the protocol's description. In the remaining of this section, we describe each phase. 
+Our protocol consists of three main phases; namely, (i) a setup phase, performed once when the authentication device is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. In the protocol, we assume the parties include their IDs in their outgoing messages.  Similar to other two-factor authentication schemes, we assume the server maintains a local threshold, and if the number of incorrect responses from a user within a fixed time exceeds the threshold, then the user and its device will be locked out. Such a check is implicit in the protocol's description. 
 
 \subsection{Setup Phase}
 \label{sec:setup}
 
 To bootstrap the protocol, in the setup phase, we require that the user
-and server share \emph{initial} randomly generated key $k$ for AE and key $\state_{\sss 0}$ for  FS-PRG.
+and server share an \emph{initial} randomly generated key $k$ for AE and key $\state_{\sss 0}$ for  FS-PRG.
 The counter for the FS-PRG state is set to $0$ on both sides. 
 These values could be securely loaded into the device at the time of
 manufacture or can be sent (via a secure channel) to the user who can use the device camera to scan and store them in the device. In this phase, the device generates and locally stores a random secret key $\VC{\salt}$ for \prf.  \prettyref{fig:setup} presents the setup in detail. 
@@ -210,15 +210,15 @@ manufacture or can be sent (via a secure channel) to the user who can use the de
   % \noindent\rule{4.6in}{1pt}
  \pcln \< \<\hspace{4mm} k \ssample \mathsf{Gen}(\secparam) \\
  \pcln \< \<\hspace{4mm} \state_{\sss 0} \ssample \mathsf{FS\text{-}RPG}.\kgen(\secparam) \\
-  \pcln \< \<\hspace{4mm} U_{\sss ID} \gets \mathsf{IDGen}(\secparam) \pclb
+  \pcln \< \<\hspace{4mm} U_{\sss \mathrm{ID}} \gets \mathsf{IDGen}(\secparam) \pclb
   %
- \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $U_{\sss ID}$)}} \< \\
+ \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $U_{\sss \mathrm{ID}}$)}} \< \\
  %
  \pcln \text{set  $\VC{k}$ to $k$} \< \<\hspace{4mm} \text{set $\VS{k}$ to $k$}\\
  %
  \pcln \text{set $\VC{\state}$ to  $\state_{\sss 0}$} \< \<\hspace{4mm} \text{set  $\VS{\state}$ to $\state_{\sss 0}$}\\
  %
-  \pcln \text{store$(U_{\sss ID}, \VC{k}, \VC{\state})$} \< \<\hspace{4mm} \text{store $(U_{\sss ID}, \VS{k}, \VS{\state})$}\\
+  \pcln \text{store$(U_{\sss \mathrm{ID}}, \VC{k}, \VC{\state})$} \< \<\hspace{4mm} \text{store $(U_{\sss \mathrm{ID}}, \VS{k}, \VS{\state})$}\\
   %
  \pcln \VC{\counter} \gets 0 \< \<\hspace{4mm} \VS{\counter} \gets 0 \\
  %
@@ -502,8 +502,8 @@ We refer to Appendix \ref{sec:security} for informal security analysis and Appen
 \label{sec:asymmetric}
 
 Usability is of critical importance for an effective authentication system as otherwise, users will refuse to use it or implement insecure workarounds \cite{de2013comparative}.
-As we stated in Section \ref{sec::model}, in our protocol, the server interacts with the device via the client. To accommodate usability and let the device easily receive the server's message, we require the device be able to receive a message of a few hundred bytes from the server. This functionality already present on any device capable of transaction authentication because it must be able to receive a description of the transaction to show to the user on the trusted display. Typically this communication functionality is implemented by an inexpensive camera such as in the Gemalto SWYS QR\footnote{\url{https://www.thalesgroup.com/sites/default/files/database/document/2020-12/fs-QR-code-reader.pdf}} or OneSpan Digipass 770\footnote{\url{https://www.onespan.com/products/transaction-signing/cronto/digipass-770}}, which both scan 2D barcode shown on the screen of the client. 
-The response from device to server can be safely truncated because the protocol ensures offline brute-force attacks are not possible. So, the verifier can be manually typed so no special hardware is needed for this direction of communication. The verifier length should be selected to reduce the chance of success of an online brute force attack to an acceptable level, taking into consideration rate-limiting implemented on the server. This security-usability trade-off is not specific to our protocol and exists in all hardware token-based multi-factor authentication schemes that do not assume a high-bandwidth communication channel from authentication device to server. 
+As we stated in Section \ref{sec::model}, in our protocol, the server interacts with the device via the client. To accommodate usability and let the device easily receive the server's message, we require the device be able to receive a message of a few hundred bytes from the server. This functionality already present on any device capable of transaction authentication because it must be able to receive a description of the transaction to show to the user on the trusted display. Typically this communication functionality is implemented by an inexpensive camera such as in the Gemalto SWYS QR~\cite{Gemalto} or OneSpan Digipass 770~\cite{Digipass-website}, which both scan 2D barcode shown on the screen of the client. 
+The response from device to server can be safely truncated because the protocol ensures offline brute-force attacks are not possible. So, the verifier can be manually typed without any special hardware required for this direction of communication. The verifier length should be selected to reduce the chance of success of an online brute force attack to an acceptable level, taking into consideration rate-limiting implemented on the server. This security-usability trade-off is not specific to our protocol and exists in all hardware token-based multi-factor authentication schemes that do not assume a high-bandwidth communication channel from authentication device to server. 
 
 Another consideration is handling mistyped or forgotten PINs. As we highlighted in Section \ref{sec::the-protocol}, when setting the PIN, the device can ask the user to confirm their PIN by entering the PIN twice and alerting the user if they do not match. However, because we assume that the device has no trusted hardware we cannot store the PIN in the device. Therefore during authentication if the wrong PIN is entered, the user will only be alerted after the response code has been verified by the server. To enhance usability by detecting mistyped PINs earlier in the protocol, at some cost of security, the device could show the user an image computed as a function of the PIN entered to help the user detect a mistyped PIN, effectively serving as a checksum. To prevent someone observing the device from discovering the PIN from the image, the function could be designed to have a large number of collisions.
 

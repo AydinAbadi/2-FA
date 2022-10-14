@@ -27,7 +27,7 @@ Additionally if the adversary captures one OTP and extracts the key from the har
 
 
 Our protocol is similar to OATH-OCRA in that it is a challenge-response authentication protocol, but unlike OATH-OCRA we protect the PIN from compromise even if the adversary can obtain secrets stored on the server or device.
-This threat model is stronger than that used for most research and implementation, but Jarecki \etal~\cite{JareckiJKSS21} does take a similar approach.
+This threat model is stronger than that used for most research and implementation but Jarecki \etal~\cite{JareckiJKSS21} does address this threat model.
 However, this protocol imposes high costs due to the use of public-key cryptography and numerous rounds of communication. 
 This protocol requires the user (in addition to remembering its PIN) to locally store a cryptographic secret key. The protocol we propose does not require trusted tamper-resistant hardware, needs a single round of communication, and involves no public-key cryptography.
 A more detailed comparison of the protocols can be found in \prettyref{sec:eval} and \prettyref{app:long-eval}.
