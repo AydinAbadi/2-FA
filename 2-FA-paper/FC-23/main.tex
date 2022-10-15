@@ -398,7 +398,7 @@ The goal of the authentication process is to give the server assurance that the 
  %
   %\pcln \forEach i \in[1,d]: \< \< \\
   % \pcln    \VC{\counter} \gets \VC{\counter} + d+1\< \< \\
-    \pcln \VC{\keyt_{\sss 2}},  \VC{\state} \gets \update(\VC{\state}, d) \< \< \\ % update
+    \pcln\label{auth-protocol:first-update} \VC{\keyt_{\sss 2}},  \VC{\state} \gets \update(\VC{\state}, d) \< \< \\ % update
  %%%%%%%%
    %
     %\pcln \VC{\keyt_{\sss 2}} \gets k \< \< \\ % set the key
