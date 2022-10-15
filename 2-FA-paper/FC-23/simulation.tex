@@ -80,7 +80,7 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
  % 
   \begin{enumerate}
   %
-  \item authenticates and decrypts the ciphertext $\bar M$ as $(p, b) \gets \mathsf{Dec}_{\sss\VC{k}}(\bar M, \bar t)$. If the authentication fails (i.e., $b\neq 1$), it halts.  
+  \item authenticates and decrypts the ciphertext $\bar M$ as $(p, b) \gets \mathsf{Dec}_{\sss\VC{k}}(\bar M, \bar t)$. If the authentication fails (\ie, $b\neq 1$), it halts.  
   %
   \item extracts $(\VM{\nonce}, \VM{\counter})$ from plaintext $p$ and checks if $\VM{\counter} > \VC{\counter} $. If the check fails, it halts. 
   %
@@ -102,7 +102,7 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
  %
  \item updates its state as follows: $\forall i, 1\leq i\leq \tmp_{\sss\VM{\counter}}- \VC{\counter}: \text{\ (a)\ } \VC{\counter} \gets \VC{\counter} + 1\text{\ and (b) \ } (k,  \VC{\state}) \gets \update(\VC{\state}, \VC{\counter})$. 
  %
- \item  authenticates and decrypts $\ddot M'$ as follows: $(p, b) \gets \mathsf{Dec}_{\sss k}(\ddot M', \ddot t')$. If the authentication fails (i.e., $b\neq 1$), it halts.
+ \item  authenticates and decrypts $\ddot M'$ as follows: $(p, b) \gets \mathsf{Dec}_{\sss k}(\ddot M', \ddot t')$. If the authentication fails (\ie, $b\neq 1$), it halts.
  %
  \item    extracts $(\VM{\nonce}, \VM{\trans})$ from plaintext $p$.  
  %

@@ -45,17 +45,17 @@ that captures both send and execute queries. We highlight that as we use a stand
 
 
 
-\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  2}$: This game is the same as $G_{\sss  1}$, with the difference that we simulate the authenticated encryption scheme (i.e., $Enc$ and $Dec$ algorithms). We replace the output of $Enc$ with a uniformly random value picked from the encryption scheme's range. The adversary has access to the encryption and decryption oracles. Since we treat the encryption scheme as a black box, the two games are distinguishable except with a negligible probability; this we will have: 
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  2}$: This game is the same as $G_{\sss  1}$, with the difference that we simulate the authenticated encryption scheme (\ie, $Enc$ and $Dec$ algorithms). We replace the output of $Enc$ with a uniformly random value picked from the encryption scheme's range. The adversary has access to the encryption and decryption oracles. Since we treat the encryption scheme as a black box, the two games are distinguishable except with a negligible probability; this we will have: 
  %
 \begin{equation}\label{eq::game_2}
 |Pr[S_{\sss  2}]-Pr[S_{\sss  1}]| \leq (q_{\sss s}+q_{\sss p}) Adv^{\sss Enc}(\adv)
 \end{equation}
 
-The above also captures both the send and execute queries. Since we have used a standard encryption scheme, the probability of finding a collision (e.g., two ciphertexts result in the same plaintext or two plaintexts result in the same ciphertext) is $0$, as the scheme is bijective. 
+The above also captures both the send and execute queries. Since we have used a standard encryption scheme, the probability of finding a collision (\eg, two ciphertexts result in the same plaintext or two plaintexts result in the same ciphertext) is $0$, as the scheme is bijective. 
 
 
 
-\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, i.e., via predicate $\phi$ defined in Section \ref{sec::model}. Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  U}$ and policy $\pi$, it always returns the same output as the user's device does when verifying $t^{\sss  U}$ in the previous game.  Therefore, both $\phi$ and the user's device would output identical values, given pair $(t^{\sss  U}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, \ie, via predicate $\phi$ defined in Section \ref{sec::model}. Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  U}$ and policy $\pi$, it always returns the same output as the user's device does when verifying $t^{\sss  U}$ in the previous game.  Therefore, both $\phi$ and the user's device would output identical values, given pair $(t^{\sss  U}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
 %
 \begin{equation}\label{eq::game_3}
 Pr[S_{\sss  3}]-Pr[S_{\sss  2}]=0
@@ -206,7 +206,7 @@ Also, we can extend Equation \ref{eq::game_1} to:
 |Pr[Auth_{\sss  1}]-Pr[Auth_{\sss  0}]| \leq (q_{\sss s}+q_{\sss p})Adv^{\sss\prf}(\adv),
 \end{equation*}
 %
- because the only difference between the two games (i.e., $G_{\sss  0}$ and $G_{\sss  1}$) is that the output of the $\prf$ is replaced with an output of a uniformly random function $f$. 
+ because the only difference between the two games (\ie, $G_{\sss  0}$ and $G_{\sss  1}$) is that the output of the $\prf$ is replaced with an output of a uniformly random function $f$. 
  
  
  Furthermore, we can extend Equations \ref{eq::game_1}-\ref{eq::game_7} as follows: 
@@ -232,7 +232,7 @@ Also, we can extend Equation \ref{eq::game_1} to:
  \end{equation}
  
  
-Next, we proceed to the case where the adversary is given further access to the PIN, i.e., $\adv$ can also send query  \corrupt($C, 1$). We argue that given such an extra capability does not affect the adversary's advantage and the above analysis (as the protocol and its analysis have relied on the security of the CCA-secure symmetric encryption and $\prf$). Now move on to the case where $\adv$ (a) is given all the parameters stored in the hardware token, and (b) has access to all the traffic between the two parties, i.e., $\adv$ can also send query  $\bar{\text{Cpt}_{\sss  2}} =$ \corrupt$(C, 2)$. We argue that in this case, the upper bound of $\adv$'s advantage will be changed as follows:  $Adv_{\sss\psi, \bar{\text{Cpt}_{\sss  2}}}^{\sss  aut}(\A)\leq  \cfrac{q_{\sss  s}}{N}$. The reason for such a big change is that in this case, $\adv$ has all secret parameters, except the PIN and verifier $\VC{\verifier}$. \footnote{The case where $\adv$ has the additional capability to send query \corrupt($U, 2$) was never discussed and analysed in \cite{BressonCP03}. However, we noticed that $\adv$ in that scheme would have the same upper bound advantage as $\adv$ in our scheme does.} Thus, when we take the forward security into account, the advantage of the adversary (due to the union bound)  is as follows: 
+Next, we proceed to the case where the adversary is given further access to the PIN, i.e., $\adv$ can also send query  \corrupt($C, 1$). We argue that given such an extra capability does not affect the adversary's advantage and the above analysis (as the protocol and its analysis have relied on the security of the CCA-secure symmetric encryption and $\prf$). Now move on to the case where $\adv$ (a) is given all the parameters stored in the hardware token, and (b) has access to all the traffic between the two parties, \ie, $\adv$ can also send query  $\bar{\text{Cpt}_{\sss  2}} =$ \corrupt$(C, 2)$. We argue that in this case, the upper bound of $\adv$'s advantage will be changed as follows:  $Adv_{\sss\psi, \bar{\text{Cpt}_{\sss  2}}}^{\sss  aut}(\A)\leq  \cfrac{q_{\sss  s}}{N}$. The reason for such a big change is that in this case, $\adv$ has all secret parameters, except the PIN and verifier $\VC{\verifier}$. \footnote{The case where $\adv$ has the additional capability to send query \corrupt($U, 2$) was never discussed and analysed in \cite{BressonCP03}. However, we noticed that $\adv$ in that scheme would have the same upper bound advantage as $\adv$ in our scheme does.} Thus, when we take the forward security into account, the advantage of the adversary (due to the union bound)  is as follows: 
 %
   \begin{equation*}
  Adv_{\sss \psi}^{\sss  aut}(\A)  \leq (q_{\sss s} + q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{9q_{\sss s}+4q_{\sss  p}}{2^{\sss \lambda}}+  \cfrac{q_{\sss  s}}{N}

@@ -46,7 +46,7 @@ Thus,  our protocol and the ones in \cite{WangW18,JareckiJKSS21} involve a const
 \subsection{Communication Cost}
 
 
-We first analyse our protocol's communication cost. In the enrolment phase,  the user only sends two pairs of messages: $(U_{\text ID}, $ $\text{enrolment})$ and $(M', t')$, where the total size of messages in the first pair is about $250$ bits (assuming the ID is of length $128$ bits),  while the total size of messages in the second pair is about  $512$ bits as they are the outputs of symmetric-key primitives, i.e., symmetric key encryption and message authentication code schemes whose output size is $256$ bits. The server sends out only a single pair $(M', t')$ whose total size is about $512$ bits. 
+We first analyse our protocol's communication cost. In the enrolment phase,  the user only sends two pairs of messages: $(U_{\text ID}, $ $\text{enrolment})$ and $(M', t')$, where the total size of messages in the first pair is about $250$ bits (assuming the ID is of length $128$ bits),  while the total size of messages in the second pair is about  $512$ bits as they are the outputs of symmetric-key primitives, \ie, symmetric key encryption and message authentication code schemes whose output size is $256$ bits. The server sends out only a single pair $(M', t')$ whose total size is about $512$ bits. 
 % 
 The parties' communication cost in the authentication phase is as follows. The user only sends three messages: $(U_{\text ID}, $ $\text{authentication}, \VC{\mathit{response}})$, where the combined size of the first two messages is about $250$ bits while the third message's size is about $256$ bits. The server sends only two pairs of messages $(\ddot M, \ddot t)$ and $(\hat M, \hat t)$ with a total size of $1024$ bits. Therefore, the total communication cost that our protocol imposes is about $2804$ bits. 
 
@@ -65,7 +65,7 @@ Hence, our protocol imposes a $10\%$ and $40\%$ lower communication cost than th
 
 \subsection{Other Features}
 
- In our protocol, a user needs to know only a single secret (i.e., a  PIN). Nevertheless, in the protocol in \cite{WangW18} a user requires to know (and insert into the verification algorithm) an additional secret; namely, a secret random ID. Thus, the user needs to remember two secrets in total.  As shown in \cite{Scott12a}, this scheme will not remain secure, even if only the user's ID is revealed. Furthermore, the protocol in \cite{JareckiJKSS21} requires the user to remember or locally store at least one cryptographic secret key of sufficient length, e.g., $128$ bits; this secret key is generated via invocation of a subroutine protocol (called PAKE) and must not be kept on the device. 
+ In our protocol, a user needs to know only a single secret (\ie, a  PIN). Nevertheless, in the protocol in \cite{WangW18} a user requires to know (and insert into the verification algorithm) an additional secret; namely, a secret random ID. Thus, the user needs to remember two secrets in total.  As shown in \cite{Scott12a}, this scheme will not remain secure, even if only the user's ID is revealed. Furthermore, the protocol in \cite{JareckiJKSS21} requires the user to remember or locally store at least one cryptographic secret key of sufficient length, \eg, $128$ bits; this secret key is generated via invocation of a subroutine protocol (called PAKE) and must not be kept on the device. 
  % 
  Furthermore, our protocol is secure in the standard model while the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
 
