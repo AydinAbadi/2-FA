@@ -8,14 +8,14 @@
  
  \input{notation-Table}
 
-\subsection{Keyed pseudorandom Function}\label{subsec:PRF}
+\subsection{Keyed Pseudorandom Function}\label{subsec:PRF}
 
 Informally, a keyed pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value indistinguishable from that of a truly random function with the same domain and range.  A formal definition of a $\prf$ is given by Katz and Lindell~\cite{KatzLindell2014} and is included in \prettyref{app:def-FS-PRG}.
 
 \subsection{Forward-Secure Pseudorandom Bit Generator}
 
  %
-A Forward-Secure Pseudorandom Bit Generator (FS-RPG), is a \emph{stateful} object which consists a pair of algorithms and a pair of positive integers, i.e., $\mathsf{FS\text{-}RPG} = \Big((\mathsf{FS\text{-}RPG}.\kgen, $ $ \mathsf{FS\text{-}RPG.next}),( b, n)\Big)$, as defined in \cite{BellareY03}.  The probabilistic key generation algorithm $\mathsf{FS\text{-}RPG}.\kgen$ takes a security parameter as input and outputs an initial state ${st}_{\sss 0}$ of length $s$ bits. $\mathsf{FS\text{-}RPG.next}$ is a key-updating algorithm which, given the current state ${st}_{\sss i-1}$, outputs a pair of a $b$-bit block ${out}_{\sss i}$ and the next state ${st}_{\sss i}$. We can produce a sequence  ${out}_{\sss 1},..., {out}_{\sss n}$  of  $b$-bit output blocks, by first generating a key  ${st}_{\sss 0}\stackrel{\sss \$}\leftarrow\mathsf{FS\text{-}RPG}.\kgen(1^{\sss \lambda})$ and then running $({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}RPG.next} (st_{\sss i-1})$ for all $i, 1\leq i\leq n$. As with a standard pseudorandom bit generator, output blocks of this generator should be computationally indistinguishable from a random bit
+A Forward-Secure Pseudorandom Bit Generator (FS-RPG), is a \emph{stateful} object which consists a pair of algorithms and a pair of positive integers, \ie $\mathsf{FS\text{-}RPG} = \Big((\mathsf{FS\text{-}RPG}.\kgen, $ $ \mathsf{FS\text{-}RPG.next}),( b, n)\Big)$, as defined in \cite{BellareY03}.  The probabilistic key generation algorithm $\mathsf{FS\text{-}RPG}.\kgen$ takes a security parameter as input and outputs an initial state ${st}_{\sss 0}$ of length $s$ bits. $\mathsf{FS\text{-}RPG.next}$ is a key-updating algorithm which, given the current state ${st}_{\sss i-1}$, outputs a pair of a $b$-bit block ${out}_{\sss i}$ and the next state ${st}_{\sss i}$. We can produce a sequence  ${out}_{\sss 1},..., {out}_{\sss n}$  of  $b$-bit output blocks, by first generating a key  ${st}_{\sss 0}\stackrel{\sss \$}\leftarrow\mathsf{FS\text{-}RPG}.\kgen(1^{\sss \lambda})$ and then running $({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}RPG.next} (st_{\sss i-1})$ for all $i, 1\leq i\leq n$. As with a standard pseudorandom bit generator, output blocks of this generator should be computationally indistinguishable from a random bit
 string of the same length. The additional property required from a
 FS-RPG is that even when the
 adversary learns the state, output blocks generated before the point of
