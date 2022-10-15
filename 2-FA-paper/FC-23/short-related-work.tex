@@ -18,7 +18,7 @@ Similarly using a smartphone as the hardware authentication device does not fulf
 
 Instead, we take to follow the approach of a one-time-password (OTP) generator, where the hardware device yields a short string (\eg, six to eight digits) from a combination of a PIN and the device's parameters. Typically, as in the ``Open AuTHentication'' (OATH) family of protocols the OTP is computed as the keyed hash of these parameters. The user types this OTP into the computer and it is verified by the server, which knows the corresponding key. There are a wide variety of approaches to OTP generation, such as whether a counter (\eg, OATH-HOTP~\cite{oath-hotp}), timestamp (\eg, OATH-TOTP~\cite{oath-totp}), or server-generated challenge (\eg, OATH-OCRA~\cite{oath-ocra}) is used to limit the validity of a given OTP.  We refer readers to Appendix \ref{Survey-of-Related-Work} for a more detailed discussion.
 
-There are also a range of options on how the PIN is used as the knowledge factor to complement the possession factor of the hardware device.
+There is also a range of options on how the PIN is used as the knowledge factor to complement the possession factor of the hardware device.
 One option is to store the PIN on the device and use trusted tamper-resistant hardware to verify that the PIN entered is correct before generating an OTP, while not allowing the correct PIN to be extracted.
 However, tamper-resistant hardware adds significantly to costs and can be bypassed by a sufficiently well-equipped adversary.
 Alternatively, as with OATH-OCRA, the PIN can be an input to the keyed hash and verified by the server, but this would allow the PIN to be obtained if the server is compromised.
@@ -27,7 +27,7 @@ Additionally, if the adversary captures one OTP and extracts the key from the ha
 
 
 Our protocol is similar to OATH-OCRA in that it is a challenge-response authentication protocol, but unlike OATH-OCRA we protect the PIN from compromise even if the adversary can obtain secrets stored on the server or device.
-This threat model is stronger than that used for most research and implementation but Jarecki \etal~\cite{JareckiJKSS21} does address this threat model.
+This threat model is stronger than that used for most research and implementation but Jarecki \etal~\cite{JareckiJKSS21} do address this threat model.
 However, this protocol imposes high costs due to the use of public-key cryptography and numerous rounds of communication. 
 This protocol requires the user (in addition to remembering its PIN) to locally store a cryptographic secret key. The protocol we propose does not require trusted tamper-resistant hardware, needs a single round of communication, and involves no public-key cryptography.
 A more detailed comparison of the protocols can be found in \prettyref{sec:eval} and \prettyref{app:long-eval}.
