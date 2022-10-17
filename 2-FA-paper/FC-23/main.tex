@@ -321,7 +321,7 @@ The steps involved in this phase are detailed in \prettyref{fig:enrollment}.
  %%%%%% Server
  \< \<\hspace{2.6mm} (p',b') \gets \mathsf{Dec}_{\sss\VS{\keyt_{\sss 1}}}(M',t') \< \< \\% server-- decrypt
   %
-   \pcln\< \<\hspace{2.6mm} \iif b'\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail} \\ % client-- verify tag
+   \pcln\< \<\hspace{2.6mm} \iif b'\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail-server-}\\ % client-- verify tag
   %
  \pcln\< \<\hspace{2.6mm} \text{Parse\ } p' \text{\ yielding\ }  \VM{\nonce},  \VM{\verifier} \< \< \\
   %
