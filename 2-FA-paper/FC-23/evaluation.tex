@@ -6,13 +6,9 @@ In this section, we briefly analyse and compare our 2FA protocol with the smart-
 
 %Before we compare the two protocols' costs, we highlight a vital difference between the two. 
 
-
-
-\vspace{-4mm}
 \input{evaluation-table}
-\vspace{-3mm}
+
 \subsection{Computation Cost}
-\vspace{-1mm}
 In our protocol, each party (user or server) invokes the authenticated encryption scheme $4$ times and the pseudorandom function $5$ times. In the protocol proposed by Wang \etal~\cite{WangW18}, the user invokes a hash function $11$ times and performs $3$ modular exponentiations while the server invokes the hash function $8$ times and performs $2$ modular exponentiations. Moreover, in the protocol presented by Jarecki \etal~\cite{JareckiJKSS21}, the user invokes a hash function $3$ times and runs symmetric key encryption once. It also performs $10$ modular exponentiations. While the server invokes a pseudorandom function once and performs at least $2$ modular exponentiations and $2$ symmetric-key encryptions. Thus,  our protocol and the ones in \cite{WangW18,JareckiJKSS21} involve a constant number of symmetric key primitive invocations; however, our protocol does not involve any modular exponentiations, whereas those in  \cite{WangW18,JareckiJKSS21} involve a constant number of modular exponentiations which leads to a higher cost. 
 The avoidance of the need to perform modular exponentiations not only reduces computation cost and energy consumption, but also saves flash storage due to not requiring an bignum library.
 
@@ -22,7 +18,6 @@ In our protocol, the communication cost of the user is $1268$ bits and the serve
 
 
 \subsection{Other Features}
-\vspace{-1mm}
  In our protocol, a user needs to know and insert into the device only a single secret, \ie, a  PIN. In contrast, in the protocol in \cite{WangW18}, a user has to know and insert an additional secret, \ie, a random ID. As shown by Scott~\cite{Scott12a}, the scheme in \cite{WangW18} will not remain secure, even if only the user's ID is revealed. The protocol in \cite{JareckiJKSS21} requires the user (in addition to remembering its PIN) to locally store a cryptographic secret key of sufficient length, \eg, $128$ bits; this secret key must not be kept on the device but must be inserted into it during the authentication phase. 
  % 
  Furthermore, our protocol is secure in the standard model whereas the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
