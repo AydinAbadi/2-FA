@@ -18,8 +18,8 @@
 \newrefformat{app}{Appendix~\ref{#1}}
 \usepackage{booktabs}
 \usepackage{xspace}
-%\usepackage[disable]{todonotes}
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
+%\usepackage{todonotes}
 \raggedbottom% to remove huge space
 \usepackage{url}
 \def\doubleunderline#1{\underline{\underline{#1}}}
@@ -244,7 +244,7 @@ The goal of the enrolment phase is to set the user's PIN, without providing the
 % The server allows this phase to take place only over a channel through which the client has already proven their identity. 
  %
   At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the user's selected PIN.
-The steps involved in this phase are shown in \prettyref{fig:enrollment} in detail.  
+The steps involved in this phase are detailed in \prettyref{fig:enrollment}.  
 
 
 
@@ -455,7 +455,7 @@ The goal of the authentication process is to give the server assurance that the 
 %%%%%%%%%%%%%%%%%%
 
 This phase works as follows. The server first updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. The server updates the state and the counter one more time which yields a new state \VS{\state}, a new random value \VS{\keyt_{\sss 3}}, and a new counter \VS{\counter}. The server generates a random challenge and two ciphertexts, $\ddot M$ and $\hat M$. The former ciphertext consists of the random challenge and the description of the transaction, encrypted under key \VS{\keyt_{\sss 2}}. The latter ciphertext contains the counter $\tmp_{\VS{\counter}}$, encrypted under key $\VC{k}$. The reason $\tmp_{\VS{\counter}}$ is encrypted under key $\VC{k}$ is to allow the device to decrypt the ciphertext easily 
-in case of previous message loss; for instance, when the server sends $(\ddot M, \hat M)$ to the server, but they are lost in transit, multiple times, and a fresh pair finally arrives the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) lets the device deal with such a situation. 
+in case of previous message loss; for instance, when the server sends $(\ddot M, \hat M)$ to the server, but they are lost in transit, multiple times, and a fresh pair finally arrives at the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) lets the device deal with such a situation. 
 
 
 
@@ -464,7 +464,7 @@ Upon receiving the ciphertexts, the device validates and decrypts the messages. 
 
 
 
-For the device to generate the response message, first it updates its state one more time, which results in a pseudorandom value \VC{\keyt_{\sss 3}}. Then, it derives a pseudorandom value, \VC{\mathit{response}}, from a combination of the random challenge \VM{\nonce}, transaction \VM{\trans}, verifier \VC{\verifier}, and $x=1$  using $\prf$ and \VC{\keyt_{\sss 3}}. The device generates a session key, using the above combination and key with a difference that now $x=2$. The response message is truncated to be a convenient length, displayed on the screen of the device, typed by the user into the client, and sent to the server. The device discards the PIN, the verifier, all FS-PRG keys, the challenge, and the transaction's description, so as to protect the PIN from discovery. The server computes the expected response message based on its own values of the challenge, transaction, and verifier. Note that the verifier is retrieved from the value set during the enrolment phase. The server then compares the expected response with the response sent by the client. Only if they match, the authentication is considered to have succeeded. If the response does not match the one the server expects this could indicate that the message was tampered with, or that the user entered an incorrect PIN. Next, the server generates the session key the same way as the device does.  The server also discards the FS-PRG key, the challenge, and the transaction's description.
+For the device to generate the response message, it first updates its state one more time, which results in a pseudorandom value \VC{\keyt_{\sss 3}}. Then, it derives a pseudorandom value, \VC{\mathit{response}}, from a combination of the random challenge \VM{\nonce}, transaction \VM{\trans}, verifier \VC{\verifier}, and $x=1$  using $\prf$ and \VC{\keyt_{\sss 3}}. The device generates a session key, using the above combination and key with a difference that now $x=2$. The response message is truncated to be a convenient length, displayed on the screen of the device, typed by the user into the client, and sent to the server. The device discards the PIN, the verifier, all FS-PRG keys, the challenge, and the transaction's description, so as to protect the PIN from discovery. The server computes the expected response message based on its own values of the challenge, transaction, and verifier. Note that the verifier is retrieved from the value set during the enrolment phase. The server then compares the expected response with the response sent by the client. Only if they match, the authentication is considered to have succeeded. If the response does not match the one the server expects this could indicate that the message was tampered with, or that the user entered an incorrect PIN. Next, the server generates the session key the same way as the device does.  The server also discards the FS-PRG key, the challenge, and the transaction's description.
 
 %
 Below, we formally state the security of our protocol.  First, we present a theorem stating that the advantage of an adversary in breaking the semantic security of the above protocol is negligible.  
@@ -495,14 +495,14 @@ let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties
 \vspace{-2mm}
 
 
-We refer to Appendix \ref{sec:security} for informal security analysis and Appendix \ref{sec::Formal-Security-Analysis} for formal security proof where the above two theorems will be proven.  
+We refer to Appendix \ref{sec:security} for an informal security analysis and Appendix \ref{sec::Formal-Security-Analysis} for the formal security proof of the above two theorems.  
 
 
 \section{System Usability}
 \label{sec:asymmetric}
 
 Usability is of critical importance for an effective authentication system as otherwise, users will refuse to use it or implement insecure workarounds \cite{de2013comparative}.
-As we stated in Section \ref{sec::model}, in our protocol, the server interacts with the device via the client. To accommodate usability and let the device easily receive the server's message, we require the device to be able to receive a message of a few hundred bytes from the server. This functionality is already present on any device capable of transaction authentication because it must be able to receive a description of the transaction to show to the user on the trusted display. Typically this communication functionality is implemented by an inexpensive camera such as in the Gemalto SWYS QR~\cite{Gemalto} or OneSpan Digipass 770~\cite{Digipass-website}, which both scan 2D barcode shown on the screen of the client. 
+As we stated in Section \ref{sec::model}, in our protocol, the server interacts with the device via the client. To accommodate usability and let the device easily receive the server's message, we require the device to be able to receive a message of a few hundred bytes from the server. This functionality is already present on any device capable of transaction authentication because it must be able to receive a description of the transaction to show to the user on the trusted display. Typically this communication functionality is implemented by an inexpensive camera such as in the Gemalto SWYS QR~\cite{Gemalto} or OneSpan Digipass 770~\cite{Digipass-website}, which both scan a 2D barcode shown on the screen of the client. 
 The response from the device to the server can be safely truncated because the protocol ensures offline brute-force attacks are not possible. So, the verifier can be manually typed without any special hardware required for this direction of communication. The verifier length should be selected to reduce the chance of success of an online brute force attack to an acceptable level, taking into consideration the rate-limiting implemented on the server. This security-usability trade-off is not specific to our protocol and exists in all hardware token-based multi-factor authentication schemes that do not assume a high-bandwidth communication channel from the authentication device to the server. 
 
 Another consideration is handling mistyped or forgotten PINs. As we highlighted in Section \ref{sec::the-protocol}, when setting the PIN, the device can ask the user to confirm their PIN by entering the PIN twice and alerting the user if they do not match. However, because we assume that the device has no trusted hardware we cannot store the PIN in the device. Therefore during authentication, if the wrong PIN is entered, the user will only be alerted after the response code has been verified by the server. To enhance usability by detecting mistyped PINs earlier in the protocol, at some cost of security, the device could show the user an image computed as a function of the PIN entered to help the user detect a mistyped PIN, effectively serving as a checksum. To prevent someone observing the device from discovering the PIN from the image, the function could be designed to have a large number of collisions.
