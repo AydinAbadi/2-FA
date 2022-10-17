@@ -18,8 +18,13 @@
 \newrefformat{app}{Appendix~\ref{#1}}
 \usepackage{booktabs}
 \usepackage{xspace}
+%<<<<<<< HEAD
+%\usepackage[disable]{todonotes}
 \usepackage[disable]{todonotes}
+
+%\usepackage[disable]{todonotes}
 %\usepackage{todonotes}
+%>>>>>>> 91be1e6d0ec94aa428459f52a4d9e3a6f1d5835b
 \raggedbottom% to remove huge space
 \usepackage{url}
 \def\doubleunderline#1{\underline{\underline{#1}}}
@@ -507,6 +512,7 @@ We refer to Appendix \ref{sec:security} for an informal security analysis and Ap
 
 \section{System Usability}
 \label{sec:asymmetric}
+%\vspace{-1mm}
 
 Usability is of critical importance for an effective authentication system as otherwise, users will refuse to use it or implement insecure workarounds \cite{de2013comparative}.
 As we stated in Section \ref{sec::model}, in our protocol, the server interacts with the device via the client. To accommodate usability and let the device easily receive the server's message, we require the device to be able to receive a message of a few hundred bytes from the server. This functionality is already present on any device capable of transaction authentication because it must be able to receive a description of the transaction to show to the user on the trusted display. Typically this communication functionality is implemented by an inexpensive camera such as in the Gemalto SWYS QR~\cite{Gemalto} or OneSpan Digipass 770~\cite{Digipass-website}, which both scan a 2D barcode shown on the screen of the client. 

@@ -106,7 +106,7 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
  %
  \item    extracts $(\VM{\nonce}, \VM{\trans})$ from plaintext $p$.  
  %
- \item runs the predicate, $y \leftarrow\phi(\VM{\trans}, \pi)$. If $y=0$, it halts. 
+ \item runs the predicate, $y \leftarrow\phi(\VM{\trans}, \gamma)$. If $y=0$, it halts. 
  %
 \item generates $\VC{\verifier}$ using $\VC{\salt}$ and $\VC{\pin}$ as follows, $\VC{\verifier} \gets \prf_{\sss\VC{\salt}}(\VC{\pin})$.
  %
