@@ -8,3 +8,6 @@
 *.fdb_latexmk
 *.fls
 main.pdf
+~$*
+.DS_Store
+main.docx
