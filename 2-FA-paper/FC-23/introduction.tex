@@ -24,7 +24,7 @@ This means that for the authentication protocol to succeed the user must have ha
 
 Researchers and companies have proposed various 2FA solutions based on a combination of PIN and device possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a user and server, and (b) have physical access to the user's device, or its PIN, or breaches the server. These solutions do not rely on trusted hardware and still ensure that even such a strong adversary cannot succeed during the authentication. Nevertheless, these solutions (i) require a user to remember multiple secret values (instead of a single PIN)  to prove its identity which ultimately harms these solutions' usability, (ii) involve several modular exponentiations that make the device battery power run out quickly, and (iii) are proved in the non-standard random oracle model.
 
-\paragraph{\textbf{\textit{Our Contributions.}}}  In this work, we present a 2FA protocol that resists the strong adversary above while addressing the aforementioned shortcomings and imposing a lower communication cost. Specifically, our protocol:
+\paragraph{\textbf{\textit{Our Contributions.}}}  In this work, we present a 2FA protocol that resists the strong adversary described above while addressing the aforementioned shortcomings and imposing a lower communication cost. Specifically, our protocol:
 
 \begin{itemize}
 \item[$\bullet$] requires a user to remember and type into the device only a single PIN.
