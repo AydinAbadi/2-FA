@@ -1,0 +1,49 @@
+%!TEX root = main.tex
+
+\begin{table} 
+
+\begin{center}
+\caption{ \small Comparison of efficient two-factor authentication protocols.}  \label{comparisonTable} 
+%\renewcommand{\arraystretch}{1}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|} 
+\hline
+
+{\cellcolor{gray!40}\scriptsize {Features}} &\cellcolor{gray!40}{\scriptsize {Operation}}&\cellcolor{gray!40}{ \scriptsize {Our Protocol}}&\cellcolor{gray!40}{\scriptsize{\cite{WangW18}}}&\cellcolor{gray!40} {\scriptsize{\cite{JareckiJKSS21}}}  \\
+\hline
+
+\multirow{2}{*}{\scriptsize Computation cost}
+
+
+&\scriptsize{Sym-key}&\cellcolor{gray!20}\scriptsize$18$&\cellcolor{gray!20}\scriptsize$19$&\cellcolor{gray!20}\scriptsize $7$\\
+
+
+\cline{2-5}
+
+&\scriptsize {Modular expo.}&\cellcolor{gray!20}\scriptsize {$0$}&\cellcolor{gray!20}\scriptsize$5$&\cellcolor{gray!20}\scriptsize$12$\\
+
+\hline
+
+\scriptsize  Communication cost&$-$&\cellcolor{gray!20}\scriptsize$2804$-bit&\cellcolor{gray!20}\scriptsize$3136$-bit&\cellcolor{gray!20}\scriptsize$3900$-bit\\
+
+\hline 
+\scriptsize Not requiring multiple pass/PIN&$-$&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}\\ 
+\hline
+\scriptsize Not requiring modular expo.  &$-$&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}\\ 
+
+\hline
+
+
+\scriptsize Security assumption  &$-$&\cellcolor{gray!20}\scriptsize{Standard}&\cellcolor{gray!20}\scriptsize{Random oracle}&\cellcolor{gray!20}\scriptsize{Random oracle}\\ 
+
+\hline
+\end{tabular}
+%}
+%\renewcommand{\arraystretch}{1}
+%\end{footnotesize}
+\end{center}
+%}
+\end{table}
+
+
+
+

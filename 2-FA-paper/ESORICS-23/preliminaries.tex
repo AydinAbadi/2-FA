@@ -1,0 +1,57 @@
+%!TEX root = main.tex
+
+\section{Notations and Preliminaries}
+
+ \subsection{Notations}
+  
+ To disambiguate the different uses of keys and other items of data, variables are annotated with a superscript to indicate their origin. $\VC{\cdot}$ indicates data stored at the user, $\VS{\cdot}$ means data stored at the server, and $\VM{\cdot}$ indicates data item has been extracted from a message. \prettyref{tab:variables} presents  a summary of variables.
+ 
+ \input{notation-Table}
+
+\subsection{Keyed Pseudorandom Function}\label{subsec:PRF}
+
+Informally, a keyed pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value indistinguishable from that of a truly random function with the same domain and range.  A formal definition of a $\prf$ is given by Katz and Lindell~\cite{KatzLindell2014}.% and is included in \prettyref{app:def-FS-PRG}.
+
+\subsection{Forward-Secure Pseudorandom Bit Generator}
+
+ %
+A Forward-Secure Pseudorandom Bit Generator (FS-RPG), is a \emph{stateful} object which consists a pair of algorithms and a pair of positive integers, \ie, $\mathsf{FS\text{-}RPG} = \Big((\mathsf{FS\text{-}RPG}.\kgen, $ $ \mathsf{FS\text{-}RPG.next}),( b, n)\Big)$, as defined in \cite{BellareY03}.  The probabilistic key generation algorithm $\mathsf{FS\text{-}RPG}.\kgen$ takes a security parameter as input and outputs an initial state ${st}_{\sss 0}$ of length $s$ bits. $\mathsf{FS\text{-}RPG.next}$ is a key-updating algorithm which, given the current state ${st}_{\sss i-1}$, outputs a pair of a $b$-bit block ${out}_{\sss i}$ and the next state ${st}_{\sss i}$. We can produce a sequence  ${out}_{\sss 1},..., {out}_{\sss n}$  of  $b$-bit output blocks, by first generating a key  ${st}_{\sss 0}\stackrel{\sss \$}\leftarrow\mathsf{FS\text{-}RPG}.\kgen(1^{\sss \lambda})$ and then running $({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}RPG.next} (st_{\sss i-1})$ for all $i, 1\leq i\leq n$. As with a standard pseudorandom bit generator, the output blocks of this generator should be computationally indistinguishable from a random bit
+string of the same length. The additional property required from a
+FS-RPG is that even when the
+adversary learns the state, output blocks generated before the point of
+compromise remain computationally indistinguishable from random bits.
+This requirement implies that it is computationally infeasible to
+recover a previous state from the current state. %We restate a formal definition and construction of a forward-secure pseudorandom bit generator in Appendix \ref{app:def-FS-PRG}. 
+
+
+Recall, $\mathsf{FS\text{-}RPG.next}$ updates the state of the forward-secure generation by one step; however, our protocol sometimes needs to invoke $\mathsf{FS\text{-}RPG.next}$ multiple times sequentially. Thus, for the sake of simplicity, we define a wrapper algorithm $ \update(\state_{\sss a}, d)$ which wraps  $\mathsf{FS\text{-}RPG.next}$. Algorithm $\update$  as input takes a current state (similar to $\mathsf{FS\text{-}RPG.next}$) and new parameter $d$ that determines how many times   $\mathsf{FS\text{-}RPG.next}$ must be invoked internally. It invokes  $\mathsf{FS\text{-}RPG.next}$ $d$ times and outputs the pair  $({out}_{\sss b}, \state_{\sss b})$  which are the output of $\mathsf{FS\text{-}RPG.next}$ when it is invoked for $d$-th time, where $ b> a$. 
+
+
+
+%For example, a practical instantiation proposed by Bellare and Yee is
+%based on AES. $\mathsf{GEN.next}$ computes the next state by AES-CTR mode
+%encrypting $x+s$ zero-bits with a starting counter of $0$, under the key
+%$\mathsf{St}_{i-1}$. The first $x$ bits of the ciphertext is $\mathsf{Out}_i$, and the next $s$
+%bits are $\mathsf{St}_i$. For $x=s=128$ using AES-128, $\mathsf{GEN.next}$ requires two
+%computations of the AES encryption under one key for each update to the
+%state and meets the security definitions of forward-secure key updating
+%for $n < 2^{64}$.
+
+ 
+\subsection{Authenticated Encryption (AE)} 
+
+Informally, authenticated encryption $\Pi=(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$ is an encryption scheme that simultaneously ensures the secrecy and integrity of a message. It can be built via symmetric or asymmetric key encryptions. In this work, we use authenticated symmetric-key encryption, due to its efficiency. $\mathsf{Gen}$ is a probabilistic key generating algorithm that takes a security parameter and returns an encryption key $k$. $\mathsf{Enc}$ is a deterministic encryption algorithm that takes the secret key $k$ and a message $m$, it returns a ciphertext $M$ along with the corresponding tag $t$. $\mathsf{Dec}$ is a deterministic algorithm that takes the ciphertext $M$, the tag $t$, and the secret key $k$. It first checks the tag's validity, if it accepts the tag, then it decrypts the message and returns $(m,1)$. Otherwise, it returns $(.,0)$. 
+
+
+The security of such encryption consists of the notion of secrecy and integrity. The secrecy notion requires that the encryption be secure against chosen-ciphertext attacks, \ie, CCA-secure. The notion of integrity considers existential unforgeability under an adaptive chosen message attack. We refer readers to \cite{KatzLindell2014} for a formal definition of authenticated symmetric-key encryption. 
+
+
+
+%\subsection{Authenticated Symmetric-key Encryption} We make use an Authenticated Encryption Scheme with Auxiliary data, such as AES-GCM.
+%The encryption function $\enc_\key(\nonce,H,M)$ takes a non-repeating nonce \nonce, header $H$ and Message $M$, encrypts it under key \key{} and produces ciphertext. The recipient can recover $M$ by passing the decryption function \dec(\nonce,H,C) the same nonce and header, and ciphertext $C$, \ie $M = \dec_\key(\nonce,H,\enc_\key(\nonce,H,M))$.
+%The header and message may have multiple fields, which are separated with $\|$.
+%Since the header and nonce are both required for decryption, they will be included inside the message outside of the ciphertext.
+%If any of \nonce, $H$ or $C$ have been tampered with, the authenticated decryption function will return an error.
+%For clarity, in descriptions of the protocol we omit the case of a decryption error; should this occur the protocol exchange is immediately aborted.
+%We combine decryption with message decoding through the $\extract_\key$ function which validates and decrypts a message using key \key{} and extracts fields from the plaintext. 
+

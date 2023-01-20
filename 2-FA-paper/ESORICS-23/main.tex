@@ -1,0 +1,546 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+
+%
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{prettyref}
+\newrefformat{fig}{Figure~\ref{#1}}
+\newrefformat{tab}{Table~\ref{#1}}
+\newrefformat{app}{Appendix~\ref{#1}}
+\usepackage{booktabs}
+\usepackage{xspace}
+%\usepackage[disable]{todonotes}
+\usepackage[disable]{todonotes}
+\raggedbottom% to remove huge space
+\usepackage{url}
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
+	
+
+\newcommand{\vsp}{\vspace{0mm}}
+%%%%%%%%
+\usepackage{framed}
+\usepackage{esvect}
+\usepackage{tikz}
+\usepackage{blkarray}% http://ctan.org/pkg/blkarra
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{boxedminipage}
+\usepackage{blindtext}
+\usepackage{multicol}
+%%%%%%%%%
+\usepackage{pgfplots, pgfplotstable}
+
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{boxedminipage}
+\usepackage{enumitem}
+%\usepackage{makeidx}  % allows for indexgeneration
+%\usepackage{amsfonts,amsmath,amssymb,graphicx,setspace,tipx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{esvect}
+\usepackage{tikz}
+\usepackage{latexsym}
+
+%\usepackage{pgfplots}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{blkarray}% http://ctan.org/pkg/blkarra
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{prettyref}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{tablefootnote}
+\usepackage{colortbl}
+\usepackage[skins]{tcolorbox}
+%%%%%%%%%%%
+\newtcolorbox{mybox}[2][]{%
+  attach boxed title to top center
+               = {yshift=-11pt},
+               %width=85mm,%
+                  %height=52mm,
+  %colback      = black,
+  colframe     =black,
+  %fonttitle    = \bfseries,
+  colbacktitle = black,
+  title        = #2,#1,
+  enhanced,
+}
+
+
+
+
+% Add a period to the end of an abbreviation unless there's one
+% already, then \xspace.
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother
+
+%\usepackage{amsmath}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+\usepackage{hyperref}
+\newcommand{\sss}{\scriptscriptstyle}
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+\usepackage[primitives,operators,sets,keys,ff,lambda,adversary]{cryptocode}
+\newcommand{\nonce}{\ensuremath{{N}}}
+\newcommand{\keyt}{\ensuremath{{kt}}}
+\newcommand{\counter}{\ensuremath{{ct}}}
+\newcommand{\pin}{\ensuremath{\mathsf{PIN}}}
+\newcommand{\salt}{\ensuremath{{sa}}}
+\newcommand{\trans}{\ensuremath{{t}}}
+\newcommand{\extract}{\ensuremath{\mathsf{Extract}}}
+\renewcommand{\verifier}{\ensuremath{{v}}}
+\renewcommand{\state}{\ensuremath{{st}}}
+\newcommand{\update}{\ensuremath{\mathsf{Update}}}
+\newcommand{\VC}[1]{\ensuremath{#1^{\sss U}}}
+\newcommand{\VS}[1]{\ensuremath{#1^{\sss S}}}
+\newcommand{\VM}[1]{\ensuremath{#1^{\sss M}}}
+\newcommand{\parse}{\ensuremath{\mathsf{Parse}}}
+\newcommand{\tmp}{\ensuremath{{tmp}}}
+\newcommand{\iif}{\ensuremath{\text{If\ }}}
+\newcommand{\ssample}{\stackrel{\sss\$}\leftarrow}
+\newcommand{\forEach}{\ensuremath{\text{For each\ }}}
+\newcommand{\tto}{\ensuremath{\text{to\ }}}
+
+\newcommand{\execute}{$\mathtt{Execute}$}
+\newcommand{\send}{$\mathtt{Send}$}
+\newcommand{\test}{$\mathtt{Test}$}
+\newcommand{\reveal}{$\mathtt{Reveal}$}
+\newcommand{\corrupt}{$\mathtt{Corrupt}$}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\seckey}{\ensuremath{\mathit{sk}}}
+\newcommand{\SID}{\ensuremath{\mathit{SID}}}
+\newcommand{\PID}{\ensuremath{\mathit{PID}}}
+
+%% Workaround for incompatibility between LLNCS and titlesec
+%% Save the class definition of \subparagraph
+\let\llncssubparagraph\subparagraph
+%% Provide a definition to \subparagraph to keep titlesec happy
+\let\subparagraph\paragraph
+%% Load titlesec
+\usepackage[compact]{titlesec}
+%\titlespacing*{\section}{0pt}{1.1\baselineskip}{\baselineskip}
+%% Revert \subparagraph to the llncs definition
+\let\subparagraph\llncssubparagraph
+
+\begin{document}
+
+\title{A Forward-secure Efficient\\ Two-factor Authentication Protocol}
+
+\author{}
+\institute{}
+
+\maketitle  
+
+\begin{abstract}
+%Two-factor authentication (2FA) schemes that rely on a combination of knowledge factors (\eg, PIN) and device possession have gained popularity. Some of these schemes remain secure even against strong adversaries that (a) observe the traffic between a user and server, and (b) have physical access to the user’s device, or its PIN, or breach the server.  However, these solutions have several shortcomings; namely, they (i) require a user to remember \emph{multiple} secret values to prove its identity, (ii) involve \emph{several modular exponentiations}, and (iii) are in the \emph{non-standard} random oracle model. In this work, we present a 2FA protocol that resists such a strong adversary while addressing the above shortcomings. Our protocol requires a user to remember only a single secret value/PIN, does not involve any modular exponentiations, and is in a standard model. It is the first one that offers these features without using trusted chipsets. This protocol also imposes up to $40\%$ lower communication overhead than the state-of-the-art solutions do. \todo{Note application to financial cryptography}
+Two-factor authentication (2FA) is commonly used for controlling access to high-value online accounts, particularly where financial transactions are involved.
+In such schemes, knowledge factors (\eg, PIN) and hardware device possession are required to complete authentication.
+However, existing 2FA protocols leave the PIN vulnerable should the server, user's computer, or hardware device be compromised.
+In this paper, we propose a 2FA protocol proved to be secure against adversaries who can (a) observe the traffic between a user and server and (b) have physical access to the user’s device, or its PIN, or breach the server.
+Compared to previous work, our protocol reduces the cost of authentication devices by not requiring tamper-resistant hardware or that the authentication device be connected to the computer, and through only using efficient symmetric cryptographic primitives.
+Furthermore, our protocol is highly usable, requiring the user only to remember a short PIN and type short authentication codes; it imposes up to 40\% lower communication overhead compared to the state-of-the-art.
+The protocol achieves these goals through a novel combination of splitting secrets between the server and authentication device and key-evolving symmetric-key encryption.
+\end{abstract}
+
+
+
+\input{introduction}
+
+\input{short-related-work}
+
+\input{preliminaries}
+
+\input{model}
+
+\section{The Protocol}\label{sec::the-protocol}
+
+Recall that we wish to build an authentication protocol for which the server can verify that the PIN has been entered correctly but that an adversary cannot discover the correct PIN given access to challenge/response pairs and all data stored on the device, or access to all data stored on the server. 
+These properties must be assured even when the PIN is small enough to be brute-forced.
+We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server.
+
+Our protocol consists of three phases: (i) a setup phase, performed once when the authentication device is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. We assume the parties include their IDs in their outgoing messages.  Similar to other two-factor authentication schemes, we assume the server maintains a local threshold, and if the number of incorrect responses from a user within a fixed time exceeds the threshold, then the user and its device will be locked out. Such a check is implicit in the protocol's description. 
+
+\subsection{Setup Phase}
+\label{sec:setup}
+
+To bootstrap the protocol, in the setup phase, we require that the user
+and server share an \emph{initial} randomly generated key $k$ for AE and key $\state_{\sss 0}$ for  FS-PRG.
+The counter for the FS-PRG state is set to $0$ on both sides. 
+These values could be securely loaded into the device at the time of
+manufacture or can be sent (via a secure channel) to the user who can use the device camera to scan and store them in the device. In this phase, the device generates and locally stores a random secret key $\VC{\salt}$ for \prf.  \prettyref{fig:setup} presents the setup in detail. 
+
+
+%\vspace{-3mm}
+\begin{figure}[!htbp]
+\begin{center}
+    \begin{tcolorbox}[enhanced,width=4.75in, height=65mm, left=1mm,top=-1mm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+%{\small{
+ \centering
+ \procedure{}{%
+ \hspace{8mm}\underline{\textbf{User's device}} \< \<\hspace{4mm} \underline{\textbf{Server}} \\
+  % \noindent\rule{4.6in}{1pt}
+ \pcln \< \<\hspace{4mm} k \ssample \mathsf{Gen}(\secparam) \\
+ \pcln \< \<\hspace{4mm} \state_{\sss 0} \ssample \mathsf{FS\text{-}RPG}.\kgen(\secparam) \\
+  \pcln \< \<\hspace{4mm} U_{\sss \mathrm{ID}} \gets \mathsf{IDGen}(\secparam) \pclb
+  %
+ \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $U_{\sss \mathrm{ID}}$)}} \< \\
+ %
+ \pcln \text{set  $\VC{k}$ to $k$} \< \<\hspace{4mm} \text{set $\VS{k}$ to $k$}\\
+ %
+ \pcln \text{set $\VC{\state}$ to  $\state_{\sss 0}$} \< \<\hspace{4mm} \text{set  $\VS{\state}$ to $\state_{\sss 0}$}\\
+ %
+  \pcln \text{store$(U_{\sss \mathrm{ID}}, \VC{k}, \VC{\state})$} \< \<\hspace{4mm} \text{store $(U_{\sss \mathrm{ID}}, \VS{k}, \VS{\state})$}\\
+  %
+ \pcln \VC{\counter} \gets 0 \< \<\hspace{4mm} \VS{\counter} \gets 0 \\
+ %
+ \pcln \VC{\salt} \ssample \{0,1\}^{\sss \psi} \< \<\hspace{4mm} \\
+% \pcln \VC{\salt} \ssample \kgen(\secparam) \< \< \\
+ }
+%}}
+\end{tcolorbox}
+\end{center}
+\vspace{-4.5mm}
+    \caption{Setup phase.}
+    \label{fig:setup}
+\end{figure}
+
+%\vspace{-5mm}
+
+\subsection{Enrolment Phase}
+\label{sec:enrollment}
+
+The goal of the enrolment phase is to set the user's PIN, without providing the  
+ server with sufficient information to discover this PIN. 
+% 
+% The server allows this phase to take place only over a channel through which the client has already proven their identity. 
+ %
+  At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the user's selected PIN.
+The steps involved in this phase are detailed in \prettyref{fig:enrollment}.  
+
+
+
+
+%%%%%%%%%%%%%%%%%
+\begin{figure}[!htb]
+\setlength{\fboxsep}{1pt}
+\begin{center}
+    \    \begin{tcolorbox}[enhanced,width=4.75in, height=157mm, left=1mm,top=-.5mm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+%{\small{
+ \centering
+ \procedure{}{%
+  \hspace{8mm}\underline{\textbf{User's device}} \< \hspace{12ex} \<\hspace{4mm} \underline{\textbf{Server}} \\
+ %%%%%%
+ %
+\pclb
+ %
+ \sendmessagerightx[5cm]{6}{(U_{\sss ID},  \text{enrolment})} \\% encrypt
+ %%%%%% Server
+ \pcln \< \<\hspace{2.6mm} \VS{\counter} \gets \VS{\counter} + 1  \\
+ \pcln \< \<\hspace{2.6mm} \VS{\keyt_{\sss 1}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% update
+ %
+% \pcln \< \< key_1= H(\VS{\keyt_1}||
+ %
+ \pcln \< \<\hspace{2.6mm} \VS{\nonce} \stackrel{\$}\leftarrow \bin^{\sss\secpar}  \\
+ %
+ \pcln \< \<\hspace{2.6mm} p= \VS{\nonce}|| \VS{\counter}\\ % server-- set plaintext
+ %
+ \pcln \< \<\hspace{2.6mm} {(M,t) \gets \enc_{\sss\VS{k}}(p) } \pclb
+ %
+ \sendmessageleftx[7cm]{6}{(M,t) } \\% server--encrypt
+ %%%%% Client
+ %
+  \pcln (p,b) \gets \mathsf{Dec}_{\sss\VC{k}}(M,t) \< \< \\% client-- decrypt
+  %
+  \pcln \iif b\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail} \\ % client-- verify tag
+  %
+   \pcln \text{Parse\ } p \text{\ which\ yields\ } \VM{\nonce}, \VM{\counter} \< \< \\ % client-- parse
+  %
+ \pcln\label{enroll:clinet-check-counter}  \iif \VM{\counter} \le \VC{\counter}, \text{\ then\ go\ to\ } \ref{enroll:fail} \\ %client check counter
+ %
+ %\pcln  \VC{\state} \gets  \tmp_{\VC{\state}}\\% client set state
+ \pcln \text{Request \VC{\pin} from the user} \< \< \\
+ %
+ \pcln \VC{\verifier} \gets \prf_{\sss\VC{\salt}}(\VC{\pin}) \< \< \\
+ %
+ %%%%%%%%%%%%%%
+ \pcln d=  \VM{\counter}-\VC{\counter} \< \< \\
+ %
+%  \pcln \forEach i \in[1,d]: \< \< \\
+  %
+   \pcln   \VC{\counter} \gets \VC{\counter} + d\< \< \\
+    \pcln \VC{\keyt_{\sss 1}},  \VC{\state} \gets \update(\VC{\state}, d) \< \< \\ % update
+ %%%%%%%%
+ %
+ %\pcln \VC{\keyt_{\sss 1}} \gets k \< \< \\ % set the key
+ %
+ \pcln p'=  \VM{\nonce} || \VC{\verifier}\< \< \\ %client--set plaintext
+ %
+ \pcln (M',t') \gets \enc_{\sss\VC{\keyt_{\sss 1}}}(p')\< \< \pclb
+ %
+ \sendmessagerightx[7cm]{6}{(M',t') } \\% encrypt
+ %
+  \pcln \label{enroll:fail} \text{Discard (\VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 1}},  \VC{\nonce}})% \text{and\ abort} 
+ %%%%%% Server
+ \< \<\hspace{2.6mm} (p',b') \gets \mathsf{Dec}_{\sss\VS{\keyt_{\sss 1}}}(M',t') \< \< \\% server-- decrypt
+  %
+   \pcln\< \<\hspace{2.6mm} \iif b'\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail-server-}\\ % client-- verify tag
+  %
+ \pcln\< \<\hspace{2.6mm} \text{Parse\ } p' \text{\ yielding\ }  \VM{\nonce},  \VM{\verifier} \< \< \\
+  %
+ \pcln \< \<\hspace{2.6mm} \iif \VM{\nonce} \ne \VS{\nonce}, \text{then \ go\ to\ } \ref{enroll:fail-server-} \\
+ %
+ \pcln \< \<\hspace{2.6mm} \text{Store \VM{\verifier} as \VS{\verifier}} \\
+ %
+% \pcln \label{enroll:fail} \text{Discard \VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 1}},  \VC{\nonce}} \text{and\ abort} 
+ %
+  \pcln \label{enroll:fail-server-} \< \<\hspace{2.6mm}  \text{Discard (\VS{\keyt_{\sss1}}, \VS{\nonce}}) \\ %\text{and\ abort} \\
+ }
+%}}
+\end{tcolorbox}
+\end{center}
+\vspace{-4.5mm}
+    \caption{Enrolment phase.}
+    \label{fig:enrollment}
+\end{figure}
+
+
+We briefly explain how this phase works.  The server first updates the FS-PRG's state, which results in a new state and random value \VS{\keyt_{\sss 1}}; it also increments its counter by one. Then, the server generates a random challenge \VS{\nonce}. The server sends the enrolment challenge message which is a combination of the current counter and the challenge encrypted via the AE under the shared key $k$.
+%
+ On receiving this message, the client passes it to the device. The device decrypts the message using $k$ that was shared with the server during the setup phase.  If decryption succeeds, it extracts the server's challenge and counters from the message. To recover $\VS{\keyt_{\sss 1}}$ from the message the device's counter must be less than or equal to the counter it received from the server, which the protocol ensures is the case with a high probability (see \prettyref{app:synchronisation}). Next, the device requests the PIN from the user and ensures it is what the user intends, \eg, by requesting it twice and checking they match.
+
+The device then generates a verifier $\VC{\verifier}$, by deriving a pseudorandom value from the PIN using $\prf$ and the random key $\VC{\salt}$ it generated in the setup phase.  After that, the device locally synchronises the FS-PRG's state with the server by updating the state until it matches the counter received from the server; this yields \VC{\keyt_{\sss 1}}. This synchronisation is possible because the check at line \ref{enroll:clinet-check-counter} has already assured that the device's state is behind the server's state by at least one step. After the update, \VC{\keyt_{\sss 1}} will equal \VS{\keyt_{\sss 1}} because the initial FS-PRG's state is the same (from the setup phase) and the two generators have been updated the same number of times. The user's device then encrypts the verifier and challenge under \VC{\keyt_{\sss 1}} and sends this to the server. 
+ %
+On receiving and validating this message, the server decrypts the message using \VS{\keyt{\sss 1}}, then extracts the challenge and verifier.
+If the challenge does not match the one corresponding to the current protocol exchange, the protocol halts.
+If the challenge does match, the server stores the verifier, $\VS{\verifier}$,  associated with the user's account.
+
+Finally, the device discards the challenge, \VC{\keyt_{\sss 1}}, PIN, and \VC{\verifier} so that the PIN can no longer be recovered from the device. Note that the device can re-generate \VC{\verifier} using \VC{\salt} when the user types in their PIN again. The server also discards the challenge and \VC{\keyt{\sss 1}} as they are no longer needed. Following the successful completion of this phase, the server stores the verifier corresponding to the user's PIN and the server and device will have synchronised their FS-PRG's state.
+
+\subsection{Authentication Phase}
+\label{sec:authentication}
+
+The goal of the authentication process is to give the server assurance that the device is currently present, the correct PIN has been entered, and the user has been shown the transaction that the server wishes to execute.
+
+%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htbp]
+
+\begin{center}
+     \begin{tcolorbox}[enhanced,width=4.75in, height=196mm, left=1mm,top=-1mm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+%{\small{
+ \centering
+ \procedure{}{%
+  \hspace{8mm}\underline{\textbf{User's device}} \< \hspace{0ex} \<\hspace{2.6mm} \underline{\textbf{Server}} \\
+\pclb
+ %
+\sendmessagerightx[5cm]{6}{(U_{\sss ID}, \text{authentication}) } \\% encrypt
+ %
+ \pcln \< \<\hspace{2.6mm} \VS{\counter} \gets \VS{\counter} + 1 \\ % server-- increment counter
+ %
+ \pcln \< \<\hspace{2.6mm}  \VS{\keyt_{\sss 2}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% server-- update
+ %
+  \pcln \< \<\hspace{2.6mm}  \tmp_{\sss\VS{\counter}} \gets \VS{\counter}, \ \VS{\counter} \gets \VS{\counter} + 1 \< \< \\
+ %
+% \pcln \< \< \VS{\counter} \gets \VS{\counter} + 1 \\ % server-- increment counter again
+ %
+ \pcln \< \< \hspace{2.6mm} \VS{\keyt_{\sss 3}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% server-- update again
+ %
+ \pcln \< \<\hspace{2.6mm} \VS{\nonce} \stackrel{\$}\leftarrow \bin^{\sss \secpar}, \  p= \VS{\nonce} || \VS{\trans} \ \\  % server--pick a challenge
+%
+ \pcln \< \<\hspace{2.6mm} (\ddot M, \ddot t)\leftarrow \enc_{\sss\VS{\keyt_{\sss 2}}}(p)\\
+ %
+ \pcln \< \<\hspace{2.6mm} (\hat M, \hat t)\leftarrow \enc_{\sss\VS{k}}( \tmp_{\VS{\counter}})\pclb
+ %
+ \sendmessageleftx[7cm]{6}{(\ddot M, \ddot t), (\hat M, \hat t)} \\ % server-- encrypt
+ %
+ %%%%%  client
+ %
+   \pcln (\tmp_{\sss\VM{\counter}},b') \gets \mathsf{Dec}_{\sss\VC{k}}(\hat M, \hat t) \< \< \\% client-- decrypt
+  %
+  \pcln \iif b'\neq 1,    \text{\ go\ to\ } \ref{auth:fail} \\ % client-- verify tag
+   %
+    \pcln \iif \tmp_{\sss\VM{\counter}} \le \VC{\counter}, \text{\ go\ to\ } \ref{auth:fail} \< \< \\
+   %
+    %%%%%%%%%%%%%%
+ \pcln d=  \tmp_{\sss\VM{\counter}}-\VC{\counter},\  \VC{\counter} \gets \VC{\counter} + d+1\  \< \< \\
+ %
+  %\pcln \forEach i \in[1,d]: \< \< \\
+  % \pcln    \VC{\counter} \gets \VC{\counter} + d+1\< \< \\
+    \pcln\label{auth-protocol:first-update} \VC{\keyt_{\sss 2}},  \VC{\state} \gets \update(\VC{\state}, d) \< \< \\ % update
+ %%%%%%%%
+   %
+    %\pcln \VC{\keyt_{\sss 2}} \gets k \< \< \\ % set the key
+   %
+ % \pcln  \VC{\keyt_{\sss 2}}, \VC{\state} \gets \update(\VC{\state}, \tmp_{\sss\VM{\counter}})\\ % client-- 1st update
+ %
+  \pcln (p,b) \gets \mathsf{Dec}_{\sss\VC{\keyt_{\sss 2}}}(\ddot M, \ddot t) \< \< \\% client-- decrypt
+  %
+  \pcln \iif b\neq 1,    \text{\ go\ to\ } \ref{auth:fail} \\ % client-- verify tag
+  %
+  \pcln \text{Parse\ } p \text{\ yielding\ } \VM{\nonce}, \VM{\trans}  \< \< \\ % client parse
+ %
+ \pcln \text{Display \VM{\trans} for user to check} \< \< \\
+ %
+ \pcln \text{\iif user rejects \VM{\trans}, \text{\ go\ to\ } \ref{auth:fail}} \< \< \\
+ %
+  %\pcln \VC{\counter} \gets \VM{\counter} \< \< \\%client-- set counter
+ %
+ \pcln \text{Request \VC{\pin} from user} \< \< \\
+ %
+ \pcln \VC{\verifier} \gets \prf_{\sss\VC{\salt}}(\VC{\pin}) \< \< \\
+%
+ \pcln  \VC{\keyt_{\sss 3}}, \VC{\state} \gets \update(\VC{\state}, 1) \< \< \\
+  %
+ \pcln p''=  \VM{\nonce} \|  \VM{\trans} \| \VC{\verifier}\< \< \\ %client--set plaintext
+ %
+ \pcln \label{auth:gen-res}  \VC{\mathit{response}} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 1) \< \< \\ % client-- encrypt
+ %
+  \pcln sk^{C} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 2) \< \<  \pclb% client-- encrypt
+%  \pcln sk^{C} \gets \hash(\VC{\keyt_{\sss 3}}||p'') \< \< \pclb % client-- encrypt
+ %
+ \sendmessagerightx[7cm]{6}{ \VC{\mathit{response}}} \\
+ %
+  \pcln \label{auth:fail} \text{Discard (\VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}}, \VM{\nonce}, \VM{\trans}}) \\ 
+ %%%%% server
+ \pcln \< \<\hspace{2.6mm} \VS{\mathit{expected}} \gets \prf_{\sss\VS{\keyt_{\sss3}}}(\VS{\nonce}  \| \VS{\trans} \| \VS{\verifier}||1) \\
+ %
+ \pcln \< \<\hspace{2.6mm} \iif \VC{\mathit{response}} \ne \VS{\mathit{expected}}, \text{go\ to\ } \ref{auth:fail-server} \\
+ %
+\pcln\< \<\hspace{2.6mm}  sk^{S} \gets\prf_{\sss\VS{\keyt_{\sss3}}}(\VS{\nonce}  \| \VS{\trans} \| \VS{\verifier}|| 2)\\
+ %
+ %\pcln \< \<sk^{S} \gets \hash(\VS{\keyt_{\sss 3}}||\VS{\nonce}  \| \VS{\trans} \| \VS{\verifier}) \\
+ %
+% \pcln \label{auth:fail} \text{Discard \VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}}, \VM{\nonce}, \VM{\trans}} \\ 
+  \pcln \label{auth:fail-server}\< \<\hspace{2.6mm}  \text{Discard (\VS{\keyt_{\sss 2}}, \VS{\nonce}, \VS{\trans}}) 
+ }
+ %
+\end{tcolorbox}
+\end{center}
+\vspace{-3.4mm}
+    \caption{Authentication phase.}
+    \label{fig:auth}
+\end{figure}
+%%%%%%%%%%%%%%%%%%
+
+This phase works as follows. The server first updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. The server updates the state and the counter one more time which yields a new state \VS{\state}, a new random value \VS{\keyt_{\sss 3}}, and a new counter \VS{\counter}. The server generates a random challenge and two ciphertexts, $\ddot M$ and $\hat M$. The former ciphertext consists of the random challenge and the description of the transaction, encrypted under key \VS{\keyt_{\sss 2}}. The latter ciphertext contains the counter $\tmp_{\VS{\counter}}$, encrypted under key $\VC{k}$. The reason $\tmp_{\VS{\counter}}$ is encrypted under key $\VC{k}$ is to allow the device to decrypt the ciphertext easily 
+in case of previous message loss; for instance, when the server sends $(\ddot M, \hat M)$ to the server, but they are lost in transit, multiple times, and a fresh pair finally arrives at the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) lets the device deal with such a situation. 
+
+
+
+
+Upon receiving the ciphertexts, the device validates and decrypts the messages. It extracts the challenge \VM{\nonce}, counter $\tmp_{\VS{\counter}}$, and transaction \VM{\trans}. It ensures that its own counter is behind the received counter. As will be discussed in \prettyref{app:synchronisation}, this check will succeed with high probability. The device synchronises its state and counter using the server's messages. Next, the device displays the transaction for the user to check. If the user does not accept the transaction (\eg, due to an attempted man-in-the-browser attack), then the protocol aborts immediately. Assuming the user is willing to proceed, then the device prompts for the PIN, and computes the verifier \VC{\verifier} using the key \VC{\salt}. If the user enters the correct PIN, the verifier will be the same as the one sent to the server during the enrolment phase.
+
+
+
+For the device to generate the response message, it first updates its state one more time, which results in a pseudorandom value \VC{\keyt_{\sss 3}}. Then, it derives a pseudorandom value, \VC{\mathit{response}}, from a combination of the random challenge \VM{\nonce}, transaction \VM{\trans}, verifier \VC{\verifier}, and $x=1$  using $\prf$ and \VC{\keyt_{\sss 3}}. The device generates a session key, using the above combination and key with a difference that now $x=2$. The response message is truncated to be a convenient length, displayed on the screen of the device, typed by the user into the client, and sent to the server. The device discards the PIN, the verifier, all FS-PRG keys, the challenge, and the transaction's description, so as to protect the PIN from discovery. The server computes the expected response message based on its own values of the challenge, transaction, and verifier. Note that the verifier is retrieved from the value set during the enrolment phase. The server then compares the expected response with the response sent by the client. Only if they match, the authentication is considered to have succeeded. If the response does not match the one the server expects this could indicate that the message was tampered with, or that the user entered an incorrect PIN. Next, the server generates the session key in the same way as the device does.  The server also discards the FS-PRG key, the challenge, and the transaction's description.
+
+%
+Below, we formally state the security of our protocol.  First, we present a theorem stating that the advantage of an adversary in breaking the semantic security of the above protocol is negligible.  
+\begin{theorem}[Semantic Security]
+%Let PIN be an element distributed uniformly at random over a finite dictionary of size $N$. 
+Let $\adv$ be a probabilistic polynomial time (PPT) adversary with less than $q_{\sss s}$ interactions with the parties and $q_{\sss p}$ passive eavesdropping, i.e., number of local executions. Let $\lambda$ be a security parameter and $Adv_{\sss\pi}^{\sss ss}(\A)$ be  $\adv$'s advantage (in breaking the semantic security of an AKE scheme $\pi$) as defined in Section \ref{sec::model}. Then, such an advantage for the protocol $\psi$ has the following upper bound:  
+%
+\vspace{-4mm}
+\begin{equation*} 
+Adv_{\sss \psi}^{\sss ss}(\A) \leq 2(q_{\sss s}+q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{8(2q_{\sss s}+q_{\sss p})}{2^{\sss\lambda}}
+\end{equation*}
+%
+\end{theorem}
+
+Next, we present a theorem stating that the advantage of an adversary in breaking the authentication of the above protocol is negligible.  
+
+\begin{theorem} [Authentication]
+Let PIN be an element distributed uniformly at random over a finite dictionary of size $N$. Also, 
+let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties and $q_p$ passive eavesdroppings. Let $\lambda$ be a security parameter and $Adv_{\sss\pi}^{\sss aut}(\A)$ be  $\adv$'s advantage (in breaking the authentication of an AKE scheme $\pi$) as defined in Section \ref{sec::model}. Then, in the protocol $\psi$, $Adv_{\sss \psi}^{\sss aut}(\A)$ has the following upper bound:  
+%
+\vspace{-3mm}
+  \begin{equation*}
+ Adv_{\sss \psi}^{\sss aut}(\A)  \leq (q_{\sss s} + q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{9q_{\sss s}+4q_{\sss p}}{2^{\sss\lambda}}+  \cfrac{q_{\sss s}}{N}
+ \end{equation*}
+%
+\end{theorem}
+
+%\vspace{-2mm}
+
+
+We refer to Appendix \ref{sec:security} for informal security analysis and the paper's full version \cite{full-version} for formal proofs of the above two theorems.  
+
+
+\section{System Usability}
+\label{sec:asymmetric}
+%\vspace{-1mm}
+
+Usability is of critical importance for an effective authentication system as otherwise, users will refuse to use it or implement insecure workarounds \cite{de2013comparative}.
+In our protocol, the server interacts with the device via the client. To accommodate usability and let the device receive the server's message, we require the device to be able to receive a few hundred bytes from the server. This functionality is already present on any device capable of transaction authentication because it must be able to receive a description of the transaction to show to the user. Typically this communication functionality is implemented by an inexpensive camera such as in the Gemalto SWYS QR~\cite{Gemalto} or OneSpan Digipass 770~\cite{Digipass-website}, which both scan a 2D barcode shown on the screen of the client. 
+The response from the device to the server can be safely truncated because the protocol ensures offline brute-force attacks are not possible. So, the response can be manually typed without any special hardware required for this direction of communication. The response length should be selected to reduce the chance of success of an online brute force attack to an acceptable level, taking into consideration the rate-limiting implemented on the server. This security-usability trade-off is not specific to our protocol and exists in all hardware token-based multi-factor authentication schemes that do not assume a high-bandwidth communication channel from the authentication device to the server. 
+
+Another consideration is handling mistyped or forgotten PINs. As we highlighted in Section \ref{sec::the-protocol}, when setting the PIN, the device can ask the user to confirm their PIN by entering the PIN twice and alerting the user if they do not match. Because we assume that the device has no trusted hardware we cannot store the PIN in the device. So, during authentication, if a wrong PIN is entered, the user will only be alerted after the response code is verified by the server. To enhance usability by detecting mistyped PINs earlier in the protocol, at some cost of security, the device could show the user an image computed as a function of the PIN entered to help the user detect a mistyped PIN, serving as a checksum. To prevent someone observing the device from discovering the PIN from the image, the function could be designed to have a large number of collisions.
+
+%\input{evaluation}
+\input{evaluation}
+
+\input{conclusion}
+
+
+
+%\section{Acknowledgements}
+
+
+\bibliographystyle{splncs03}
+\bibliography{ref}
+\appendix
+
+%\input{related-work}
+%
+%\input{forward-PRF-extra}
+%
+\input{sync}
+
+\input{informal-sec-analysis}
+
+%\input{proof}
+
+
+%\input{evaluation-long}
+%\input{strawman}
+\end{document}

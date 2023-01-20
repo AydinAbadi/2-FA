@@ -1,0 +1,135 @@
+%!TEX root = main.tex
+
+%\subsection{The Model} \label{sec::model}
+
+
+\section{Threat Mode and System Design}\label{sec::model}
+
+A two-factor authentication scheme involves two players,
+%
+%\vspace{-2mm}
+%\begin{itemize}
+%\item[$\bullet$] {Client ($C$)}: an honest party which tries to prove its identity to a server by using a combination of a PIN and a device. 
+%
+%
+%\item[$\bullet$] {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $C$'s PIN. It also tries to authenticate itself to $C$.  
+%\end{itemize}
+%
+ {User ($U$)}: an honest party which tries to prove its identity to a server by using a combination of a PIN and a device and {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $U$'s PIN. It also tries to authenticate itself to $U$.  
+
+
+We let the server communicate with the device through the user's computer, \ie, the client. Specifically, similar to previous works (\eg, those in \cite{JareckiJKSS21,Digipass-website,Gemalto}), we assume the device has a camera that lets the device scan a 2-D barcode containing messages the server sends to it via the client. Each of the above parties may have several instances running concurrently. In this work, we denote instances of user and server by  $U^{i}$ and  $S^{j}$ respectively. Each instance is called an oracle. \todo{Assume high bandwidth in one direction, low in another} 
+
+Figure \ref{fig:setup.} outlines the message flow of our 2FA scheme during the authentication phase.  At a high level, the authentication phase works as follows. Any time the user wants to authenticate itself to the server, the user sends a message to the server via the client.  The server replies to the client with a challenge and transaction details (Step 1). The user scans with the device the message that the client received  (Step 2). The device shows the transaction details on the screen (Step 3). The user types the PIN into the device (Step 4). The device generates a response (Step 5). The user manually types the response into the client (Step 6).  The client sends the response to the server for authentication (Step 7). 
+
+
+\vspace{-3mm}
+\begin{figure}
+\begin{centering}
+\includegraphics[width=12cm]{setup}
+\end{centering}
+\caption{\label{fig:setup.}Protocol participants and message flows}
+\end{figure}
+\vspace{-5mm}
+ %
+%\subsection{Formal Model} \label{sec::model}
+%
+To formally capture the capabilities of an adversary, $\mathcal{A}$, in a hardware token-based 2FA,  we mainly use the (adjusted) model proposed by Bellare \textit{et al.} \cite{BellarePR00}. In this model, the adversary’s capabilities are cast via queries that it sends to different oracles, \ie, instances of the honest parties; the user and server interact with each other for some fixed number of flows, until both instances have terminated. By that time, each instance should have accepted holding a particular session key (\seckey), session id (\SID), and partner id (\PID). At any point in time, an oracle may \emph{``accept''}. When an oracle accepts, it holds \seckey, \SID, and \PID. A user instance and a server instance can accept at most once. The above model was initially proposed for password-based key exchange schemes in which the adversary does not corrupt either player.  Later, Wang \textit{et al.} \cite{WangW18}  added more queries to the model of  Bellare \textit{et al.} to make it suitable for two-factor authentication schemes. The added queries allow an adversary to learn either of the user's factors (\ie, either PIN or secret parameters stored in the hardware token) or the server's secret parameters.  Below, we restate the related queries. 
+ 
+
+
+
+
+
+\begin{itemize}
+%
+\item [$\bullet$] \execute($U^{i}, S^{j}$): this query captures \textbf{passive} attacks in which the adversary, $\mathcal{A}$, has access to the messages exchanged between $U^{i}$ and $S^{j}$ during the correct executions of a 2FA protocol, $\pi$. 
+
+
+
+\item [$\bullet$] \reveal($I$): this query models the misuse of the session key $sk$ by instance $I$.  Adversary $\mathcal{A}$ can use this query if $I$ holds a session key; in this case, upon receiving this query, $sk$ is given to $\A$. 
+%
+
+
+
+\item [$\bullet$] \test($I$): this query models the semantic security of the session key. It is sent at most once by $\A$ if the attacked instance $I$  is ``fresh'' (\ie, in the current protocol execution $I$ has accepted and neither it nor the other instance with the same $\SID$ was asked for a Reveal query). This query is answered as follows. Upon receiving the query, a coin $b$ is flipped. If $b=1$, then session key $sk$ is given to $\A$; otherwise (if $b=0$), a random value is given to $\A$. 
+
+
+
+\item [$\bullet$] \send($I, m$):  this query models \textbf{active} attacks where $\mathcal{A}$ sends a message, $m$, to instance $I$ which follows  $\pi$'s instruction, generates a response, and sends the response back to $\mathcal{A}$.  Query  \send($U^{\sss i}, \text{start}$) initialises $\pi$; when it is sent, $\mathcal{A}$ would receive the message that the user would send to the server. 
+
+%Query  \send($C^{i}, \text{start}$) initialises $\pi$; when it is sent, $\mathcal{A}$ would recive the message that the client would send to the server. 
+%
+%\item [$\bullet$] \test($I$):
+%%
+%\item [$\bullet$] \reveal($I$): This query models the misuse of session keys and the idea that the loss of a session key should not harm other sessions. The query is only available to $\mathcal{A}$ if the targetted instance $I$ actually holds a session key, $sk$. When it is used, it returns $sk$ to $\mathcal{A}$. 
+
+
+
+%
+\item [$\bullet$]  \corrupt($I, a$): this query models the adversary's capability to corrupt the involved parties. 
+
+
+
+\begin{itemize}
+
+\item if $I=U$:  it can learn (only) one of the factors of $U$. Specifically, 
+%
+
+
+
+\begin{itemize}
+\item if $a=1$, it outputs $U$'s PIN. 
+
+
+
+\item if  $a=2$, it outputs all parameters stored in the hardware token. 
+  \end{itemize}
+  
+  
+  
+\item if $I=S$, it outputs all parameters stored in $S$. 
+\end{itemize}
+%%
+\end{itemize}
+
+\subsubsection{Authenticated Key Exchange (AKE)  Security.} Security notions (\ie, session key's semantic security and authentication) are defined with regard to the executing of protocol $\pi$, in the presence of   $\mathcal{A}$. To this end, a game $Game^{\sss ake} (\mathcal{A},\pi)$ is initialized by drawing a PIN  from the PIN's universe,
+providing coin tosses to $\A$ as well as to the oracles, and then running the adversary by letting it ask a polynomial
+number of queries defined above. At the end of the game, $\A$  outputs its guess $b'$ for  bit $b$
+involved in the Test-query. 
+
+
+
+\noindent\textit{Semantic security.} It requires that the privacy of a session key be preserved in the presence of $\A$, which has access to the above queries. We say that $\A$  wins if it manages to correctly guess bit $b$ in the Test-query, \ie, manages to output $b'=b$. We denote its advantage as the probability that $\A$  can correctly guess the value of $b$; specifically, such an advantage is defined as $Adv_{\sss\pi}^{\sss ss}(\A)=2Pr[b=b']-1$, where the probability space is over all the random coins of the adversary and all the oracles.  Protocol $\pi$ is said to be semantically secure if $\A$'s advantage is negligible in the security parameter, \ie, $Adv_{\sss\pi}^{\sss ss}(\A)\leq \mu(\lambda)$.
+
+
+%The authentication property is another  fundamental feature that a two-factor authentication scheme must offer; 
+
+
+
+\noindent\textit{Authentication.} It requires that $\A$ must not be able: (a)  to impersonate $U$, even if it has access to the traffic between the two parties as well as having access to either $U$'s PIN, or its authentication device, or (b) to impersonate  $S$, even if it has access to the traffic between the two parties.   We say that   $\A$  violates mutual authentication if some oracle accepts a session key and terminates, but has no partner oracle, which shares the same key.  Protocol $\pi$ is said to achieve mutual authentication if for any adversary $\A$  interacting with the parties, there exists a negligible function $\mu(.)$ such that for any security parameter $\lambda$ the advantage of $\A$ (\ie, the probability of successfully impersonating a party)  is negligible in the security parameter, \ie, 
+%
+$Adv_{\sss\pi}^{\sss aut}(\mathcal{A})\leq \mu(\lambda)$.
+
+
+In certain schemes (including ours), during the key agreement and authentication phase, the user needs to also verify a message, \eg, a bank transaction. To allow such verification to be carried out deterministically, which will be particularly useful in the scheme's proof, we define a predicate $y\leftarrow \phi(m, \gamma)$, where $y\in \{0,1\}$. This predicate takes as input a message $m$ (\eg., bank's transactions) and a policy $\gamma$ (\eg, a user's policy specifying a payment amount and destination account number). It checks if the message matches the policy. If they match, it outputs $1$; otherwise, it outputs $0$.  
+
+
+
+
+
+
+%However, we do not use the original BPR2000
+%model directly, but adopt the reified version proposed by
+%Bresson et al. [50] with a few key modifications so that we
+%can define the special security goals (e.g., security against
+%smart card loss attack) for two-factor authentication. We
+%refer the reader unfamiliar with the BPR2000 model to [35],
+%[50] for more details.
+
+
+
+
+
+
+
