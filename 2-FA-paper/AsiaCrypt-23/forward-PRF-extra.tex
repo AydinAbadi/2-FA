@@ -1,0 +1,164 @@
+%!TEX root = main.tex
+
+
+\section{Definition and Construction of Forward-Secure Pseudorandom Bit Generator and Keyed Pseudorandom Function}\label{app:def-FS-PRG}
+
+In this section, we restate the formal definition of the forward-secure pseudorandom bit generator (taken from \cite{BellareY03}), briefly explain how it can be constructed, and also define a keyed pseudorandom function \prf. A standard pseudorandom generator is said to be secure if its output is computationally indistinguishable from a random string of the same length. However, the forward security of a stateful generator requires more security guarantees. Specifically, in this setting,  an adversary $\mathcal{A}$ may at some point penetrate the machine in which the state is stored and obtain the current state. In this case, the adversary is able to compute the future output of the generator. But, it is required that the bit strings generated in the past still be secure, i.e., the strings are computationally indistinguishable from random bit strings. This implies that it is computationally infeasible for the adversary to recover the previous state from the current one. 
+
+
+
+
+
+In this setting, the adversary is allowed to choose when it wants to penetrate the machine, as a function of the output blocks it has seen so far. Thus, first, the adversary runs in a ``find'' stage where it is fed output blocks, one at a time, until it says it wants to break in, and at that time the current state is returned.  Next, in the ``guess'' stage, it must decide if the output blocks that were given to it were the outputs of the generator, or were independent random bits. This is captured formally by two experiments; namely, real and random. In the real experiment, the forward secure generator is used to generate output blocks. Nevertheless, in the ideal experiment, the output blocks are truly random strings (of the same length as that of the blocks in the real experiment). Note that below ``$\mathcal{A}(\text{find}, out, h)$'' denotes $\mathcal{A}$ in the find stage, and is given an output block $out$ and current history $h$ and returns a pair $(I, h)$ where $h$ is an updated history and $I \in\{\text{find}, \text{guess}\}$. Below, we restate the two experiments. 
+
+
+
+
+
+
+%This stage continues until $I = \text{guess}$ or all $n$ output blocks have been generated. In the latter case, the adversary is given the final state in the guess phase. 
+
+
+%%%%%%% REAL %%%%%%
+%{\small{
+%\begin{center}
+%\begin{mybox}[colback=white,  width=65mm, height=48mm, left=-1mm, drop fuzzy shadow southwest]{$\mathsf{Exp}_{\sss \text{real, aux}}^{\sss \text{fs-prg}}(\mathcal{A})$}
+%$$
+%  \begin{array}{l}
+% {st}_{\sss 0}\stackrel{\sss \$}\leftarrow\kgen(1^{\sss \lambda}) \\
+%%
+%i\gets 0; h\gets \text{aux} \\
+%\text {Repeat}\\
+%i\gets i+1\\
+%\hspace{4mm} ({out}_{\sss i}, st_{\sss i})\leftarrow\mathsf{GEN.next}(st_{\sss i-1})\\
+%\hspace{4mm}  (I,h)\gets\mathcal{A}(\text{find}, out_{\sss i}, h)\\
+%\text{Until}\hspace{2mm}  (I=guess)\hspace{2mm}  \text{or} \hspace{2mm}  (i=n)\\
+%g\gets\mathcal{A}(\text{guess}, st_{\sss i}, h)\\
+%\text{Return} g\\
+%   \end{array} 
+%$$
+%\end{mybox}
+%\end{center}
+%%}}
+%
+%%%%%%%%%%. IDEAL %%%%%%
+%\begin{center}
+%\begin{mybox}[colback=white,  width=65mm, height=54mm, left=-1mm, drop fuzzy shadow southwest]{$\mathsf{Exp}_{\sss \text{ideal, aux}}^{\sss \text{fs-prg}}(\mathcal{A})$}
+%$$
+%  \begin{array}{l}
+% {st}_{\sss 0}\stackrel{\sss \$}\leftarrow\kgen(1^{\sss \lambda}) \\
+%%
+%i\gets 0; h\gets \text{aux} \\
+%\text {Repeat}\\
+%i\gets i+1\\
+%\hspace{4mm} ({out}_{\sss i}, st_{\sss i})\leftarrow\mathsf{GEN.next}(st_{\sss i-1})\\
+%\hspace{4mm}{out}_{\sss i}\stackrel{\sss \$}\leftarrow\{0, 1\}\\
+%\hspace{4mm}  (I,h)\gets\mathcal{A}(\text{find}, out_{\sss i}, h)\\
+%\text{Until}\hspace{2mm}  (I=guess)\hspace{2mm}  \text{or}\hspace{2mm}  (i=n)\\
+%g\gets\mathcal{A}(\text{guess}, st_{\sss i}, h)\\
+%\text{Return} g\\
+%   \end{array} 
+%$$
+%\end{mybox}
+%\end{center}
+
+
+\
+
+\begin{minipage}{57mm}
+\begin{tcolorbox}[left=0mm]
+$
+  %\left[ 
+  \begin{array}{l}
+%
+\underline{\mathsf{Exp}_{\sss \text{real}}^{\sss \text{fs-prg}}(\mathcal{A},\text{aux})}\\
+%
+\\
+%
+{st}_{\sss 0}\stackrel{\sss \$}\leftarrow \mathsf{FS\text{-}PRG}.\kgen(1^{\sss \lambda}) \\
+%
+i\gets 0\\ h\gets \text{aux} \\
+\text {Repeat}\\
+i\gets i+1\\
+\hspace{4mm} ({out}_{\sss i}, st_{\sss i})\leftarrow    \mathsf{FS\text{-}PRG.next}    (st_{\sss i-1})\\
+\hspace{4mm}  (I, h)\gets\mathcal{A}(\text{find}, out_{\sss i}, h)\\
+\text{Until}\hspace{2mm}  (I=guess)\hspace{2mm}  \text{or} \hspace{2mm}  (i=n)\\
+g\gets\mathcal{A}(\text{guess}, st_{\sss i}, h)\\
+\text{Return} g\\
+  \end{array}%\right] 
+  \qquad$
+  \end{tcolorbox}
+   \end{minipage}
+   \begin{minipage}{57mm}
+\begin{tcolorbox}[left=0mm]
+$
+  %%%%%%%%%%%%%%%%%%%%
+  %\left[
+  \begin{array}{l}
+  %
+ \underline{\mathsf{Exp}_{\sss \text{ideal}}^{\sss \text{fs-prg}}(\mathcal{A}, \text{aux})}\\
+  %
+  \\
+  %
+   {st}_{\sss 0}\stackrel{\sss \$}\leftarrow \mathsf{FS\text{-}PRG}.\kgen (1^{\sss \lambda}) \\
+%
+i\gets 0; h\gets \text{aux} \\
+\text {Repeat}\\
+i\gets i+1\\
+\hspace{4mm} ({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}PRG.next}   (st_{\sss i-1})\\
+\hspace{4mm}{out}_{\sss i}\stackrel{\sss \$}\leftarrow\{0, 1\}\\
+\hspace{4mm}  (I,h)\gets\mathcal{A}(\text{find}, out_{\sss i}, h)\\
+\text{Until}\hspace{2mm}  (I=guess)\hspace{2mm}  \text{or}\hspace{2mm}  (i=n)\\
+g\gets\mathcal{A}(\text{guess}, st_{\sss i}, h)\\
+\text{Return} g\\
+  \end{array}%\right]
+$
+\end{tcolorbox}
+   \end{minipage}
+   
+\
+
+
+
+Given the experiments, the adversary's advantages are defined in the following two equations. 
+
+
+\begin{equation}\label{equ::adv-1st-term}
+\mathtt{Adv}^{\sss \text{fs-prg}}(\mathcal{A})=Pr[\mathsf{Exp}_{\sss \text{real}}^{\sss \text{fs-prg}}(\mathcal{A},\text{aux})=1]-Pr[\mathsf{Exp}_{\sss \text{ideal}}^{\sss \text{fs-prg}}(\mathcal{A},\text{aux})=1]
+\end{equation}
+
+
+\begin{equation}\label{equ::adv-2nd-term}
+\mathtt{Adv}^{\sss \text{fs-prg}}(t)= Max\{\mathtt{Adv}^{\sss \text{fs-prg}}(\mathcal{A})\}
+\end{equation}
+
+
+Equation \ref{equ::adv-1st-term}  refers to the (fs-prg) advantage of $\mathcal{A}$ in attacking the forward-secure pseudorandom bit generator, FS-PRG. Moreover, Equation \ref{equ::adv-2nd-term} refers to the maximum advantage of $\mathcal{A}$ in attacking FS-PRG, where the adversary has a time-complexity at most $t$. It is required that the adversary's advantage is negligible for practical values of $t$. 
+
+
+
+
+Bellare \textit{et al.} \cite{BellareY03} proposed various instantiations of FS-PRG, including the one based on AES. In the latter case, one can set a block size $b$ and a state size $s$ to $128$ bits. We refer readers to \cite{BellareY03} for further discussion. 
+
+%In the latter case, $\mathsf{GEN.next}$ computes the next state by AES-CTR mode
+%encrypting $x+s$ zero-bits with a starting counter of $0$, under the key
+%$\mathsf{St}_{i-1}$. The first $x$ bits of the ciphertext is $\mathsf{Out}_i$, and the next $s$
+%bits are $\mathsf{St}_i$. For $x=s=128$ using AES-128, $\mathsf{GEN.next}$ requires two
+%computations of the AES encryption under one key for each update to the
+%state and meets the security definitions of forward-secure key updating
+%for $n < 2^{\sss 64}$.
+
+\begin{definition} Let $\prf:\{0,1\}^{\sss\psi}\times \{0,1\}^{\sss \eta}\rightarrow \{0,1\}^{\sss  \lambda}$ be an efficient  keyed function. It is said $\prf$ is a pseudorandom function if for all probabilistic polynomial-time distinguishers $B$, there is a negligible function, $\mu(.)$, such that:
+%
+ \vspace{-1mm}
+\begin{equation*}
+\bigg | \Pr[B^{\sss \prf_{\hat{k}}(.)}(1^{\sss \psi})=1]- \Pr[B^{\sss \omega(.)}(1^{\sss \psi})=1] \bigg |\leq\mu(\psi)
+\end{equation*}
+%
+where  the key, $\hat{k}\stackrel{\sss\$}\leftarrow\{0,1\}^{\sss\psi}$, is chosen uniformly at random and $\omega$ is chosen uniformly at random from the set of functions mapping $\eta$-bit strings to $\iota$-bit strings. We define $Adv^{\sss\prf}(\adv)$ as the advantage of the adversary which interacts with pseudorandom and random functions. 
+
+%We let public parameters $\zeta:(\psi,\eta, \iota)$ be the description of $\mathtt{PRF}$.
+\end{definition}
+
+Since a pseudorandom function is deterministic and outputs the same value if queried twice on the same inputs, when proving a protocol that uses a $\prf$, it is assumed that the distinguisher never queries oracles $\prf$ and $\omega$ twice on the same inputs \cite{KatzLindell2014}. 
+

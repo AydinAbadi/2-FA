@@ -1,0 +1,114 @@
+%!TEX root = main.tex
+
+
+\section{Informal Security Analysis}
+\label{sec:security}
+
+In this section, we informally analyse the security of the proposed protocol. We analyse its security through five scenarios defined in terms of adversary capabilities and protection goals.
+The scenarios are designed to assume a strong adversary so that the results are generalisable to other situations, but are constrained so as to make sense, e.g., we assume that at least one factor is secure.
+
+
+%In addition to the threats listed, we assume the adversary has access to previous authentication messages and the challenge message to any ongoing authentication.
+
+\subsection{Threats and Protection objectives}
+In this section,  we first list a set of threats that our protocol must resist. 
+
+%Then, we present a few \emph{high-level} protection objectives that our protocol must achieve. The threats are as follows. 
+
+%\paragraph{T.DEV: Device access} adversaries may steal the authentication device. The adversary will then know \VC{k}, \VC{\salt} and the current values of \VC{\counter} and \VC{\state}, because we assume the device does not take advantage of tamper-proof hardware. Nevertheless, such information is not sufficient to help the adversary learn \VC{\verifier}, \VM{\trans}, \VC{\pin}, \VC{\keyt_{\sss 1}}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}} or previous values of \VC{\state} ; these are all discarded at the end of a protocol exchange. We assume that the client will not use the device after it has been stolen, and will be issued with a replacement.
+
+\begin{itemize}
+\item[$\bullet$]\textit{T.DEV: Device access.} An adversary may steal the authentication device. The adversary will then know \VC{k}, \VC{\salt} and the current values of \VC{\counter} and \VC{\state}, because we assume the device does not take advantage of a trusted chipset. The adversary does not learn \VC{\verifier}, \VM{\trans}, \VC{\pin}, \VC{\keyt_{\sss 1}}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}} or previous values of \VC{\state}; as these are all discarded at the end of a protocol exchange. We assume that the user will not use the device after it has been stolen, and will be issued with a replacement.
+
+
+\item[$\bullet$]\textit{T.MITM: Man-in-the-middle.} An adversary may have access to the traffic exchanged between the client and server.
+
+\item[$\bullet$]\textit{T.PIN: Knowledge of PIN.} An adversary may know the PIN entered by a user, for example from observing them type it in.
+
+\item[$\bullet$]\textit{T.SRV: Server compromise.} The server is the party relying on the authentication, so it does not make sense for the server to be wholly malicious, \ie, an active adversary.
+However, it is reasonable to believe that the server database could be compromised, disclosing \VS{k}, \VS{\verifier}, and the current values of \VC{\counter} and \VC{\state}.
+
+
+\end{itemize}
+
+%\subsection{Protection objective}
+
+Next, we present the high-level security objective that our protocol must achieve. 
+
+\begin{itemize}
+\item[$\bullet$]\textit{O.AUTH: Authentication.} If the server considers the authentication to have succeeded then the correct device was used and the correct PIN was entered.
+
+\item[$\bullet$]\textit{O.TRAN: Transaction authentication.} If the server considers the authentication to have succeeded then the correct device was used, the correct PIN was entered, and the device showed the correct transaction.
+
+\item[$\bullet$]\textit{O.PIN: PIN protection.} The adversary should not be able to discover the user's PIN. 
+\end{itemize}
+
+
+
+\subsection{Scenarios}
+In this section, we briefly explain why the protocol meets its objective in different threat scenarios. 
+
+\begin{enumerate}
+
+\item\textit{O.AUTH against 
+T.PIN and T.MITM.}  The first scenario we consider is the case where the adversary does not have
+access to the authentication device but does know the user's PIN and communication between the client and server.  For the adversary to perform a successful authentication, it must compute $\prf_{\sss\VC{\keyt_{\sss 3}}}(\VM{\nonce} \|  \VM{\trans} \| \VC{\verifier}|| 1)$. Nevertheless, it does not know \VC{\keyt_{\sss 3}} or the state from which \VC{\keyt_{\sss 3}} has been generated; since  \VC{\keyt_{\sss 3}} is an output of $\prf$ and is sufficiently large, it is computationally indistinguishable from a truly random value.  The probability of finding it is negligible in the security parameter.  Thus, the only party which will generate a valid response is the device itself (when the PIN is provided) at line \ref{auth:gen-res} of \prettyref{fig:auth}.  We have already assumed that the adversary does not have access to the device; therefore, it cannot generate a valid response.%\footnote{This argument also captures replay attacks where the adversary may reuse the gathered information.}
+
+\item\textit{O.AUTH against T.DEV and T.MITM.}\label{O.AUTH:T.DEV-plus-T.MITM}
+In this scenario, the adversary has compromised the user's device (but not its PIN), has records of previous messages, and wishes to impersonate the user.
+%
+%As with the previous scenario, the adversary may either re-use a legitimate response, forge one, or infer the response from other sources.
+Since the random challenge in the expected response is unique, and the $\prf$ provides an unpredictable output, previous responses will not be valid; so, a replay attack would not work. The adversary can use the device to discover ($\VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}}$) and all the parameters of the response message, except the PIN. In this case, it has to perform an online dictionary attack by guessing a PIN, using the extracted parameters to generate a response, and sending the response to the server. But, the server will lock out the device if the number of incorrect guesses exceeds the predefined threshold. Other places where the PIN is used are in (i) the enrolment response, where the verifier derived from the PIN is encrypted under an evolving fresh secret key, and (ii) the authentication response, where the response is a pseudorandom value derived from the PIN's verifier using an evolving fresh secret key. In both cases, the evolving keys cannot be obtained from the current state, due to the security of FS-PRG. 
+
+
+
+%\paragraph{Enrollment response} For the case of the encrypted enrollment response, consider an adversary \adv{} which is given $p$ plaintexts $P_1 \ldots P_p$ corresponding to the $p$ possible PINs and one ciphertext $C$, corresponding to the encrypted enrollment message.
+%Let us assume this adversary is able to output the index of the plaintext that is the decryption of $C$, with better than random probability.
+%As the key used in the enrollment protocol is only used once, the adversary does require access to an encryption or decryption oracle.
+%
+%Now consider an CPA-secure encryption scheme \enc. 
+%The adversary \bdv{} generates two plaintexts $P_1$ and $P_2$ and requests $C=\enc(P_j)$ from the sender where $j$ is selected randomly by the sender.
+%\bdv{} sends $P_1$, $P_2$ and $C$ to \adv, which will provide the value of $j$ selected by the sender, with better than random probability.
+%Therefore if an adversary exists that can guess the PIN from an enrollment message, then this implies that the encryption scheme used is not CPA secure.
+%
+%\paragraph{Authentication response} The other place where the verifier is used is in the authentication response, as part of the input of the \prf{}.
+%The only information the adversary receives about the verifier is the single output of the PRF.
+%The verifier is not used elsewhere, nor is the key used for the PRF \keyt2.
+%Importantly, the adversary is not able to generate the PRF for any potential verifier.
+%The adversary therefore learns nothing more than a single point in the domain of \prf that is indistinguishable from random and therefore leaks no information about the verifier and consequently the PIN.
+
+%\paragraph{3: Man-in-the-browser}
+%T.PIN, T.MITM: O.AUTH.
+%The adversary is performing a man-in-the-middle attack and wishes to perform authentication.
+%The client is performing authentication, but does not want to perform the transaction that the adversary desires.
+%From the definition of existential forgery, we know that the adversary cannot generate an authentication response that the genuine authentication device generated.
+%The device will always show the transaction to the client before generating a response containing that transaction, therefore the adversary cannot generate an acceptable response that was not shown to the client.
+
+\item\textit{O.PIN against T.DEV and  T.MITM.}
+The adversary has compromised the device and wishes to obtain the user's PIN. As with Scenario \ref{O.AUTH:T.DEV-plus-T.MITM}, the PIN cannot be obtained from the device, the responses in the authentication or enrolment phases.
+
+\item\textit{O.PIN against T.SRV and T.MITM.}
+\label{sec:servercompromise}
+The adversary has compromised the server and wishes to obtain the user's PIN.
+In this case, the adversary has learned the verifier but does not know the value of the secret key, used to generate the verifier. If the server retains values of the verifier for previous PINs (in the case where the server does not delete them), then the adversary would also learn further verifiers for the same device. The PIN is only used for computing the verifier, so the only way to obtain the PIN would be to find the key of the $\prf$ which is not possible except for a negligible probability in the security parameter. The only information this discloses is that if two values for the verifier are equal, then that implies that two PINs for the same device were equal. Even this minimal information leakage can be removed if the server rejects the PINs that were used before. 
+
+\item\textit{O.TRAN against T.PIN and T.MITM or T.DEV and T.MITM.} As we discussed above, an adversary cannot successfully authenticate, even if it sees the traffic between the client and server and has access to either the PIN or the device. Furthermore, due to the security of the authenticated encryption, the device can detect (except for a negligible probability) if the transaction's description, that the server sends to it, has been tampered with. 
+ 
+\end{enumerate}
+
+
+\subsection{Excluded Scenarios}
+
+We exclude some scenarios that do not make sense or are not possible to secure against.
+
+\begin{itemize}
+\item[$\bullet$]\textit{Compromised PIN and device.}
+If the adversary has compromised both factors of a 2FA solution, then the server cannot distinguish between the adversary and the legitimate user.
+
+\item[$\bullet$]\textit{Authentication on server compromise.}
+If the adversary has compromised the server, then it can either directly perform actions of the server or change keys to ones known by the adversary. Therefore, it does not make sense to aim for O.AUTH in this situation.
+
+\item[$\bullet$]\textit{Compromised server and device.}
+If the adversary has compromised the server and the device, then the PIN can be trivially brute-forced with knowledge of \VS{\verifier} and \VC{\salt}. %We consider this scenario to be unrealistic.% because the server should be well protected and physically compromising a large number of devices should be challenging.
+\end{itemize}
+

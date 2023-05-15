@@ -1,0 +1,166 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{psd2}
+{P}ayment {S}ervices ({PSD} 2). {D}irective 2015/2366/{EU} of the European
+  Parliament and of the Council (November 2015)
+
+\bibitem{BellarePR00}
+Bellare, M., Pointcheval, D., Rogaway, P.: Authenticated key exchange secure
+  against dictionary attacks. In: {EUROCRYPT} (2000)
+
+\bibitem{BellareY03}
+Bellare, M., Yee, B.S.: Forward-security in private-key cryptography. In:
+  {CT-RSA} (2003)
+
+\bibitem{biryukov2003cryptanalysis}
+Biryukov, A., Lano, J., Preneel, B.: Cryptanalysis of the alleged {SecurID}
+  hash function. In: International Workshop on Selected Areas in Cryptography
+  (2003)
+
+\bibitem{BressonCP03}
+Bresson, E., Chevassut, O., Pointcheval, D.: Security proofs for an efficient
+  password-based key exchange. In: {ACM CCS} (2003)
+
+\bibitem{chang1991remote}
+Chang, C.C., Wu, T.C.: Remote password authentication with smart cards. IEE
+  Computers and Digital Techniques  (1991)
+
+\bibitem{ChangMSS17}
+Chang, D., Mishra, S., Sanadhya, S.K., Singh, A.P.: On making {U2F} protocol
+  leakage-resilient via re-keying. {IACR} Cryptol. ePrint Arch. p.~721 (2017)
+
+\bibitem{ChaturvediDMM16}
+Chaturvedi, A., Das, A.K., Mishra, D., Mukhopadhyay, S.: Design of a secure
+  smart card-based multi-server authentication scheme. J. Inf. Secur. Appl.
+  (2016)
+
+\bibitem{de2013comparative}
+De~Cristofaro, E., Du, H., Freudiger, J., Norcie, G.: A comparative usability
+  study of two-factor authentication. arXiv preprint arXiv:1309.5344  (2013)
+
+\bibitem{Zero-Trust-Cybersecurity}
+{Executive Office of the President: Office of Management and Budget}: Moving
+  the {U.S.} government toward zero trust cybersecurity principles (2022),
+  \url{https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf}
+
+\bibitem{ndss/FengLP021}
+Feng, H., Li, H., Pan, X., Zhao, Z.: A formal analysis of the {FIDO} {UAF}
+  protocol. In: {NDSS}. The Internet Society (2021)
+
+\bibitem{GentryMR06}
+Gentry, C., MacKenzie, P.D., Ramzan, Z.: A method for making password-based key
+  exchange resilient to server compromise. In: {CRYPTO} (2006)
+
+\bibitem{gupta2021machine}
+Gupta, B., Prajapati, V., Nedjah, N., Vijayakumar, P., El-Latif, A.A.A., Chang,
+  X.: Machine learning and smart card based two-factor authentication scheme
+  for preserving anonymity in telecare medical information system ({TMIS}).
+  Neural Computing and Applications  (2021)
+
+\bibitem{SARA22}
+Imran, A., Farrukh, H., Ibrahim, M., Celik, Z.B., Bianchi, A.: {SARA}: Secure
+  android remote authorization. In: 31st USENIX Security Symposium (USENIX
+  Security 22). pp. 1561--1578. USENIX Association, Boston, MA (Aug 2022),
+  \url{https://www.usenix.org/conference/usenixsecurity22/presentation/imran}
+
+\bibitem{JareckiJKSS21}
+Jarecki, S., Jubur, M., Krawczyk, H., Saxena, N., Shirvanian, M.: Two-factor
+  password-authenticated key exchange with end-to-end security. {ACM} Trans.
+  Priv. Secur.  (2021)
+
+\bibitem{juels2016configurable}
+Juels, A., Triandopoulos, N., Van~Dijk, M., Brainard, J., Rivest, R., Bowers,
+  K.: Configurable one-time authentication tokens with improved resilience to
+  attacks (Feb~23 2016), {US} Patent 9,270,655
+
+\bibitem{KatzLindell2014}
+Katz, J., Lindell, Y.: Introduction to Modern Cryptography, Second Edition.
+  {CRC} Press (2014)
+
+\bibitem{kim2009more}
+Kim, S.K., Chung, M.G.: More secure remote user authentication scheme. Computer
+  Communications  (2009)
+
+\bibitem{KoganMB17}
+Kogan, D., Manohar, N., Boneh, D.: T/{K}ey: Second-factor authentication from
+  secure hash chains. In: {CCS}. {ACM} (2017)
+
+\bibitem{KonothFFARB20}
+Konoth, R.K., Fischer, B., Fokkink, W.J., Athanasopoulos, E., Razavi, K., Bos,
+  H.: {S}ecure{P}ay: Strengthening two-factor authentication for arbitrary
+  transactions. In: EuroS{\&}P (2020)
+
+\bibitem{LoutfiJ15}
+Loutfi, I., J{\o}sang, A.: {FIDO} trust requirements. In: NordSec 2015 (2015)
+
+\bibitem{MatsuoMY11}
+Matsuo, S., Moriyama, D., Yung, M.: Multifactor authenticated key renewal. In:
+  Trusted Systems - Third International Conference, {INTRUST} 2011,. Lecture
+  Notes in Computer Science, Springer (2011)
+
+\bibitem{Digipass-website}
+{OneSpan}: Digipass 770 datasheet, \url
+  {https://www.onespan.com/resources/digipass-770/datasheet}
+
+\bibitem{PanosMNPX17}
+Panos, C., Malliaros, S., Ntantogian, C., Panou, A., Xenakis, C.: A security
+  evaluation of {FIDO}'s {UAF} protocol in mobile and embedded devices. In:
+  {TIWDC} (2017)
+
+\bibitem{radhakrishnan2022dependable}
+Radhakrishnan, N., Muniyandi, A.P.: Dependable and provable secure two-factor
+  mutual authentication scheme using {ECC} for {IoT}-based telecare medical
+  information system. Journal of Healthcare Engineering  (2022)
+
+\bibitem{ReardonBC13}
+Reardon, J., Basin, D.A., Capkun, S.: Sok: Secure data deletion. In: {IEEE}
+  Symposium on Security and Privacy, {SP} 2013. {IEEE} Computer Society (2013)
+
+\bibitem{secureID}
+{RSA Security LLC}: {RSA} {Secur}id hardware authenticators, technical
+  specifications (2021),
+  \url{https://www.securid.com/wp-content/uploads/2021/11/rsa-securid-hardware-tokens-technical-specifications-012621.pdf}
+
+\bibitem{Scott12a}
+Scott, M.: Cryptanalysis of a recent two factor authentication scheme. {IACR}
+  Cryptol. ePrint Arch. p.~527 (2012)
+
+\bibitem{Gemalto}
+{Thales}: {G}emalto {SWYS} {QR} {R}eader {E}co (2020),
+  \url{https://www.thalesgroup.com/sites/default/files/database/document/2020-12/fs-QR-code-reader.pdf}
+
+\bibitem{TianLHL20}
+Tian, Y., Li, Q., Hu, J., Lin, H.: Secure limitation analysis of public-key
+  cryptography for smart card settings. World Wide Web  (2020)
+
+\bibitem{oath-hotp}
+View, M., M'Raihi, D., Hoornaert, F., Naccache, D., Bellare, M., Ranen, O.:
+  {HOTP: An HMAC-Based One-Time Password Algorithm}. RFC 4226 (Dec 2005).
+  \doi{10.17487/RFC4226}
+
+\bibitem{oath-ocra}
+View, M., Naccache, D., Rydell, J., Bajaj, S., Machani, S.: {OCRA: OATH
+  Challenge-Response Algorithm}. RFC 6287 (Jun 2011). \doi{10.17487/RFC6287}
+
+\bibitem{oath-totp}
+View, M., Rydell, J., Pei, M., Machani, S.: {TOTP: Time-Based One-Time Password
+  Algorithm}. RFC 6238 (May 2011). \doi{10.17487/RFC6238}
+
+\bibitem{WangGCW16}
+Wang, D., Gu, Q., Cheng, H., Wang, P.: The request for better measurement: {A}
+  comparative evaluation of two-factor authentication schemes. In: AsiaCCS
+  (2016)
+
+\bibitem{WangW18}
+Wang, D., Wang, P.: Two birds with one stone: Two-factor authentication with
+  security beyond conventional bound. {IEEE} Trans. Dependable Secur. Comput.
+  (2018)
+
+\bibitem{zhang2020strong}
+Zhang, Z., Wang, Y., Yang, K.: Strong authentication without temper-resistant
+  hardware and application to federated identities. In: NDSS (2020)
+
+\end{thebibliography}

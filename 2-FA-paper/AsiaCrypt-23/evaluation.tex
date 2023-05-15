@@ -1,0 +1,30 @@
+%!TEX root = main.tex
+
+\section{Evaluation}\label{sec:eval}
+
+In this section, we briefly analyse and compare our 2FA protocol with the smart-card-based protocol proposed in  \cite{WangW18} and the hardware token-based protocol in \cite{JareckiJKSS21} as the latter two protocols are relatively efficient, do not use secure chipsets, and they consider the same security threats as we do. We summarise the analysis result in Table \ref{comparisonTable}. We refer readers to \prettyref{app:long-eval} for a more detailed evaluation. 
+
+%Before we compare the two protocols' costs, we highlight a vital difference between the two. 
+
+\input{evaluation-table}
+
+\subsection{Computation Cost}
+In our protocol, each party (user or server) invokes the authenticated encryption scheme $4$ times and the pseudorandom function $5$ times. In the protocol proposed by Wang \etal~\cite{WangW18}, the user invokes a hash function $11$ times and performs $3$ modular exponentiations while the server invokes the hash function $8$ times and performs $2$ modular exponentiations. Moreover, in the protocol presented by Jarecki \etal~\cite{JareckiJKSS21}, the user invokes a hash function $3$ times and runs symmetric key encryption once. It also performs $10$ modular exponentiations. While the server invokes a pseudorandom function once and performs at least $2$ modular exponentiations and $2$ symmetric-key encryptions. Thus,  our protocol and the ones in \cite{WangW18,JareckiJKSS21} involve a constant number of symmetric key primitive invocations; however, our protocol does not involve any modular exponentiations, whereas those in  \cite{WangW18,JareckiJKSS21} involve a constant number of modular exponentiations which leads to a higher cost. 
+The avoidance of the need to perform modular exponentiations not only reduces computation cost and energy consumption but also saves flash storage due to not requiring a big integer library.
+
+\subsection{Communication Cost}
+
+In our protocol, the communication cost of the user is $1268$ bits and the server is $1536$ bits. However, in the protocol proposed in \cite{WangW18},  the communication cost of the user is $1952$ bits and the server is  $1184$ bits; while in the protocol developed in \cite{JareckiJKSS21} the user's and server's communication costs are at least $2856$ and $1044$ bits respectively. Hence, our protocol imposes $10\%$ and $40\%$ lower communication costs than the protocols in \cite{WangW18} and \cite{JareckiJKSS21} do respectively.
+
+
+\subsection{Other Features}
+ In our protocol, a user needs to know and type into the device only a single secret, \ie, a PIN. Furthermore, we do not put any trust assumptions on users' personal computers (or clients). Therefore, they can be corrupted at any time, e.g., simultaneously when another party such as the token or server is corrupted. 
+ 
+ In contrast, in the protocol in \cite{WangW18}, a user has to know and type an additional secret, \ie, a random ID. As shown by Scott~\cite{Scott12a}, this scheme will not remain secure, even if only the user's ID is revealed. Also, in this scheme, users type in their PINs into another device, i.e., a card reader. For the security of the scheme holds, it is required that the card reader be fully trusted, in the case where the server or smart card is breached. 
+ 
+  
+   Similarly, the protocol in \cite{JareckiJKSS21} requires users to insert their PINs into their personal computers instead of inserting them into the dedicated hardware token; this approach is problematic as the PINs will be at a higher risk of being exposed to attackers because users' computers are (i) often connected to the internet, and (ii) used for various purposes, consequently, they are more likely to be broken into. Furthermore, the protocol relies on an additional trusted party as well, i.e., trusted users' computers. Specifically, for the protocol's security to hold, it is required that users' personal computers are fully trusted, in the case where the token or the server is corrupted, which is not desirable. In contrast, our protocol requires users to insert their PIN into the hardware token that is used only for authentication and is always disconnected from the internet. 
+ 
+ % 
+ Furthermore, our protocol is secure in the standard model whereas the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
+

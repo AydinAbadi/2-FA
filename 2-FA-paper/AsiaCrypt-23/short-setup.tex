@@ -1,0 +1,43 @@
+%!TEX root = main.tex
+
+
+\vspace{-3mm}
+\begin{figure}[!htbp]
+\begin{center}
+    \begin{tcolorbox}[enhanced,width=4.75in, height=67mm, left=1mm,top=-1mm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+%{\small{
+ \centering
+ \procedure{}{%
+ \hspace{8mm}\underline{\textbf{User's device}} \< \<\hspace{-11mm} \underline{\textbf{Server}} \\
+  % \noindent\rule{4.6in}{1pt}
+ \pcln \< \<\hspace{-11mm} k \ssample \mathsf{Gen}(\secparam) \\
+ \pcln \< \<\hspace{-11mm} \state_{\sss 0} \ssample \mathsf{FS\text{-}PRG}.\kgen(\secparam) \\
+  \pcln \< \<\hspace{-11mm} U_{\sss \mathrm{ID}} \gets \mathsf{IDGen}(\secparam) \pclb
+  %
+ \< \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $U_{\sss \mathrm{ID}}$)}} \< \\
+ %
+ \pcln \text{set  $\VC{k}$ to $k$} \< \<\hspace{-11mm} \text{set $\VS{k}$ to $k$}\\
+ %
+ \pcln \text{set $\VC{\state}$ to  $\state_{\sss 0}$} \< \<\hspace{-11mm} \text{set  $\VS{\state}$ to $\state_{\sss 0}$}\\
+ %
+  %\pcln \text{store$(U_{\sss \mathrm{ID}}, \VC{k}, \VC{\state})$} \< \<\hspace{-11mm} \text{store $(U_{\sss \mathrm{ID}}, \VS{k}, \VS{\state})$}\\
+  %
+ \pcln \VC{\counter} \gets 0 \< \<\hspace{-11mm} \VS{\counter} \gets 0 \\
+ %
+ \pcln \VC{\salt} \ssample \{0,1\}^{\sss \psi} \< \<\hspace{-11mm} \\
+ %
+ \pcln \text{store$(U_{\sss \mathrm{ID}}, \VC{k}, \VC{\state}, \VC{\counter}, \VC{\salt})$} \< \<\hspace{-11mm} \text{store $(U_{\sss \mathrm{ID}}, \VS{k}, \VS{\state}, \VS{\counter})$}\\
+ %
+% \pcln \VC{\salt} \ssample \kgen(\secparam) \< \< \\
+ }
+%}}
+\end{tcolorbox}
+\end{center}
+\vspace{-4.5mm}
+    \caption{Setup phase.}
+    \label{fig:setup}
+\end{figure}
+
+
