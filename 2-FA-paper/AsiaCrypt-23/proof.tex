@@ -55,7 +55,7 @@ The above also captures both the send and execute queries. Since we have used a 
 
 
 
-\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, \ie, via predicate $\phi$ defined in Section \ref{sec::model}. Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  U}$ and policy $\gamma$, it always returns the same output as the user's device does when verifying $t^{\sss  U}$ in the previous game.  Therefore, both $\phi$ and the user's device would output identical values, given pair $(t^{\sss  U}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, \ie, via predicate $\phi$ defined in Section \ref{sec::model}. Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for the user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  U}$ and policy $\gamma$, it always returns the same output as the user's token does when verifying $t^{\sss  U}$ in the previous game.  Therefore, both $\phi$ and the user's token would output identical values, given pair $(t^{\sss  U}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
 %
 \begin{equation}\label{eq::game_3}
 Pr[S_{\sss  3}]-Pr[S_{\sss  2}]=0
@@ -129,7 +129,7 @@ We know that $\hat {Auth}_{\sss  6}$ occurs with probability $ \frac{q_{\sss  s}
 |Pr[S_{\sss  6}]-Pr[S_{\sss  5}]|\leq \frac{q_{\sss  s}}{2^{\sss \lambda}}
 \end{equation}
 
-\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  7}$: In this game, we modify the simulator such that it would abort if the adversary comes up with the authenticator and session key without decrypting  $ (\ddot M', \ddot t', \hat M', \hat t')$.  Therefore, we modify  the way the user's device processes query \send($U^{\sss  i}, (\ddot M', \ddot t'), (\hat M', \hat t')$) as follows.
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  7}$: In this game, we modify the simulator such that it would abort if the adversary comes up with the authenticator and session key without decrypting  $ (\ddot M', \ddot t', \hat M', \hat t')$.  Therefore, we modify the way the user's token processes query \send($U^{\sss  i}, (\ddot M', \ddot t'), (\hat M', \hat t')$) as follows.
  %
  \begin{enumerate}
  \item compute $\bar{\VC{\mathit{response}}} \gets \prf_{\sss  \ddot t'}( \ddot M'|| 1)$.
