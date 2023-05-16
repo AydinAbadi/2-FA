@@ -15,7 +15,7 @@ A two-factor authentication scheme involves two players,
 %\item[$\bullet$] {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $C$'s PIN. It also tries to authenticate itself to $C$.  
 %\end{itemize}
 %
- {User ($U$)}: an honest party which tries to prove its identity to a server by using a combination of a PIN and a device and {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $U$'s PIN. It also tries to authenticate itself to $U$.  
+ {User ($U$)}: an honest party which tries to prove its identity to a server by using a combination of a PIN and a token and {Server ($S$)}:  a semi-honest adversary which follows the protocol's instructions and tries to learn $U$'s PIN. It also tries to authenticate itself to $U$.  
 
 
 We let the server communicate with the device through the user's computer, \ie, the client. Specifically, similar to previous works (\eg, those in \cite{JareckiJKSS21,Digipass-website,Gemalto}), we assume the device has a camera that lets the device scan a 2-D barcode containing messages the server sends to it via the client. Each of the above parties may have several instances running concurrently. In this work, we denote instances of user and server by  $U^{i}$ and  $S^{j}$ respectively. Each instance is called an oracle. \todo{Assume high bandwidth in one direction, low in another} 
@@ -30,7 +30,7 @@ Figure \ref{fig:setup.} outlines the message flow of our 2FA scheme during the a
 \end{centering}
 \caption{\label{fig:setup.}Protocol participants and message flows}
 \end{figure}
-\vspace{-5mm}
+%\vspace{-5mm}
  %
 %\subsection{Formal Model} \label{sec::model}
 %

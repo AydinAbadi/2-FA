@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  16 MAY 2023 10:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  16 MAY 2023 12:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1476,7 +1476,7 @@ File: setup.pdf Graphic file (type pdf)
 <use setup.pdf>
 Package pdftex.def Info: setup.pdf  used on input line 29.
 (pdftex.def)             Requested size: 341.43306pt x 122.95262pt.
- [8 <./setup.pdf>] [9]) [10] (./short-setup.tex
+ [8] [9 <./setup.pdf>]) [10] (./short-setup.tex
 Overfull \hbox (3.25255pt too wide) detected at line 34
 []
  []
@@ -1500,7 +1500,7 @@ Overfull \hbox (15.50157pt too wide) in paragraph at lines 97--99
 LaTeX Warning: Float too large for page by 1.63025pt on input line 104.
 
 ) [13] [14] [15] (./informal-sec-analysis.tex [16] [17] [18]) (./sync.tex
-[19]) (./evaluation-long.tex [20] (./evaluation-table.tex
+[19]) [20] (./evaluation-long.tex (./evaluation-table.tex
 Overfull \hbox (2.21938pt too wide) in paragraph at lines 49--52
  [] 
  []
@@ -1712,7 +1712,7 @@ er/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
 /sfti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect1
 0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (39 pages, 712617 bytes).
+Output written on main.pdf (39 pages, 712886 bytes).
 PDF statistics:
  1239 PDF objects out of 1440 (max. 8388607)
  959 compressed objects within 10 object streams
