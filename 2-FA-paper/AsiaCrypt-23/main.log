@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  18 MAY 2023 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  18 MAY 2023 13:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1523,7 +1523,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--126
 ]content / uploads / 2021 / 11 /
  []
 
-[25]) [26] (./forward-PRF-extra.tex
+[25]) (./forward-PRF-extra.tex [26]
 Overfull \hbox (31.27872pt too wide) in paragraph at lines 70--90
 []$[] $ 
  []
@@ -1533,9 +1533,7 @@ Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
 []$[]$ 
  []
 
-[27
-
-]) (./longer-protocol.tex (./long-setup.tex
+[27]) (./longer-protocol.tex (./long-setup.tex
 Overfull \hbox (11.79417pt too wide) detected at line 34
 []
  []
@@ -1573,17 +1571,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--111
 
 LaTeX Warning: Float too large for page by 9.54716pt on input line 117.
 
-)) (./proof.tex [28]
+) [28]
+
+LaTeX Warning: Text page 29 contains only floats.
+
+[29] [30]) (./proof.tex
 Overfull \hbox (17.47673pt too wide) in paragraph at lines 25--29
 \T1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the e
 n-cryp-tion/decryption
  []
 
-[29]
+[31
 
-LaTeX Warning: Text page 30 contains only floats.
-
-[30] [31] [32] [33] (./simulation.tex
+] [32] [33] (./simulation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
@@ -1663,80 +1663,59 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
  ) 
 Here is how much of TeX's memory you used:
- 38429 strings out of 480608
- 890278 string characters out of 5903630
- 1431945 words of memory out of 5000000
+ 38422 strings out of 480608
+ 890178 string characters out of 5903630
+ 1426248 words of memory out of 5000000
  53074 multiletter control sequences out of 15000+600000
  561371 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,33n,102p,1667b,1820s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{equation.A.4.12} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.A.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.A.4.11} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.A.4.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.A.4.10} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.A.4.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.A.4} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/
-usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
-cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2020/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
-1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
-ype1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/public/cm-super/sfbx0700.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
-/public/cm-super/sfbx0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
-ublic/cm-super/sfbx1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
-lic/cm-super/sfbx1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
-c/cm-super/sfbx1440.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
-cm-super/sfrm0500.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm
--super/sfrm0600.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-s
-uper/sfrm0700.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-sup
-er/sfrm0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
-/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
-fti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sft
-i1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect10.
-pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (38 pages, 711623 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
+/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb
+></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
+cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2020/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
+ype1/public/cm-super/sfbx0700.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/cm-super/sfbx1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/cm-super/sfrm0500.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+cm-super/sfrm0600.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm
+-super/sfrm0700.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
+/sfti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
+fti1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect1
+0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
+Output written on main.pdf (38 pages, 712176 bytes).
 PDF statistics:
- 1248 PDF objects out of 1440 (max. 8388607)
- 967 compressed objects within 10 object streams
- 458 named destinations out of 1000 (max. 500000)
+ 1240 PDF objects out of 1440 (max. 8388607)
+ 959 compressed objects within 10 object streams
+ 451 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
