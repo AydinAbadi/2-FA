@@ -4,7 +4,7 @@
 \begin{figure}[!htbp]
 \vspace{-2mm}
 \begin{center}
-     \begin{tcolorbox}[enhanced,width=4.75in, height=183mm, left=-.4mm,top=-1mm,
+     \begin{tcolorbox}[enhanced,width=4.75in, height=187mm, left=-.4mm,top=-1mm,
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
     \vspace{-3.5mm}
@@ -13,8 +13,10 @@
  \procedure{}{%
   \hspace{8mm}\underline{\textbf{User's token}} \< \hspace{0ex} \<\hspace{2.6mm} \underline{\textbf{Server}} 
 \pclb
+ % 
+\sendmessagerightx[5cm]{6}{(\bar U_{\sss ID}, \text{authentication}) } \\% encrypt
  %
-\sendmessagerightx[5cm]{6}{(U_{\sss ID}, \text{authentication}) } \\% encrypt
+   \pcln \< \<\hspace{-6.5mm} \iif  \bar U_{\sss ID}\neq U_{\sss ID}, \text{then \ go\ to\ } \ref{auth:fail} \\
  %
  \pcln \< \<\hspace{-6.5mm} \VS{\counter} \gets \VS{\counter} + 1 \\ % server-- increment counter
  %

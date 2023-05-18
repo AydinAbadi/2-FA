@@ -6,7 +6,7 @@
 \begin{figure}[!htb]
 \setlength{\fboxsep}{1pt}
 \begin{center}
-    \    \begin{tcolorbox}[enhanced,width=4.75in, height=155mm, left=1mm,top=-.5mm,
+    \    \begin{tcolorbox}[enhanced,width=4.75in, height=156.5mm, left=1mm,top=-.5mm,
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
 %{\small{
@@ -17,8 +17,9 @@
  %
 \pclb
  %
- \sendmessagerightx[5cm]{6}{(U_{\sss ID},  \text{enrolment})} \\% encrypt
+ \sendmessagerightx[5cm]{6}{(\bar U_{\sss ID},  \text{enrolment})} \\% encrypt
  %%%%%% Server
+  \pcln \< \<\hspace{2.6mm} \iif  \bar U_{\sss ID}\neq U_{\sss ID}, \text{then \ go\ to\ } \ref{enroll:fail-server-} \\
  \pcln \< \<\hspace{2.6mm} \VS{\counter} \gets \VS{\counter} + 1  \\
  \pcln \< \<\hspace{2.6mm} \VS{\keyt_{\sss 1}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% update
  %
@@ -83,7 +84,7 @@
 \end{tcolorbox}
 \end{center}
 \vspace{-4.5mm}
-    \caption{Enrolment phase. For the sake of brevity, we have left out from the protocol's description the steps where the user inserts $M'$ and $t'$ into its computer.}
+    \caption{Enrolment phase. For the sake of brevity, we have left out from the protocol's description the steps where the user inserts $M'$ and $t'$ into its computer. The $\bar U_{\sss ID}$ and enrolment are two plaintext messages sent to the server. }
     \label{fig:enrollment}
 \end{figure}
 
