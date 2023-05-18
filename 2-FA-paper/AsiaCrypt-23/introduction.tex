@@ -54,7 +54,7 @@ Researchers and companies have proposed various 2FA solutions based on a combina
 
 \end{itemize}
 
-To attain its goals, our protocol does not use any trusted hardware; instead, it relies on a novel combination of the following two approaches. Firstly, neither the server nor the hardware token has the ability to verify the PIN -- secret information stored by both is needed to do so. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location. 
+To attain its goals, our protocol does not use any trusted chipset; instead, it relies on a novel combination of the following two approaches. Firstly, neither the server nor the hardware token has the ability to verify the PIN -- secret information stored by both is needed to do so. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location. 
 Secondly, it  (a) requires that the server and token use key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption) to encrypt sensitive messages they exchange,  and (b) requires that used keys be discarded immediately after their use.
 This approach ensures the secrecy of the communication between the parties and guarantees that the adversary cannot learn the PIN, even if it eavesdrops on the parties' communication and subsequently breaks into the token or server. We formally prove the security of this protocol. 
 
