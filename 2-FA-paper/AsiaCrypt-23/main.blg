@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: splncs04.bst
+Database file #1: ref.bib
+Warning--entry type for "Digipass-website" isn't style-file defined
+--line 223 of file ref.bib
+Warning--to sort, need author or key in psd2
+You've used 34 entries,
+            2850 wiz_defined-function locations,
+            785 strings with 10808 characters,
+and the built_in function-call counts, 15855 in all, are:
+= -- 1171
+> -- 607
+< -- 3
++ -- 255
+- -- 216
+* -- 936
+:= -- 2143
+add.period$ -- 36
+call.type$ -- 34
+change.case$ -- 245
+chr.to.int$ -- 0
+cite$ -- 35
+duplicate$ -- 1488
+empty$ -- 1523
+format.name$ -- 244
+if$ -- 3371
+int.to.chr$ -- 0
+int.to.str$ -- 34
+missing$ -- 314
+newline$ -- 108
+num.names$ -- 66
+pop$ -- 747
+preamble$ -- 1
+purify$ -- 176
+quote$ -- 0
+skip$ -- 333
+stack$ -- 0
+substring$ -- 545
+swap$ -- 631
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 134
+warning$ -- 1
+while$ -- 104
+width$ -- 36
+write$ -- 315
+(There were 2 warnings)

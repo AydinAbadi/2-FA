@@ -190,7 +190,10 @@ The protocol achieves these goals through a novel combination of splitting secre
 
 Recall that we wish to build an authentication protocol for which the server can verify that the PIN has been entered correctly but that an adversary cannot discover the correct PIN given access to challenge/response pairs and all data stored on the token, or access to all data stored on the server. 
 These properties must be assured even when the PIN is small enough to be brute-forced.
-We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server.
+We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server. 
+%
+The confidentiality of PINs (e.g., in the case of server breach) is crucial, as often people use their PINs for multiple purposes and in different places \cite{MurdochBAABHSS16}. Thus, the leakage of PINs can have serious repercussions for people.   
+
 
 Our protocol consists of three phases: (i) a setup phase, performed once when the hardware token is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. We assume the parties include their IDs in their outgoing messages.  Similar to other two-factor authentication schemes, we assume the server maintains a local threshold, and if the number of incorrect responses from a user within a fixed time exceeds the threshold, then the user and its token will be locked out. Such a check is implicit in the protocol's description. 
 

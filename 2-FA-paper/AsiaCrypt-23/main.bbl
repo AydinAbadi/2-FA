@@ -101,6 +101,13 @@ Matsuo, S., Moriyama, D., Yung, M.: Multifactor authenticated key renewal. In:
   Trusted Systems - Third International Conference, {INTRUST} 2011,. Lecture
   Notes in Computer Science, Springer (2011)
 
+\bibitem{MurdochBAABHSS16}
+Murdoch, S.J., Becker, I., Abu{-}Salma, R., Anderson, R.J., Bohm, N.,
+  Hutchings, A., Sasse, M.A., Stringhini, G.: Are payment card contracts
+  unfair? (short paper). In: Financial Cryptography and Data Security - 20th
+  International Conference, {FC} 2016, Christ Church, Barbados, February 22-26,
+  2016, Revised Selected Papers. Lecture Notes in Computer Science (2016)
+
 \bibitem{Digipass-website}
 {OneSpan}: Digipass 770 datasheet, \url
   {https://www.onespan.com/resources/digipass-770/datasheet}
@@ -135,19 +142,6 @@ Scott, M.: Cryptanalysis of a recent two factor authentication scheme. {IACR}
 \bibitem{TianLHL20}
 Tian, Y., Li, Q., Hu, J., Lin, H.: Secure limitation analysis of public-key
   cryptography for smart card settings. World Wide Web  (2020)
-
-\bibitem{oath-hotp}
-View, M., M'Raihi, D., Hoornaert, F., Naccache, D., Bellare, M., Ranen, O.:
-  {HOTP: An HMAC-Based One-Time Password Algorithm}. RFC 4226 (Dec 2005).
-  \doi{10.17487/RFC4226}
-
-\bibitem{oath-ocra}
-View, M., Naccache, D., Rydell, J., Bajaj, S., Machani, S.: {OCRA: OATH
-  Challenge-Response Algorithm}. RFC 6287 (Jun 2011). \doi{10.17487/RFC6287}
-
-\bibitem{oath-totp}
-View, M., Rydell, J., Pei, M., Machani, S.: {TOTP: Time-Based One-Time Password
-  Algorithm}. RFC 6238 (May 2011). \doi{10.17487/RFC6238}
 
 \bibitem{WangGCW16}
 Wang, D., Gu, Q., Cheng, H., Wang, P.: The request for better measurement: {A}
