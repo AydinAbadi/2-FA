@@ -7,7 +7,7 @@
 Two-factor authentication (2FA) is increasingly required for access to online services, as a way to mitigate the risk of a single factor (typically a password) being compromised.
 This trend has been accelerated by regulations, such as the Payment Services Directive 2 (PSD 2)~\cite{psd2} in the EU and federal requirements in the US~\cite{Zero-Trust-Cybersecurity}.
 2FA can bring significant security benefits, but only if the solution is secure, usable, and cost-effective.
-However existing systems fall short in these requirements.
+However, existing systems fall short of these requirements.
 In this paper, we propose a new 2FA protocol that significantly improves existing systems and so facilitates the wider adoption of 2FA for authenticating access to online services, in particular authorising financial transactions.
 
 2FA requires the combination of two factors out of knowledge (\eg, PIN or a password), possession (\eg, of a hardware device/token), and biometrics (\eg, a fingerprint).
@@ -19,7 +19,7 @@ Biometrics also have shortcomings in that they cannot be effectively revoked, wi
 
 \item[$\bullet$]\textbf{usable:} create a minimal imposition on the user and environment by not requiring special software to be installed on the user's computer and not requiring that the user remember long passwords or enter long strings into the computer or hardware token.
 
-\item[$\bullet$]\textbf{cost-effective:} the hardware token must be cheap and so must not be required to have tamper-resistant trusted hardware or the ability to perform complex computation.
+\item[$\bullet$]\textbf{cost-effective:} the hardware token must be cheap and so must not be required to have tamper-resistant trusted hardware or the ability to perform complex computations.
 \end{itemize}
 
 Furthermore, the 2FA protocol must support \textbf{transaction authentication} \ie, be able to bind its execution to a particular transaction that is shown to the user on a trusted display, as required by the PSD2.
@@ -47,7 +47,7 @@ Researchers and companies have proposed various 2FA solutions based on a combina
 
 \item[$\bullet$] is proved secure in a standard model.
 
-\item[$\bullet$] does not put any security assumption on users' personal computers.
+\item[$\bullet$] does not put any security assumptions on users' personal computers.
 
 \item[$\bullet$]  imposes up to $40\%$ lower communication costs than the state-of-the-art protocols designed to remain secure against the aforementioned adversary. 
 
