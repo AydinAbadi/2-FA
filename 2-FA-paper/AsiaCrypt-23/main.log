@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  19 MAY 2023 09:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  19 MAY 2023 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1320,9 +1320,6 @@ LaTeX Warning: Label `enroll:fail' multiply defined.
 LaTeX Warning: Label `enroll:fail-server-' multiply defined.
 
 
-LaTeX Warning: Label `auth-protocol:first-update' multiply defined.
-
-
 LaTeX Warning: Label `auth:fail' multiply defined.
 
 
@@ -1460,15 +1457,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--76
 
  []
 
-) [6]
+) [6] [7]
 Overfull \hbox (3.43701pt too wide) in paragraph at lines 43--44
 \T1/cmr/m/n/10 Informally, au-then-ti-cated en-cryp-tion $\OML/cmm/m/it/10 ^^E 
 \OT1/cmr/m/n/10 = ([]\OML/cmm/m/it/10 ; []; []\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10
  is an en-cryp-tion scheme
  []
 
-[7]) (./model.tex
-<setup.pdf, id=218, 950.59138pt x 342.31888pt>
+) (./model.tex
+<setup.pdf, id=217, 950.59138pt x 342.31888pt>
 File: setup.pdf Graphic file (type pdf)
 <use setup.pdf>
 Package pdftex.def Info: setup.pdf  used on input line 21.
@@ -1483,7 +1480,7 @@ Overfull \hbox (5.25255pt too wide) in paragraph at lines 34--36
  [] 
  []
 
-) (./short-enrolment.tex [11]) [12] (./short-authentication.tex
+) [11] (./short-enrolment.tex) (./short-authentication.tex
 Overfull \hbox (12.30162pt too wide) detected at line 99
 []
  []
@@ -1496,7 +1493,7 @@ Overfull \hbox (15.50157pt too wide) in paragraph at lines 99--101
 
 LaTeX Warning: Float too large for page by 13.01135pt on input line 106.
 
-) [13] [14] [15] (./informal-sec-analysis.tex [16] [17] [18]) (./sync.tex
+) [12] [13] [14] [15] (./informal-sec-analysis.tex [16] [17] [18]) (./sync.tex
 [19]) [20] (./evaluation-long.tex (./evaluation-table.tex
 Overfull \hbox (2.21938pt too wide) in paragraph at lines 49--52
  [] 
@@ -1530,7 +1527,7 @@ Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
 []$[]$ 
  []
 
-) (./longer-protocol.tex [27] (./long-setup.tex
+[27]) (./longer-protocol.tex (./long-setup.tex
 Overfull \hbox (11.79417pt too wide) detected at line 34
 []
  []
@@ -1660,10 +1657,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 352.
  ) 
 Here is how much of TeX's memory you used:
- 38418 strings out of 480608
- 890161 string characters out of 5903630
- 1425790 words of memory out of 5000000
- 53073 multiletter control sequences out of 15000+600000
+ 38419 strings out of 480608
+ 890191 string characters out of 5903630
+ 1426121 words of memory out of 5000000
+ 53074 multiletter control sequences out of 15000+600000
  561371 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,33n,102p,1667b,1820s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1709,7 +1706,7 @@ er/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
 /sfti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect1
 0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (38 pages, 711604 bytes).
+Output written on main.pdf (38 pages, 711493 bytes).
 PDF statistics:
  1229 PDF objects out of 1440 (max. 8388607)
  947 compressed objects within 10 object streams
