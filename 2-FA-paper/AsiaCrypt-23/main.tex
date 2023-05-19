@@ -192,7 +192,7 @@ Recall that we wish to build an authentication protocol for which the server can
 These properties must be assured even when the PIN is small enough to be brute-forced.
 We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server. 
 %
-The confidentiality of PINs (e.g., in the case of server breach) is crucial, as often people use their PINs for multiple purposes and in different places \cite{MurdochBAABHSS16}. Thus, the leakage of PINs can have serious repercussions for people.   
+The confidentiality of PINs (e.g., in the case of the server breach) is crucial, as often people use their PINs for multiple purposes and in different places \cite{MurdochBAABHSS16}. Thus, the leakage of PINs can have serious repercussions for people.   
 
 
 Our protocol consists of three phases: (i) a setup phase, performed once when the hardware token is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. We assume the parties include their IDs in their outgoing messages.  Similar to other two-factor authentication schemes, we assume the server maintains a local threshold, and if the number of incorrect responses from a user within a fixed time exceeds the threshold, then the user and its token will be locked out. Such a check is implicit in the protocol's description. 
@@ -232,7 +232,7 @@ We briefly explain how this phase works.  The server first updates the FS-PRG's 
 
 The token then generates a verifier $\VC{\verifier}$, by deriving a pseudorandom value from the PIN using $\prf$ and the random key $\VC{\salt}$ it generated in the setup phase.  After that, the token locally synchronises the FS-PRG's state with the server by updating the state until it matches the counter received from the server; this yields \VC{\keyt_{\sss 1}}. This synchronisation is possible because the check at line \ref{enroll:clinet-check-counter-} has already assured that the token's state is behind the server's state by at least one step. After the update, \VC{\keyt_{\sss 1}} will equal \VS{\keyt_{\sss 1}} because the initial FS-PRG's state is the same (from the setup phase) and the two generators have been updated the same number of times. The user's token then encrypts the verifier and challenge under \VC{\keyt_{\sss 1}} and sends this to the server. 
  %
-On receiving and validating this message, the server decrypts the message using \VS{\keyt{\sss 1}}, then extracts the challenge and verifier.
+On receiving and validating this message, the server decrypts the message using \VS{\keyt{\sss 1}} and then extracts the challenge and verifier.
 If the received challenge does not match the challenge that the server sent, then the protocol halts.
 If the challenge does match, the server stores the verifier, $\VS{\verifier}$,  associated with the user's account.
 
