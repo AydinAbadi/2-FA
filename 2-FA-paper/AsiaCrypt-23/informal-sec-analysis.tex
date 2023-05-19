@@ -18,7 +18,7 @@ In this section,  we first list a set of threats that our protocol must resist.
 %\paragraph{T.DEV: token access} adversaries may steal the authentication token. The adversary will then know \VC{k}, \VC{\salt} and the current values of \VC{\counter} and \VC{\state}, because we assume the token does not take advantage of tamper-proof hardware. Nevertheless, such information is not sufficient to help the adversary learn \VC{\verifier}, \VM{\trans}, \VC{\pin}, \VC{\keyt_{\sss 1}}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}} or previous values of \VC{\state} ; these are all discarded at the end of a protocol exchange. We assume that the client will not use the token after it has been stolen, and will be issued with a replacement.
 
 \begin{itemize}
-\item[$\bullet$]\textit{T.DEV: token access.} An adversary may steal the authentication token. The adversary will then know \VC{k}, \VC{\salt} and the current values of \VC{\counter} and \VC{\state}, because we assume the token does not take advantage of a trusted chipset. The adversary does not learn \VC{\verifier}, \VM{\trans}, \VC{\pin}, \VC{\keyt_{\sss 1}}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}} or previous values of \VC{\state}; as these are all discarded at the end of a protocol exchange. We assume that the user will not use the token after it has been stolen, and will be issued with a replacement.
+\item[$\bullet$]\textit{T.DEV: token access.} An adversary may steal the authentication token. The adversary will then know \VC{k}, \VC{\salt} and the current values of \VC{\counter} and \VC{\state}, because we assume the token does not take advantage of a trusted chipset. The adversary does not learn \VC{\verifier}, \VM{\trans}, \VC{\pin}, \VC{\keyt_{\sss 1}}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}} or previous values of \VC{\state}; as these are all discarded when the protocol terminates, i.e., when $\mathtt{Discard}(.)$ is executed. We assume that the user will not use the token after it has been stolen and it will be issued with a replacement.
 
 
 \item[$\bullet$]\textit{T.MITM: Man-in-the-middle.} An adversary may have access to the traffic exchanged between the client and server.
@@ -36,9 +36,9 @@ However, it is reasonable to believe that the server database could be compromis
 Next, we present the high-level security objective that our protocol must achieve. 
 
 \begin{itemize}
-\item[$\bullet$]\textit{O.AUTH: Authentication.} If the server considers the authentication to have succeeded then the correct token was used and the correct PIN was entered.
+\item[$\bullet$]\textit{O.AUTH: Authentication.} If the server considers the authentication to have succeeded,  then the correct token was used and the correct PIN was entered.
 
-\item[$\bullet$]\textit{O.TRAN: Transaction authentication.} If the server considers the authentication to have succeeded then the correct token was used, the correct PIN was entered, and the token showed the correct transaction.
+\item[$\bullet$]\textit{O.TRAN: Transaction authentication.} If the server considers the authentication to have succeeded, then the correct token was used, the correct PIN was entered, and the token showed the correct transaction.
 
 \item[$\bullet$]\textit{O.PIN: PIN protection.} The adversary should not be able to discover the user's PIN. 
 \end{itemize}
