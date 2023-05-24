@@ -202,9 +202,11 @@ Our protocol consists of three phases: (i) a setup phase, performed once when th
 
 To bootstrap the protocol, in the setup phase, we require that the user
 and server share an \emph{initial} randomly generated key $k$ for AE and key $\state_{\sss 0}$ for  FS-PRG.
+This initial key loading assumption is common to all hardware tokens based around symmetric cryptography, such as the RSA SecureID, and tokens based around asymmetric cryptography have an equivalent certificate loading process, so this assumption does not affect the feasibility of the protocol.
 The counter for the FS-PRG state is set to $0$ on both sides. 
 These values could be securely loaded into the token at the time of
-manufacture or can be sent (via a secure channel) to the user who can use the hardware token's camera to scan and store them in the token. In this phase, the token generates and locally stores a random secret key $\VC{\salt}$ for \prf.  \prettyref{fig:setup} presents the setup in detail. 
+manufacture or can be sent (via a secure channel) to the user who can use the hardware token's camera to scan and store them in the token.
+In this phase, the token generates and locally stores a random secret key $\VC{\salt}$ for \prf.  \prettyref{fig:setup} presents the setup in detail. 
 
 
 \input{short-setup}
