@@ -4,47 +4,47 @@ The top-level auxiliary file: main.aux
 The style file: splncs04.bst
 Database file #1: ref.bib
 Warning--entry type for "Digipass-website" isn't style-file defined
---line 223 of file ref.bib
+--line 236 of file ref.bib
 Warning--to sort, need author or key in psd2
-You've used 34 entries,
+You've used 35 entries,
             2850 wiz_defined-function locations,
-            785 strings with 10808 characters,
-and the built_in function-call counts, 15855 in all, are:
-= -- 1171
-> -- 607
-< -- 3
-+ -- 255
-- -- 216
-* -- 936
-:= -- 2143
-add.period$ -- 36
-call.type$ -- 34
-change.case$ -- 245
+            791 strings with 11032 characters,
+and the built_in function-call counts, 16557 in all, are:
+= -- 1234
+> -- 629
+< -- 4
++ -- 264
+- -- 224
+* -- 971
+:= -- 2225
+add.period$ -- 39
+call.type$ -- 35
+change.case$ -- 254
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 1488
-empty$ -- 1523
-format.name$ -- 244
-if$ -- 3371
+cite$ -- 36
+duplicate$ -- 1555
+empty$ -- 1583
+format.name$ -- 253
+if$ -- 3536
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 314
-newline$ -- 108
-num.names$ -- 66
-pop$ -- 747
+int.to.str$ -- 35
+missing$ -- 326
+newline$ -- 111
+num.names$ -- 68
+pop$ -- 774
 preamble$ -- 1
-purify$ -- 176
+purify$ -- 182
 quote$ -- 0
-skip$ -- 333
+skip$ -- 362
 stack$ -- 0
-substring$ -- 545
-swap$ -- 631
-text.length$ -- 3
+substring$ -- 572
+swap$ -- 670
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 134
+type$ -- 138
 warning$ -- 1
-while$ -- 104
-width$ -- 36
-write$ -- 315
+while$ -- 108
+width$ -- 37
+write$ -- 326
 (There were 2 warnings)

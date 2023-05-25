@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  19 MAY 2023 13:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  25 MAY 2023 11:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1471,16 +1471,16 @@ File: setup.pdf Graphic file (type pdf)
 Package pdftex.def Info: setup.pdf  used on input line 21.
 (pdftex.def)             Requested size: 341.43306pt x 122.95262pt.
  [8] [9 <./setup.pdf>]) [10] (./short-setup.tex
-Overfull \hbox (3.25255pt too wide) detected at line 34
+Overfull \hbox (3.25255pt too wide) detected at line 33
 []
  []
 
 
-Overfull \hbox (5.25255pt too wide) in paragraph at lines 34--36
+Overfull \hbox (5.25255pt too wide) in paragraph at lines 33--35
  [] 
  []
 
-) [11] (./short-enrolment.tex) (./short-authentication.tex
+) (./short-enrolment.tex) [11] [12] [13] (./short-authentication.tex
 Overfull \hbox (12.30162pt too wide) detected at line 99
 []
  []
@@ -1491,28 +1491,28 @@ Overfull \hbox (15.50157pt too wide) in paragraph at lines 99--101
  []
 
 
-LaTeX Warning: Float too large for page by 13.01135pt on input line 106.
+LaTeX Warning: Float too large for page by 13.5804pt on input line 106.
 
-) [12] [13] [14] [15] (./informal-sec-analysis.tex [16] [17] [18]) (./sync.tex
-[19]) [20] (./evaluation-long.tex (./evaluation-table.tex
+) [14] [15] [16] (./informal-sec-analysis.tex [17] [18]) (./sync.tex [19])
+[20] (./evaluation-long.tex (./evaluation-table.tex
 Overfull \hbox (2.21938pt too wide) in paragraph at lines 49--52
  [] 
  []
 
-) [21] [22] [23]) (./conclusion.tex) (./main.bbl [24]
+) [21] [22] [23]) (./conclusion.tex [24]) (./main.bbl [25]
 Underfull \hbox (badness 10000) in paragraph at lines 112--114
 []\T1/cmr/m/n/9 OneSpan: Digi-pass 770 datasheet, [][]$https : / / www . onespa
 n . com / resources /
  []
 
-[25]
-Underfull \hbox (badness 1521) in paragraph at lines 130--133
+
+Underfull \hbox (badness 1521) in paragraph at lines 135--138
 []\T1/cmr/m/n/9 RSA Se-cu-rity LLC: RSA Se-curid hard-ware au-then-ti-ca-tors, 
 tech-ni-cal spec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--133
+Underfull \hbox (badness 10000) in paragraph at lines 135--138
 \T1/cmr/m/n/9 i-fi-ca-tions (2021), [][]$https : / / www . securid . com / wp-[
 ]content / uploads / 2021 / 11 /
  []
@@ -1565,19 +1565,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--111
 
 LaTeX Warning: Float too large for page by 9.54716pt on input line 117.
 
-) [28]
-
-LaTeX Warning: Text page 29 contains only floats.
-
-[29] [30]) (./proof.tex
+) [28] [29] [30] [31]) (./proof.tex
 Overfull \hbox (17.47673pt too wide) in paragraph at lines 25--29
 \T1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the e
 n-cryp-tion/decryption
  []
 
-[31
+[32
 
-] [32] [33] (./simulation.tex
+] [33] [34] (./simulation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
@@ -1599,7 +1595,7 @@ Underfull \hbox (badness 1371) in paragraph at lines 126--127
 ove in-
  []
 
-[34]
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
@@ -1617,7 +1613,7 @@ y/m/n/9 k\OML/cmm/m/it/9 t[]\OMS/cmsy/m/n/9 k\OML/cmm/m/it/9 v[]\OMS/cmsy/m/n/9
  jj\OT1/cmr/m/n/9 1)$\T1/cmr/m/n/9 . It checks whether
  []
 
-[35]
+[36]
 Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
@@ -1642,25 +1638,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--251
 
  []
 
-) [36] [37]) [38]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 352.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 352.
+) [37] [38]) [39]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 354.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 354.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 352.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 352.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 354.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 354.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 79FEA7DAAB545B6AF1B03A7C98D2AC19;96.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 352.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 354.
  ) 
 Here is how much of TeX's memory you used:
- 38419 strings out of 480608
- 890191 string characters out of 5903630
- 1426121 words of memory out of 5000000
- 53074 multiletter control sequences out of 15000+600000
+ 38422 strings out of 480608
+ 890239 string characters out of 5903630
+ 1431859 words of memory out of 5000000
+ 53075 multiletter control sequences out of 15000+600000
  561371 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,33n,102p,1667b,1820s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1706,10 +1702,10 @@ er/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
 /sfti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect1
 0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (38 pages, 711452 bytes).
+Output written on main.pdf (39 pages, 713577 bytes).
 PDF statistics:
- 1229 PDF objects out of 1440 (max. 8388607)
- 947 compressed objects within 10 object streams
- 448 named destinations out of 1000 (max. 500000)
+ 1236 PDF objects out of 1440 (max. 8388607)
+ 952 compressed objects within 10 object streams
+ 450 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
