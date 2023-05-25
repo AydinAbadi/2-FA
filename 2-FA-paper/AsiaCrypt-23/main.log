@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  25 MAY 2023 11:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  25 MAY 2023 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1518,16 +1518,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--138
  []
 
 ) (./forward-PRF-extra.tex [26]
-Overfull \hbox (31.27872pt too wide) in paragraph at lines 70--90
+Overfull \hbox (31.27872pt too wide) in paragraph at lines 74--94
 []$[] $ 
  []
 
 
-Overfull \hbox (11.2836pt too wide) in paragraph at lines 94--116
+Overfull \hbox (11.2836pt too wide) in paragraph at lines 98--120
 []$[]$ 
  []
 
-[27]) (./longer-protocol.tex (./long-setup.tex
+[27] [28]) (./longer-protocol.tex (./long-setup.tex
 Overfull \hbox (11.79417pt too wide) detected at line 34
 []
  []
@@ -1538,12 +1538,12 @@ Overfull \hbox (13.79417pt too wide) in paragraph at lines 34--36
  []
 
 ) (./long-enrolment.tex
-Overfull \hbox (0.72382pt too wide) detected at line 84
+Overfull \hbox (0.72382pt too wide) detected at line 87
 []
  []
 
 
-Overfull \hbox (3.92377pt too wide) in paragraph at lines 84--86
+Overfull \hbox (3.92377pt too wide) in paragraph at lines 87--89
  [] 
  []
 
@@ -1565,7 +1565,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--111
 
 LaTeX Warning: Float too large for page by 9.54716pt on input line 117.
 
-) [28] [29] [30] [31]) (./proof.tex
+) [29
+
+] [30] [31]) (./proof.tex
 Overfull \hbox (17.47673pt too wide) in paragraph at lines 25--29
 \T1/cmr/m/n/10 ad-ver-sary; namely, the pseu-do-ran-dom func-tion ($[]$), the e
 n-cryp-tion/decryption
@@ -1655,7 +1657,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 354.
 Here is how much of TeX's memory you used:
  38422 strings out of 480608
  890239 string characters out of 5903630
- 1431859 words of memory out of 5000000
+ 1425864 words of memory out of 5000000
  53075 multiletter control sequences out of 15000+600000
  561371 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1702,7 +1704,7 @@ er/sfrm1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super
 /sfti0900.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/s
 fti1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect1
 0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (39 pages, 713577 bytes).
+Output written on main.pdf (39 pages, 713668 bytes).
 PDF statistics:
  1236 PDF objects out of 1440 (max. 8388607)
  952 compressed objects within 10 object streams
