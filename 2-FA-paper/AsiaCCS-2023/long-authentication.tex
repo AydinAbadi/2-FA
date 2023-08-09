@@ -1,0 +1,117 @@
+%!TEX root = main.tex
+%\subsection{Authentication Phase}\label{sec::long-Authentication-Phase}
+
+%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htbp]
+
+\begin{center}
+     \begin{tcolorbox}[enhanced,width=3.3in, height=177mm, left=1mm,top=-1mm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+%{\small{
+ \centering
+ \procedure{}{%
+  \hspace{6mm}\underline{\textbf{User's token}} \<  \<\hspace{-15mm} \underline{\textbf{Server}} 
+\pclb
+ %
+\sendmessagerightx[5cm]{4}{(U_{\sss ID}, \text{authentication}) } \\% encrypt
+ %
+ \pcln \< \<\ah \VS{\counter} \gets \VS{\counter} + 1 \\ % server-- increment counter
+ %
+ \pcln \< \<\ah  \VS{\keyt_{\sss 2}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% server-- update
+ %
+  \pcln \< \<\ah  \tmp_{\sss\VS{\counter}} \gets \VS{\counter}, \ \VS{\counter} \gets \VS{\counter} + 1 \< \< \\
+ %
+% \pcln \< \< \VS{\counter} \gets \VS{\counter} + 1 \\ % server-- increment counter again
+ %
+ \pcln \< \<\ah\VS{\keyt_{\sss 3}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% server-- update again
+ %
+ \pcln \< \<\ah \VS{\nonce} \stackrel{\$}\leftarrow \bin^{\sss \secpar}, \  p= \VS{\nonce} || \VS{\trans} \ \\  % server--pick a challenge
+%
+ \pcln \< \<\ah (\ddot M, \ddot t)\leftarrow \enc_{\sss\VS{\keyt_{\sss 2}}}(p)\\
+ %
+ \pcln \< \<\ah (\hat M, \hat t)\leftarrow \enc_{\sss\VS{k}}( \tmp_{\VS{\counter}})\pclb
+ %
+ \sendmessageleftx[5cm]{5}{(\ddot M, \ddot t), (\hat M, \hat t)} \\ % server-- encrypt
+ %
+ %%%%%  client
+ %
+   \pcln (\tmp_{\sss\VM{\counter}},b') \gets \mathsf{Dec}_{\sss\VC{k}}(\hat M, \hat t); \text{ if } b'\neq 1,    \text{\ go\ to\ } \ref{auth:fail} \< \< \\% client-- decrypt
+  %
+  %\pcln \iif b'\neq 1,    \text{\ go\ to\ } \ref{auth:fail} \\ % client-- verify tag
+   %
+    \pcln \iif \tmp_{\sss\VM{\counter}} \le \VC{\counter}, \text{\ go\ to\ } \ref{auth:fail} \< \< \\
+   %
+    %%%%%%%%%%%%%%
+ \pcln d=  \tmp_{\sss\VM{\counter}}-\VC{\counter};\  \VC{\counter} \gets \VC{\counter} + d+1\  \< \< \\
+ %
+  %\pcln \forEach i \in[1,d]: \< \< \\
+  % \pcln    \VC{\counter} \gets \VC{\counter} + d+1\< \< \\
+    \pcln\label{auth-protocol:first-update--} \VC{\keyt_{\sss 2}},  \VC{\state} \gets \update(\VC{\state}, d) \< \< \\ % update
+ %%%%%%%%
+   %
+    %\pcln \VC{\keyt_{\sss 2}} \gets k \< \< \\ % set the key
+   %
+ % \pcln  \VC{\keyt_{\sss 2}}, \VC{\state} \gets \update(\VC{\state}, \tmp_{\sss\VM{\counter}})\\ % client-- 1st update
+ %
+  \pcln (p,b) \gets \mathsf{Dec}_{\sss\VC{\keyt_{\sss 2}}}(\ddot M, \ddot t); \text{ if } b\neq 1,    \text{\ go\ to\ } \ref{auth:fail} \< \< \\% client-- decrypt
+  %
+  %\pcln \iif b\neq 1,    \text{\ go\ to\ } \ref{auth:fail} \\ % client-- verify tag
+  %
+  \pcln \text{Parse\ } p \text{\ yielding\ } \VM{\nonce}, \VM{\trans}  \< \< \\ % client parse
+ %
+ \pcln \text{Display \VM{\trans} for user to check} \< \< \\
+ %
+ \pcln \text{\iif user rejects \VM{\trans}, \text{\ go\ to\ } \ref{auth:fail}} \< \< \\
+ %
+  %\pcln \VC{\counter} \gets \VM{\counter} \< \< \\%client-- set counter
+ %
+ \pcln \text{Request \VC{\pin} from user} \< \< \\
+ %
+ \pcln \VC{\verifier} \gets \prf_{\sss\VC{\salt}}(\VC{\pin}) \< \< \\
+%
+ \pcln  \VC{\keyt_{\sss 3}}, \VC{\state} \gets \update(\VC{\state}, 1) \< \< \\
+  %
+ \pcln p''=  \VM{\nonce} \|  \VM{\trans} \| \VC{\verifier};  \VC{\mathit{response}} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 1) \< \< \\ %client--set plaintext
+ %
+% \pcln \label{auth:gen-res}  \VC{\mathit{response}} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 1) \< \< \\ % client-- encrypt
+ %
+  \pcln   \textcolor{blue}{x\leftarrow \mathtt{Der}(\VC{\keyt_{\sss 3}})},  \textcolor{blue}{r'= x \oplus r}; sk^{C} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 2) \< \< 
+ %
+% \pcln   \textcolor{blue}{r'= x \oplus r} \< \< \\
+ %
+  %\pcln sk^{C} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 2) \< \<  \pclb% client-- encrypt
+%  \pcln sk^{C} \gets \hash(\VC{\keyt_{\sss 3}}||p'') \< \< \pclb % client-- encrypt
+ %
+ \pclb\sendmessagerightx[5cm]{5}{ \VC{\mathit{response}}, \textcolor{blue}{r'}} \\
+ %
+  \pcln \label{auth:fail} \mathtt{Discard}(\VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}}, \VM{\nonce}, \VM{\trans}, \tmp_{\sss\VM{\counter}}, d, \textcolor{blue}{x}) \\ 
+ %%%%% server
+ \pcln \< \<\ah   \textcolor{blue}{x\leftarrow \mathtt{Der}(\VC{\keyt_{\sss 3}})}, \textcolor{blue}{r= x \oplus r'} \\
+ %
+ %\pcln \< \<\hspace{2.6mm}  \textcolor{blue}{r= x \oplus r'} \\
+ %%
+ \pcln \< \<\ah\textcolor{blue}{w^{\sss M}\gets \prf_{r}(\VS{\verifier})} \\
+ %
+ %
+  \pcln \< \<\ah\textcolor{blue}{\iif  w^{\sss M}\neq w^{\sss S}, \text{go\ to\ } \ref{auth:fail-server}} \\
+ %
+ \pcln \< \<\ah \VS{\mathit{expected}} \gets \prf_{\sss\VS{\keyt_{\sss3}}}(\VS{\nonce}  \| \VS{\trans} \| \VS{\verifier}||1); \\
+ %
+ \pcln \< \<\ah \iif \VC{\mathit{response}} \ne \VS{\mathit{expected}}, \text{go\ to\ } \ref{auth:fail-server} \\
+ %
+ %
+\pcln\< \<\ah sk^{S} \gets\prf_{\sss\VS{\keyt_{\sss3}}}(\VS{\nonce}  \| \VS{\trans} \| \VS{\verifier}|| 2)\\
+ %
+  \pcln \label{auth:fail-server}\< \<\ah \mathtt{Discard} (\VS{\keyt_{\sss 2}}, \VS{\keyt_{\sss 3}}, \VS{\nonce}, \VS{\trans}, tmp_{\VS{\counter}},\textcolor{blue}{x,r}) 
+ }
+ %
+ %}}
+\end{tcolorbox}
+\end{center}
+\vspace{-3mm}
+    \caption{Authentication phase.}
+    \label{fig:auth-long}
+   % 
+\end{figure}
+%%%%%%%%%%%%%%%%%%

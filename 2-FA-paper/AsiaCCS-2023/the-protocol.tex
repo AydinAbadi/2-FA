@@ -1,0 +1,124 @@
+%!TEX root = main.tex
+
+\section{The Protocol}\label{sec::the-protocol}
+
+Recall that we wish to build an authentication protocol for which the server can verify that the PIN has been entered correctly but that an adversary cannot discover the correct PIN given access to challenge/response pairs and all data stored on the token, or access to all data stored on the server. 
+These properties must be assured even when the PIN is small enough to be brute-forced.
+We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server. 
+%
+The confidentiality of PINs (e.g., in the case of the server breach) is crucial, as often people use their PINs for multiple purposes and in different places \cite{MurdochBAABHSS16}. Thus, the leakage of PINs can have serious repercussions for people.   
+
+
+Our protocol consists of three phases: (i) a setup phase, performed once when the hardware token is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. We assume the parties include their IDs in their outgoing messages.  Similar to other two-factor authentication schemes, we assume the server maintains a local threshold, and if the number of incorrect responses from a user within a fixed time exceeds the threshold, then the user and its token will be locked out. Such a check is implicit in the protocol's description. 
+
+\subsection{Setup Phase}
+\label{sec:setup}
+
+To bootstrap the protocol, in the setup phase, we require that the user
+and server share an \emph{initial} randomly generated key $k$ for AE and key $\state_{\sss 0}$ for  FS-PRG.
+This initial key loading assumption is common to all hardware tokens based around symmetric cryptography, such as the RSA SecureID, and tokens based around asymmetric cryptography have an equivalent certificate loading process, so this assumption does not affect the feasibility of the protocol.
+The counter for the FS-PRG state is set to $0$ on both sides. 
+These values could be securely loaded into the token at the time of
+manufacture or can be sent (via a secure channel) to the user who can use the hardware token's camera to scan and store them in the token.
+In this phase, the token generates and locally stores a random secret key $\VC{\salt}$ for \prf.  \prettyref{fig:setup} presents the setup in detail. 
+
+
+\input{short-setup}
+
+\subsection{Enrolment Phase}
+\label{sec:enrollment}
+
+The goal of the enrolment phase is to set the user's PIN, without providing the  
+ server with sufficient information to discover this PIN. 
+% 
+% The server allows this phase to take place only over a channel through which the client has already proven their identity. 
+ %
+  At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the user's selected PIN.
+The steps involved in this phase are detailed in \prettyref{fig:enrollment}.  
+
+
+
+
+\input{short-enrolment}
+
+
+We briefly explain how this phase works.  The server first updates the FS-PRG's state, which results in a new state and random value \VS{\keyt_{\sss 1}}; it also increments its counter by one. Then, the server generates a random challenge \VS{\nonce}. The server sends the enrolment challenge message which is a combination of the current counter and the challenge encrypted via the AE under the shared key $k$.
+%
+ On receiving this message, the client passes it to the token. The token decrypts the message using $k$ that was shared with the server during the setup phase.  If decryption succeeds, it extracts the server's challenge and counters from the message. To recover $\VS{\keyt_{\sss 1}}$ from the message the token's counter must be less than or equal to the counter it received from the server, which the protocol ensures is the case with a high probability (see Section \ref{app:synchronisation} for more detail). Next, the token requests the PIN from the user and ensures it is what the user intends, \eg, by requesting it twice and checking whether they match.
+
+The token then generates a verifier $\VC{\verifier}$, by deriving a pseudorandom value from the PIN using $\prf$ and the random key $\VC{\salt}$ it generated in the setup phase.  After that, the token locally synchronises the FS-PRG's state with the server by updating the state until it matches the counter received from the server; this yields \VC{\keyt_{\sss 1}}. This synchronisation is possible because the check at line \ref{enroll:clinet-check-counter-} has already assured that the token's state is behind the server's state by at least one step. After the update, \VC{\keyt_{\sss 1}} will equal \VS{\keyt_{\sss 1}} because the initial FS-PRG's state is the same (from the setup phase) and the two generators have been updated the same number of times. The user's token then encrypts the verifier and challenge under \VC{\keyt_{\sss 1}} and sends this to the server. 
+ %
+On receiving and validating this message, the server decrypts the message using \VS{\keyt{\sss 1}} and then extracts the challenge and verifier.
+If the received challenge does not match the challenge that the server sent, then the protocol halts.
+If the challenge does match, the server stores the verifier, $\VS{\verifier}$,  associated with the user's account.
+
+Finally, the token discards the challenge, \VC{\keyt_{\sss 1}}, PIN, and \VC{\verifier} so that the PIN can no longer be recovered from the token. Note that the token can re-generate \VC{\verifier} using \VC{\salt} when the user types in their PIN again. The server also discards the challenge and \VC{\keyt{\sss 1}} as they are no longer needed. Following the successful completion of this phase, the server stores the verifier corresponding to the user's PIN and the server and token will have synchronised their FS-PRG's state.
+
+\subsection{Authentication Phase}
+\label{sec:authentication}
+
+The goal of the authentication process is to give the server assurance that the token is currently present, the correct PIN has been entered, and the user has been shown the transaction that the server wishes to execute.
+
+\input{short-authentication}
+
+This phase works as follows. The server first updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. The server updates the state and the counter one more time which yields a new state \VS{\state}, a new random value \VS{\keyt_{\sss 3}}, and a new counter \VS{\counter}. The server generates a random challenge and two ciphertexts, $\ddot M$ and $\hat M$. The former ciphertext consists of the random challenge and the description of the transaction, encrypted under key \VS{\keyt_{\sss 2}}. The latter ciphertext contains the counter $\tmp_{\VS{\counter}}$, encrypted under key $\VC{k}$. The reason $\tmp_{\VS{\counter}}$ is encrypted under key $\VC{k}$ is to allow the token to decrypt the ciphertext easily 
+in case of previous messages were lost in transit; for instance, when the server sends $(\ddot M, \hat M)$ to the server, but they were lost in transit, multiple times, and a fresh pair finally arrives at the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) lets the token deal with such a situation. 
+
+
+
+
+Upon receiving the ciphertexts, the token validates and decrypts the messages. It extracts the challenge \VM{\nonce}, counter $\tmp_{\VS{\counter}}$, and transaction \VM{\trans}. It ensures that its own counter is behind the received counter. As will be discussed in Section \ref{app:synchronisation}, this check will succeed with high probability. The token synchronises its state and counter using the server's messages. Next, the token displays the transaction for the user to check. If the user does not accept the transaction (\eg, due to an attempted man-in-the-browser attack), then the protocol halts immediately. Assuming the user is willing to proceed, then the token prompts for the PIN, and computes the verifier \VC{\verifier} using the key \VC{\salt}. If the user enters the correct PIN, the verifier will be the same as the one sent to the server during the enrolment phase.
+
+
+
+For the token to generate the response message, it first updates its state one more time, which results in a pseudorandom value \VC{\keyt_{\sss 3}}. Then, it derives a pseudorandom value, \VC{\mathit{response}}, from a combination of the random challenge \VM{\nonce}, transaction \VM{\trans}, verifier \VC{\verifier}, and $x=1$  using $\prf$ and \VC{\keyt_{\sss 3}}. The token generates a session key, using the above combination and key with a difference that now $x=2$. The response message is truncated to be a convenient length (e.g., 6--8 digits). It is displayed on the screen of the token. The user types it into the client which forwards it to the server. The token discards the PIN, the verifier, all FS-PRG keys, the challenge, and the transaction's description, so as to protect the PIN from discovery. 
+
+The server computes the expected response message based on its own values of the challenge, transaction, and verifier. Note that the verifier is retrieved from the value that was set during the enrolment phase. The server then compares the expected response with the response sent by the client. Only if they match, the authentication is considered to have succeeded. If the response does not match the one the server expects, the server concludes that the message was tampered with or that the user entered an incorrect PIN. If the authentication succeeds, the server generates the session key in the same way as the token does.  The server also discards the FS-PRG key, the challenge, and the transaction's description.
+
+%
+Below, we formally state the security of our protocol.  First, we present a theorem stating that the advantage of an adversary in breaking the semantic security of the above protocol is negligible.  
+\begin{theorem}[Semantic Security]
+%Let PIN be an element distributed uniformly at random over a finite dictionary of size $N$. 
+Let $\adv$ be a probabilistic polynomial time (PPT) adversary with less than $q_{\sss s}$ interactions with the parties and $q_{\sss p}$ passive eavesdropping, i.e., number of local executions. Let $\lambda$ be a security parameter and $Adv_{\sss\pi}^{\sss ss}(\A)$ be  $\adv$'s advantage (in breaking the semantic security of an AKE scheme $\pi$) as defined in Section \ref{sec::model}. If authenticated encryption $\Pi$, pseudorandom function \prf,  and forward-secure pseudorandom generator  $\mathsf{FS\text{-}PRG}$ are secure, then $Adv_{\sss\pi}^{\sss ss}(\A)$ for protocol $\psi$ has the following upper bound:  
+%
+\begin{equation*} 
+Adv_{\sss \psi}^{\sss ss}(\A) \leq 2(q_{\sss s}+q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{8(2q_{\sss s}+q_{\sss p})}{2^{\sss\lambda}}
+\end{equation*}
+%
+\end{theorem}
+
+Next, we present a theorem stating that the advantage of an adversary in breaking the authentication of the above protocol is negligible.  
+
+\begin{theorem} [Authentication]
+Let PIN be an element distributed uniformly at random over a finite dictionary of size $N$. Also, 
+let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties and $q_p$ passive eavesdroppings. Let $\lambda$ be a security parameter and $Adv_{\sss\pi}^{\sss aut}(\A)$ be  $\adv$'s advantage (in breaking the authentication of an AKE scheme $\pi$) as defined in Section \ref{sec::model}.  If authenticated encryption $\Pi$, pseudorandom function \prf,  and forward-secure pseudorandom generator  $\mathsf{FS\text{-}PRG}$ are secure, then in the protocol $\psi$, $Adv_{\sss \psi}^{\sss aut}(\A)$ has the following upper bound:  
+%
+\vspace{-3mm}
+  \begin{equation*}
+ Adv_{\sss \psi}^{\sss aut}(\A)  \leq (q_{\sss s} + q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{9q_{\sss s}+4q_{\sss p}}{2^{\sss\lambda}}+  \cfrac{q_{\sss s}}{N}
+ \end{equation*}
+%
+\end{theorem}
+
+
+
+
+%We refer to Appendix \ref{sec:security} for informal security analysis and 
+
+We refer readers to Appendix \ref{sec::Formal-Security-Analysis} for the formal security proof of the above two theorems. 
+
+\subsection{An Extension}
+
+
+In this section, we outline a more enhanced version of the protocol. This enhanced protocol ensures that even if an adversary penetrates the server and accesses the server's local data, it cannot authenticate itself to the server later on (and as before it cannot learn users' PIN). 
+
+
+To deal with the adversary that breaks into the server and then tries to authenticate itself, we use the following idea (and additional steps). We require the token (at the setup phase) to generate and store a new key $r$ of \prf.  In the enrolment phase, the token derives a pseudorandom value $w^{\sss U}$ using the verifier \VC{\verifier} (generated in the original protocol) and $r$. In this phase, $w^{\sss U}$ is also securely sent to the server which stores it locally. Only the server needs to store $w^{\sss U}$. 
+
+In the authentication phase, the client also securely\footnote{For the token to securely send $r$ to the server, the token (1) derives a fresh random value $x$ from $\VC{\keyt_{\sss 3}}$ using a key derivation function $\mathtt{Der}(.)$ that returns a random value of size $\log_{\sss 2}(r)$ bits and  (2) sends $r'=x\oplus r$ to the server.} sends $r$ to the server which re-generates  $w^{\sss U}$ using $r$ and the stored \VC{\verifier} and checks whether $w^{\sss U}$ equals the $w^{\sss U}$ that it locally maintains. It then deletes $r$. 
+
+Intuitively, the above approach guarantees security against the above adversary because having access to the local data of the server, the adversary still needs to know $r$ to authenticate itself; since $r$ has been picked uniformly at random and is not stored in the server, then its success probability depends on the bit-length of $r$ and if it is set to an appropriate size, then the probability will be negligible. 
+%
+We refer readers to  Appendix \ref{sec::more-enhanced}, for the full version of the enhanced protocol. 
+
+

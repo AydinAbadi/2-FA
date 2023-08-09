@@ -1,0 +1,261 @@
+% !TEX root =main.tex
+
+%\break
+
+\clearpage
+
+\section{Notations}\label{sec:notation-table}
+
+We summarise our notations in Table \ref{table:notation-table}.
+%\vspace{-5mm}
+
+\begin{table*}[!htbp]
+\begin{scriptsize}
+\begin{center}
+\footnotesize{
+
+\caption{ \small{Notation Table}.}\label{commu-breakdown-party} 
+\renewcommand{\arraystretch}{.9}
+\scalebox{0.88}{
+% 1st table
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} 
+
+\hline 
+
+\cellcolor{gray!15}\scriptsize \textbf{Setting} &\cellcolor{gray!15} \scriptsize \textbf{Symbol}&\cellcolor{gray!15} \scriptsize \textbf{Description}  \\
+    \hline
+    
+     \hline
+
+%Generic
+\multirow{29}{*}{\rotatebox[origin=c]{90}{\scriptsize \textbf{Generic}}}
+
+ &\cellcolor{white!20}\scriptsize$z$&\cellcolor{white!20}\scriptsize \text{Number of verifications}\\   
+ 
+&\cellcolor{gray!20}\scriptsize$\lambda$ &\cellcolor{gray!20}\scriptsize Security parameter  \\  
+
+&\cellcolor{white!20}\scriptsize$\mathtt{PRF}$ &\cellcolor{white!20}\scriptsize  Pseudorandom function \\ 
+
+&\cellcolor{gray!20}\scriptsize$\zeta$ &\cellcolor{gray!20}\scriptsize $\mathtt{PRF}$'s description\\ 
+
+&\cellcolor{white!20}\scriptsize$Pr$ &\cellcolor{white!20}\scriptsize Probability\\   
+
+
+ &\cellcolor{gray!20}\scriptsize$\mathtt{Com}$ &\cellcolor{gray!20}\scriptsize  Commit algorithm in commitment\\
+  
+&\cellcolor{white!20}\scriptsize$\mathtt{Ver}$ &\cellcolor{white!20}\scriptsize  Verify algorithm in commitment\\   
+               
+%&\cellcolor{gray!20}\scriptsize$\ddot{p}:(m_{\scriptscriptstyle j},d_{\scriptscriptstyle j})$ &\cellcolor{gray!20}\scriptsize Commitment opening\\ 
+
+&\cellcolor{gray!20}\scriptsize$\mu$ &\cellcolor{gray!20}\scriptsize Negligible function\\  
+                      
+&\cellcolor{white!20}\scriptsize$\mathtt{H}$ &\cellcolor{white!20}\scriptsize Hash function\\
+
+&\cellcolor{gray!20}\scriptsize$\mathtt{MT}$ &\cellcolor{gray!20}\scriptsize Merkle tree\\                    
+
+&\cellcolor{white!20}\scriptsize${sk,pk}$ &\cellcolor{white!20}\scriptsize Secret and public keys\\     
+   
+&\cellcolor{gray!20}\scriptsize$\mathtt{PoR}$ &\cellcolor{gray!20}\scriptsize Proof of retrievability\\
+     
+&\cellcolor{white!20}\scriptsize$u$ &\cellcolor{white!20}\scriptsize Service input, e.g., file\\   
+        
+&\cellcolor{gray!20}\scriptsize$u^{\scriptscriptstyle*}$ &\cellcolor{gray!20}\scriptsize Encoded  input\\   
+     
+&\cellcolor{white!20}\scriptsize$\sigma$ &\cellcolor{white!20}\scriptsize Metadata\\ 
+           
+&\cellcolor{gray!20}\scriptsize$\omega_{\scriptscriptstyle\sigma}$ &\cellcolor{gray!20}\scriptsize Proof for metadata's correctness\\ 
+             
+&\cellcolor{white!20}\scriptsize$e$ &\cellcolor{white!20}\scriptsize $e:=(\sigma,\omega_{\scriptscriptstyle\sigma})$\\
+             
+           
+&\cellcolor{gray!20}\scriptsize$pp$ &\cellcolor{gray!20}\scriptsize Public parameter\\ 
+           
+             
+&\cellcolor{white!20}\scriptsize$q,\bm{q}$ &\cellcolor{white!20}\scriptsize Query and query vector\\  
+              
+               
+&\cellcolor{gray!20}\scriptsize$\bm{\omega}_{\scriptscriptstyle q}$ &\cellcolor{gray!20}\scriptsize Proof for $\bm{q}$'s correctness\\ 
+                  
+               
+&\cellcolor{white!20}\scriptsize$c$ &\cellcolor{white!20}\scriptsize $c:=(\bm{q},\bm{\omega}_{\scriptscriptstyle q})$\\ 
+                
+                
+&\cellcolor{gray!20}\scriptsize$\pi, \bm{\pi}$ &\cellcolor{gray!20}\scriptsize Service proof and proof vector\\ 
+                 
+                 
+&\cellcolor{white!20}\scriptsize$\mathtt{VS}$ &\cellcolor{white!20}\scriptsize Verifiable service\\ 
+            
+            
+&\cellcolor{gray!20}\scriptsize$\mathtt{VSID}$ &\cellcolor{gray!20}\scriptsize Verifiable service with identifiable abort\\ 
+                     
+                     
+&\cellcolor{white!20}\scriptsize$\mathtt{RCSP}$ &\cellcolor{white!20}\scriptsize Recurring contingent service payment\\ 
+                       
+                       
+&\cellcolor{gray!20}\scriptsize$\mathtt{SAP}$ &\cellcolor{gray!20}\scriptsize Statement agreement protocol\\
+            
+            
+&\cellcolor{white!20}\scriptsize$\mathcal C$ &\cellcolor{white!20}\scriptsize Client\\ 
+                      
+            
+&\cellcolor{gray!20}\scriptsize$\mathcal S$ &\cellcolor{gray!20}\scriptsize Server\\ 
+
+           
+&\cellcolor{white!20}\scriptsize$\mathcal {A}r$ &\cellcolor{white!20}\scriptsize Arbiter\\ 
+
+      &\cellcolor{gray!20}\scriptsize$SC$ &\cellcolor{gray!20}\scriptsize Smart contract\\ 
+                       
+                     
+    
+              
+ \hline
+  
+ 
+
+\end{tabular}
+
+% 2nd table
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} 
+    \hline
+\cellcolor{gray!15}\scriptsize \textbf{Setting} &\cellcolor{gray!15} \scriptsize \textbf{Symbol}&\cellcolor{gray!15} \scriptsize \textbf{Description}  \\
+    \hline
+    
+\hline
+
+
+%---------------------------------
+\multirow{11}{*}{\rotatebox[origin=c]{90}{\scriptsize  \textbf{Generic}}}
+
+  
+&\cellcolor{gray!20}\scriptsize${F}$ &\cellcolor{gray!20}\scriptsize Function run on $u^{\scriptscriptstyle *}$  by $\mathcal S$\\      
+             
+             
+&\cellcolor{white!20}\scriptsize${M}$ &\cellcolor{white!20}\scriptsize Metadata generator  function \\ 
+             
+             
+&\cellcolor{gray!20}\scriptsize${Q}$ &\cellcolor{gray!20}\scriptsize Query generator function\\ 
+              
+              
+&\cellcolor{white!20}\scriptsize$\text{aux}$ &\cellcolor{white!20}\scriptsize  Auxiliary information\\ 
+
+
+&\cellcolor{gray!20}\scriptsize$m$ &\cellcolor{gray!20}\scriptsize  Number of a file blocks, $m=|u^{\scriptscriptstyle *}|$\\ 
+               
+               
+&\cellcolor{white!20}\scriptsize$||u^{\scriptscriptstyle *}||$ &\cellcolor{white!20}\scriptsize  Bit size of $u^{\scriptscriptstyle *}$\\ 
+               
+               
+&\cellcolor{gray!20}\scriptsize$\delta$ &\cellcolor{gray!20}\scriptsize  Proof of $F$'s evaluation correctness\\ 
+               
+     
+&\cellcolor{white!20}\scriptsize$j$ &\cellcolor{white!20}\scriptsize  Verification index,  $1\leq j\leq z$ \\ 
+      
+             
+&\cellcolor{gray!20}\scriptsize$adr$ &\cellcolor{gray!20}\scriptsize  Address\\ 
+              
+  
+&\cellcolor{white!20}\scriptsize$\phi$ &\cellcolor{white!20}\scriptsize  Number of challenged blocks\\ 
+              
+              
+
+%***********************
+
+
+
+\hline 
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------
+%SO-PoR right
+ \multirow{18}{*}{\rotatebox[origin=c]{90}{\scriptsize \textbf{RC-S-P}\ \  \ \ \ or \ \ \ \ \  \textbf{RC-PoR-P}}}
+ 
+ 
+&\cellcolor{gray!20}\scriptsize$r_{\scriptscriptstyle qp},r_{\scriptscriptstyle cp}$ &\cellcolor{gray!20}\scriptsize  Random values\\
+                  
+&\cellcolor{white!20}\scriptsize$\ddot{x}_{\scriptscriptstyle qp},\ddot{x}_{\scriptscriptstyle cp}$ &\cellcolor{white!20}\scriptsize  $\ddot{x}_{\scriptscriptstyle qp}:=(qp,r_{\scriptscriptstyle qp}),\ddot{x}_{\scriptscriptstyle cp}:=(cp,r_{\scriptscriptstyle cp})$\\
+                   
+                   
+&\cellcolor{gray!20}\scriptsize$coin^{\scriptscriptstyle *}_{\scriptscriptstyle\mathcal{C}}, coin^{\scriptscriptstyle *}_{\scriptscriptstyle\mathcal{S}}$ 
+
+&\cellcolor{gray!20}\scriptsize  Encoded coins deposited by $\mathcal{C}$ and $\mathcal{S}$\\ 
+                   
+&\cellcolor{white!20}\scriptsize$enc$ &\cellcolor{white!20}\scriptsize Encoding/decoding functions $enc := (E, D)$\\ 
+                    
+&\cellcolor{gray!20}\scriptsize$m_{\scriptscriptstyle\mathcal{C}}, m_{\scriptscriptstyle\mathcal{S}}$ &\cellcolor{gray!20}\scriptsize Complaints of $\mathcal{C}$ and $\mathcal{S}$\\ 
+                           
+&\cellcolor{white!20}\scriptsize$pad_{\scriptscriptstyle \pi},pad_{\scriptscriptstyle q}$ &\cellcolor{white!20}\scriptsize Number of elements used to pad $\pi$ and $q$\\ 
+                   
+&\cellcolor{gray!20}\scriptsize$y_{\scriptscriptstyle\mathcal{C}},y_{\scriptscriptstyle\mathcal{S}}$ &\cellcolor{gray!20}\scriptsize  Number of times  $\mathcal{C}$ and $\mathcal{S}$ misbehave towards each other\\ 
+            
+            
+&\cellcolor{white!20}\scriptsize$y'_{\scriptscriptstyle\mathcal{C}},y'_{\scriptscriptstyle\mathcal{S}}$ &\cellcolor{white!20}\scriptsize  Number of times  $\mathcal{C}$ and $\mathcal{S}$ unnecessarily invoke $\mathcal{A}r$\\ 
+            
+                     
+&\cellcolor{gray!20}\scriptsize${cp}$ &\cellcolor{gray!20}\scriptsize  Coin secret parameters\\ 
+               
+&\cellcolor{white!20}\scriptsize$T_{\scriptscriptstyle cp}$ &\cellcolor{white!20}\scriptsize  Coin encoding token\\ 
+                
+&\cellcolor{gray!20}\scriptsize${qp}$ &\cellcolor{gray!20}\scriptsize  Query/proof secret parameters\\ 
+                 
+&\cellcolor{white!20}\scriptsize$T_{\scriptscriptstyle qp}$ &\cellcolor{white!20}\scriptsize  Query/proof encoding token\\ 
+                  
+&\cellcolor{gray!20}\scriptsize$T$ &\cellcolor{gray!20}\scriptsize  $T:=(T_{\scriptscriptstyle cp},T_{\scriptscriptstyle qp})$\\
+            
+
+            
+&\cellcolor{white!20}\scriptsize$g_{\scriptscriptstyle\mathcal{C}},g_{\scriptscriptstyle\mathcal{S}}$ &\cellcolor{white!20}\scriptsize  Commitments computed by $\mathcal{C}$ and $\mathcal{S}$ \\ 
+
+
+&\cellcolor{gray!20}\scriptsize$pl$ &\cellcolor{gray!20}\scriptsize  Price list: $\{(o,l),...,(o'',l'')\}$\\ 
+        
+   &\cellcolor{white!20}\scriptsize$o$ &\cellcolor{white!20}\scriptsize  Coins $\mathcal{S}$ must get for a valid proof, where $o\in pl$ \\ 
+                 
+&\cellcolor{gray!20}\scriptsize$l$ &\cellcolor{gray!20}\scriptsize  Coins  $\mathcal{A}r$ must get for resolving a dispute, where $l\in pl$ \\      
+        
+                
+     &\scriptsize$l_{\scriptscriptstyle max}$ &\scriptsize   $Max(l,...,l'')$\\            
+                
+         &\cellcolor{gray!20}\scriptsize$o_{\scriptscriptstyle max}$ &\cellcolor{gray!20}\scriptsize   $Max(o,...,o'')$\\  
+                     
+&\cellcolor{white!20}\scriptsize$p_{\scriptscriptstyle\mathcal{S}}$ &\cellcolor{white!20}\scriptsize  Total coins $\mathcal{S}$ should deposit\\ 
+                
+           
+         \hline  
+           
+           
+           
+\end{tabular}\label{table:notation-table}
+
+}}
+\end{center}
+\end{scriptsize}
+\end{table*}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

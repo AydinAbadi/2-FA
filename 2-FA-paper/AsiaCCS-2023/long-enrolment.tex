@@ -1,0 +1,94 @@
+%!TEX root = main.tex
+%%%%%%%%%%%%%%%%%
+
+%\subsection{Enrolment Phase}\label{sec::long-Enrolment-phase}
+
+\begin{figure}[!htb]
+\setlength{\fboxsep}{1pt}
+\vspace{-4.5mm}
+\begin{center}
+\vspace{-4.5mm}
+    \    \begin{tcolorbox}[enhanced,width=3.3in, height=145mm, left=1mm,top=-.5mm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+%{\small{
+ \centering
+ \vspace{-1.5mm}
+ \procedure{}{%
+  \hspace{8mm}\underline{\textbf{User's token}} \<  \<\hspace{-30mm}  \underline{\textbf{Server}} 
+ %%%%%%
+ %
+\pclb
+ %
+\sendmessagerightx[4cm]{4}{(U_{\sss ID},  \text{enrolment})} \\% encrypt
+ %%%%%% Server
+ \pcln \< \adis \VS{\counter} \gets \VS{\counter} + 1  \\
+ \pcln \< \adis  \VS{\keyt_{\sss 1}}, \VS{\state} \gets \update(\VS{\state}, 1)\\% update
+ %
+% \pcln \< \< key_1= H(\VS{\keyt_1}||
+ %
+ \pcln \< \adis \VS{\nonce} \stackrel{\$}\leftarrow \bin^{\sss\secpar}  \\
+ %
+ \pcln \< \adis  p= \VS{\nonce}|| \VS{\counter}\\ % server-- set plaintext
+ %
+ \pcln \< \adis  {(M,t) \gets \enc_{\sss\VS{k}}(p) } \pclb
+ %
+ \sendmessageleftx[4cm]{4}{(M,t) } \\% server--encrypt
+ %%%%% Client
+ %
+  \pcln (p,b) \gets \mathsf{Dec}_{\sss\VC{k}}(M,t) \< \< \\% client-- decrypt
+  %
+  \pcln \iif b\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail} \\ % client-- verify tag
+  %
+   \pcln \text{Parse\ } p \text{\ which\ yields\ } \VM{\nonce}, \VM{\counter} \< \< \\ % client-- parse
+  %
+ \pcln\label{enroll:clinet-check-counter}  \iif \VM{\counter} \le \VC{\counter}, \text{\ then\ go\ to\ } \ref{enroll:fail} \\ %client check counter
+ %
+ %\pcln  \VC{\state} \gets  \tmp_{\VC{\state}}\\% client set state
+ \pcln \text{Request \VC{\pin} from the user} \< \< \\
+ %
+ \pcln \VC{\verifier} \gets \prf_{\sss\VC{\salt}}(\VC{\pin}) \< \< \\
+ %
+ %%%%%%%%%%%%%%
+ \pcln d=  \VM{\counter}-\VC{\counter} \< \< \\
+ %
+%  \pcln \forEach i \in[1,d]: \< \< \\
+  %
+   \pcln   \VC{\counter} \gets \VC{\counter} + d\< \< \\
+    \pcln \VC{\keyt_{\sss 1}},  \VC{\state} \gets \update(\VC{\state}, d) \< \< \\ % update
+ %%%%%%%%
+ %
+ %\pcln \VC{\keyt_{\sss 1}} \gets k \< \< \\ % set the key
+ %
+ %
+  \pcln   \textcolor{blue}{w^{\sss U}\gets \prf_{r}(\VC{\verifier})} \< \< \\ 
+ %
+ \pcln p'=  \VM{\nonce} || \VC{\verifier}\textcolor{blue}{||w^{\sss U}}\< \< \\ %client--set plaintext
+ %
+ \pcln (M',t') \gets \enc_{\sss\VC{\keyt_{\sss 1}}}(p')\< \< \pclb
+ %
+ \sendmessagerightx[4cm]{4}{(M',t') } \\% encrypt
+ %
+  \pcln \label{enroll:fail} \mathtt{Discard}(\VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 1}},  \VC{\nonce})% \text{and\ abort} 
+ %%%%%% Server
+ \<  \adis (p',b') \gets \mathsf{Dec}_{\sss\VS{\keyt_{\sss 1}}}(M', t') \< \< \\% server-- decrypt
+  %
+   \pcln\<  \adis \iif b'\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail-server-}\\ % client-- verify tag
+  %
+ \pcln\<  \adis \text{Parse\ } p' \text{\ yielding\ }  \VM{\nonce},  \VM{\verifier}\textcolor{blue}{, w^{\sss M}} \< \< \\
+  %
+ \pcln \< \adis \iif \VM{\nonce} \ne \VS{\nonce}, \text{then \ go\ to\ } \ref{enroll:fail-server-} \\
+ %
+ \pcln \< \adis\text{Store \VM{\verifier} as \VS{\verifier}} \textcolor{blue}{\text{ and } w^{\sss M} \text{ as }   w^{\sss S}}\\
+ %
+% \pcln \label{enroll:fail} \text{Discard \VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 1}},  \VC{\nonce}} \text{and\ abort} 
+ %
+  \pcln \label{enroll:fail-server-} \< \adis \mathtt{Discard}(\VS{\keyt_{\sss1}}, \VS{\nonce}) \\ %\text{and\ abort} \\
+ }
+%}}
+\end{tcolorbox}
+\end{center}
+\vspace{-3mm}
+    \caption{Enrolment phase.}
+    \label{fig:enrollment-long}
+\end{figure}
