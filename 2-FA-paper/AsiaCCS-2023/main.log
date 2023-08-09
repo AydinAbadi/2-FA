@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  8 AUG 2023 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  9 AUG 2023 17:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2016,34 +2016,32 @@ loading the todonotes package. on input line 419.
 \c@claim=\count477
 Excluding 'CCSXML' comment.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 490.
+(Font)              scaled to size 17.28pt on input line 498.
 LaTeX Font Info:    Trying to load font information for T1+LinuxBiolinumT-TLF o
-n input line 490.
+n input line 498.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
 File: T1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Lin
 uxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 490.
+(Font)              scaled to size 17.28pt on input line 498.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 490.
+(Font)              scaled to size 17.28pt on input line 498.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 490.
+(Font)              scaled to size 12.0pt on input line 498.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 490.
+(Font)              scaled to size 10.0pt on input line 498.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 490.
+(Font)              scaled to size 9.0pt on input line 498.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 490.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 490.
+(Font)              scaled to size 10.95pt on input line 498.
 LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF
- on input line 490.
+ on input line 498.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.
 fd
@@ -2051,13 +2049,13 @@ File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 490.
+(Font)              scaled to size 9.0pt on input line 498.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 490.
+(Font)              scaled to size 9.0pt on input line 498.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -2070,11 +2068,13 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 490.
+(hyperref)                removing `\\' on input line 498.
 
 (./introduction.tex
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 9.0pt on input line 18.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
-(Font)              scaled to size 9.0pt on input line 41.
+(Font)              scaled to size 9.0pt on input line 63.
  [1.1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]) (./related-work.tex
@@ -2087,7 +2087,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 5.5pt on input line 39.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 79.
+(Font)              scaled to size 6.0pt on input line 73.
  [2.2]) (./preliminaries.tex
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 7.
 
@@ -2105,9 +2105,6 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 7.3pt on input line 7.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 5.5pt on input line 7.
-
-
-LaTeX Warning: Reference `tab:variables' on page 3 undefined on input line 9.
 
 (./notation-Table-.tex [3.3]
 
@@ -2146,8 +2143,10 @@ Overfull \hbox (14.67476pt too wide) in paragraph at lines 43--50
 gen-er-a-tion al-go-rithm $[]\OML/nxlmi/m/it/9 :[]$
  []
 
-) (./model.tex
-<setup.pdf, id=273, 950.59138pt x 342.31888pt>
+) (./model.tex [4.4
+
+]
+<setup.pdf, id=288, 950.59138pt x 342.31888pt>
 File: setup.pdf Graphic file (type pdf)
 <use setup.pdf>
 Package pdftex.def Info: setup.pdf  used on input line 21.
@@ -2162,9 +2161,7 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.3pt on input line 33.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 5.5pt on input line 33.
-[4.4
 
-]
 Overfull \hbox (3.0767pt too wide) in paragraph at lines 42--43
 []$[]$\T1/LinuxLibertineT-TLF/m/n/9 (-20) ($\OML/nxlmi/m/it/9 U[]; S[]$\T1/Linu
 xLibertineT-TLF/m/n/9 (-20) ): this query cap-tures \T1/LinuxLibertineT-TLF/b/n
@@ -2239,13 +2236,9 @@ surrounding objects on input line 96.
 ) (./informal-sec-analysis.tex [8.8]) (./sync.tex [9.9])
 (./system-feasibility.tex) (./evaluation-long.tex (./evaluation-table.tex
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 6.5pt on input line 49.
-
-Overfull \hbox (1.70363pt too wide) in paragraph at lines 49--52
- [] 
- []
-
-) [10.10] [11.11]) (./conclusion.tex) (./main.bbl [12.12])
+(Font)              scaled to size 6.5pt on input line 51.
+)
+[10.10] [11.11]) (./conclusion.tex) (./main.bbl [12.12])
 (./forward-PRF-extra.tex
 Overfull \hbox (15.17113pt too wide) in paragraph at lines 75--95
 []$[] $ 
@@ -2456,11 +2449,11 @@ Package balance Warning: You have called \balance in second column
 
 Package atenddvi Info: Last page = 18.
 [18.18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 530.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 530.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 538.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 538.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 530.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 530.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 538.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 538.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A41A2C63B715F69B82E441D1A49540CB;6510.
 
@@ -2469,17 +2462,14 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.97499pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 51797 strings out of 480608
- 1099818 string characters out of 5903630
- 1648494 words of memory out of 5000000
- 65518 multiletter control sequences out of 15000+600000
+ 51796 strings out of 480608
+ 1099802 string characters out of 5903630
+ 1650158 words of memory out of 5000000
+ 65517 multiletter control sequences out of 15000+600000
  839297 words of font info for 525 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,33n,100p,1534b,1900s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2496,12 +2486,12 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_kijugd.enc}{
-/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/
-usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr
-/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/usr/
+/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/
+usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/u
+sr/local/texlive/2020/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/
 local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}{/usr/l
-ocal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/lo
-cal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/loc
+ocal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/lo
+cal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/loc
 al/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/loca
 l/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}</usr/local
 /texlive/2020/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></
@@ -2523,10 +2513,10 @@ lic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newt
 x/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txs
 ya.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (18 pages, 717484 bytes).
+Output written on main.pdf (18 pages, 716911 bytes).
 PDF statistics:
- 1116 PDF objects out of 1200 (max. 8388607)
- 935 compressed objects within 10 object streams
+ 1118 PDF objects out of 1200 (max. 8388607)
+ 937 compressed objects within 10 object streams
  436 named destinations out of 1000 (max. 500000)
  79250 words of extra memory for PDF output out of 89155 (max. 10000000)
 

@@ -6,7 +6,7 @@
   
  To disambiguate the different uses of keys and other items of data, variables are annotated with a superscript to indicate their origin. $\VC{\cdot}$ indicates data stored at the user, $\VS{\cdot}$ means data stored at the server, and $\VM{\cdot}$ indicates data item has been extracted from a message. We define a function $\mathtt{Discard}(.)$ that takes an array of inputs and securely deletes them (e.g., from storage, memory, catch). 
  
- We assume the token is not penetrated by an adversary in the (very short) period when the inputs of $\mathtt{Discard}(.)$ are set and when  $\mathtt{Discard}(.)$ is executed. We refer readers to \cite{ReardonBC13} for a survey of secure data deletion approaches. We also assume that a user will not use its hardware token after it has been stolen (and it will be issued with a replacement with fresh parameters). Table \ref{tab:variables} presents a summary of variables. 
+ We assume the token is not penetrated by an adversary in the (very short) period when the inputs of $\mathtt{Discard}(.)$ are set and when  $\mathtt{Discard}(.)$ is executed. We refer readers to \cite{ReardonBC13} for a survey of secure data deletion approaches. We also assume that a user will not use its hardware token after it has been stolen (and it will be issued with a replacement with fresh parameters). Table \ref{notation-table} presents a summary of notations. 
  
  \input{notation-Table-}
  
