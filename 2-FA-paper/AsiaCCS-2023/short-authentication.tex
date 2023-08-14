@@ -14,7 +14,7 @@
   \hspace{8mm}\underline{\textbf{User's token}} \<  \< \hspace{-11mm}\underline{\textbf{Server}} 
 \pclb
  % 
-\sendmessagerightx[5cm]{6}{(\bar U_{\sss ID}, \text{authentication}) } \\% encrypt
+\sendmessagerightx[4cm]{6}{(\bar U_{\sss ID}, \text{authentication}) } \\% encrypt
  %
    \pcln \< \<\alll \iif  \bar U_{\sss ID}\neq U_{\sss ID}, \text{then \ go\ to\ } \ref{auth:fail} \\
  %
@@ -34,7 +34,7 @@
  %
  \pcln \< \<\alll (\hat M, \hat t)\leftarrow \enc_{\sss\VS{k}}( \tmp_{\VS{\counter}})\pclb
  %
- \sendmessageleftx[7cm]{6}{(\ddot M, \ddot t), (\hat M, \hat t)} \\ % server-- encrypt
+ \sendmessageleftx[5cm]{6}{(\ddot M, \ddot t), (\hat M, \hat t)} \\ % server-- encrypt
  %
  %%%%%  client
  %
@@ -81,7 +81,7 @@
   \pcln sk^{C} \gets \prf_{\sss\VC{\keyt_{\sss 3}}}(p''|| 2) \< \<  \pclb% client-- encrypt
 %  \pcln sk^{C} \gets \hash(\VC{\keyt_{\sss 3}}||p'') \< \< \pclb % client-- encrypt
  %
- \sendmessagerightx[7cm]{6}{ \VC{\mathit{response}}} \\
+ \sendmessagerightx[5cm]{6}{ \VC{\mathit{response}}} \\
  %
   \pcln \label{auth:fail} \mathtt{Discard} (\VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 2}}, \VC{\keyt_{\sss 3}}, \VM{\nonce}, \VM{\trans},\tmp_{\sss\VM{\counter}}, d) \\ 
  %%%%% server

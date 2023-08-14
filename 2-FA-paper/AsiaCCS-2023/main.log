@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  9 AUG 2023 17:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  14 AUG 2023 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2079,15 +2079,15 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
 
 ]) (./related-work.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 39.
+(Font)              scaled to size 9.0pt on input line 52.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 39.
+(Font)              scaled to size 9.0pt on input line 52.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 39.
+(Font)              scaled to size 7.3pt on input line 52.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 39.
+(Font)              scaled to size 5.5pt on input line 52.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 73.
+(Font)              scaled to size 6.0pt on input line 89.
  [2.2]) (./preliminaries.tex
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 7.
 
@@ -2135,10 +2135,10 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 7.3pt on input line 149.
 )
 
-Package prettyref Warning: Reference format app undefined on input line 38.
+Package prettyref Warning: Reference format app undefined on input line 40.
 
 
-Overfull \hbox (14.67476pt too wide) in paragraph at lines 43--50
+Overfull \hbox (14.67476pt too wide) in paragraph at lines 45--52
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) de-fined in [[]]. The prob-a-bilis-tic key 
 gen-er-a-tion al-go-rithm $[]\OML/nxlmi/m/it/9 :[]$
  []
@@ -2146,7 +2146,7 @@ gen-er-a-tion al-go-rithm $[]\OML/nxlmi/m/it/9 :[]$
 ) (./model.tex [4.4
 
 ]
-<setup.pdf, id=288, 950.59138pt x 342.31888pt>
+<setup.pdf, id=291, 950.59138pt x 342.31888pt>
 File: setup.pdf Graphic file (type pdf)
 <use setup.pdf>
 Package pdftex.def Info: setup.pdf  used on input line 21.
@@ -2170,37 +2170,37 @@ xLibertineT-TLF/m/n/9 (-20) ): this query cap-tures \T1/LinuxLibertineT-TLF/b/n
 
 ) (./the-protocol.tex [5.5 <./setup.pdf>] (./short-setup.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 33.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 33.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 33.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 33.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 33.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 33.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 6.2pt on input line 33.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 33.
+(Font)              scaled to size 8.0pt on input line 35.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 6.2pt on input line 33.
+(Font)              scaled to size 6.2pt on input line 35.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 33.
+(Font)              scaled to size 6.2pt on input line 35.
 
-Overfull \hbox (13.31439pt too wide) detected at line 33
+Overfull \hbox (13.31439pt too wide) detected at line 35
 []
  []
 
 
-Overfull \hbox (15.31439pt too wide) in paragraph at lines 33--35
+Overfull \hbox (15.31439pt too wide) in paragraph at lines 35--37
  [] 
  []
 
 
-Class acmart Warning: A possible image without description on input line 40.
+Class acmart Warning: A possible image without description on input line 42.
 
 ) (./short-enrolment.tex
 Overfull \hbox (12.63443pt too wide) detected at line 82
@@ -2231,7 +2231,7 @@ Class acmart Warning: A possible image without description on input line 106.
 ) [7.7]
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 96.
+surrounding objects on input line 100.
 
 ) (./informal-sec-analysis.tex [8.8]) (./sync.tex [9.9])
 (./system-feasibility.tex) (./evaluation-long.tex (./evaluation-table.tex
@@ -2240,73 +2240,19 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 )
 [10.10] [11.11]) (./conclusion.tex) (./main.bbl [12.12])
 (./forward-PRF-extra.tex
-Overfull \hbox (15.17113pt too wide) in paragraph at lines 75--95
+Overfull \hbox (15.17113pt too wide) in paragraph at lines 77--97
 []$[] $ 
  []
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 95.
+surrounding objects on input line 97.
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 127.
+surrounding objects on input line 129.
 
-[13.13]) (./longer-protocol.tex (./long-setup.tex
-Overfull \hbox (8.72261pt too wide) detected at line 34
-[]
- []
-
-
-Overfull \hbox (10.72261pt too wide) in paragraph at lines 34--36
- [] 
- []
-
-
-Class acmart Warning: A possible image without description on input line 41.
-
-) (./long-enrolment.tex
-Overfull \hbox (12.50157pt too wide) detected at line 87
-[]
- []
-
-
-Overfull \hbox (15.50157pt too wide) in paragraph at lines 87--89
- [] 
- []
-
-
-Class acmart Warning: A possible image without description on input line 94.
-
-) (./long-authentication.tex
-Overfull \hbox (11.80531pt too wide) detected at line 107
-[]
- []
-
-
-Overfull \hbox (15.00526pt too wide) in paragraph at lines 107--110
- [] 
- []
-
-
-Class acmart Warning: A possible image without description on input line 116.
-
-)) (./proof.tex [14.14] [15.15]
-Overfull \hbox (29.25229pt too wide) in paragraph at lines 139--141
-[]\T1/LinuxLibertineT-TLF/m/n/9 (-20) We also amend the way the server com-pile
-s query $[]$($\OML/nxlmi/m/it/9 S[]; []$\T1/LinuxLibertineT-TLF/m/n/9 (-20) )
- []
-
-
-Overfull \hbox (13.93817pt too wide) detected at line 170
-[][]\LMS/ntxsy/m/n/9 j\OML/nxlmi/m/it/9 Pr\LMS/ntxsy/m/n/9 »\OML/nxlmi/m/it/9 S
-[]\LMS/ntxsy/m/n/9 ¼ ^^@ \OML/nxlmi/m/it/9 Pr\LMS/ntxsy/m/n/9 »\OML/nxlmi/m/it/
-9 S[]\LMS/ntxsy/m/n/9 ¼j ^^T ¹\OML/nxlmi/m/it/9 q[] \LMS/ntxsy/m/n/9 Ï \OML/nxl
-mi/m/it/9 q[]\LMS/ntxsy/m/n/9 º[]\OML/nxlmi/m/it/9 Adv[]\LMS/ntxsy/m/n/9 ¹Aº Ï 
-\OML/nxlmi/m/it/9 Adv[]\LMS/ntxsy/m/n/9 ¹Aº[] Ï [] Ï []
- []
-
-(./simulation.tex
+[13.13]) (./proof.tex [14.14] (./simulation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
@@ -2365,19 +2311,19 @@ nd ses-sion key: $[][] \LMS/ntxsy/m/n/8
 
 Class acmart Warning: A possible image without description on input line 132.
 
-[16.16]
+[15.15]
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 []\T1/LinuxLibertineT-TLF/m/n/8 (+20) generates two pairs of ci-pher-text and t
 ag as fol-
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 180--182
+Underfull \hbox (badness 3861) in paragraph at lines 182--184
 \T1/LinuxLibertineT-TLF/m/n/8 (+20) lows, $\LMS/ntxsy/m/n/8 ¹[]\OML/nxlmi/m/it/
 8 ; []\LMS/ntxsy/m/n/8 º   [][]¹[]jj\OML/nxlmi/m/it/8 t[]\LMS/ntxsy/m/n/8 º$ \T
 1/LinuxLibertineT-TLF/m/n/8 (+20) and $\LMS/ntxsy/m/n/8 ¹[]\OML/nxlmi/m/it/8 ; 
@@ -2385,51 +2331,81 @@ Underfull \hbox (badness 3861) in paragraph at lines 180--182
  []
 
 
-Class acmart Warning: A possible image without description on input line 205.
+Class acmart Warning: A possible image without description on input line 207.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--237
+Underfull \hbox (badness 10000) in paragraph at lines 239--241
 []\T1/LinuxLibertineT-TLF/m/n/8 (+20) outputs the fol-low-ing tran-script:
  []
 
 
-Overfull \hbox (15.53487pt too wide) in paragraph at lines 239--242
+Overfull \hbox (15.53487pt too wide) in paragraph at lines 243--246
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--242
+Underfull \hbox (badness 10000) in paragraph at lines 243--246
 
  []
 
 
-Overfull \hbox (15.53487pt too wide) in paragraph at lines 248--251
+Overfull \hbox (15.53487pt too wide) in paragraph at lines 252--255
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--251
+Underfull \hbox (badness 10000) in paragraph at lines 252--255
 
  []
 
 
-Class acmart Warning: A possible image without description on input line 275.
+Class acmart Warning: A possible image without description on input line 281.
 
-) [17.17]
-Overfull \hbox (22.26166pt too wide) detected at line 232
-[][]\OML/nxlmi/m/it/9 Adv[]\LMS/ntxsy/m/n/9 ¹Aº \U/ntxmia/m/it/9 = \OML/nxlmi/m
-/it/9 Pr\LMS/ntxsy/m/n/9 »\OML/nxlmi/m/it/9 Auth[]\LMS/ntxsy/m/n/9 ¼ ^^T ¹\OML/
-nxlmi/m/it/9 q[] \LMS/ntxsy/m/n/9 Ï \OML/nxlmi/m/it/9 q[]\LMS/ntxsy/m/n/9 º[]\O
-ML/nxlmi/m/it/9 Adv[]\LMS/ntxsy/m/n/9 ¹Aº Ï \OML/nxlmi/m/it/9 Adv[]\LMS/ntxsy/m
-/n/9 ¹Aº[] Ï []
+) [16.16]) (./longer-protocol.tex (./long-setup.tex
+Overfull \hbox (8.72261pt too wide) detected at line 36
+[]
  []
 
-)
+
+Overfull \hbox (10.72261pt too wide) in paragraph at lines 36--38
+ [] 
+ []
+
+
+Class acmart Warning: A possible image without description on input line 44.
+
+[17.17]) (./long-enrolment.tex
+Overfull \hbox (12.50157pt too wide) detected at line 87
+[]
+ []
+
+
+Overfull \hbox (15.50157pt too wide) in paragraph at lines 87--89
+ [] 
+ []
+
+
+Class acmart Warning: A possible image without description on input line 94.
+
+) (./long-authentication.tex
+Overfull \hbox (11.80531pt too wide) detected at line 107
+[]
+ []
+
+
+Overfull \hbox (15.00526pt too wide) in paragraph at lines 107--110
+ [] 
+ []
+
+
+Class acmart Warning: A possible image without description on input line 116.
+
+))
 
 Class acmart Warning: Some images may lack descriptions.
 
@@ -2449,13 +2425,13 @@ Package balance Warning: You have called \balance in second column
 
 Package atenddvi Info: Last page = 18.
 [18.18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 538.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 538.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 540.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 540.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 538.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 538.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 540.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 540.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A41A2C63B715F69B82E441D1A49540CB;6510.
+(rerunfilecheck)             Checksum: 417743331ED6F46BC680B017145617AF;6343.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2466,13 +2442,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 51796 strings out of 480608
- 1099802 string characters out of 5903630
- 1650158 words of memory out of 5000000
- 65517 multiletter control sequences out of 15000+600000
- 839297 words of font info for 525 fonts, out of 8000000 for 9000
+ 51803 strings out of 480608
+ 1099906 string characters out of 5903630
+ 1670077 words of memory out of 5000000
+ 65518 multiletter control sequences out of 15000+600000
+ 839570 words of font info for 527 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 63i,33n,100p,1534b,1900s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,33n,100p,1483b,1906s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -2513,10 +2489,10 @@ lic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newt
 x/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txs
 ya.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (18 pages, 716911 bytes).
+Output written on main.pdf (18 pages, 715109 bytes).
 PDF statistics:
- 1118 PDF objects out of 1200 (max. 8388607)
- 937 compressed objects within 10 object streams
- 436 named destinations out of 1000 (max. 500000)
+ 1123 PDF objects out of 1200 (max. 8388607)
+ 942 compressed objects within 10 object streams
+ 439 named destinations out of 1000 (max. 500000)
  79250 words of extra memory for PDF output out of 89155 (max. 10000000)
 

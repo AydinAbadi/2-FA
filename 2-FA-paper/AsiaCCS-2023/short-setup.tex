@@ -2,18 +2,20 @@
 
 
 \begin{figure}[!htbp]
+\vspace{-1.5mm}
 %\begin{center}
-    \begin{tcolorbox}[enhanced,width=3.3in, height=64mm, left=1mm,top=-1mm,
+    \begin{tcolorbox}[enhanced,width=3.3in, height=63mm, left=1mm,top=-1mm,
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
 %{\small{
+    \vspace{-1.4mm}
  \centering
  \procedure{}{%
  \bl\ \underline{\textbf{User's token}} \< \al\hspace{4mm} \underline{\textbf{Server}} \\
   % \noindent\rule{4.6in}{1pt}
  \bl\pcln \< \al k \ssample \mathsf{Gen}(\secparam) \\
  \bl \pcln \< \al \state_{\sss 0} \ssample \mathsf{FS\text{-}PRG}.\kgen(\secparam) \\
- \bl \pcln \< \al U_{\sss \mathrm{ID}} \gets \mathsf{IDGen}(\secparam) \pclb\\
+ \bl \pcln\label{setup:gen-id} \< \al U_{\sss \mathrm{ID}} \gets \mathsf{IDGen}(\secparam) \pclb\\
   %
  \<\hspace{-20mm}  \sendmessageleft*{(\text{$k$,  $\state_{\sss 0}$, $U_{\sss \mathrm{ID}}$)}} \\
  %
@@ -34,7 +36,7 @@
 %}}
 \end{tcolorbox}
 %\end{center}
-\vspace{-3.5mm}
+\vspace{-4mm}
     \caption{Setup phase.}
     \label{fig:setup}
 \end{figure}

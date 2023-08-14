@@ -16,14 +16,16 @@ Our protocol consists of three phases: (i) a setup phase, performed once when th
 
 To bootstrap the protocol, in the setup phase, we require that the user
 and server share an \emph{initial} randomly generated key $k$ for AE and key $\state_{\sss 0}$ for  FS-PRG.
-This initial key loading assumption is common to all hardware tokens based around symmetric cryptography, such as the RSA SecureID, and tokens based around asymmetric cryptography have an equivalent certificate loading process, so this assumption does not affect the feasibility of the protocol.
+This initial key loading assumption is common to all hardware tokens based around symmetric cryptography, such as the RSA SecureID, and tokens based around asymmetric cryptography have an equivalent certificate loading process, so this assumption does not affect the feasibility of the protocol. Moreover, this key is not generated for any specific user. 
 The counter for the FS-PRG state is set to $0$ on both sides. 
 These values could be securely loaded into the token at the time of
 manufacture or can be sent (via a secure channel) to the user who can use the hardware token's camera to scan and store them in the token.
-In this phase, the token generates and locally stores a random secret key $\VC{\salt}$ for \prf.  \prettyref{fig:setup} presents the setup in detail. 
+In this phase, the token generates and locally stores a random secret key $\VC{\salt}$ for \prf.  Figure \ref{fig:setup} presents the setup in detail. 
 
 
 \input{short-setup}
+
+Note, in Figure \ref{fig:setup}, the random ID $U_{\sss \mathrm{ID}}$ generated in line \ref{setup:gen-id}, serves as the token's serial number. This random ID is not specifically generated for any individual user, and the security of our protocol does not rely on its confidentiality. 
 
 \subsection{Enrolment Phase}
 \label{sec:enrollment}
@@ -34,7 +36,7 @@ The goal of the enrolment phase is to set the user's PIN, without providing the
 % The server allows this phase to take place only over a channel through which the client has already proven their identity. 
  %
   At the end of this phase, the server will have stored the verifier $\verifier$ corresponding to the user's selected PIN.
-The steps involved in this phase are detailed in \prettyref{fig:enrollment}.  
+The steps involved in this phase are detailed in Figure \ref{fig:enrollment}.  
 
 
 
@@ -57,11 +59,13 @@ Finally, the token discards the challenge, \VC{\keyt_{\sss 1}}, PIN, and \VC{\ve
 \subsection{Authentication Phase}
 \label{sec:authentication}
 
-The goal of the authentication process is to give the server assurance that the token is currently present, the correct PIN has been entered, and the user has been shown the transaction that the server wishes to execute.
+The goal of the authentication process is to give the server assurance that the token is currently present, the correct PIN has been entered, and the user has been shown the transaction that the server wishes to execute. Figure \ref{fig:auth} presents the authentication phase in detail. 
 
 \input{short-authentication}
 
-This phase works as follows. The server first updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. The server updates the state and the counter one more time which yields a new state \VS{\state}, a new random value \VS{\keyt_{\sss 3}}, and a new counter \VS{\counter}. The server generates a random challenge and two ciphertexts, $\ddot M$ and $\hat M$. The former ciphertext consists of the random challenge and the description of the transaction, encrypted under key \VS{\keyt_{\sss 2}}. The latter ciphertext contains the counter $\tmp_{\VS{\counter}}$, encrypted under key $\VC{k}$. The reason $\tmp_{\VS{\counter}}$ is encrypted under key $\VC{k}$ is to allow the token to decrypt the ciphertext easily 
+At a high level, this phase works as follows. The server first updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. 
+
+The server updates the state and the counter one more time which yields a new state \VS{\state}, a new random value \VS{\keyt_{\sss 3}}, and a new counter \VS{\counter}. The server generates a random challenge and two ciphertexts, $\ddot M$ and $\hat M$. The former ciphertext consists of the random challenge and the description of the transaction, encrypted under key \VS{\keyt_{\sss 2}}. The latter ciphertext contains the counter $\tmp_{\VS{\counter}}$, encrypted under key $\VC{k}$. The reason $\tmp_{\VS{\counter}}$ is encrypted under key $\VC{k}$ is to allow the token to decrypt the ciphertext easily 
 in case of previous messages were lost in transit; for instance, when the server sends $(\ddot M, \hat M)$ to the server, but they were lost in transit, multiple times, and a fresh pair finally arrives at the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) lets the token deal with such a situation. 
 
 

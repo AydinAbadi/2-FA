@@ -12,12 +12,12 @@
 %{\small{
  \centering
  \procedure{}{%
- \underline{\textbf{User's token}}  \< \al\underline{\textbf{Server}} 
+ \underline{\textbf{User's token}}  \< \hspace{5mm}\al\underline{\textbf{Server}} 
  %%%%%%
  %
 \pclb
  %
- \sendmessagerightx[5cm]{6}{(\bar U_{\sss ID},  \text{enrolment})} \\% encrypt
+ \sendmessagerightx[4.5cm]{4}{(\bar U_{\sss ID},  \text{enrolment})} \\% encrypt
  %%%%%% Server
    \bl\pcln \< \all \iif  \bar U_{\sss ID}\neq U_{\sss ID}, \text{then \ go\ to\ } \ref{enroll:fail-server-} \\
   \bl\pcln \< \all \VS{\counter} \gets \VS{\counter} + 1  \\
@@ -31,7 +31,7 @@
  %
   \bl\pcln \< \all {(M,t) \gets \enc_{\sss\VS{k}}(p) } \pclb
  %
- \sendmessageleftx[7cm]{6}{(M,t) } \\% server--encrypt
+ \sendmessageleftx[5cm]{6}{(M,t) } \\% server--encrypt
  %%%%% Client
  %
    \bl\pcln (p,b) \gets \mathsf{Dec}_{\sss\VC{k}}(M,t) \< \< \\% client-- decrypt
@@ -62,7 +62,7 @@
  %
  \bl \pcln (M',t') \gets \enc_{\sss\VC{\keyt_{\sss 1}}}(p')\< \< \pclb
  %
- \sendmessagerightx[7cm]{6}{(M', t') } \\% encrypt
+ \sendmessagerightx[5cm]{6}{(M', t') } \\% encrypt
  %
   \bl \pcln \label{enroll:fail} \mathtt{Discard} (\VC{\pin}, \VC{\verifier}, \VC{\keyt_{\sss 1}},  \VC{\nonce})% \text{and\ abort} 
  %%%%%% Server

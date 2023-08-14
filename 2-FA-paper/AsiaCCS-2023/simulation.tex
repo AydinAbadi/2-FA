@@ -24,7 +24,7 @@ The simulator upon receiving query $(\prf,q)$ acts as follows.
 }}
 \end{tcolorbox}
 \end{center}
-\vspace{-5mm}
+%\vspace{-5mm}
 \caption{Pseudorandom function's simulator.} 
 \label{fig::PRF-SIM}
 \end{figure}
@@ -136,7 +136,7 @@ To keep track of all the exchanged messages, it stores the above incoming and go
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
-\setlength{\fboxsep}{1pt}
+\setlength{\fboxsep}{1.2pt}
 \begin{center}
     \begin{tcolorbox}[enhanced,width=3.3in, left=0.1cm,
     drop fuzzy shadow southwest,
@@ -167,7 +167,9 @@ To keep track of all the exchanged messages, it stores the above incoming and go
  %
  \item authenticates and decrypts the ciphertext $\bar M'$ as $(p', b') \gets \mathsf{Dec}_{\sss\bar{\VS{\keyt}_{\sss 1}}}(\bar M', \bar t')$. If the authentication fails (i.e., $b'\neq 1$), it halts. 
  %
-\item    extracts $(\VM{\nonce}, \VM{\verifier})$ from plaintext $p'$. It sets $\VS{\verifier}\gets\VM{\verifier}$ and also  checks if $\VM{\nonce}=\bar{\VS{\nonce}}$. If the equation does not hold, it halts. The state of the server instance is set to expecting.
+\item    extracts $(\VM{\nonce}, \VM{\verifier})$ from plaintext $p'$. 
+
+It sets $\VS{\verifier}\gets\VM{\verifier}$ and also  checks if $\VM{\nonce}=\bar{\VS{\nonce}}$. If the equation does not hold, it halts. The state of the server instance is set to expecting.
  %
  \end{enumerate}
  %
@@ -208,10 +210,12 @@ It accepts the key and terminates.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
 \setlength{\fboxsep}{1pt}
+ \vspace{-3mm}
 \begin{center}
-    \begin{tcolorbox}[enhanced,width=3.3in, left=0.1cm, 
+    \begin{tcolorbox}[enhanced,width=3.3in, height=105mm, left=0.1cm, 
     drop fuzzy shadow southwest,
     colframe=black,colback=white]
+     \vspace{-3mm}
 {\small{
 
  \doubleunderline{\execute($U^{\sss i}, S^{\sss j}$)}\\
@@ -270,6 +274,8 @@ This query is processed as follows.
 }}
 \end{tcolorbox}
 \end{center}
+ \vspace{-3mm}
 \caption{Simulators for \execute, \reveal, and \test\ queries. } 
 \label{fig::sim-for-exe-rev-test}
+ \vspace{-3mm}
 \end{figure}
