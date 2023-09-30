@@ -1,0 +1,274 @@
+%!TEX root = main.tex
+
+\section{Formal Security Analysis}\label{sec::Formal-Security-Analysis}
+
+In this section, we present the security proof of the protocol, presented in Section \ref{sec::the-protocol}.  First, we prove the semantic security of the scheme and then prove its authentication. 
+
+\subsection{Semantic Security}\label{sec::semSec-proof}
+
+In this section, we assert that under standard assumptions protocol $\psi$, presented in Section \ref{sec::the-protocol}, securely distributes
+session keys. To do so, we incrementally define a sequence of games starting at the real
+game $G_{\sss 0}$ and ending up at $G_{\sss  7}$. 
+
+We first define various events in every game and then explain each game. 
+
+\begin{itemize}
+%
+\item  $S_{\sss  i}$: it takes place if $b=b'$, where $b$ is the bit involved in the test query and $b'$ is the output of $\A$ which wants to guess $b$. 
+%
+\item $Auth_{\sss  i}$: it occurs if $\A$ generates and sends to the server an authenticator message that is accepted by the server.
+%
+\item $Enc_{\sss  i}$: occurs if $\A$ submits data it has encrypted by itself using the correct key that an honest party would use to encrypt. 
+%
+\end{itemize}
+
+\begin{itemize}
+%
+\item[$\bullet$] \textit{\textbf{Game}} $G_{\sss  0}$: This is the real attack game. Several oracles are  available to the adversary; namely, the pseudorandom function ($\prf$),  the encryption/decryption oracles ($\mathtt{Enc}$ and $\mathtt{Dec}$) and all instances $U^{\sss  i}$ and $S^{\sss  j}$.
+%
+According to the definition we presented in Section \ref{sec::model}, the advantage of the adversary in this protocol is: 
+
+\begin{equation}\label{eq::adv-ake-}
+Adv_{\sss  \psi}^{\sss  ss}(\A)=2Pr[S_{\sss  0}]-1
+\end{equation}
+
+Similar to the security proof in \cite{BressonCP03}, we assume that if any of the games halts and $\A$ does not output $b'$, then $b'$  is chosen at random. Also, if $\A$ has not finished playing the game after sending $q_{\sss  s}$  \send$(.)$ queries or if it plays the game more than a predefined time $t$, the game is stopped and a random value is assigned to $b'$. 
+%
+
+
+
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  1}$: This game is similar to  $G_{\sss  0}$, except that the output of the $\prf$ is replaced by an output of  a uniformly random function $f$, i.e., when the simulator in Figure \ref{fig::PRF-SIM} is used. Since the output of $f$ (in the simulator) and $\prf$ are indistinguishable, except with a negligible probability, we will have: 
+
+\begin{equation}\label{eq::game_1}
+|Pr[S_{\sss  1}]-Pr[S_{\sss  0}]|\leq (q_{\sss s}+q_{\sss p})Adv^{\sss\prf}(\adv)
+\end{equation}
+
+that captures both send and execute queries. We highlight that as we use a standard $\prf$, the probability of finding a collision is $0$. 
+
+
+
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  2}$: This game is the same as $G_{\sss  1}$, with the difference that we simulate the authenticated encryption scheme (\ie, $Enc$ and $Dec$ algorithms). We replace the output of $Enc$ with a uniformly random value picked from the encryption scheme's range. The adversary has access to the encryption and decryption oracles. 
+
+Since we treat the encryption scheme as a black box, the two games are distinguishable except with a negligible probability; this we will have: 
+ 
+\begin{equation}\label{eq::game_2}
+|Pr[S_{\sss  2}]-Pr[S_{\sss  1}]| \leq (q_{\sss s}+q_{\sss p}) Adv^{\sss Enc}(\adv)
+\end{equation}
+
+The above also captures both the send and execute queries. Since we have used a standard encryption scheme, the probability of finding a collision (\eg, two ciphertexts result in the same plaintext or two plaintexts result in the same ciphertext) is $0$, as the scheme is bijective. 
+
+
+
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  3}$: This game is the same as $G_{\sss  2}$, with the difference that we simulate the verification of a transaction, \ie, via predicate $\phi$ defined in Section \ref{sec::model}. 
+
+Moreover, we simulate all parties' instances via defining simulators for  \send, \execute, \reveal, and \test\ queries. We present the simulators for the user's and server's \send\ queries in Figures \ref{fig::Send-sim-to-client} and \ref{fig::Send-sim-to-server} respectively. Also, we present the simulators for the rest of the queries in Figure \ref{fig::sim-for-exe-rev-test}. 
+
+By definition,  $\phi$ is a deterministic function, given the transaction $t^{\sss  U}$ and policy $\gamma$, it always returns the same output as the user's token does when verifying $t^{\sss  U}$ in the previous game.  
+
+Therefore, both $\phi$ and the user's token would output identical values, given pair $(t^{\sss  U}, \pi)$, meaning that their outputs are indistinguishable in both games.  Given the above argument, we conclude that:  
+
+\begin{equation}\label{eq::game_3}
+Pr[S_{\sss  3}]-Pr[S_{\sss  2}]=0
+\end{equation}
+%
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  4}$: This game is the same as $G_{\sss  3}$, with the difference that when the adversary manages to use the correct encryption key and encrypts (or decrypts) a message itself, then the simulation aborts. Therefore, we have: 
+
+\begin{equation*}
+|Pr[S_{\sss  4}]-Pr[S_{\sss  3}]|\leq Pr[Enc_{\sss  4}]
+\end{equation*}
+
+
+We know that the key has been picked uniformly at random and is of length $\lambda$ bits (recall that the outputs of $\prf$ have been replaced with truly random values in $G_{\sss  1}$). Therefore:
+
+ $$Pr[Enc_{\sss  4}]=\frac{4(q_{\sss  s}+q_{\sss  p})}{2^{\sss \lambda}}$$ and 
+ 
+ \begin{equation}\label{eq::game_4}
+ |Pr[S_{\sss  4}]-Pr[S_{\sss  3}]|\leq \frac{4(q_{\sss  s}+q_{\sss  p})}{2^{\sss \lambda}}
+ \end{equation}
+%
+
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  5}$: In this game, we modify the simulator such that it would abort if
+the adversary correctly guesses the authenticator. Therefore, we modify the way the server responds to  query {\send($S^{\sss  j},   \bar{\VC{\mathit{response}}}$)} as follows: 
+
+\begin{enumerate}
+%
+\item computes $\VS{\mathit{expected}} \gets \prf_{\sss\bar{\VS{\keyt_{\sss3}}}}(\ddot{\VS{\nonce}}  \| \VS{\trans} \| \VS{\verifier}|| 1)$.
+%
+\item checks if $\bar{\VC{\mathit{response}}}=\VS{\mathit{expected}}$. It proceeds to the next step if the equation holds. 
+%
+\item\label{Game::check-sim} checks if $\Big((U_{\sss  ID},  \text{enrolment}), (U_{\sss  ID},  \text{authentication}), (\bar M, \bar t),$ $ (\bar M',$ $ \bar t'),$ $ (\ddot M', $ $\ddot t'), $ $(\hat M', \hat t'), \bar{\VC{\mathit{response}}}\Big)\in \vv L$.
+
+\item\label{Game::prf} checks if $ \bar{\VC{\mathit{response}}}\in L_{\sss \adv}$. 
+%
+\item if both checks in steps \ref{Game::check-sim} and \ref{Game::prf} fail, then it rejects authenticator $\bar{\VC{\mathit{response}}}$ and terminates without accepting the key. Otherwise, it accepts the key. 
+%
+\end{enumerate}
+This game ensures that if the message (\ie, the authenticator) does not come from the simulator or the adversary (which decrypted $\ddot M',\ddot t', \hat M'$, and  $\hat t'$, then correctly computed a valid authenticator by querying $\update$ and $\prf_{\sss  k'}$) then it aborts. 
+
+So, games $G_{\sss  4}$ and $G_{\sss  5}$ are indistinguishable unless the server rejects a valid authenticator. 
+
+However, this means the adversary has correctly guessed the output of $\prf$. Thus, 
+
+\begin{equation}\label{eq::game_5}
+|Pr[S_{\sss  5}]-Pr[S_{\sss  4}]|\leq \frac{q_{\sss  s}}{2^{\sss \lambda}}
+\end{equation}
+
+
+
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  6}$: 
+ In this game, we modify the simulator in a way that it would abort if $\adv$ decrypts $ (\ddot M', \ddot t', \hat M', \hat t')$ and uses the result to generate and send a valid authenticator to the server. 
+ 
+ To do so, we modify the way the server responds to  query {\send($S^{\sss  j},   \bar{\VC{\mathit{response}}}$)}, as follows: 
+
+\begin{enumerate}
+%
+\item computes $\VS{\mathit{expected}} \gets \prf_{\sss\bar{\VS{\keyt_{\sss3}}}}(\ddot{\VS{\nonce}}  \| \VS{\trans} \| \VS{\verifier}||1)$.
+%
+\item checks if $\bar{\VC{\mathit{response}}}=\VS{\mathit{expected}}$. It proceeds to the next step if the equation holds. 
+%
+\item\label{Game::check-sim-} checks if $\Big((U_{\sss  ID},  \text{enrolment}), (U_{\sss  ID},  \text{authentication}), (\bar M, \bar t),$ $ (\bar M',$ $ \bar t'),$ $ (\ddot M', $ $\ddot t'), $ $(\hat M', \hat t'), \bar{\VC{\mathit{response}}}\Big)\in \vv L$. If this check fails, then it rejects authenticator  $\bar{\VC{\mathit{response}}}$ and terminates, without accepting any key.
+
+\item\label{Game::prf-} checks if $(\ddot{\VS{\nonce}}  \| \VS{\trans} \| *,\bar{\VC{\mathit{response}}})\in L_{\sss \adv}$.  
+%
+\item aborts, if the above check (in step \ref{Game::prf-}) passes.
+%
+\end{enumerate}
+
+The above modification ensures that all valid authenticators are sent by the simulator. Let $\hat {Auth}_{\sss  6}$ be the event that the check in step \ref{Game::prf-} passes. Games $G_{\sss  5}$ and $G_{\sss  6}$ are indistinguishable unless $\hat {Auth}_{\sss  6}$ occurs. Hence,
+
+$$|Pr[S_{\sss  6}]-Pr[S_{\sss  5}]|\leq Pr[\hat {Auth}_{\sss  6}]$$
+
+
+We know that $\hat {Auth}_{\sss  6}$ occurs with probability $ \frac{q_{\sss  s}}{2^{\sss \lambda}}$ when the query $q=\ddot{\VS{\nonce}}  \| \VS{\trans} \| *$ to $\prf$ results in $\bar{\VC{\mathit{response}}}$. Thus, 
+
+\begin{equation}\label{eq::game_6}
+|Pr[S_{\sss  6}]-Pr[S_{\sss  5}]|\leq \frac{q_{\sss  s}}{2^{\sss \lambda}}
+\end{equation}
+
+\item[$\bullet$] \textit{\textbf{Game}}  $G_{\sss  7}$: In this game, we modify the simulator such that it would abort if the adversary comes up with the authenticator and session key without decrypting  $ (\ddot M', \ddot t', \hat M', \hat t')$.  Therefore, we modify the way the user's token processes query \send($U^{\sss  i}, (\ddot M', \ddot t'), (\hat M', \hat t')$) as follows.
+ %
+ \begin{enumerate}
+ \item compute $\bar{\VC{\mathit{response}}} \gets \prf_{\sss  \ddot t'}( \ddot M'|| 1)$.
+ \item compute $\bar {sk}^{\sss U}\gets \prf_{\sss  \ddot t'}( \ddot M'|| 2)$.
+ \end{enumerate}
+
+We also amend the way the server compiles query \send($S^{\sss  j},  $ $ \bar{\VC{\mathit{response}}}$) as follows. 
+%
+\begin{enumerate}[label=\alph*]
+%
+\item\label{Game::prf--}  checks if  $(\ddot M'||1, \bar{\VC{\mathit{response}}})\in L_{\sss \adv}$ or  $(\ddot M'||2, \bar {sk}^{\sss U})\in L_{\sss \adv}$. 
+%
+\item aborts, if either of the above checks (in step \ref{Game::prf--}) passes.
+%
+\end{enumerate}
+
+
+
+ Let $\hat {Auth}_{\sss  7}$ be the event that the check in step \ref{Game::prf--} passes. Games $G_{\sss  6}$ and $G_{\sss 7}$ are indistinguishable unless $\hat {Auth}_{\sss  7}$ occurs. Therefore,
+%
+$$|Pr[S_{\sss  7}]-Pr[S_{\sss  6}]|\leq Pr[\hat {Auth}_{\sss  7}]$$
+
+
+Event $\hat {Auth}_{\sss  7}$ occurs with probability $ \frac{2q_{\sss  s}}{2^{\sss \lambda}}$ when the query $q=\ddot M'||1$ to $\prf$ results in $\bar{\VC{\mathit{response}}}$ or $q=\ddot M'||2$ to $\prf$ results in $\bar {sk}^{\sss U}$. Thus, 
+
+\begin{equation}\label{eq::game_7}
+|Pr[S_{\sss  7}]-Pr[S_{\sss  6}]|\leq \frac{2q_{\sss  s}}{2^{\sss \lambda}}
+\end{equation}
+
+Moreover, the session key and authenticator are random values, as they are the outputs of $\prf$ whose secret key is not known. Therefore, $Pr[S_{\sss  7}]=\frac{1}{2}$. 
+
+
+
+By summing up all the above relations \ref{eq::game_1}-\ref{eq::game_7}, we would have 
+
+\begin{equation}\label{equ::sum}
+\begin{split}
+|Pr[S_{\sss  7}]-Pr[S_{\sss  0}]|\leq (q_{\sss s}+q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+\\ Adv^{\sss Enc}(\adv)\Big)+ \frac{4(q_{\sss  s}+q_{\sss  p})}{2^{\sss \lambda}}+\frac{4q_{\sss  s}}{2^{\sss \lambda}}
+\end{split}
+\end{equation}
+
+By combining Equations \ref{eq::adv-ake-} and \ref{equ::sum}, we would have: 
+
+\begin{equation*} 
+Adv_{\sss  \psi}^{\sss  ss}(\A) \leq 2(q_{\sss s}+q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{8(2q_{\sss  s}+q_{\sss  p})}{2^{\sss \lambda}}
+\end{equation*}
+
+This completes the proof. 
+
+
+%\
+%
+%\item[$\bullet$] \textit{\textbf{Game}}  $G_2$: In this game, we simulate the $\prf$ and all the instances as the real players would do for the send, execute, reveal, and test queries. 
+
+ 
+%Since the pseudorandom function is deterministic and outputs the same value if queried twice on the same inputs, without loss of generality we assume a distinguisher never queries the pseudorandom oracle twice on the same inputs.
+
+%%%%
+\end{itemize}
+
+\input{simulation}
+
+
+\subsection{Authentication}
+
+In this section, we prove the protocol's authentication. We begin with the case where the adversary $\adv$ has access to the traffic between the two parties and wants to impersonate the user, $U$; we denote such a case with $\bar {aut}$. 
+
+The Authentication proof relies on the semantic security proof (and games) we presented in Section \ref{sec::semSec-proof}.  Now, we outline the proof.  By definition, it holds that:
+%
+ \begin{equation}\label{eq::adv-ake}
+Adv_{\sss \psi}^{\sss \bar {aut}}(\A)=Pr[Auth_{\sss  0}]
+\end{equation}
+
+
+Also, we can extend Equation \ref{eq::game_1} to:
+%
+\begin{equation*}
+|Pr[Auth_{\sss  1}]-Pr[Auth_{\sss  0}]| \leq (q_{\sss s}+q_{\sss p})Adv^{\sss\prf}(\adv),
+\end{equation*}
+%
+ because the only difference between the two games (\ie, $G_{\sss  0}$ and $G_{\sss  1}$) is that the output of the $\prf$ is replaced with an output of a uniformly random function $f$.  
+%
+ Furthermore, we can extend Equations \ref{eq::game_1}-\ref{eq::game_7} as follows: 
+ %
+ \begin{equation*}
+ \begin{split}
+  &  |Pr[Auth_{\sss  1}]-Pr[Auth_{\sss  0}]| \leq (q_{\sss s}+q_{\sss p}) Adv^{\sss \prf}(\adv) \\ 
+ &  |Pr[Auth_{\sss  2}]-Pr[Auth_{\sss 1}]| \leq (q_{\sss s}+q_{\sss p}) Adv^{\sss Enc}(\adv) \\ 
+ & Pr[Auth_{\sss  3}]-Pr[Auth_{\sss  2}]=0\\
+ & |Pr[Auth_{\sss  4}]-Pr[Auth_{\sss  3}]|\leq \frac{4(q_{\sss  s}+q_{\sss  p})}{2^{\sss \lambda}}\\
+ & |Pr[Auth_{\sss  5}]-Pr[Auth_{\sss  4}]|\leq \frac{q_{\sss  s}}{2^{\sss \lambda}}\\
+ & |Pr[Auth_{\sss  6}]-Pr[Auth_{\sss  5}]|\leq \frac{q_{\sss  s}}{2^{\sss \lambda}}\\
+ & |Pr[Auth_{\sss  7}]-Pr[Auth_{\sss  6}]|\leq \frac{2q_{\sss  s}}{2^{\sss \lambda}}
+ %
+\end{split}
+\end{equation*}
+
+\
+
+ Moreover, since the authenticator is a random value in $G_{\sss 7}$, it holds that $Pr[Auth_{\sss 7}]=\frac{q_{\sss  s}}{2^{\sss \lambda}}$. We conclude the proof, by summing up the above relations and combining with Equation \ref{eq::adv-ake}: 
+ 
+  \begin{equation}
+  \begin{split}
+ Adv_{\sss \psi}^{\sss \bar {aut}}(\A) = Pr[Auth_{\sss  0}] \leq (q_{\sss s} + q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+\\ Adv^{\sss Enc}(\adv)\Big)+\frac{9q_{\sss  s}+4q_{\sss  p}}{2^{\sss \lambda}}%+ \frac{4q_p}{2^{\lambda}}
+ \end{split}
+ \end{equation}
+ 
+ 
+Next, we proceed to the case where the adversary is given further access to the PIN, i.e., $\adv$ can also send query  \corrupt($C, 1$). We argue that given such an extra capability does not affect the adversary's advantage and the above analysis (as the protocol and its analysis have relied on the security of the CCA-secure symmetric-key encryption and $\prf$). 
+
+Now move on to the case where $\adv$ (a) is given all the parameters stored in the hardware token, and (b) has access to all the traffic between the two parties, \ie, $\adv$ can also send query  $\bar{\text{Cpt}_{\sss  2}} =$ \corrupt$(C, 2)$. We argue that in this case, the upper bound of $\adv$'s advantage will be changed as follows:  $Adv_{\sss\psi, \bar{\text{Cpt}_{\sss  2}}}^{\sss  aut}(\A)\leq  \cfrac{q_{\sss  s}}{N}$. 
+
+The reason for such a big change is that in this case, $\adv$ has all secret parameters, except the PIN and verifier $\VC{\verifier}$. \footnote{The case where $\adv$ has the additional capability to send query \corrupt($U, 2$) was never discussed and analysed in \cite{BressonCP03}. However, we noticed that $\adv$ in that scheme would have the same upper bound advantage as $\adv$ in our scheme does.} Thus, when we take the forward security into account, the advantage of the adversary (due to the union bound)  is as follows: 
+
+  \begin{equation*}
+  \begin{split}
+ Adv_{\sss \psi}^{\sss  aut}(\A)  \leq (q_{\sss s} + q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+\\ Adv^{\sss Enc}(\adv)\Big)+\frac{9q_{\sss s}+4q_{\sss  p}}{2^{\sss \lambda}}+  \cfrac{q_{\sss  s}}{N}
+ \end{split}
+ \end{equation*}
+
+
+\subsection{PIN's Privacy Against A Corrupt Server} 
+
+In the case where the adversary (i) has access to the parties' traffic and (ii) can make query \corrupt($S, 1$), to extract all parameters of the server, then the probability that the adversary can find the valid PIN depends on the probability of finding the correct PIN and finding $U$'s correct key of $\prf$; therefore, the probability is at most $\cfrac{q_{\sss  p}}{2^{\sss \lambda}N}$. 
+
+

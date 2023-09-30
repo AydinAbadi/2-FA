@@ -1,0 +1,65 @@
+
+%!TEX root = main.tex
+
+
+
+\begin{figure}
+ \centering
+ \procedure{Authentication}{%
+ \textbf{Client} \< \hspace{0ex} \< \textbf{Server} \\
+ \pcln \< \< \VS{\counter} \gets \VS{\counter} + 1 \\ % server-- increment counter
+ %
+ \pcln \< \<  \VS{\keyt_3}, \VS{\state} \gets \update(\VS{\state}, \VS{\counter})\\% server-- update
+ %
+  \pcln \< \<  \VS{k_1} \gets \prf_{\VS{\keyt_3}}(\VC{\verifier}) \< \< \\
+ %
+ \pcln \< \< \VS{\nonce} \stackrel{\$}\leftarrow \bin^\secpar\\  % server--pick a challenge
+ %
+  \pcln \< \< p= \VS{\nonce} || \VS{\counter} || \VS{\trans} \pclb % server--set plaintext
+ %
+ \sendmessageleftx[7cm]{6}{(M, t)\leftarrow \enc_{\VS{\keyt_3}}(p) } \\ % server--
+ %%%%%. client
+  \pcln  \tmp_{\VC{\counter}} \gets \VC{\counter} + 1 \\ % client--increment temp-counter
+ %
+    \pcln  \tmp_{\VC{\state}} \gets \VC{\state} \\ % client-- set temp state
+ %
+  \pcln  \VC{\keyt_3}, \tmp_{\VC{\state}} \gets \update(\tmp_{\VC{\state}}, \tmp_{\VC{\counter}})\\ % client-- update
+ %
+  \pcln (p,b) \gets \mathsf{Dec}_{\VC{\keyt_3}}(M,t) \< \< \\% client-- decrypt
+  %
+  \pcln \iif b\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail} \\ % client-- verify tag
+  %
+   %\pcln \VM{\nonce}, \VM{\counter} \gets \parse(p, |\VC{\counter}|) \< \< \\ % client parse
+  %
+  \pcln \text{Parse\ } p \text{\ which\ results\ in\ } \VM{\nonce}, \VM{\counter}, \VM{\trans}  \< \< \\ % client parse
+ %
+ %\pcln \VM{\nonce}, \VM{\counter}, \VM{\trans} \gets \extract_{\VC{\key}}(M) \< \< \\
+ %
+ \pcln \pcif \VM{\counter} \le \VC{\counter} \pcthen \pcfail ; \highlightkeyword{goto} \ref{auth:fail} \< \< \\
+ \pcln \text{Display \VM{\trans} for user to check} \< \< \\
+ \pcln \text{\pcif user rejects \VM{\trans}\pcthen \pcfail ; \highlightkeyword{goto} \ref{auth:fail}} \< \< \\
+ %
+  % \pcln \VC{\counter} \gets \tmp_{\VC{\counter}}\\ % client --set counter 
+ %
+  \pcln \VC{\counter} \gets \VM{\counter} \< \< \\
+  %
+ \pcln  \VC{\state} \gets  \tmp_{\VC{\state}}\\% client-- set state
+ %
+ \pcln \text{Request \VC{\pin} from user} \< \< \\
+ %
+ \pcln \VC{\verifier} \gets \prf_{\VC{\salt}}(\VC{\pin}) \< \< \\
+%
+ \pcln  \VC{\keyt_4}, \VC{\state} \gets \update(\VC{\state}, \VC{\counter}) \< \< \\
+  %
+ \pcln p'=  \VM{\nonce} \|  \VM{\trans} \| \VC{\verifier}\< \< \\ %client--set plaintext
+ %
+ \pcln \VC{\mathit{response}} \gets \prf_{\VC{\keyt_4}}(p') \< \< \pclb
+ %
+ \sendmessagerightx[7cm]{6}{M' = \VC{\mathit{response}}} \\
+ \pcln \< \< \VS{\mathit{expected}} \gets \prf_{\VS{\keyt2}}(\VS{\nonce} \| \mathbf{T}_\mathrm{AR} \| \VS{\trans} \| \VS{\verifier}) \\
+ \pcln \< \< \pcif M \ne \VS{\mathit{expected}} \pcthen \pcfail ; \highlightkeyword{goto} \ref{auth:fail} \\
+ \pcln \label{auth:fail} \text{Discard \VC{\pin}, \VC{\verifier}, \VC{\keyt2} \VM{\nonce}, \VM{\trans}} \< \<  \text{Discard \VS{\keyt2}, \VS{\nonce}, \VS{\trans}} \\
+ }
+    \caption{Authentication phase of protocol}
+    \label{fig:auth}
+\end{figure}

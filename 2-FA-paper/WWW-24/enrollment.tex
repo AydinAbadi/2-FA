@@ -1,0 +1,77 @@
+
+%!TEX root = main.tex
+
+\begin{figure}
+ \centering
+ \procedure{Enrollment}{%
+ \textbf{Client} \< \hspace{12ex} \< \textbf{Server} \\
+ %%%%%% Server
+ \pcln \< \< \VS{\counter} \gets \VS{\counter} + 1 \\
+ \pcln \< \< \VS{\keyt_1}, \VS{\state} \gets \update(\VS{\state}, \VS{\counter})\\% update
+ %
+% \pcln \< \< key_1= H(\VS{\keyt_1}||
+ %
+ \pcln \< \< \VS{\nonce} \stackrel{\$}\leftarrow \bin^\secpar  \\
+ %
+ \pcln \< \< p= \VS{\nonce}|| \VS{\counter} \pclb % server- set plaintext
+ %
+ \sendmessageleftx[7cm]{6}{(M,t) \gets \enc_{\VS{\keyt_1}}(p) } \\% encrypt
+ %%%%% Client
+   \pcln  \tmp_{\VC{\counter}} \gets \VC{\counter} + 1 \\ % increment temp-counter
+ %
+    \pcln  \tmp_{\VC{\state}} \gets \VC{\state} \\ % client set temp state
+ %
+  \pcln  \VC{\keyt_1}, \tmp_{\VC{\state}} \gets \update(\tmp_{\VC{\state}}, \tmp_{\VC{\counter}})\\ % client update
+ %
+  \pcln (p,b) \gets \mathsf{Dec}_{\VC{\keyt_1}}(M,t) \< \< \\% client decrypt
+  %
+  \pcln \iif b\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail} \\ % client verify tag
+  %
+   \pcln \VM{\nonce}, \VM{\counter} \gets \parse(p, |\VC{\counter}|) \< \< \\ % client parse
+  %
+ \pcln  \iif \VM{\counter} \le \VC{\counter}, \text{\ then\ go\ to\ } \ref{enroll:fail} \\ %client check counter
+ %
+ \pcln \VC{\counter} \gets \VM{\counter}\\ % client set counter 
+ %
+ \pcln  \VC{\state} \gets  \tmp_{\VC{\state}}\\% client set state
+ \pcln \text{Request \VC{\pin} from user} \< \< \\
+ %
+ \pcln \VC{\verifier} \gets \prf_{\VC{\salt}}(\VC{\pin}) \< \< \\
+ %\pcln \VC{\counter} \gets \VM{\counter} \< \< \\ % set the counter
+ %
+  \pcln  \VC{\counter} \gets \VC{\counter} + 1 \\
+ %
+ \pcln \VC{\keyt_2},  \VC{\state} \gets \update(\VC{\state}, \VC{\counter}) \< \< \\ % update
+ %
+ \pcln p'=  \VM{\nonce} || \VC{\verifier}\< \< \pclb %client--set plaintext
+ %
+ \sendmessagerightx[7cm]{6}{(M',t') \gets \enc_{\VC{\keyt_2}}(p') } \\% encrypt
+ %%%%%% Server
+ %
+  \pcln\< \<   \tmp_{\VS{\counter}} \gets \VS{\counter} + 1 \\ % server-- increment temp-counter
+ %
+    \pcln\< \<   \tmp_{\VS{\state}} \gets \VS{\state} \\ % server-- set temp state
+ %
+  %\pcln \< \< \VS{\counter} \gets \VS{\counter} + 1 \\
+ %
+  \pcln \< \< \VS{\keyt_2}, \tmp_{\VS{\state}} \gets \update(\tmp_{\VS{\state}}, \tmp_{\VS{\counter}})\\%  update
+  %
+  \pcln\< \< (p',b') \gets \mathsf{Dec}_{\VS{\keyt_2}}(M',t') \< \< \\% server-- decrypt
+  %
+   \pcln\< \< \iif b'\neq 1,    \text{\ then\ go\ to\ } \ref{enroll:fail} \\ % client-- verify tag
+  %
+ \pcln \< \<  \VM{\nonce},  \VM{\verifier} \gets \parse(p', | \VS{\verifier}|) \< \< \\
+  %
+% \pcln \< \< \VM{\nonce}, \VM{\verifier} \gets \extract_{\VS{\keyt1}}(M) \\
+ \pcln \< \< \iif \VM{\nonce} \ne \VS{\nonce}, \text{then \ go\ to\ } \ref{enroll:fail} \\
+ %
+  \pcln\< \< \VS{\counter} \gets \tmp_{\VS{\counter}}\\ % client --set counter 
+ %
+ \pcln\< \<  \VS{\state} \gets  \tmp_{\VS{\state}}\\% client-- set state
+ %
+ \pcln \< \< \text{Store \VM{\verifier} as \VS{\verifier}} \\
+ \pcln \label{enroll:fail} \text{Discard \VC{\pin}, \VC{\verifier}, \VC{\keyt_1}, \VC{\keyt_2}, \VC{\nonce}}, \tmp_{\VC{\counter}}, \tmp_{\VC{\state}} \< \<  \text{Discard \VS{\keyt_1}, \VS{\keyt_2}, \VS{\nonce}},  \tmp_{\VS{\counter}}, \tmp_{\VS{\state}} \\
+ }
+    \caption{Enrollment phase of authentication protocol}
+    \label{fig:enrollment}
+\end{figure}

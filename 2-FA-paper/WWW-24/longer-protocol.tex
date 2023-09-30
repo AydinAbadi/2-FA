@@ -1,0 +1,29 @@
+%!TEX root = main.tex
+
+
+\section{More Enhanced Protocol}\label{sec::more-enhanced}
+
+%In this section, we present a more enhanced version of the protocol that we presented in Section \ref{sec::the-protocol}. The proposed protocol ensures that even if an adversary penetrates the server and accesses the server's local data, it cannot authenticate itself to the server later on and as before it cannot learn users' PIN.  
+
+
+In this section, we outline a more enhanced version of the protocol presented in Section \ref{sec::the-protocol}. This enhanced protocol ensures that even if an adversary penetrates the server and accesses the server's local data, it cannot authenticate itself to the server later on (and as before it cannot learn users' PIN). 
+
+To deal with the adversary that breaks into the server and then tries to authenticate itself, we use the following idea (and additional steps). We require the token (at the setup phase) to generate and store a new key $r$ of \prf.  
+
+In the enrolment phase, the token derives a pseudorandom value $w^{\sss U}$ using the verifier \VC{\verifier} (generated in the original protocol) and $r$. In this phase, $w^{\sss U}$ is also securely sent to the server which stores it locally. Only the server needs to store $w^{\sss U}$. 
+%
+In the authentication phase, the client also securely\footnote{For the token to securely send $r$ to the server, the token (1) derives a fresh random value $x$ from $\VC{\keyt_{\sss 3}}$ using a key derivation function $\mathtt{Der}(.)$ that returns a random value of size $\log_{\sss 2}(r)$ bits and  (2) sends $r'=x\oplus r$ to the server.} sends $r$ to the server which re-generates  $w^{\sss U}$ using $r$ and the stored \VC{\verifier} and checks whether $w^{\sss U}$ equals the $w^{\sss U}$ that it locally maintains. It then deletes $r$. 
+
+Intuitively, the above approach guarantees security against the above adversary because having access to the local data of the server, the adversary still needs to know $r$ to authenticate itself; since $r$ has been picked uniformly at random and is not stored in the server, then its success probability depends on the bit-length of $r$ and if it is set to an appropriate size, then the probability will be negligible. 
+%
+%We refer readers to  Appendix \ref{sec::more-enhanced}, for the full version of the enhanced protocol. 
+%
+We present the new versions of the setup, enrolment and authentication phases in Figures \ref{fig:setup-long}, \ref{fig:enrollment-long}, and \ref{fig:auth-long}. We have highlighted the new steps in blue. 
+
+
+\input{long-setup}
+
+\input{long-enrolment}
+
+\input{long-authentication}
+

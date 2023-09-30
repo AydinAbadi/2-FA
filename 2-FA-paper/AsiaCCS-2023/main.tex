@@ -50,7 +50,7 @@
 %*****************************************************
 \usepackage{color, colortbl}
 \usepackage{capt-of}
-\usepackage{enumitem}
+
 \usepackage[makeroom]{cancel}
 %\newcommand{\st}{\scriptscriptstyle}
 
@@ -58,10 +58,10 @@
 \def\doubleunderline#1{\underline{\underline{#1}}}
 
 %----------------------------
-\usepackage{blindtext}
-\usepackage{hyperref}
+%\usepackage{blindtext}
+
 %
-\usepackage{enumitem}
+
 %\usepackage{framed}
 %\usepackage{esvect}
 %\usepackage{tikz}
@@ -109,7 +109,7 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{adjustbox}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 
 \definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
@@ -138,7 +138,7 @@
 
 
 \usepackage{adjustbox}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{tablefootnote}
 \newtheorem{assumption}{Assumption}
@@ -158,12 +158,16 @@
 %*****************************************************
 \usepackage{color, colortbl}
 \usepackage{capt-of}
-\usepackage{enumitem}
+
 \usepackage[makeroom]{cancel}
 \newcommand{\st}{\scriptscriptstyle}
 \usepackage{blindtext}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{enumitem}
+
+
+
+
 %\usepackage{framed}
 %\usepackage{esvect}
 %\usepackage{tikz}
@@ -198,7 +202,7 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{adjustbox}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 \definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
 %\newcommand{\TZ}[1]{\textcolor{magenta}{\textbf{Thomas: }{#1}}}
@@ -210,7 +214,7 @@
 \usepackage{boxedminipage}
 \usepackage{multirow}
 \usepackage{adjustbox}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{tablefootnote}
 
@@ -287,15 +291,15 @@
 \usepackage{bm}
 \usepackage{adjustbox}
 \usepackage{boxedminipage}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 %%%%%%%%%
 \usepackage{pgfplots, pgfplotstable}
 
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{float}
 \usepackage{boxedminipage}
-\usepackage{enumitem}
+
 %\usepackage{makeidx}  % allows for indexgeneration
 %\usepackage{amsfonts,amsmath,amssymb,graphicx,setspace,tipx}
 \usepackage{amsmath}
@@ -316,12 +320,12 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{adjustbox}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{prettyref}
 \usepackage{multirow}
 \usepackage{adjustbox}
-\usepackage{blindtext}
+%\usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{colortbl}
 \usepackage[skins]{tcolorbox}
@@ -362,7 +366,7 @@
 %
 % If you use the hyperref package, please uncomment the following line
 % to display URLs in blue roman font according to Springer's eBook style:
-\usepackage{hyperref}
+
 \newcommand{\sss}{\scriptscriptstyle}
 \renewcommand\UrlFont{\color{blue}\rmfamily}
 \usepackage[primitives,operators,sets,keys,ff,lambda,adversary]{cryptocode}
@@ -404,9 +408,16 @@
 
 
 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
 
-
-
+\urlstyle{same}
 
 
 \copyrightyear{2023} 
@@ -525,6 +536,8 @@ This paper presents a robust 2FA protocol designed to withstand attacks from adv
 
 
 \input{forward-PRF-extra}
+
+
 %
 \input{proof}
 %
