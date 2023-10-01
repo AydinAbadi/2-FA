@@ -6,10 +6,14 @@ In this section, we present the security proof of the protocol, presented in Sec
 
 \subsection{Semantic Security}\label{sec::semSec-proof}
 
+
+
+
 In this section, we assert that under standard assumptions protocol $\psi$, presented in Section \ref{sec::the-protocol}, securely distributes
 session keys. To do so, we incrementally define a sequence of games starting at the real
 game $G_{\sss 0}$ and ending up at $G_{\sss  7}$. 
 
+\begin{proof}
 We first define various events in every game and then explain each game. 
 
 \begin{itemize}
@@ -193,19 +197,9 @@ By combining Equations \ref{eq::adv-ake-} and \ref{equ::sum}, we would have:
 Adv_{\sss  \psi}^{\sss  ss}(\A) \leq 2(q_{\sss s}+q_{\sss p})\Big(Adv^{\sss\prf}(\adv)+Adv^{\sss Enc}(\adv)\Big)+\frac{8(2q_{\sss  s}+q_{\sss  p})}{2^{\sss \lambda}}
 \end{equation*}
 
-This completes the proof. 
-
-
-%\
-%
-%\item[$\bullet$] \textit{\textbf{Game}}  $G_2$: In this game, we simulate the $\prf$ and all the instances as the real players would do for the send, execute, reveal, and test queries. 
-
- 
-%Since the pseudorandom function is deterministic and outputs the same value if queried twice on the same inputs, without loss of generality we assume a distinguisher never queries the pseudorandom oracle twice on the same inputs.
-
 %%%%
-\end{itemize}
-
+\end{itemize} 
+\end{proof}
 \input{simulation}
 
 
@@ -213,6 +207,7 @@ This completes the proof.
 
 In this section, we prove the protocol's authentication. We begin with the case where the adversary $\adv$ has access to the traffic between the two parties and wants to impersonate the user, $U$; we denote such a case with $\bar {aut}$. 
 
+\begin{proof}
 The Authentication proof relies on the semantic security proof (and games) we presented in Section \ref{sec::semSec-proof}.  Now, we outline the proof.  By definition, it holds that:
 %
  \begin{equation}\label{eq::adv-ake}
@@ -266,6 +261,7 @@ The reason for such a big change is that in this case, $\adv$ has all secret par
  \end{split}
  \end{equation*}
 
+\end{proof}
 
 \subsection{PIN's Privacy Against A Corrupt Server} 
 

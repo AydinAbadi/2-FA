@@ -449,7 +449,7 @@
 
 Two-factor authentication (2FA) is a widely adopted method for securing access to high-value online accounts, especially in scenarios involving financial transactions. In these setups, successful authentication necessitates the presence of knowledge factors (such as a PIN) and the possession of a hardware token. Nonetheless, the existing 2FA protocols expose the PIN to vulnerability in the event of a compromise to the server, user's computer, or hardware token. 
 %
-This paper presents a robust 2FA protocol designed to withstand attacks from adversaries who can (a) intercept the communication between a user and the server and (b) gain physical access to the user's hardware token, its associated PIN, or even breach the server. In comparison to prior methodologies, our protocol reduces the development cost of authentication tokens by eliminating the need for tamper-resistant hardware or direct hardware token linkage to the computer. Moreover, our protocol reduces communication overhead by up to 40\% compared to state-of-the-art solutions, all while exclusively using efficient symmetric-key primitives.
+This paper presents a robust 2FA protocol designed to withstand attacks from adversaries who can (a) intercept the communication between a user and the server and (b) gain physical access to the user's hardware token, its browser, its associated PIN, or even breach the server. In comparison to prior methodologies, our protocol reduces the development cost of authentication tokens by eliminating the need for tamper-resistant hardware or direct hardware token linkage to the computer. Moreover, our protocol reduces communication overhead by up to 40\% compared to state-of-the-art solutions, all while exclusively using efficient symmetric-key primitives.
 
 
 %Furthermore, our protocol reduces communication overhead by up to 40\% in comparison to state-of-the-art solutions. It achieves these optimisations while exclusively employing efficient symmetric-key primitives.
@@ -537,6 +537,7 @@ This paper presents a robust 2FA protocol designed to withstand attacks from adv
 
 \appendices
 
+\input{survey-related-work}
 
  \input{notation-Table-}
 
@@ -544,7 +545,7 @@ This paper presents a robust 2FA protocol designed to withstand attacks from adv
 
 \input{model-long}
 
-\input{survey-related-work}
+
 
 
 %

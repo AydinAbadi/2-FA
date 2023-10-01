@@ -23,6 +23,8 @@ In this section, first, we discuss the common approaches for generating a One-Ti
 
 In authentication mechanisms that rely on a combination of knowledge and possession factors, once the user enters the secret into the hardware token, the token (in some cases after validating the secret) combines this secret with the output of one of the following methods to generate a unique OTP: 
 
+\
+
 \begin{enumerate}
 
 \item \textit{a random challenge}: this approach requires the server to send a random challenge to the token (through the client). Those protocols that use this approach need to ensure the random challenges themselves remain confidential in the presence of an eavesdropping adversary.
@@ -67,11 +69,12 @@ However, the existing smart card-based solutions (\eg, in \cite{gupta2021machine
 
 
 
-\subsubsection{Disconnected Tokens.}
+\subsubsection{Disconnected Tokens.}\label{sec::Disconnected-Tokens}
 
 This type of token does not have a physical connection to a user's computer making them more convenient than connected tokens. A disconnected token is often equipped with a built-in screen and a keypad allowing a user to type in the knowledge factor and view the OTP on the screen (see below for an exception).  Below, we provide an overview of two main categories of disconnected tokens.
 
 %\begin{enumerate}[leftmargin=5mm]
+
 
 
 
@@ -121,6 +124,7 @@ Moreover, an alternative authentication protocol, presented in  \cite{zhang2020s
 
 
 
+
 %
 \underline{Category 2: Mobile Phone-based Tokens}, exemplified by the solutions introduced in \cite{SARA22,KoganMB17,KonothFFARB20}. Protocols have been developed where a mobile phone serves as a hardware token to generate a One-Time Password (OTP). These solutions frequently leverage the additional capabilities inherent in mobile phones, including features like a Trusted Execution Environment (TEE), direct server communication, and a rechargeable battery.
 
@@ -133,8 +137,7 @@ The protocol proposed in \cite{KonothFFARB20} mainly relies on a phone's TEE (\i
 
 A primary limitation of mobile phone-based OTP tokens is that they cannot be used when there is no (mobile phone) network coverage. Another limitation is that in certain cases (beyond Internet banking) sharing phone numbers with the authentication server may not suit all users, \eg, transaction details along with the phone number might be sold for targeted advertisements. Moreover, not everyone has a smartphone or is willing to install special software on it, and smartphones have a large attack surface that can be exploited to extract authentication secrets.
 
-For major banks, it is often not commercially viable to refuse service to customers unable or unwilling to use smartphone-based authentication, and in countries that impose a universal service obligation on certain banks (e.g., the United Kingdom) it would not be legal to do so.
-Therefore, it is established practice for banks to offer dedicated hardware-based authentication tokens, at least to customers who request these.
+%For major banks, it is often not commercially viable to refuse service to customers unable or unwilling to use smartphone-based authentication, and in countries that impose a universal service obligation on certain banks (e.g., the United Kingdom) it would not be legal to do so.Therefore, it is established practice for banks to offer dedicated hardware-based authentication tokens, at least to customers who request these.
 
 %
 %\end{enumerate}

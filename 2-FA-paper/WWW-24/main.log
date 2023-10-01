@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  30 SEP 2023 18:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  1 OCT 2023 16:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2088,45 +2088,52 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 67.
 ) (./preliminaries.tex
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 7.
 
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 4.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 6.
+
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 9.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 7.
+(Font)              scaled to size 9.0pt on input line 9.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 9.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 9.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 41.
+(Font)              scaled to size 7.3pt on input line 43.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 41.
+(Font)              scaled to size 5.5pt on input line 43.
 
 
-Package prettyref Warning: Reference format app undefined on input line 41.
+Package prettyref Warning: Reference format app undefined on input line 43.
 
 [2.2]
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 44.
+surrounding objects on input line 46.
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 47.
+(Font)              scaled to size 7.3pt on input line 49.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 47.
+(Font)              scaled to size 5.5pt on input line 49.
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 69.
+surrounding objects on input line 71.
 
 ) (./model.tex
-<setup.pdf, id=281, 950.59138pt x 342.31888pt>
+<setup.pdf, id=283, 950.59138pt x 342.31888pt>
 File: setup.pdf Graphic file (type pdf)
 <use setup.pdf>
 Package pdftex.def Info: setup.pdf  used on input line 24.
@@ -2271,10 +2278,11 @@ Underfull \hbox (badness 1881) in paragraph at lines 120--126
 ren-dra Mishra, and Sourav
  []
 
-) (./notation-Table-.tex
+) (./survey-related-work.tex [9.9] [10.10]) (./notation-Table-.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 6.0pt on input line 149.
-) (./forward-PRF-extra.tex [9.9]
+)
+(./forward-PRF-extra.tex
 Overfull \hbox (15.17113pt too wide) in paragraph at lines 77--97
 []$[] $ 
  []
@@ -2287,15 +2295,17 @@ surrounding objects on input line 97.
 Class acmart Warning: \vspace should only be used to provide space above/below 
 surrounding objects on input line 129.
 
-) (./model-long.tex [10.10]
+[11.11]) (./model-long.tex
 Overfull \hbox (3.0767pt too wide) in paragraph at lines 42--43
 []$[]$\T1/LinuxLibertineT-TLF/m/n/9 (-20) ($\OML/nxlmi/m/it/9 U[]; S[]$\T1/Linu
 xLibertineT-TLF/m/n/9 (-20) ): this query cap-tures \T1/LinuxLibertineT-TLF/b/n
 /9 pas-sive \T1/LinuxLibertineT-TLF/m/n/9 (-20) at-tacks in which
  []
 
-) (./survey-related-work.tex [11.11] [12.12]) (./proof.tex [13.13]
-(./simulation.tex
+[12.12]) (./proof.tex
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 9.0pt on input line 17.
+ [13.13] (./simulation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
@@ -2467,13 +2477,13 @@ Class acmart Warning: ACM reference format is mandatory
 (acmart)              Please add printacmref=true to the 
 (acmart)              \settopmatter command..
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 563.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 563.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 564.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 564.
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 563.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 563.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 564.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 564.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CFBF69CD249CE7CEF43904AE8BA2043F;7605.
+(rerunfilecheck)             Checksum: EDFE6DDE0745548DACA0A4B62AF4B70C;7605.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2484,11 +2494,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 51913 strings out of 480608
- 1102242 string characters out of 5903630
- 1649226 words of memory out of 5000000
- 65550 multiletter control sequences out of 15000+600000
- 852302 words of font info for 568 fonts, out of 8000000 for 9000
+ 51926 strings out of 480608
+ 1102560 string characters out of 5903630
+ 1649387 words of memory out of 5000000
+ 65553 multiletter control sequences out of 15000+600000
+ 857109 words of font info for 574 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,33n,100p,1488b,1904s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
@@ -2503,38 +2513,39 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_kijugd.enc}{
-/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/
-usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/u
-sr/local/texlive/2020/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/
-local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}{/usr/l
-ocal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/lo
-cal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/loc
-al/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/loca
-l/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.p
-fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMathMI
-7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMat
-hRM.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libertine/LinBio
-linumT.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libertine/Lin
-BiolinumTB.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libertine
-/LinBiolinumTI.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/liber
-tine/LinLibertineT.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/l
-ibertine/LinLibertineTB.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
-lic/libertine/LinLibertineTBI.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2020/texmf-dist/font
-s/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
-1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
-lic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newt
-x/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txs
-ya.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb><
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (20 pages, 737783 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{
+/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_kijugd.enc}{/
+usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/u
+sr/local/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/us
+r/local/texlive/2020/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/l
+ocal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}{/usr/lo
+cal/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/loc
+al/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/loca
+l/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local
+/texlive/2020/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></u
+sr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb><
+/usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pf
+b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7
+.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/LibertineMath
+RM.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libertine/LinBiol
+inumT.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libertine/LinB
+iolinumTB.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libertine/
+LinBiolinumTI.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/libert
+ine/LinLibertineT.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/li
+bertine/LinLibertineTB.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publ
+ic/libertine/LinLibertineTBI.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
+1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/newtx/NewTXMI7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publ
+ic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx
+/txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txsy
+a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
+Output written on main.pdf (20 pages, 742584 bytes).
 PDF statistics:
- 1208 PDF objects out of 1440 (max. 8388607)
- 1024 compressed objects within 11 object streams
+ 1213 PDF objects out of 1440 (max. 8388607)
+ 1028 compressed objects within 11 object streams
  450 named destinations out of 1000 (max. 500000)
- 83402 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 87498 words of extra memory for PDF output out of 89155 (max. 10000000)
 

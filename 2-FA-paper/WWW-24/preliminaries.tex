@@ -1,10 +1,12 @@
 %!TEX root = main.tex
 
-\section{Notations and Preliminaries}
 
+\vspace{-2mm}
+\section{Notations and Preliminaries}
+\vspace{-1mm}
  \subsection{Notations and Assumptions}
   
- To disambiguate the different uses of keys and other items of data, variables are annotated with a superscript to indicate their origin. $\VC{\cdot}$ indicates data stored at the user, $\VS{\cdot}$ means data stored at the server, and $\VM{\cdot}$ indicates data item has been extracted from a message. We define a function $\mathtt{Discard}(.)$ that takes an array of inputs and securely deletes them (e.g., from storage, memory, catch). 
+ To disambiguate the different uses of keys and other items of data, variables are annotated with a superscript to indicate their origin. $\VC{\cdot}$ indicates data stored at the user, $\VS{\cdot}$ means data stored at the server, and $\VM{\cdot}$ indicates data item has been extracted from a message. We define a function $\mathtt{Discard}(.)$ that takes an array of inputs and securely deletes them, e.g., from storage, memory, and catch. 
  
  We assume the token is not penetrated by an adversary in the (very short) period when the inputs of $\mathtt{Discard}(.)$ are set and when  $\mathtt{Discard}(.)$ is executed. %We refer readers to \cite{ReardonBC13} for a survey of secure data deletion approaches. 
  %
@@ -38,13 +40,13 @@
 
 \subsection{Pseudorandom Function}\label{subsec:PRF}
 
-Informally, a pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value indistinguishable from that of a truly random function with the same domain and range.  A formal definition of a $\prf$ is given by Katz and Lindell~\cite{KatzLindell2014} and is included in \prettyref{app:def-FS-PRG}.
+Informally, a pseudorandom function (\prf) is a deterministic function that takes as input a key and some argument. It outputs a value indistinguishable from that of a truly random function with the same domain and range.  A formal definition of a $\prf$ is given by Katz and Lindell~\cite{KatzLindell2014} and is included in Appendix \prettyref{app:def-FS-PRG}.
 
 
  \vspace{-2mm}
 \subsection{Forward-Secure Pseudorandom Bit Generator}
  %
-A Forward-Secure Pseudorandom Bit Generator (FS-PRG), is a \emph{stateful} object with two algorithms and two positive integers, \ie, $\mathsf{FS\text{-}PRG} = \Big((\mathsf{FS\text{-}PRG}.\kgen, $ $ \mathsf{FS\text{-}PRG.next}),( b, n)\Big)$, as defined in \cite{BellareY03}.  The probabilistic key generation algorithm $\mathsf{FS\text{-}PRG}.\kgen$ takes a security parameter as input and outputs an initial state ${st}_{\sss 0}$ of length $s$ bits. $\mathsf{FS\text{-}PRG.next}$ is a key-updating algorithm which, given the current state ${st}_{\sss i-1}$, outputs a pair of a $b$-bit block ${out}_{\sss i}$ and the next state ${st}_{\sss i}$. We can produce a sequence  ${out}_{\sss 1},..., {out}_{\sss n}$  of  $b$-bit output blocks, by first generating a key  ${st}_{\sss 0}\stackrel{\sss \$}\leftarrow\mathsf{FS\text{-}PRG}.\kgen(1^{\sss \lambda})$ and then running $({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}PRG.next} (st_{\sss i-1})$ for all $i, 1\leq i\leq n$. As with a standard pseudorandom bit generator, the output blocks of this generator should be computationally indistinguishable from a random bit
+A Forward-Secure Pseudorandom Bit Generator (FS-PRG) is a stateful object with two algorithms and two positive integers; namely, $\mathsf{FS\text{-}PRG} = \Big((\mathsf{FS\text{-}PRG}.\kgen, $ $ \mathsf{FS\text{-}PRG.next}),( b, n)\Big)$, as defined in \cite{BellareY03}.  The probabilistic key generation algorithm $\mathsf{FS\text{-}PRG}.\kgen$ takes a security parameter as input and outputs an initial state ${st}_{\sss 0}$ of length $s$ bits. $\mathsf{FS\text{-}PRG.next}$ is a key-updating algorithm which, given the current state ${st}_{\sss i-1}$, outputs a pair of a $b$-bit block ${out}_{\sss i}$ and the next state ${st}_{\sss i}$. We can produce a sequence  ${out}_{\sss 1},..., {out}_{\sss n}$  of  $b$-bit output blocks, by first generating a key  ${st}_{\sss 0}\stackrel{\sss \$}\leftarrow\mathsf{FS\text{-}PRG}.\kgen(1^{\sss \lambda})$ and then running $({out}_{\sss i}, st_{\sss i})\leftarrow  \mathsf{FS\text{-}PRG.next} (st_{\sss i-1})$ for all $i, 1\leq i\leq n$. As with a standard pseudorandom bit generator, the output blocks of this generator should be computationally indistinguishable from a random bit
 string of the same length. The additional property required from a
 FS-PRG is that even when the
 adversary learns the state, output blocks generated before the point of
@@ -72,7 +74,7 @@ Recall, $\mathsf{FS\text{-}PRG.next}$ updates the state of the forward-secure ge
 Informally, authenticated encryption $\Pi=(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$ is an encryption scheme that simultaneously ensures the secrecy and integrity of a message. It can be built via symmetric or asymmetric-key encryptions. In this work, we use authenticated symmetric-key encryption, due to its efficiency. $\mathsf{Gen}$ is a probabilistic key-generating algorithm that takes a security parameter and returns an encryption key $k$. $\mathsf{Enc}$ is a deterministic encryption algorithm that takes the secret key $k$ and a message $m$, it returns a ciphertext $M$ along with the corresponding tag $t$. $\mathsf{Dec}$ is a deterministic algorithm that takes the ciphertext $M$, the tag $t$, and the secret key $k$. It first checks the tag's validity, if it accepts the tag, then it decrypts the message and returns $(m,1)$. Otherwise, it returns $(.,0)$. 
 
 
-The security of such encryption consists of the notion of secrecy and integrity. The secrecy notion requires that the encryption be secure against chosen-ciphertext attacks, \ie, CCA-secure. The notion of integrity considers existential unforgeability under an adaptive chosen message attack. We refer readers to \cite{KatzLindell2014} for a formal definition of authenticated symmetric-key encryption. 
+The security of such encryption consists of the notion of secrecy and integrity. The secrecy notion requires that the encryption be secure against Chosen-Ciphertext Attacks, \ie, CCA-secure. The notion of integrity considers existential unforgeability under an adaptive chosen message attack. We refer readers to \cite{KatzLindell2014} for a formal definition of authenticated symmetric-key encryption. 
 
 
 
