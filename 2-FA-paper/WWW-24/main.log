@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  3 OCT 2023 14:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  3 OCT 2023 17:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2233,15 +2233,20 @@ surrounding objects on input line 12.
 [6.6]
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 50.
+surrounding objects on input line 49.
+
+
+Overfull \hbox (4.0259pt too wide) in paragraph at lines 99--100
+[]$[]$ \T1/LinuxLibertineT-TLF/m/n/9 (-20) As we
+ []
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 104.
+surrounding objects on input line 103.
 
 
 Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 106.
+surrounding objects on input line 105.
 
 ) (./evaluation.tex
 
@@ -2265,10 +2270,41 @@ LaTeX Font Warning: Font shape `U/esvect/m/n' in size <6.5> not available
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <6.5> not available
 (Font)              size <6> substituted on input line 51.
 
-) [7.7]) (./conclusion.tex) (./main.bbl
+)
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 17.
+
+[7.7]
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 37.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 39.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 49.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 51.
+
+) (./conclusion.tex
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 4.
+
+
+Class acmart Warning: \vspace should only be used to provide space above/below 
+surrounding objects on input line 6.
+
+) (./main.bbl [8.8]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 56.
- [8.8]
+
 Underfull \hbox (badness 1881) in paragraph at lines 120--126
 []\T1/LinuxLibertineT-TLF/m/n/7 (+20) Ankita Chaturvedi, Ashok Ku-mar Das, Dhee
 ren-dra Mishra, and Sourav
@@ -2277,8 +2313,11 @@ ren-dra Mishra, and Sourav
 ) (./survey-related-work.tex [9.9] [10.10]) (./notation-Table-.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 6.0pt on input line 149.
-)
-(./forward-PRF-extra.tex
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./forward-PRF-extra.tex
 Overfull \hbox (15.17113pt too wide) in paragraph at lines 77--97
 []$[] $ 
  []
@@ -2491,10 +2530,10 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  51924 strings out of 480608
- 1102529 string characters out of 5903630
+ 1102526 string characters out of 5903630
  1649092 words of memory out of 5000000
  65551 multiletter control sequences out of 15000+600000
- 857109 words of font info for 574 fonts, out of 8000000 for 9000
+ 856913 words of font info for 574 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,33n,100p,1488b,1904s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
@@ -2538,7 +2577,7 @@ ic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx
 /txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txsy
 a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb></
 usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (20 pages, 742066 bytes).
+Output written on main.pdf (20 pages, 742187 bytes).
 PDF statistics:
  1213 PDF objects out of 1440 (max. 8388607)
  1028 compressed objects within 11 object streams
