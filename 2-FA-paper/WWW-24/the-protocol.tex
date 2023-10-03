@@ -2,7 +2,7 @@
 
 \section{The Protocol}\label{sec::the-protocol}
 
-Recall that we wish to build an authentication protocol for which the server can verify that the PIN has been entered correctly but that an adversary cannot discover the correct PIN given access to challenge/response pairs and all data stored on the token, or access to all data stored on the server. 
+We wish to build an authentication protocol for which the server can verify that the PIN has been entered correctly but an adversary cannot discover the correct PIN given access to challenge/response pairs and all data stored on the token, or access to all data stored on the server. 
 These properties must be assured even when the PIN is small enough to be brute-forced.
 We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server. 
 %
@@ -25,7 +25,7 @@ In this phase, the token generates and locally stores a random secret key $\VC{\
 
 \input{short-setup}
 
-Note, in Figure \ref{fig:setup}, the random ID $U_{\sss \mathrm{ID}}$, serves as the token's serial number. $U_{\sss \mathrm{ID}}$ is not specifically generated for any individual user, and the security of our protocol does not rely on its confidentiality. 
+Note, in Figure \ref{fig:setup}, the random ID $U_{\sss \mathrm{ID}}$, serves as the token's serial number. $U_{\sss \mathrm{ID}}$ is not specifically generated for any individual user, and the security of our protocol does not rely on $U_{\sss \mathrm{ID}}$'s confidentiality. 
 
 \subsection{Enrolment Phase}
 \label{sec:enrollment}
@@ -44,9 +44,9 @@ The steps involved in this phase are detailed in Figure \ref{fig:enrollment}.
 \input{short-enrolment}
 
 
-We outline how this phase works.  The server first updates the FS-PRG's state, which results in a new state and random value \VS{\keyt_{\sss 1}}; it also increments its counter by one. Then, the server generates a random challenge \VS{\nonce}. The server sends the enrolment challenge message which is a combination of the current counter and the challenge encrypted via the AE under the shared key $k$.
+We outline how this phase operates.  The server initially updates the FS-PRG's state, which results in a new state and random value \VS{\keyt_{\sss 1}}. It also increments its counter by one. Then, the server generates a random challenge \VS{\nonce}. The server sends the enrolment challenge message which is a combination of the current counter and the challenge encrypted via the AE under the shared key $k$.
 %
- On receiving this message, the client passes it to the token. The token decrypts the message using $k$ that was shared with the server during the setup phase.  If decryption succeeds, it extracts the server's challenge and counters from the message. To recover $\VS{\keyt_{\sss 1}}$ from the message the token's counter must be less than or equal to the counter it received from the server, which the protocol ensures is the case with a high probability (see Section \ref{app:synchronisation} for more detail). Next, the token prompts the user for a PIN, ensuring it matches the user's intention, often by requesting it twice and verifying their consistency.
+ On receiving this message, the client passes it to the token. The token decrypts the message using $k$ that was shared with the server during the setup phase.  If decryption succeeds, it extracts the server's challenge and counters from the message. To recover $\VS{\keyt_{\sss 1}}$ from the message the token's counter must be less than or equal to the counter it received from the server, which the protocol ensures is the case with a high probability (see Appendix \ref{app:synchronisation} for more detail). Next, the token prompts the user for a PIN, ensuring it matches the user's intention, often by requesting it twice and verifying their consistency.
  
 
 
@@ -66,15 +66,15 @@ The goal of the authentication process is to give the server assurance that the 
 
 \input{short-authentication}
 
-At a high level, this phase operates as follows. The server first updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. 
+At a high level, this phase operates as follows. The server initially updates the FS-PRG's state and corresponding counter, which results in a new state \VS{\state}, a new random value  \VS{\keyt_{\sss 2}}, and a new temporary counter $\tmp_{\VS{\counter}}$. 
 
 The server updates the state and the counter one more time which yields a new state \VS{\state}, a new random value \VS{\keyt_{\sss 3}}, and a new counter \VS{\counter}. The server generates a random challenge and two ciphertexts, $\ddot M$ and $\hat M$. The former ciphertext consists of the random challenge and the description of the transaction, encrypted under key \VS{\keyt_{\sss 2}}. The latter ciphertext contains the counter $\tmp_{\VS{\counter}}$, encrypted under key $\VC{k}$. The reason $\tmp_{\VS{\counter}}$ is encrypted under key $\VC{k}$ is to allow the token to decrypt the ciphertext easily 
-in case of previous messages were lost in transit; for instance, when the server sends $(\ddot M, \hat M)$ to the server, but they were lost in transit, multiple times, and a fresh pair finally arrives at the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) lets the token deal with such a situation. 
+in case of previous messages were lost in transit. For instance, when the server sends $(\ddot M, \hat M)$ to the server, but they were lost in transit, multiple times, and a fresh pair finally arrives at the client after the server sends them upon the user's request. Encrypting $\tmp_{\VS{\counter}}$ under key $\VC{k}$ (instead of one of the evolving keys) enables the token to deal with the aforementioned situation. 
 
 
 
 
-Upon receiving the ciphertexts, the token validates and decrypts the messages. It extracts the challenge \VM{\nonce}, counter $\tmp_{\VS{\counter}}$, and transaction \VM{\trans}. It ensures that its own counter is behind the received counter. As will be discussed in Section \ref{app:synchronisation}, this check will succeed with high probability. The token synchronises its state and counter using the server's messages. Next, the token displays the transaction for the user to check. If the user does not accept the transaction (\eg, due to an attempted man-in-the-browser attack), then the protocol halts immediately. Assuming the user is willing to proceed, then the token prompts for the PIN, and computes the verifier \VC{\verifier} using the key \VC{\salt}. If the user enters the correct PIN, the verifier will be the same as the one sent to the server during the enrolment phase.
+Upon receiving the ciphertexts, the token validates and decrypts the messages. It extracts the challenge \VM{\nonce}, counter $\tmp_{\VS{\counter}}$, and transaction \VM{\trans}. It ensures that its own counter is behind the received counter. As will be discussed in Appendix \ref{app:synchronisation}, this check will succeed with high probability. The token synchronises its state and counter using the server's messages. Next, the token displays the transaction for the user to check. If the user does not accept the transaction (\eg, due to an attempted man-in-the-browser attack), then the protocol halts immediately. Assuming the user is willing to proceed, then the token prompts for the PIN, and computes the verifier \VC{\verifier} using the key \VC{\salt}. If the user enters the correct PIN, the verifier will be the same as the one sent to the server during the enrolment phase.
 
 
 
@@ -101,7 +101,7 @@ Next, we present a theorem stating the adversary's negligible advantage in break
 
 \begin{theorem} [Authentication]
 Let PIN be an element distributed uniformly at random over a finite dictionary of size $N$. Also, 
-let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties and $q_p$ passive eavesdroppings. Let $\lambda$ be a security parameter and $Adv_{\sss\pi}^{\sss aut}(\A)$ be  $\adv$'s advantage (in breaking the authentication of an AKE scheme $\pi$) as defined in Section \ref{sec::model}.  If authenticated encryption $\Pi$, pseudorandom function \prf,  and forward-secure pseudorandom generator  $\mathsf{FS\text{-}PRG}$ are secure, then in the protocol $\psi$, $Adv_{\sss \psi}^{\sss aut}(\A)$ has the following upper bound:  
+let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties and $q_p$ passive eavesdropping. Let $\lambda$ be a security parameter and $Adv_{\sss\pi}^{\sss aut}(\A)$ be  $\adv$'s advantage (in breaking the authentication of an AKE scheme $\pi$) as defined in Section \ref{sec::model}.  If  $\Pi$,  \prf,  and  $\mathsf{FS\text{-}PRG}$ are secure, in the protocol $\psi$, $Adv_{\sss \psi}^{\sss aut}(\A)$ has the upper bound of:  
 %
 \vspace{-3mm}
   \begin{equation*}
@@ -115,7 +115,7 @@ let $\adv$ be a PPT adversary with less than $q_s$ interactions with the parties
 
 %We refer to Appendix \ref{sec:security} for informal security analysis and 
 
-Please consult Appendix \ref{sec::Formal-Security-Analysis} or the formal security proofs of the aforementioned theorems. Appendix \ref{sec::more-enhanced} extends the protocol to prevent an adversary from authenticating itself to the server, even if they penetrate the server and access its local data.
+Please consult Appendix \ref{sec::Formal-Security-Analysis} for the formal security proofs of the aforementioned theorems. Appendix \ref{sec::more-enhanced} extends the protocol to prevent an adversary from \textit{authenticating} itself to the server, even if they penetrate the server and access its local data.
 
 
 %We refer readers to Appendix \ref{sec::Formal-Security-Analysis} for the formal security proof of the above two theorems. Appendix \ref{sec::more-enhanced} presents an extension of the protocol ensures that even if an adversary penetrates the server and accesses the server's local data, it cannot authenticate itself to the server later.
