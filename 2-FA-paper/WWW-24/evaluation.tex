@@ -26,8 +26,12 @@ In total, the user (and the trusted chipset) invokes the verification algorithm 
 
 Thus,  our protocol, along with those in \cite{WangW18,JareckiJKSS21,MatsuoMY11} uses a constant number of symmetric-key primitive invocations. However, our protocol as well as the one in \cite{MatsuoMY11} circumvents the need for modular exponentiations, leading to reduced costs in comparison to the protocols introduced in  \cite{WangW18,JareckiJKSS21}.
 
-When executed on the extremely low-power microcontrollers common in dedicated hardware authentication tokens, \textbf{asymmetric cryptography consumes approximately 1000 times more energy than its corresponding symmetric counterpart}~\cite{energyconsumption}. These tokens are designed to function for several years without battery replacements, typically lacking user-replaceable or rechargeable batteries to cut manufacturing costs and enhance tamper resistance. \textbf{The power saving that results from using solely symmetric primitives is therefore important for feasibility}.
-For the commercial product that this protocol was implemented for, there was no available on the market that was both cost-effective and able to execute asymmetric cryptography with a speed that would result in a good user experience.
+When executed on the extremely low-power microcontrollers common in dedicated hardware authentication tokens, \textbf{asymmetric cryptography consumes approximately 1000 times more energy than its corresponding symmetric counterpart}~\cite{energyconsumption}. These tokens are designed to function for several years without battery replacements, typically lacking user-replaceable or rechargeable batteries to cut manufacturing costs and enhance tamper resistance. \textbf{The power saving that results from using solely symmetric primitives is therefore important for feasibility}. 
+%
+For the commercial product that this protocol was implemented for, there was no microcontroller available on the market that was both cost-effective and able to execute asymmetric cryptography with a speed that would result in a good user experience.
+
+
+
 
 
 
