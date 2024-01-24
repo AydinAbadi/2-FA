@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  24 JAN 2024 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  24 JAN 2024 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2470,11 +2470,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 51875 strings out of 480608
- 1101467 string characters out of 5903630
- 1641001 words of memory out of 5000000
+ 51878 strings out of 480608
+ 1101545 string characters out of 5903630
+ 1641002 words of memory out of 5000000
  65543 multiletter control sequences out of 15000+600000
- 853086 words of font info for 553 fonts, out of 8000000 for 9000
+ 853359 words of font info for 555 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,33n,100p,1109b,1904s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
@@ -2521,7 +2521,7 @@ ic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx
 /txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txsy
 a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb></
 usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (20 pages, 733697 bytes).
+Output written on main.pdf (20 pages, 733488 bytes).
 PDF statistics:
  1147 PDF objects out of 1200 (max. 8388607)
  961 compressed objects within 10 object streams
