@@ -1,0 +1,292 @@
+%!TEX root = main.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!hpt]
+%\setlength{\fboxsep}{1pt}
+\begin{center}
+    \begin{tcolorbox}[enhanced,height=2.4cm, width=3.3in, left=.1cm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+{\small{
+\vspace{-2.4mm}
+\doubleunderline{Pseudorandom function}\\
+%The simulator maintains a history of already answered queries and acts as follows. 
+
+The simulator upon receiving query $(\prf,q)$ acts as follows. 
+
+\begin{itemize}
+%\item  if record $(q,r)$ is in list $L_{\prf}$, then output $r$. 
+ \item picks a function $f$, i.e., $f\stackrel{\sss \$}\leftarrow Func$, where $Func$ is the set of all functions mapping $|q|$-bit strings to $|q|$-bit strings. 
+ \item adds record $(q,f(r))$ to list $L_{\sss\adv}$ and then outputs $f(r)$.  
+ \end{itemize}
+ 
+ 
+}}
+\end{tcolorbox}
+\end{center}
+\vspace{-4mm}
+\caption{Pseudorandom function's simulator.} 
+\label{fig::PRF-SIM}
+\end{figure}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\setlength{\fboxsep}{1pt}
+\begin{center}
+    \begin{tcolorbox}[enhanced,width=3.3in,left=0.1cm, 
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+{\small{
+%\underline{Pseudorandom function}\\
+%%The simulator maintains a history of already answered queries and acts as follows. 
+%The simulator upon receiving query $(\prf,q)$ acts as follows. 
+%
+%\begin{itemize}
+%%\item  if record $(q,r)$ is in list $L_{\prf}$, then output $r$. 
+% \item picks a function $f$, i.e., $f\stackrel{\sss \$}\leftarrow Func$, where $Func$ is the set of all functions mapping $|q|$-bit strings to $|q|$-bit strings. 
+% \item  output $f(r)$. %Next, add record $(q,r)$ to $L_{\prf}$. 
+% \end{itemize}
+% 
+% 
+% \noindent\rule{5.1in}{1pt}
+ 
+  \doubleunderline{\send($U^{\sss i}, .$)}\\
+ 
+ This query is dealt with as below: 
+ 
+ \begin{itemize}[leftmargin=.4cm]
+ %
+ \item if the user's instance is not in the ``expecting'' state and it receives query  \send($U^{\sss i}, \text{start}, \text{phase}$), where $\text{phase}\in \{\text {enrolment, authentication}\}$ then it: 
+ %
+  \begin{enumerate}
+  %
+  \item generates pair $(U_{\sss ID},  \text{phase})$. 
+  %
+  \item responds to the query with $(U_{\sss ID},  \text{phase})$. 
+  %
+  \item sets the user's instance state to expecting.
+  %
+  \end{enumerate}
+ % 
+ \item if the user's instance state is in expecting, then: 
+ %
+ \begin{itemize}[leftmargin=.4cm]
+ %
+ \item upon receiving \underline{\send($U^{\sss i}, (\bar M, \bar t)$)}, it:
+ % 
+  \begin{enumerate}
+  %
+  \item authenticates and decrypts the ciphertext $\bar M$ as $(p, b) \gets \mathsf{Dec}_{\sss\VC{k}}(\bar M, \bar t)$. If the authentication fails (\ie, $b\neq 1$), it halts.  
+  %
+  \item extracts $(\VM{\nonce}, \VM{\counter})$ from plaintext $p$ and checks if $\VM{\counter} > \VC{\counter} $. If the check fails, it halts. 
+  %
+  \item generates $\VC{\verifier}$ using $\VC{\salt}$ and $\VC{\pin}$ as follows $\VC{\verifier} \gets \prf_{\VC{\salt}}(\VC{\pin})$. Then, it updates its state as follows: $\forall i, 1\leq i\leq \VM{\counter}- \VC{\counter}: \text{\ (a)\ } \VC{\counter} \gets \VC{\counter} + 1\text{\ and (b) \ } (k,  \VC{\state}) \gets \update(\VC{\state}, \VC{\counter})$. 
+  %
+  \item encrypts $p'=\VM{\nonce}||\VC{\verifier}$ using key $k$  as follows: $(\bar M', \bar t') \gets \enc_{\sss k}(p')$, which results in a ciphertext $\bar M'$ and tag $\bar t'$. 
+  %
+  \item responds to the query with $(\bar M', \bar t')$. It sets the user's instance state to ``not expecting''.  
+  %
+  \end{enumerate}
+ %
+ \item  upon receiving \underline{\send($U^{\sss i}, (\ddot M', \ddot t'), (\hat M', \hat t')$)}, it: 
+ %
+ \begin{enumerate}
+ %
+ \item   authenticates and decrypts the ciphertext $\hat M'$ as follows: $(p', b') \gets \mathsf{Dec}_{\sss\VC{k}}(\hat M', \hat t')$. If the authentication fails (i.e., $b'\neq 1$), it halts.  
+ %
+  \item extracts $(\tmp_{\sss\VM{\counter}}, \VM{\counter})$ from $p'$ and checks if $\tmp_{\sss\VM{\counter}} > \VC{\counter} $. If the check fails, it halts. 
+ %
+ \item updates its state as follows: $\forall i, 1\leq i\leq \tmp_{\sss\VM{\counter}}- \VC{\counter}: \text{\ (a)\ } \VC{\counter} \gets \VC{\counter} + 1\text{\ and (b) \ } (k,  \VC{\state}) \gets \update(\VC{\state}, \VC{\counter})$. 
+ %
+ \item  authenticates and decrypts $\ddot M'$ as follows: $(p, b) \gets \mathsf{Dec}_{\sss k}(\ddot M', \ddot t')$. If the authentication fails (\ie, $b\neq 1$), it halts.
+ %
+ \item    extracts $(\VM{\nonce}, \VM{\trans})$ from plaintext $p$.  
+ %
+ \item runs the predicate, $y \leftarrow\phi(\VM{\trans}, \gamma)$. If $y=0$, it halts. 
+ %
+\item generates $\VC{\verifier}$ using $\VC{\salt}$ and $\VC{\pin}$ as follows, $\VC{\verifier} \gets \prf_{\sss\VC{\salt}}(\VC{\pin})$.
+ %
+ \item updates its state one more time as follows, $(k',  \VC{\state}) \gets \update(\VC{\state}, \VM{\counter})$.
+ %
+ \item computes  the authenticator: $\bar{\VC{\mathit{response}}} \gets \prf_{\sss k'}( \VM{\nonce} || \VM{\trans} || \VC{\verifier}|| 1)$ and session key:  $\bar {sk}^{\sss U} \gets \prf_{\sss k'}( \VM{\nonce} || \VM{\trans} || \VC{\verifier}|| 2)$.
+ %
+ \item responds the send query with  $\bar{\VC{\mathit{response}}}$. It makes the user's instance accept the key and then terminates the instance. 
+ %
+ \end{enumerate}
+ %
+ \end{itemize}
+ %
+ \end{itemize}
+ %
+}}
+To keep track of all the exchanged messages, it stores the above incoming and going messages in vector $\vv L$. So, we have $\Big((U_{\sss ID},  \text{enrolment}),$ $ (U_{\sss ID},  \text{authentication}), $ $(\bar M, \bar t), $ $(\bar M', \bar t'),$ $(\ddot M', \ddot t'), $ $(\hat M', \hat t'), $ $\bar{\VC{\mathit{response}}}\Big)\in \vv L$.
+\end{tcolorbox}
+\end{center}
+\vspace{-3mm}
+\caption{Simulators for \send\ query to  a user's instance.} 
+\label{fig::Send-sim-to-client}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\setlength{\fboxsep}{1.2pt}
+\begin{center}
+    \begin{tcolorbox}[enhanced,width=3.3in, left=0.1cm,
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+{\small{
+
+ \doubleunderline{\send($S^{\sss j}, .$)}\\
+ 
+ This query is dealt with as below: 
+ 
+ \
+ \begin{itemize}[leftmargin=.4cm]
+ %
+ \item upon receiving  \underline{\send($S^{\sss j}, (U_{\sss ID},  \text{enrolment})$)}, it:
+ %
+ \begin{enumerate}
+ %
+ \item  increments its counter as $\VS{\counter} \gets \VS{\counter} + 1$, updates its state as $\bar{\VS{\keyt}_{\sss 1}}, \VS{\state} \gets \update(\VS{\state}, \VS{\counter})$, picks a random value $\bar{\VS{\nonce}} \stackrel{\sss\$}\leftarrow \bin^{\sss\secpar}$, and generates ciphertext and tag   $(\bar M,\bar t) \gets \enc_{\sss\VS{k}}(\bar{\VS{\nonce}}|| \VS{\counter})$. 
+ 
+ \item responds to the query with $(\bar M,\bar t)$. The state of the server instance is set to ``expecting''.
+ %
+ %\item upon receiving query  \send($S^{j}, $), 
+ %
+ \end{enumerate}
+ %
+ 
+ \
+ 
+ \item upon receiving  \underline{\send($S^{\sss j}, (\bar M',  \bar t'$))}, it:
+ %
+ \begin{enumerate}
+ %
+ \item authenticates and decrypts the ciphertext $\bar M'$ as $(p', b') \gets \mathsf{Dec}_{\sss\bar{\VS{\keyt}_{\sss 1}}}(\bar M', \bar t')$. If the authentication fails (i.e., $b'\neq 1$), it halts. 
+ %
+\item    extracts $(\VM{\nonce}, \VM{\verifier})$ from plaintext $p'$. 
+
+It sets $\VS{\verifier}\gets\VM{\verifier}$ and also  checks if $\VM{\nonce}=\bar{\VS{\nonce}}$. If the equation does not hold, it halts. The state of the server instance is set to expecting.
+ %
+ \end{enumerate}
+ %
+ 
+ \
+ 
+ \item upon receiving  \underline{\send($S^{\sss j}, (U_{\sss ID},  \text{authentication})$)}, it:
+ %
+ \begin{enumerate}
+ %
+  \item  increments its counter  $\VS{\counter} \gets \VS{\counter} + 1$, updates its state  $\bar{\VS{\keyt}_{\sss 2}}, \VS{\state} \gets \update(\VS{\state}, \VS{\counter})$,  temporarily stores this counter $\tmp_{\sss\VS{\counter}} \gets \VS{\counter}$, increments the counter again $\VS{\counter} \gets \VS{\counter} + 1$, updates its state again $\bar{\VS{\keyt}_{\sss 3}}, \VS{\state} \gets \update(\VS{\state}, \VS{\counter})$, and picks a random value $\ddot{\VS{\nonce}} \stackrel{\sss\$}\leftarrow \bin^{\sss\secpar}$.
+  %
+  \item generates two pairs of ciphertext and tag as follows, $(\ddot M', \ddot t')\leftarrow \enc_{\sss\bar{\VS{\keyt_{\sss 2}}}}(\ddot{\VS{\nonce}} || \VS{\trans})$ and  $(\hat M', \hat t')\leftarrow \enc_{\sss\VS{k}}(\tmp_{\sss\VS{\counter}} || \VS{\counter})$. 
+  %
+  \item responds to the query with $(\ddot M', \ddot t')$, $(\hat M', \hat t')$. The state of the server instance is set to expecting.
+ %
+ \end{enumerate}
+ %
+ 
+ \
+ 
+ \item upon receiving  \underline{\send($S^{\sss j},   \bar{\VC{\mathit{response}}}$)}, it:
+ %
+ \begin{enumerate}
+ %
+ \item computes $\VS{\mathit{expected}} \gets \prf_{\sss\bar{\VS{\keyt_{\sss3}}}}(\ddot{\VS{\nonce}}  \| \VS{\trans} \| \VS{\verifier}|| 1)$. It checks whether  $ \bar{\VC{\mathit{response}}}=\VS{\mathit{expected}}$. If the equality does not hold, the server instance terminates without accepting any session key. 
+ %
+  \item generates the session key $\bar {sk}^{\sss S} \gets \prf_{\sss\bar{\VS{\keyt_{\sss3}}}}(\ddot{\VS{\nonce}}  \| \VS{\trans} \| \VS{\verifier}|| 2)$. 
+ %
+It accepts the key and terminates.
+%
+  \end{enumerate}
+  %
+ \end{itemize} 
+ %
+}}
+\end{tcolorbox}
+\end{center}
+\caption{Simulators for \send\ query to  a server's instance.} 
+\label{fig::Send-sim-to-server}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\setlength{\fboxsep}{1pt}
+ \vspace{-3mm}
+\begin{center}
+    \begin{tcolorbox}[enhanced,width=3.3in, height=106mm, left=0.1cm, 
+    drop fuzzy shadow southwest,
+    colframe=black,colback=white]
+     \vspace{-3mm}
+{\small{
+
+ \doubleunderline{\execute($U^{\sss i}, S^{\sss j}$)}\\
+ 
+ This query is dealt with as below: 
+ %
+ \begin{enumerate} 
+ %
+ \item $(U_{\sss ID},  \text{enrolment})\gets$\send($U^{\sss i}, \text{start}, \text{enrolment}$).%, where $\text{phase}\in \{\text {enrollment, authentication}\}$. 
+ %
+\item  $(\bar M,\bar t)\gets$\send($S^{\sss j}, (U_{\sss ID},  \text{enrolment})$).
+  %
+\item $(\bar M', \bar t')\gets$\send($U^{\sss i}, (\bar M, \bar t)$).
+  %
+\item $(U_{\sss ID},  \text{authentication})\gets$\send($U^{\sss i}, \text{start}, \text{authentication}$).
+  %
+\item $(\ddot M', \ddot t', \hat M', \hat t')\gets$\send($S^{\sss j}, (U_{\sss ID},  \text{authentication})$).
+  %
+\item $\bar{\VC{\mathit{response}}}\gets$\send($U^{\sss i}, (\ddot M', \ddot t'), (\hat M', \hat t')$).
+  %
+  \item outputs the following transcript: $[(U_{\sss ID},  \text{enrolment}), (\bar M, \bar t), (\bar M', \bar t'),(U_{\sss ID},  $ $\text{authentication}), $ $(\ddot M', \ddot t'), (\hat M', \hat t'), \bar{\VC{\mathit{response}}}]$.
+  %
+ \end{enumerate} 
+ %
+  \noindent\rule{3.2in}{1pt}
+  %
+  \doubleunderline{\reveal($I$)}\\
+  
+This query is processed as follows.
+  
+\ $\bullet$ returns session key $\bar {sk}^{\sss I}$ (computed by $I\in\{U,S \}$), if $I$ has already accepted the key.
+  
+   %
+  \noindent\rule{3.2in}{1pt}
+  %
+    \doubleunderline{\test($I$)}\\
+    
+  This query is processed as below.  
+  
+ \begin{enumerate} 
+ %
+ \item $sk\gets$\reveal($I$).
+ %
+ \item $b\stackrel{\sss\$}\gets\{0,1\}$.
+ %
+ \item sets $v$ as follows:  \begin{equation*}
+   v= 
+\begin{cases}
+    sk,              &\text{if } b= 1\\
+   r \stackrel{\sss\$}\gets\{0,1\}^{\sss \iota}, & \text{otherwise }\\
+\end{cases}
+\end{equation*}
+ %
+ \item returns $v$.
+ \end{enumerate}
+}}
+\end{tcolorbox}
+\end{center}
+ %\vspace{-3mm}
+\caption{Simulators for \execute, \reveal, and \test\ queries. } 
+\label{fig::sim-for-exe-rev-test}
+% \vspace{-3mm}
+\end{figure}

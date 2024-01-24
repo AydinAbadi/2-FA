@@ -1,0 +1,471 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{35}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{??}{psd}{2015}]%
+        {psd2}
+ \bibinfo{year}{2015}\natexlab{}.
+\newblock \bibinfo{title}{{P}ayment {S}ervices ({PSD} 2)}.
+\newblock \bibinfo{howpublished}{{D}irective 2015/2366/{EU} of the European
+  Parliament and of the Council}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bellare, Pointcheval, and Rogaway}{Bellare
+  et~al\mbox{.}}{2000}]%
+        {BellarePR00}
+\bibfield{author}{\bibinfo{person}{Mihir Bellare}, \bibinfo{person}{David
+  Pointcheval}, {and} \bibinfo{person}{Phillip Rogaway}.}
+  \bibinfo{year}{2000}\natexlab{}.
+\newblock \showarticletitle{Authenticated Key Exchange Secure against
+  Dictionary Attacks}. In \bibinfo{booktitle}{\emph{{EUROCRYPT}}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bellare and Yee}{Bellare and Yee}{2003}]%
+        {BellareY03}
+\bibfield{author}{\bibinfo{person}{Mihir Bellare} {and}
+  \bibinfo{person}{Bennet~S. Yee}.} \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Forward-Security in Private-Key Cryptography}. In
+  \bibinfo{booktitle}{\emph{{CT-RSA}}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Biryukov, Lano, and Preneel}{Biryukov
+  et~al\mbox{.}}{2003}]%
+        {biryukov2003cryptanalysis}
+\bibfield{author}{\bibinfo{person}{Alex Biryukov}, \bibinfo{person}{Joseph
+  Lano}, {and} \bibinfo{person}{Bart Preneel}.}
+  \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Cryptanalysis of the alleged {SecurID} hash
+  function}. In \bibinfo{booktitle}{\emph{International Workshop on Selected
+  Areas in Cryptography}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Bresson, Chevassut, and Pointcheval}{Bresson
+  et~al\mbox{.}}{2003}]%
+        {BressonCP03}
+\bibfield{author}{\bibinfo{person}{Emmanuel Bresson}, \bibinfo{person}{Olivier
+  Chevassut}, {and} \bibinfo{person}{David Pointcheval}.}
+  \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Security proofs for an efficient password-based key
+  exchange}. In \bibinfo{booktitle}{\emph{{ACM CCS}}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chang and Wu}{Chang and Wu}{1991}]%
+        {chang1991remote}
+\bibfield{author}{\bibinfo{person}{C-C Chang} {and} \bibinfo{person}{T-C Wu}.}
+  \bibinfo{year}{1991}\natexlab{}.
+\newblock \showarticletitle{Remote password authentication with smart cards}.
+\newblock \bibinfo{journal}{\emph{IEE Computers and Digital Techniques}}
+  (\bibinfo{year}{1991}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chang, Mishra, Sanadhya, and Singh}{Chang
+  et~al\mbox{.}}{2017}]%
+        {ChangMSS17}
+\bibfield{author}{\bibinfo{person}{Donghoon Chang}, \bibinfo{person}{Sweta
+  Mishra}, \bibinfo{person}{Somitra~Kumar Sanadhya}, {and}
+  \bibinfo{person}{Ajit~Pratap Singh}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{On Making {U2F} Protocol Leakage-Resilient via
+  Re-keying}.
+\newblock \bibinfo{journal}{\emph{{IACR} Cryptol. ePrint Arch.}}
+  (\bibinfo{year}{2017}), \bibinfo{pages}{721}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chaturvedi, Das, Mishra, and
+  Mukhopadhyay}{Chaturvedi et~al\mbox{.}}{2016}]%
+        {ChaturvediDMM16}
+\bibfield{author}{\bibinfo{person}{Ankita Chaturvedi},
+  \bibinfo{person}{Ashok~Kumar Das}, \bibinfo{person}{Dheerendra Mishra}, {and}
+  \bibinfo{person}{Sourav Mukhopadhyay}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Design of a secure smart card-based multi-server
+  authentication scheme}.
+\newblock \bibinfo{journal}{\emph{J. Inf. Secur. Appl.}}
+  (\bibinfo{year}{2016}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{De~Cristofaro, Du, Freudiger, and
+  Norcie}{De~Cristofaro et~al\mbox{.}}{2013}]%
+        {de2013comparative}
+\bibfield{author}{\bibinfo{person}{Emiliano De~Cristofaro},
+  \bibinfo{person}{Honglu Du}, \bibinfo{person}{Julien Freudiger}, {and}
+  \bibinfo{person}{Greg Norcie}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{A comparative usability study of two-factor
+  authentication}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:1309.5344}}
+  (\bibinfo{year}{2013}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{{Executive Office of the President: Office of
+  Management and Budget}}{{Executive Office of the President: Office of
+  Management and Budget}}{2022}]%
+        {Zero-Trust-Cybersecurity}
+\bibfield{author}{\bibinfo{person}{{Executive Office of the President: Office
+  of Management and Budget}}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \bibinfo{title}{Moving the {U.S.} Government Toward Zero Trust
+  Cybersecurity Principles}.
+\newblock
+\newblock
+\newblock
+\shownote{\url{https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf}.}
+
+
+\bibitem[\protect\citeauthoryear{Feng, Li, Pan, and Zhao}{Feng
+  et~al\mbox{.}}{2021}]%
+        {ndss/FengLP021}
+\bibfield{author}{\bibinfo{person}{Haonan Feng}, \bibinfo{person}{Hui Li},
+  \bibinfo{person}{Xuesong Pan}, {and} \bibinfo{person}{Ziming Zhao}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{A Formal Analysis of the {FIDO} {UAF} Protocol}. In
+  \bibinfo{booktitle}{\emph{{NDSS}}}. \bibinfo{publisher}{The Internet
+  Society}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Gentry, MacKenzie, and Ramzan}{Gentry
+  et~al\mbox{.}}{2006}]%
+        {GentryMR06}
+\bibfield{author}{\bibinfo{person}{Craig Gentry}, \bibinfo{person}{Philip~D.
+  MacKenzie}, {and} \bibinfo{person}{Zulfikar Ramzan}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{A Method for Making Password-Based Key Exchange
+  Resilient to Server Compromise}. In \bibinfo{booktitle}{\emph{{CRYPTO}}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Gupta, Prajapati, Nedjah, Vijayakumar,
+  El-Latif, and Chang}{Gupta et~al\mbox{.}}{2021}]%
+        {gupta2021machine}
+\bibfield{author}{\bibinfo{person}{BB Gupta}, \bibinfo{person}{Varun
+  Prajapati}, \bibinfo{person}{Nadia Nedjah}, \bibinfo{person}{P Vijayakumar},
+  \bibinfo{person}{Ahmed A~Abd El-Latif}, {and} \bibinfo{person}{Xiaojun
+  Chang}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Machine learning and smart card based two-factor
+  authentication scheme for preserving anonymity in telecare medical
+  information system ({TMIS})}.
+\newblock \bibinfo{journal}{\emph{Neural Computing and Applications}}
+  (\bibinfo{year}{2021}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Imran, Farrukh, Ibrahim, Celik, and
+  Bianchi}{Imran et~al\mbox{.}}{2022}]%
+        {SARA22}
+\bibfield{author}{\bibinfo{person}{Abdullah Imran}, \bibinfo{person}{Habiba
+  Farrukh}, \bibinfo{person}{Muhammad Ibrahim}, \bibinfo{person}{Z.~Berkay
+  Celik}, {and} \bibinfo{person}{Antonio Bianchi}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{SARA}: Secure Android Remote Authorization}. In
+  \bibinfo{booktitle}{\emph{31st USENIX Security Symposium (USENIX Security
+  22)}}. \bibinfo{publisher}{USENIX Association}, \bibinfo{address}{Boston,
+  MA}, \bibinfo{pages}{1561--1578}.
+\newblock
+\showISBNx{978-1-939133-31-1}
+\urldef\tempurl%
+\url{https://www.usenix.org/conference/usenixsecurity22/presentation/imran}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Jarecki, Jubur, Krawczyk, Saxena, and
+  Shirvanian}{Jarecki et~al\mbox{.}}{2021}]%
+        {JareckiJKSS21}
+\bibfield{author}{\bibinfo{person}{Stanislaw Jarecki},
+  \bibinfo{person}{Mohammed Jubur}, \bibinfo{person}{Hugo Krawczyk},
+  \bibinfo{person}{Nitesh Saxena}, {and} \bibinfo{person}{Maliheh Shirvanian}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Two-factor Password-authenticated Key Exchange with
+  End-to-end Security}.
+\newblock \bibinfo{journal}{\emph{{ACM} Trans. Priv. Secur.}}
+  (\bibinfo{year}{2021}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Juels, Triandopoulos, Van~Dijk, Brainard,
+  Rivest, and Bowers}{Juels et~al\mbox{.}}{2016}]%
+        {juels2016configurable}
+\bibfield{author}{\bibinfo{person}{Ari Juels}, \bibinfo{person}{Nikolaos
+  Triandopoulos}, \bibinfo{person}{Marten Van~Dijk}, \bibinfo{person}{John
+  Brainard}, \bibinfo{person}{Ronald Rivest}, {and} \bibinfo{person}{Kevin
+  Bowers}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{title}{Configurable one-time authentication tokens with
+  improved resilience to attacks}.
+\newblock
+\newblock
+\newblock
+\shownote{{US} Patent 9,270,655.}
+
+
+\bibitem[\protect\citeauthoryear{Katz and Lindell}{Katz and Lindell}{2014}]%
+        {KatzLindell2014}
+\bibfield{author}{\bibinfo{person}{Jonathan Katz} {and} \bibinfo{person}{Yehuda
+  Lindell}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Introduction to Modern Cryptography, Second
+  Edition}}.
+\newblock \bibinfo{publisher}{{CRC} Press}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kim and Chung}{Kim and Chung}{2009}]%
+        {kim2009more}
+\bibfield{author}{\bibinfo{person}{Sang-Kyun Kim} {and}
+  \bibinfo{person}{Min~Gyo Chung}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{More secure remote user authentication scheme}.
+\newblock \bibinfo{journal}{\emph{Computer Communications}}
+  (\bibinfo{year}{2009}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kogan, Manohar, and Boneh}{Kogan
+  et~al\mbox{.}}{2017}]%
+        {KoganMB17}
+\bibfield{author}{\bibinfo{person}{Dmitry Kogan}, \bibinfo{person}{Nathan
+  Manohar}, {and} \bibinfo{person}{Dan Boneh}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{T/{K}ey: Second-Factor Authentication From Secure
+  Hash Chains}. In \bibinfo{booktitle}{\emph{{CCS}}}.
+  \bibinfo{publisher}{{ACM}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Konoth, Fischer, Fokkink, Athanasopoulos,
+  Razavi, and Bos}{Konoth et~al\mbox{.}}{2020}]%
+        {KonothFFARB20}
+\bibfield{author}{\bibinfo{person}{Radhesh~Krishnan Konoth},
+  \bibinfo{person}{Bj{\"{o}}rn Fischer}, \bibinfo{person}{Wan~J. Fokkink},
+  \bibinfo{person}{Elias Athanasopoulos}, \bibinfo{person}{Kaveh Razavi}, {and}
+  \bibinfo{person}{Herbert Bos}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{S}ecure{P}ay: Strengthening Two-Factor
+  Authentication for Arbitrary Transactions}. In
+  \bibinfo{booktitle}{\emph{EuroS{\&}P}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Loutfi and J{\o}sang}{Loutfi and
+  J{\o}sang}{2015}]%
+        {LoutfiJ15}
+\bibfield{author}{\bibinfo{person}{Ijlal Loutfi} {and} \bibinfo{person}{Audun
+  J{\o}sang}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{{FIDO} Trust Requirements}. In
+  \bibinfo{booktitle}{\emph{NordSec 2015}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Matsuo, Moriyama, and Yung}{Matsuo
+  et~al\mbox{.}}{2011}]%
+        {MatsuoMY11}
+\bibfield{author}{\bibinfo{person}{Shin'ichiro Matsuo},
+  \bibinfo{person}{Daisuke Moriyama}, {and} \bibinfo{person}{Moti Yung}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Multifactor Authenticated Key Renewal}. In
+  \bibinfo{booktitle}{\emph{Trusted Systems - Third International Conference,
+  {INTRUST} 2011,}} \emph{(\bibinfo{series}{Lecture Notes in Computer
+  Science})}. \bibinfo{publisher}{Springer}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Murdoch, Becker, Abu{-}Salma, Anderson, Bohm,
+  Hutchings, Sasse, and Stringhini}{Murdoch et~al\mbox{.}}{2016}]%
+        {MurdochBAABHSS16}
+\bibfield{author}{\bibinfo{person}{Steven~J. Murdoch}, \bibinfo{person}{Ingolf
+  Becker}, \bibinfo{person}{Ruba Abu{-}Salma}, \bibinfo{person}{Ross~J.
+  Anderson}, \bibinfo{person}{Nicholas Bohm}, \bibinfo{person}{Alice
+  Hutchings}, \bibinfo{person}{M.~Angela Sasse}, {and}
+  \bibinfo{person}{Gianluca Stringhini}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Are Payment Card Contracts Unfair? (Short Paper)}.
+  In \bibinfo{booktitle}{\emph{Financial Cryptography and Data Security - 20th
+  International Conference, {FC} 2016, Christ Church, Barbados, February 22-26,
+  2016, Revised Selected Papers}} \emph{(\bibinfo{series}{Lecture Notes in
+  Computer Science})}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{{OneSpan}}{{OneSpan}}{[n.d.]}]%
+        {Digipass-website}
+\bibfield{author}{\bibinfo{person}{{OneSpan}}.}
+  \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Digipass 770 Datasheet}}.
+\newblock
+\newblock
+\shownote{\url {https://www.onespan.com/resources/digipass-770/datasheet}.}
+
+
+\bibitem[\protect\citeauthoryear{Panos, Malliaros, Ntantogian, Panou, and
+  Xenakis}{Panos et~al\mbox{.}}{2017}]%
+        {PanosMNPX17}
+\bibfield{author}{\bibinfo{person}{Christoforos Panos},
+  \bibinfo{person}{Stefanos Malliaros}, \bibinfo{person}{Christoforos
+  Ntantogian}, \bibinfo{person}{Angeliki Panou}, {and}
+  \bibinfo{person}{Christos Xenakis}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{A Security Evaluation of {FIDO}'s {UAF} Protocol in
+  Mobile and Embedded Devices}. In \bibinfo{booktitle}{\emph{{TIWDC}}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Potlapally, Ravi, Raghunathan, and
+  Jha}{Potlapally et~al\mbox{.}}{2003}]%
+        {energyconsumption}
+\bibfield{author}{\bibinfo{person}{Nachiketh~R. Potlapally},
+  \bibinfo{person}{Srivaths Ravi}, \bibinfo{person}{Anand Raghunathan}, {and}
+  \bibinfo{person}{Niraj~K. Jha}.} \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Analyzing the Energy Consumption of Security
+  Protocols}. In \bibinfo{booktitle}{\emph{International Symposium on Low Power
+  Electronics and Design}} (Seoul, Korea). \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{30–35}.
+\newblock
+\showISBNx{158113682X}
+
+
+\bibitem[\protect\citeauthoryear{Radhakrishnan and Muniyandi}{Radhakrishnan and
+  Muniyandi}{2022}]%
+        {radhakrishnan2022dependable}
+\bibfield{author}{\bibinfo{person}{Niranchana Radhakrishnan} {and}
+  \bibinfo{person}{Amutha~Prabakar Muniyandi}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Dependable and Provable Secure Two-Factor Mutual
+  Authentication Scheme Using {ECC} for {IoT}-Based Telecare Medical
+  Information System}.
+\newblock \bibinfo{journal}{\emph{Journal of Healthcare Engineering}}
+  (\bibinfo{year}{2022}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{{RSA Security LLC}}{{RSA Security
+  LLC}}{2021}]%
+        {secureID}
+\bibfield{author}{\bibinfo{person}{{RSA Security LLC}}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{{RSA} {Secur}ID Hardware Authenticators, Technical
+  Specifications}.
+\newblock
+\newblock
+\newblock
+\shownote{\url{https://www.securid.com/wp-content/uploads/2021/11/rsa-securid-hardware-tokens-technical-specifications-012621.pdf}.}
+
+
+\bibitem[\protect\citeauthoryear{Scott}{Scott}{2012}]%
+        {Scott12a}
+\bibfield{author}{\bibinfo{person}{Michael Scott}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Cryptanalysis of a recent two factor authentication
+  scheme}.
+\newblock \bibinfo{journal}{\emph{{IACR} Cryptol. ePrint Arch.}}
+  (\bibinfo{year}{2012}), \bibinfo{pages}{527}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{{Thales}}{{Thales}}{2020}]%
+        {Gemalto}
+\bibfield{author}{\bibinfo{person}{{Thales}}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \bibinfo{title}{{G}emalto {SWYS} {QR} {R}eader {E}co}.
+\newblock
+\newblock
+\newblock
+\shownote{\url{https://www.thalesgroup.com/sites/default/files/database/document/2020-12/fs-QR-code-reader.pdf}.}
+
+
+\bibitem[\protect\citeauthoryear{Thomas, Pullman, Yeo, Raghunathan, Kelley,
+  Invernizzi, Benko, Pietraszek, Patel, Boneh, and Bursztein}{Thomas
+  et~al\mbox{.}}{2019}]%
+        {ThomasPYRKIBPPB19}
+\bibfield{author}{\bibinfo{person}{Kurt Thomas}, \bibinfo{person}{Jennifer
+  Pullman}, \bibinfo{person}{Kevin Yeo}, \bibinfo{person}{Ananth Raghunathan},
+  \bibinfo{person}{Patrick~Gage Kelley}, \bibinfo{person}{Luca Invernizzi},
+  \bibinfo{person}{Borbala Benko}, \bibinfo{person}{Tadek Pietraszek},
+  \bibinfo{person}{Sarvar Patel}, \bibinfo{person}{Dan Boneh}, {and}
+  \bibinfo{person}{Elie Bursztein}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Protecting accounts from credential stuffing with
+  password breach alerting}. In \bibinfo{booktitle}{\emph{{USENIX}}}.
+  \bibinfo{publisher}{{USENIX} Association}, \bibinfo{pages}{1556--1571}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Tian, Li, Hu, and Lin}{Tian
+  et~al\mbox{.}}{2020}]%
+        {TianLHL20}
+\bibfield{author}{\bibinfo{person}{Youliang Tian}, \bibinfo{person}{Qiuxian
+  Li}, \bibinfo{person}{Jia Hu}, {and} \bibinfo{person}{Hui Lin}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Secure limitation analysis of public-key
+  cryptography for smart card settings}.
+\newblock \bibinfo{journal}{\emph{World Wide Web}} (\bibinfo{year}{2020}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wang, Gu, Cheng, and Wang}{Wang
+  et~al\mbox{.}}{2016}]%
+        {WangGCW16}
+\bibfield{author}{\bibinfo{person}{Ding Wang}, \bibinfo{person}{Qianchen Gu},
+  \bibinfo{person}{Haibo Cheng}, {and} \bibinfo{person}{Ping Wang}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{The Request for Better Measurement: {A} Comparative
+  Evaluation of Two-Factor Authentication Schemes}. In
+  \bibinfo{booktitle}{\emph{AsiaCCS}}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wang and Wang}{Wang and Wang}{2018}]%
+        {WangW18}
+\bibfield{author}{\bibinfo{person}{Ding Wang} {and} \bibinfo{person}{Ping
+  Wang}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Two Birds with One Stone: Two-Factor Authentication
+  with Security Beyond Conventional Bound}.
+\newblock \bibinfo{journal}{\emph{{IEEE} Trans. Dependable Secur. Comput.}}
+  (\bibinfo{year}{2018}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zhang, Wang, and Yang}{Zhang
+  et~al\mbox{.}}{2020}]%
+        {zhang2020strong}
+\bibfield{author}{\bibinfo{person}{Zhenfeng Zhang}, \bibinfo{person}{Yuchen
+  Wang}, {and} \bibinfo{person}{Kang Yang}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Strong Authentication without Temper-Resistant
+  Hardware and Application to Federated Identities.}. In
+  \bibinfo{booktitle}{\emph{NDSS}}.
+\newblock
+
+
+\end{thebibliography}

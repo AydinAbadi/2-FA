@@ -1,0 +1,115 @@
+%!TEX root = main.tex
+
+%\vspace{-2mm}
+\section{Evaluation}\label{app:long-eval}
+%\vspace{-1mm}
+
+%In this section, we offer a more detailed comparison between the 2FA protocol presented in Section \ref{sec::the-protocol} and those proposed in \cite{WangW18,MatsuoMY11,JareckiJKSS21}.
+
+
+In this section, we analyze and compare the 2FA protocol we presented in Section \ref{sec::the-protocol} with the smart-card-based protocol proposed in  \cite{WangW18}, the hardware token-based protocol in \cite{JareckiJKSS21}, and the symmetric-key-based scheme in  \cite{MatsuoMY11}.  We consider the protocols in  \cite{WangW18,JareckiJKSS21} because they are relatively efficient, do not rely on secure hardware, and consider the same security threats as we do, \ie., resistance against card/token loss, against an offline attack, and against a corrupt server. 
+
+We also include the scheme in  \cite{MatsuoMY11}  in our analysis because it is highly efficient, only uses symmetric-key primitives, and is in the standard model. Table \ref{comparisonTable} summarizes the analysis result.
+
+%\input{notation-Table-}
+
+\input{evaluation-table}
+
+
+
+
+%In this section, we analyse and compare the complexities of Feather with those of delegated and traditional PSIs that support multi-client in the semi-honest model.
+
+\subsection{Computation Cost}
+
+We start by analyzing our protocol's computation cost. First, we focus on the protocol's enrolment phase. The user's computation cost, in this phase, is as follows. It invokes the authenticated encryption scheme $2$ times. It also invokes once the pseudorandom function, $\prf$.
+%
+% Thus, the client's computation complexity in this phase is $O(1)$. Next, we analyse the server's computation cost in this phase. 
+
+  Moreover, the server invokes the authenticated encryption scheme twice, and calls $\prf$ only once, in this phase. 
+%  
+%  Therefore, the server's computation complexity is $O(1)$.  
+%
+Now, we move on to the authentication phase. The user invokes the authenticated encryption scheme $2$ times and invokes $\prf$ $4$ times. 
+%
+%So, the client's computation complexity in this phase is $O(1)$. 
+%
+ In this phase, the server invokes the authenticated encryption scheme and $\prf$ $2$ and $4$ times respectively. %Note that in the normal case when the client receives the server's messages, we would have $d=1$.  
+
+Next, we analyze the computation cost of the protocol in \cite{WangW18}. We consider all operations performed on the smart card or card reader as user-side operations. The enrolment phase involves $3$ and $2$ invocations of a hash function at the user and server sides respectively. This protocol has an additional phase called login which costs the user  $5$ invocations of the hash function and $2$ modular exponentiations for each authentication.  The verification requires the server $6$ invocations of the hash function and $2$ modular exponentiations. This phase requires the user to perform $1$ modular exponentiation and invoke the hash function $3$ times. 
+
+%The above protocol unlike the protocol we proposed does not include any counter, so its complexity is $O(1)$; however, it requires the parties to perform a constant number of modular exponentiations for each verification which ultimately imposes higher overheads cost than the protocol we proposed. 
+
+Now, we analyze the computation cost of the protocol presented in \cite{JareckiJKSS21}. In our analysis, due to the high complexity of this protocol, we estimate the protocol's \emph{minimum} costs. The actual cost of this protocol is likely to be higher than our estimation. The protocol's phases have been divided into enrolment and login, \ie, verification. 
+
+The enrolment phase requires a user to perform a single modular exponentiation and invoke a hash function $2$ times. It also involves, as a subroutine, the initialization of the asymmetric  ``password-authenticated key exchange'' (PAKE) proposed in \cite{GentryMR06}, which involves at least $2$ modular exponentiations, $1$ invocation of hash function and symmetric-key encryption. In the login phase, the user performs at least $7$ modular exponentiations. In the login phase, the server invokes a pseudorandom function once and performs at least $2$ modular exponentiations and $2$ symmetric-key encryptions (due to the execution of PAKE). 
+
+Now, we focus on the protocol proposed in \cite{MatsuoMY11}. As we previously mentioned the scheme is highly efficient. The scheme assumes the user and server have already agreed on the user's password. 
+%
+In total, the user (and the trusted chipset) invokes the verification algorithm of a Message Authentication Code (MAC) scheme once and the pseudorandom function three times. 
+
+The server cost is similar to the user's cost, with the difference that the server also invokes the tag generator algorithm of the MAC scheme once. The scheme does not involve any modular exponentiations. 
+
+Thus,  our protocol, along with those in \cite{WangW18,JareckiJKSS21,MatsuoMY11} uses a constant number of symmetric-key primitive invocations. However, our protocol and the protocol in \cite{MatsuoMY11} avoid modular exponentiations, resulting in a lower cost compared to the protocols  \cite{WangW18,JareckiJKSS21}.
+
+When executed on the extremely low-power microcontrollers common in dedicated hardware authentication tokens, \textbf{asymmetric cryptography consumes approximately 1000 times more energy than its corresponding symmetric counterpart}~\cite{energyconsumption}. These tokens are designed to function for several years without battery replacements, typically lacking user-replaceable or rechargeable batteries to cut manufacturing costs and enhance tamper resistance. \textbf{The power saving that results from using solely symmetric primitives is therefore important for feasibility}. 
+
+For the commercial product that this protocol was implemented for, there was no microcontroller available on the market that was both cost-effective and able to execute asymmetric cryptography with a speed that would result in a good user experience.
+
+\subsection{Communication Cost}
+
+
+We next analyze our protocol's communication cost. In the enrolment phase,  the user only sends two pairs of messages: $(U_{\text ID}, $ $\text{enrolment})$ and $(M', t')$, where the total size of messages in the first pair is about $250$ bits (assuming the ID is of length $128$ bits),  while the total size of messages in the second pair is about  $512$ bits as they are the outputs of symmetric-key primitives, \ie, symmetric-key encryption and message authentication code schemes whose output size is $256$ bits. The server sends out only a single pair $(M', t')$ whose total size is about $512$ bits. 
+
+The parties' communication cost in the authentication phase is as follows. The user only sends three messages: $(U_{\text ID}, $ $\text{authentication}, $ $\VC{\mathit{response}})$, where the combined size of the first two messages is about $250$ bits while the third message's size is about $256$ bits. The server sends only two pairs of messages $(\ddot M, \ddot t)$ and $(\hat M, \hat t)$ with a total size of $1024$ bits. Hence, the total communication cost of our protocol is about $2804$ bits. 
+
+Next, we evaluate the cost of the protocol in \cite{WangW18}. The user's total communication cost in the enrolment and login phases is $1792$ bits. Note that we set the user's ID's size to $128$ bits and we set the hash function output size to $160$ bits, as done in \cite{WangW18}. In the verification phase, the user sends to the server a single value of size $160$ bits. In the verification, the server sends to the user two values that in total costs the server $1184$ bits. So, this protocol's total communication concrete cost is about $3136$ bits.%, and its complexity is $O(1)$.  
+
+
+Now, we analyze the communication cost of the protocol in \cite{JareckiJKSS21}. As before, in our cost evaluation, we estimate the protocol's minimum cost.  In the enrolment phase, a user sends a random key, of a pseudorandom function, to the server and the device, where the size of the key is about $128$ bits. It also, due to the initialization of PAKE, sends a $128$-bit value to the server.
+
+ In the login phase, the user sends out three parameters of size $128$ bits and a single parameter of size $20$ bits.  It also invokes PAKE with the server that requires the user to send out at least one signature of size $1024$ bits. 
+
+The device sends to the user a ciphertext of asymmetric-key encryption which is of size $1024$ bits along with a $20$-bit message. Thus, the user-side total communication cost is at least $2856$ bits. The server in the login phase sends out a message $zid$ of size $20$ bits and invokes PAKE that requires the server to send out at least a ciphertext of symmetric-key encryption which is of size $1024$ bits.  So, the server-side communication cost is at least $1044$ bits. So, the total communication cost of this protocol is at least $3900$ bits. 
+
+Next, we focus on the communication cost of the protocol in \cite{MatsuoMY11}. In total, the user for each authentication sends   $(r_{\sss A}, ID_{\sss A}, Auth_{\sss A})$ to the server. The server also sends $(r_{\sss A}, r_{\sss B}, ID_{\sss B}, Auth_{\sss B})$ to the user, where each message is of size $128$-bit. Thus, the protocol's total communication cost is $896$ bits. 
+
+
+Hence, our protocol imposes a $10\%$ and $40\%$ lower communication cost than the protocols in \cite{WangW18} and \cite{JareckiJKSS21} that are secure against a corrupted token or server. The protocol in \cite{MatsuoMY11} has the lowest communication cost but it is not secure against a corrupted server. 
+
+When communication is implemented using a 2-D barcode, this reduction in message size as compared to the state of the art allows for an increased level of error correction in the generated barcodes.
+Consequently, the decoding process becomes more resilient to inaccurate alignment and issues like reflections on the client screen, therefore improving user experience through a reduction in time needed to capture a valid barcode.
+
+
+\subsection{Other Features}
+
+
+In our protocol, a user is required to know and input only a single secret, specifically a PIN. Also, we do not make any trust assumptions regarding users' personal computers, or their web browsers. Hence, they can be corrupted at any time,  for example, simultaneously with the corruption of another party, such as the token or server. 
+ 
+ In contrast, the protocol outlined in \cite{WangW18} necessitates that a user possesses and enters an extra secret, namely a random ID.  As demonstrated by Scott~\cite{Scott12a}, this approach does not maintain its security, even if only the user's ID is exposed. Additionally, in this scheme, users are required to input their PINs into a separate device, specifically a card reader. To ensure the security of the scheme, it is essential that the card reader is fully trusted, especially in situations where the server or smart card is compromised.
+ 
+ 
+  Likewise, the protocol described in  \cite{JareckiJKSS21} requires that users enter their PINs into their personal computers instead of inserting them into the dedicated hardware token. This approach poses a significant problem, as the PINs are at a higher risk of exposure to attackers. This is due to the fact that users' computers are (i) frequently connected to the Internet and (ii) used for various purposes, making them more susceptible to breaches.
+  %
+The protocol also depends on an additional trusted party, namely users' personal computers. To ensure the security of the protocol, it is necessary for these computers to be trusted, even when either the token or the server is compromised. In contrast, our protocol mandates users to input their PIN into the hardware token, exclusively dedicated to authentication and consistently disconnected from the Internet. 
+ 
+ 
+ In the protocol presented in \cite{MatsuoMY11} a user is only required to know a single PIN. However, it has a reliance on the complete trustworthiness of the server and utilizes a trusted chipset, making it dependent on the strongest security assumptions. In contrast, both our protocol and the one described in \cite{MatsuoMY11} are secure within the standard model, whereas the protocols presented in \cite{WangW18,JareckiJKSS21} operate in the non-standard random oracle model. 
+
+
+
+
+%\subsection{The Number of Secrets a client Must Know}
+
+%\subsection{Other Features}
+% In our protocol, a user needs to know and type into the token only a single secret, \ie, a PIN. Furthermore, we do not put any trust assumptions on users' personal computers (or clients). Therefore, they can be corrupted at any time, e.g., simultaneously when another party such as the token or server is corrupted. 
+% 
+% In contrast, in the protocol in \cite{WangW18}, a user has to know and type an additional secret, \ie, a random ID. As shown by Scott~\cite{Scott12a}, this scheme will not remain secure, even if only the user's ID is revealed. Also, in this scheme, users type in their PINs into another device, i.e., a card reader. For the security of the scheme holds, it is required that the card reader be fully trusted, in the case where the server or smart card is breached. 
+% 
+%  
+%   Similarly, the protocol in \cite{JareckiJKSS21} requires users to insert their PINs into their personal computers instead of inserting them into the dedicated hardware token; this approach is problematic as the PINs will be at a higher risk of being exposed to attackers because users' computers are (i) often connected to the Internet, and (ii) used for various purposes, consequently, they are more likely to be broken into. Furthermore, the protocol relies on an additional trusted party as well, i.e., trusted users' computers. Specifically, for the protocol's security to hold, it is required that users' personal computers are fully trusted, in the case where the token or the server is corrupted, which is not desirable. In contrast, our protocol requires users to insert their PIN into the hardware token that is used only for authentication and is always disconnected from the Internet. 
+% 
+% In the protocol in \cite{MatsuoMY11} a user needs to know only a single PIN. It requires the server to be fully trusted and it uses a trusted chipset. So, it relies on the strongest security assumption. 
+% % 
+%Our protocol and the one in \cite{MatsuoMY11} are secure in the standard model whereas the protocols in \cite{WangW18,JareckiJKSS21} are in the non-standard random oracle model. 
+

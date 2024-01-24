@@ -1,0 +1,127 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: ref.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in psd2
+Warning--no author, editor, organization, or key in psd2
+Warning--to sort, need author or key in psd2
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--no key, author in psd2
+Warning--no key, author in psd2
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no key, author in psd2
+Warning--no author, editor, organization, or key in psd2
+Warning--empty author in psd2
+Warning--empty publisher in BellarePR00
+Warning--empty address in BellarePR00
+Warning--page numbers missing in both pages and numpages fields in BellarePR00
+Warning--empty publisher in BellareY03
+Warning--empty address in BellareY03
+Warning--page numbers missing in both pages and numpages fields in BellareY03
+Warning--empty publisher in biryukov2003cryptanalysis
+Warning--empty address in biryukov2003cryptanalysis
+Warning--page numbers missing in both pages and numpages fields in biryukov2003cryptanalysis
+Warning--empty publisher in BressonCP03
+Warning--empty address in BressonCP03
+Warning--page numbers missing in both pages and numpages fields in BressonCP03
+Warning--no number and no volume in chang1991remote
+Warning--page numbers missing in both pages and numpages fields in chang1991remote
+Warning--no number and no volume in ChangMSS17
+Warning--no number and no volume in ChaturvediDMM16
+Warning--page numbers missing in both pages and numpages fields in ChaturvediDMM16
+Warning--no number and no volume in de2013comparative
+Warning--page numbers missing in both pages and numpages fields in de2013comparative
+Warning--empty address in ndss/FengLP021
+Warning--page numbers missing in both pages and numpages fields in ndss/FengLP021
+Warning--empty publisher in GentryMR06
+Warning--empty address in GentryMR06
+Warning--page numbers missing in both pages and numpages fields in GentryMR06
+Warning--no number and no volume in gupta2021machine
+Warning--page numbers missing in both pages and numpages fields in gupta2021machine
+Warning--no number and no volume in JareckiJKSS21
+Warning--page numbers missing in both pages and numpages fields in JareckiJKSS21
+Warning--empty address in KatzLindell2014
+Warning--no number and no volume in kim2009more
+Warning--page numbers missing in both pages and numpages fields in kim2009more
+Warning--empty address in KoganMB17
+Warning--page numbers missing in both pages and numpages fields in KoganMB17
+Warning--empty publisher in KonothFFARB20
+Warning--empty address in KonothFFARB20
+Warning--page numbers missing in both pages and numpages fields in KonothFFARB20
+Warning--empty publisher in LoutfiJ15
+Warning--empty address in LoutfiJ15
+Warning--page numbers missing in both pages and numpages fields in LoutfiJ15
+Warning--empty address in MatsuoMY11
+Warning--page numbers missing in both pages and numpages fields in MatsuoMY11
+Warning--empty publisher in MurdochBAABHSS16
+Warning--empty address in MurdochBAABHSS16
+Warning--page numbers missing in both pages and numpages fields in MurdochBAABHSS16
+Warning--empty year in Digipass-website
+Warning--empty organization in Digipass-website
+Warning--empty publisher in PanosMNPX17
+Warning--empty address in PanosMNPX17
+Warning--page numbers missing in both pages and numpages fields in PanosMNPX17
+Warning--empty address in energyconsumption
+Warning--no number and no volume in radhakrishnan2022dependable
+Warning--page numbers missing in both pages and numpages fields in radhakrishnan2022dependable
+Warning--no number and no volume in Scott12a
+Warning--empty address in ThomasPYRKIBPPB19
+Warning--no number and no volume in TianLHL20
+Warning--page numbers missing in both pages and numpages fields in TianLHL20
+Warning--empty publisher in WangGCW16
+Warning--empty address in WangGCW16
+Warning--page numbers missing in both pages and numpages fields in WangGCW16
+Warning--no number and no volume in WangW18
+Warning--page numbers missing in both pages and numpages fields in WangW18
+Warning--empty publisher in zhang2020strong
+Warning--empty address in zhang2020strong
+Warning--page numbers missing in both pages and numpages fields in zhang2020strong
+You've used 35 entries,
+            5901 wiz_defined-function locations,
+            1519 strings with 21343 characters,
+and the built_in function-call counts, 37922 in all, are:
+= -- 4302
+> -- 1653
+< -- 0
++ -- 553
+- -- 556
+* -- 2833
+:= -- 4011
+add.period$ -- 168
+call.type$ -- 35
+change.case$ -- 260
+chr.to.int$ -- 35
+cite$ -- 111
+duplicate$ -- 3329
+empty$ -- 2347
+format.name$ -- 672
+if$ -- 8947
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 131
+newline$ -- 318
+num.names$ -- 272
+pop$ -- 1515
+preamble$ -- 1
+purify$ -- 569
+quote$ -- 0
+skip$ -- 1144
+stack$ -- 0
+substring$ -- 2151
+swap$ -- 249
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 881
+warning$ -- 72
+while$ -- 193
+width$ -- 0
+write$ -- 611
+(There were 72 warnings)

@@ -1,0 +1,121 @@
+%!TEX root = main.tex
+
+
+
+\section{Introduction}
+
+Two-factor authentication (2FA) is increasingly required for access to online services, as a way to mitigate the risk of a single factor (typically a password) being compromised.
+This trend has been accelerated by regulations, such as the Payment Services Directive 2 (PSD2)~\cite{psd2} in the EU and federal requirements in the US~\cite{Zero-Trust-Cybersecurity}.
+2FA can bring significant security benefits, but only if the solution is secure, usable, and cost-effective. Nonetheless, current systems cannot meet these requirements.
+
+
+2FA requires the combination of two factors: knowledge (like a PIN or password), possession (of a hardware device/token) or biometrics (such as a fingerprint).  %Frequently, biometrics-based 2FA systems mandate specialized sensors, incurring substantial costs. 
+%
+Dedicated 2FA tokens equipped with biometric sensors incur higher costs compared to their counterparts without such sensors. The integration of biometric authentication necessitates specialized hardware, including fingerprint scanners, iris scanners, or facial recognition cameras, contributing to the increased expense associated with these tokens. These sensors must be of high quality to ensure accurate and reliable readings, ultimately leading to an increased price for biometric-based tokens. Furthermore, the creation of accurate and secure biometric algorithms demands substantial development efforts. These algorithms must reliably identify individuals while resisting various forms of spoofing. Biometrics possess other drawbacks too, including irrevocability, limited applicability, and privacy issues.  Thus, this paper concentrates on merging knowledge and possession factors.
+
+
+Within this paper, we introduce a novel 2FA protocol that not only addresses the shortcomings of existing systems but also greatly enhances them.  Consequently, this protocol holds the potential to significantly advance the wider adoption of 2FA, particularly in authenticating online access and authorizing \emph{financial transactions}. 
+%
+Our primary criteria for the 2FA protocol are outlined as follows:
+
+%Our requirements for the 2FA protocol are therefore that it be:%
+
+\begin{itemize}[leftmargin=5.5mm]
+
+\item[$\bullet$]\textbf{Security}: The protocol must exhibit robustness in thwarting unauthorized access across a wide range of scenarios, including compromises to the server, hardware token, user's computer (including its \textbf{web browser}), and communication network.
+
+
+%\item[$\bullet$]\textbf{secure:} provably capable of preventing unauthorised access in as a wide range of circumstances as possible, including compromise of the server, compromise of the hardware token, compromise of the user's computer, and compromise of the communication network.
+
+\item[$\bullet$]\textbf{Usability}: The protocol must minimize user and environmental disruptions, eliminating the need for specialized software installation on user computers and relieving users from the task of memorizing lengthy passwords or inputting extensive strings on computers or hardware tokens.
+
+%
+%\item[$\bullet$]\textbf{usable:} create a minimal imposition on the user and environment by not requiring special software to be installed on the user's computer and not requiring that the user remember long passwords or enter long strings into the computer or hardware token.
+
+\item[$\bullet$]\textbf{Cost-efficiency:} The affordability of the hardware token holds paramount importance, effectively obviating the requirement for tamper-resistant trusted hardware or complex computational capabilities.
+
+
+
+%\item[$\bullet$]\textbf{cost-effective:} the hardware token must be cheap and so must not be required to have tamper-resistant trusted hardware or the ability to perform complex computations.
+\end{itemize}
+
+Also, the 2FA protocol must support \textbf{transaction authentication} \ie, be able to bind its execution to a particular transaction that is shown to the user on a trusted display, as required by the PSD2.
+This means that for the authentication protocol to succeed the user must have the ability to check the transaction details (e.g., the amount of transfer and the details of the recipient in the context of online banking) and so be able to detect if malware on their computer has tampered with the transaction details shown on screen.
+
+
+
+%Researchers and companies have proposed various 2FA solutions based on a combination of PIN and token possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a user and server and (b) have physical access to the user's token, or its PIN, or even breaches the server. 
+
+
+Researchers and companies have put forth diverse 2FA solutions that rely on the combination of PIN and token possession. Certain solutions within this spectrum provide strong security assurances against adversaries capable of (a) monitoring the communication between a user and server, and (b) gaining physical access to the user's token, its associated PIN, or even breaching the server.
+
+
+However, these solutions exhibit a subset of the following drawbacks:  (i) demanding users to recall multiple secret values (instead of a PIN) for identity verification, thereby undermining usability, (ii) requiring users to entrust their personal computers where they input their PINs, (iii) using a trusted chipset,  (iv) entailing numerous exponentiations that deplete the token's battery swiftly, or (v) being proven secure only in the non-standard random oracle model.
+
+
+
+%Researchers and companies have proposed various 2FA solutions based on a combination of PIN and device possession. Some of these solutions offer a strong security guarantee against an adversary which may (a) observe the communication between a user and server and (b) have physical access to the user's device, or its PIN, or even breaches the server. These solutions do not rely on trusted hardware and still ensure that even such a strong adversary cannot succeed during the authentication. Nevertheless, these solutions (i) require a user to remember multiple secret values (instead of a single PIN)  to prove its identity which ultimately harms these solutions' usability, (ii) involve several modular exponentiations that make the device battery power run out quickly, and (iii) are proved in the non-standard random oracle model.
+
+
+
+
+\paragraph{\textbf{\textit{Our Contributions.}}}  In this work, we introduce a 2FA protocol that resists the strong adversary outlined earlier, concurrently rectifying the aforementioned limitations and reducing communication overhead. To elucidate further, our protocol:
+
+
+
+\begin{itemize}[leftmargin=5.5mm]
+\item[$\bullet$] requires a user to memorize and input a singular PIN into tokens.
+
+\item[$\bullet$] enables tokens to produce a succinct authentication message.
+
+\item[$\bullet$] eliminates the need for any modular exponentiations.
+
+\item[$\bullet$] is proved secure in a standard model.
+
+\item[$\bullet$] refrains from placing any security assumptions on users' personal computers.
+
+\item[$\bullet$]  imposes communication costs that are up to 40\% lower compared to prevailing state-of-the-art protocols designed to withstand the described adversary. 
+
+
+\end{itemize}
+
+To achieve its objectives, our protocol refrains from employing any trusted chipset; instead, it relies on a novel combination of the following three approaches. 
+
+Firstly, neither the server nor the hardware token can verify the PIN -- secret information stored by both is needed to do so. This approach ensures that an adversary cannot retrieve the PIN, even if it penetrates either location. 
+
+Secondly, the protocol mandates that both the server and token utilize key-evolving symmetric-key encryption, which constitutes the blend of forward-secure pseudorandom bit generation and authenticated encryption. 
+
+Thirdly, our protocol, for the first time, harnesses the intrinsic data-deletion capability of tokens. This necessitates the immediate discarding of used keys post-utilization. 
+
+The combination of the aforementioned approaches ensures the secrecy of the communication between the parties and guarantees that adversaries cannot ascertain the PIN, even if they intercept the parties' communication and subsequently breach either the token or the server. We formally prove the security of this protocol. 
+
+
+%Our protocol also allows a client to see a description of the transaction that the server will perform after successful authentication. For instance, in the context of online banking, a transaction's description includes the transaction amount, destination account number, and payee's details. This description is displayed on the device to allow the client to verify that it matches their intention. This ``dynamic binding'' between transaction and response is necessary to meet the requirements for payment authentication set out by the EU
+%Payment Services Directive 2.
+
+
+
+%
+%Including the transaction
+%within the computation of the authentication, response allows the server
+%to detect if a man-in-the-middle attack changes a payment transaction,
+%e.g. to redirect funds to an account under control by the criminals.
+%
+%This ``dynamic binding'' between transaction and response is necessary
+%to meet the requirements for payment authentication set out by the EU
+%Payment Services Directive 2. 
+
+
+
+
+
+%These methods allow clients to generate one-time passwords (OTPs) when a client types its knowledge factor into the device. An OTP might be sent to and checked by a remote verifier to authenticate a client. 
+% 
+% 2FA schemes that rely on the combination of a PIN and a hardware token have gained popularity among banks and e-commerce.
+
+
+
+%Very recently (January 2022), the ``Executive Office of the US President'' has released a memorandum requiring
+%agencies to meet specific cybersecurity standards, including the use of multi-factor authentication, to reinforce the Government’s defences against increasingly sophisticated threat campaigns \cite{Zero-Trust-Cybersecurity}.
+
+

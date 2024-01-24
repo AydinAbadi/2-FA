@@ -1,0 +1,607 @@
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+
+
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass command.
+
+%\documentclass[sigconf]{acmart}
+\documentclass[sigconf]{acmart}
+
+%
+
+%%%%%%%
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmcopyright}
+\copyrightyear{2018}
+\acmYear{2018}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[Conference acronym 'XX]{Make sure to enter the correct
+  conference title from your rights confirmation emai}{June 03--05,
+  2018}{Woodstock, NY}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+\acmPrice{15.00}
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+\usepackage{setspace}
+\usepackage{colortbl}
+\usepackage[skins]{tcolorbox}
+\newcommand{\vs}{\vspace{-.4mm}}
+
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+%*****************************************************
+\usepackage{color, colortbl}
+\usepackage{capt-of}
+
+\usepackage[makeroom]{cancel}
+%\newcommand{\st}{\scriptscriptstyle}
+
+
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
+%----------------------------
+%\usepackage{blindtext}
+
+%
+
+%\usepackage{framed}
+%\usepackage{esvect}
+%\usepackage{tikz}
+%\usepackage{latexsym}
+\usepackage{multirow}
+\let\oldReturn\Return
+\usepackage[mathscr]{eucal}
+\usepackage{algpseudocode}
+%\newcommand{\size}{3.3pt}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\usepackage{arydshln}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+%\usepackage{algorithm}
+\usepackage{scalerel}
+\usepackage{listings}
+
+\newcommand{\bl}{\hspace{-1.6mm}}
+\newcommand{\al}{\hspace{12mm}}
+\newcommand{\all}{\hspace{8mm}}
+\newcommand{\alll}{\hspace{-24.5mm}}
+\newcommand{\ah}{\hspace{-33mm}}
+\newcommand{\adis}{\hspace{3.4mm}}
+%\usepackage{fullpage}
+
+\usepackage{array}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\newcommand{\vars}{\texttt}
+\newcommand{\func}{\textrm}
+\newcommand{\resizeT}{\scalebox{1}}
+\newcommand{\resizeS}{\scalebox{.56}}
+\newcommand{\resizeSS}{\scalebox{.38}}
+
+\usepackage{longtable}
+
+%\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplots, pgfplotstable}
+
+%\usepackage{kbordermatrix}% http://www.hss.caltech.edu/~kcb/TeX/kbordermatrix.sty
+\usepackage{blkarray}% http://ctan.org/pkg/blkarra
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+%\usepackage{blindtext}
+\usepackage{multicol}
+
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+
+\newcommand{\TZ}[1]{\textcolor{magenta}{\textbf{Thomas: }{#1}}}
+
+
+\usepackage{makecell, cellspace, caption}
+
+
+
+\definecolor{Gray}{gray}{0.9}
+%\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+%
+
+\usepackage[first=0,last=9]{lcg}
+%\newcommand{\ra}{\rand0.\arabic{rand}}
+
+\usepackage[title]{appendix}
+
+\usepackage{boxedminipage}
+
+\usepackage{multirow}
+
+
+
+
+\usepackage{adjustbox}
+%\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{tablefootnote}
+\newtheorem{assumption}{Assumption}
+\newcommand\NameEntry[1]{%
+  \multirow{3}*{%
+    \begin{varwidth}{10em}% --- or minipage, if you prefer a fixed width
+    \flushright #1%
+    \end{varwidth}}}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+
+
+%%%%%%%%%%
+%*****************************************************
+\usepackage{color, colortbl}
+\usepackage{capt-of}
+
+\usepackage[makeroom]{cancel}
+\newcommand{\st}{\scriptscriptstyle}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+
+
+
+%\usepackage{framed}
+%\usepackage{esvect}
+%\usepackage{tikz}
+%\usepackage{latexsym}
+\usepackage{multirow}
+\let\oldReturn\Return
+\usepackage[mathscr]{eucal}
+\usepackage{algpseudocode}
+\newcommand{\size}{3.3pt}
+%\theoremstyle{remark}
+%\newtheorem{remark}{Remark}
+\usepackage{arydshln}
+%\newcommand\hmmax{0}
+%\newcommand\bmmax{0}
+%\usepackage{algorithm}
+\usepackage{scalerel}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+%\newcommand{\vars}{\texttt}
+%\newcommand{\func}{\textrm}
+%\newcommand{\resizeT}{\scalebox{1}}
+%\newcommand{\resizeS}{\scalebox{.56}}
+%\newcommand{\resizeSS}{\scalebox{.38}}
+\usepackage{longtable}
+%\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{blkarray}% http://ctan.org/pkg/blkarra
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+%\usepackage{blindtext}
+\usepackage{multicol}
+\definecolor{bubblegum}{rgb}{0.99, 0.76, 0.8}
+%\newcommand{\TZ}[1]{\textcolor{magenta}{\textbf{Thomas: }{#1}}}
+\usepackage{makecell, cellspace, caption}
+\definecolor{Gray}{gray}{0.9}
+\usepackage[first=0,last=9]{lcg}
+\newcommand{\ra}{\rand0.\arabic{rand}}
+%\usepackage[title]{appendix}
+\usepackage{boxedminipage}
+\usepackage{multirow}
+\usepackage{adjustbox}
+%\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{tablefootnote}
+
+\usepackage{ragged2e}
+%\newtheorem{assumption}{Assumption}
+%\newcommand\NameEntry[1]{%
+%  \multirow{3}*{%
+%    \begin{varwidth}{10em}% --- or minipage, if you prefer a fixed width
+%    \flushright #1%
+%    \end{varwidth}}}
+%\newcommand{\specialcell}[2][c]{%
+%  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+%\settopmatter{printacmref=false}
+%\setcopyright{none}
+%\renewcommand\footnotetextcopyrightpermission[1]{}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+%\newtheorem{claim}{Claim}
+
+%\newtcolorbox{mybox}[2][]{%
+%  attach boxed title to top center
+%               = {yshift=-11pt},
+%               %width=85mm,%
+%                  %height=52mm,
+%  %colback      = black,
+%  colframe     =black,
+%  %fonttitle    = \bfseries,
+%  colbacktitle = black,
+%  title        = #2,#1,
+%  enhanced,
+%}
+
+\newcommand{\hs}{\hspace{-1mm}}
+\newcommand{\lhs}{\hspace{-1.5mm}}
+\newcommand{\hsp}{\hspace{2mm}}
+
+\usepackage{url}
+%
+%\def\UrlBreaks{\do\/\do-}
+%\usepackage{breakurl}
+%\usepackage[breaklinks,hidelinks]{hyperref}
+
+
+
+
+%%YYYYYYYYYYYYYY
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage{multirow}
+%\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{prettyref}
+\usepackage{booktabs}
+\usepackage{xspace}
+%\usepackage[disable]{todonotes}
+\usepackage[disable]{todonotes}
+\raggedbottom% to remove huge space
+\usepackage{url}
+
+	
+
+%%%%%%%%
+%\usepackage{framed}
+\usepackage{esvect}
+%\usepackage{tikz}
+\usepackage{blkarray}% http://ctan.org/pkg/blkarra
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+\usepackage{boxedminipage}
+%\usepackage{blindtext}
+\usepackage{multicol}
+%%%%%%%%%
+\usepackage{pgfplots, pgfplotstable}
+
+%\usepackage{hyperref}
+\usepackage{float}
+\usepackage{boxedminipage}
+
+%\usepackage{makeidx}  % allows for indexgeneration
+%\usepackage{amsfonts,amsmath,amssymb,graphicx,setspace,tipx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+
+%\usepackage{graphicx}
+\usepackage{framed}
+%\usepackage{esvect}
+\usepackage{tikz}
+\usepackage{latexsym}
+
+%\usepackage{pgfplots}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{blkarray}% http://ctan.org/pkg/blkarra
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{adjustbox}
+%\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{prettyref}
+\usepackage{multirow}
+\usepackage{adjustbox}
+%\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage[skins]{tcolorbox}
+%%%%%%%%%%%
+\newtcolorbox{mybox}[2][]{%
+  attach boxed title to top center
+               = {yshift=-11pt},
+               %width=85mm,%
+                  %height=52mm,
+  %colback      = black,
+  colframe     =black,
+  %fonttitle    = \bfseries,
+  colbacktitle = black,
+  title        = #2,#1,
+  enhanced,
+}
+
+
+
+
+% Add a period to the end of an abbreviation unless there's one
+% already, then \xspace.
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother
+
+%\usepackage{amsmath}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+
+\newcommand{\sss}{\scriptscriptstyle}
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+\usepackage[primitives,operators,sets,keys,ff,lambda,adversary]{cryptocode}
+\newcommand{\nonce}{\ensuremath{{N}}}
+\newcommand{\keyt}{\ensuremath{{kt}}}
+\newcommand{\counter}{\ensuremath{{ct}}}
+\newcommand{\pin}{\ensuremath{\mathsf{PIN}}}
+\newcommand{\salt}{\ensuremath{{sa}}}
+\newcommand{\trans}{\ensuremath{{t}}}
+\newcommand{\extract}{\ensuremath{\mathsf{Extract}}}
+\renewcommand{\verifier}{\ensuremath{{v}}}
+\renewcommand{\state}{\ensuremath{{st}}}
+\newcommand{\update}{\ensuremath{\mathsf{Update}}}
+\newcommand{\VC}[1]{\ensuremath{#1^{\sss U}}}
+\newcommand{\VS}[1]{\ensuremath{#1^{\sss S}}}
+\newcommand{\VM}[1]{\ensuremath{#1^{\sss M}}}
+\newcommand{\parse}{\ensuremath{\mathsf{Parse}}}
+\newcommand{\tmp}{\ensuremath{{tmp}}}
+\newcommand{\iif}{\ensuremath{\text{If\ }}}
+\newcommand{\ssample}{\stackrel{\sss\$}\leftarrow}
+\newcommand{\forEach}{\ensuremath{\text{For each\ }}}
+\newcommand{\tto}{\ensuremath{\text{to\ }}}
+
+\newcommand{\execute}{$\mathtt{Execute}$}
+\newcommand{\send}{$\mathtt{Send}$}
+\newcommand{\test}{$\mathtt{Test}$}
+\newcommand{\reveal}{$\mathtt{Reveal}$}
+\newcommand{\corrupt}{$\mathtt{Corrupt}$}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\seckey}{\ensuremath{\mathit{sk}}}
+\newcommand{\SID}{\ensuremath{\mathit{SID}}}
+\newcommand{\PID}{\ensuremath{\mathit{PID}}}
+
+
+
+
+
+%%YYYYYYYYYYYYYY
+
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+
+%\copyrightyear{2023} 
+%\acmYear{2023} 
+%\setcopyright{rightsretained} 
+%\acmConference[ASIA CCS '23]{ACM ASIA Conference on Computer and Communications Security}{July 10--14, 2023}{Melbourne, VIC, Australia}
+%\acmBooktitle{ACM ASIA Conference on Computer and Communications Security (ASIA CCS '23), July 10--14, 2023, Melbourne, VIC, Australia}
+%\acmDOI{10.1145/3579856.3595789}
+%\acmISBN{979-8-4007-0098-9/23/07}
+\begin{document}
+\newtheorem{claim}{Claim}[theorem]
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{A Robust Efficient\\ Two-factor Authentication Protocol}
+
+
+\author{}
+
+
+
+
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+
+Two-factor authentication (2FA) is a widely adopted method for securing access to high-value online accounts, especially in scenarios involving financial transactions. In these setups, successful authentication necessitates the presence of knowledge factors (such as a PIN) and the possession of a hardware token. Nonetheless, the existing 2FA protocols expose the PIN to vulnerability in the event of a compromise to the server, user's computer, or hardware token. 
+
+This paper presents a robust 2FA protocol designed to withstand attacks from adversaries who can (a) intercept the communication between a user and the server and (b) gain physical access to the user's hardware token, its web browser, its associated PIN, or even breach the server. In comparison to prior methodologies, our protocol reduces the development cost of authentication tokens by eliminating the need for tamper-resistant hardware or direct hardware token linkage to the computer. Moreover, our protocol reduces communication overhead by up to 40\% compared to state-of-the-art solutions, all while using efficient symmetric-key primitives.
+
+
+%Furthermore, our protocol reduces communication overhead by up to 40\% in comparison to state-of-the-art solutions. It achieves these optimisations while exclusively employing efficient symmetric-key primitives.
+
+
+%Two-factor authentication (2FA) is commonly used for controlling access to high-value online accounts, particularly where financial transactions are involved.
+%In such schemes, knowledge factors (\eg, PIN) and hardware token possession are required to complete authentication.
+%However, existing 2FA protocols leave the PIN vulnerable should the server, user's computer, or hardware token be compromised.
+%In this paper, we propose a 2FA protocol proved to be secure against adversaries who can (a) observe the traffic between a user and server and (b) have physical access to the user’s hardware token, or its PIN, or breach the server.
+%Compared to previous work, our protocol reduces the cost of authentication tokens by not requiring tamper-resistant hardware or that the hardware token be connected to the computer, and by only using efficient symmetric-key primitives.
+%Furthermore, our protocol is highly usable, requiring the user only to remember a short PIN and type short authentication codes; it imposes up to 40\% lower communication overhead compared to the state-of-the-art.
+%The protocol achieves these goals through a novel combination of splitting secrets between the server and hardware token and key-evolving symmetric-key encryption.
+
+
+\end{abstract}
+
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+%\begin{CCSXML}
+%<ccs2012>
+%<concept>
+%<concept_id>10002978.10002979</concept_id>
+%<concept_desc>Security and privacy~Cryptography</concept_desc>
+%<concept_significance>500</concept_significance>
+%</concept>
+%</ccs2012>
+%\end{CCSXML}
+
+
+%%%%%%%
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>00000000.0000000.0000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+
+%%%%%%%%
+
+\ccsdesc[500]{Security and privacy~Cryptography}
+
+
+
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{Multi-factor authentication, forward security}
+
+
+\newenvironment{packed_item}{
+\begin{itemize}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\newenvironment{packed_enum}{
+\begin{enumerate}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+%*****************************************************
+
+
+
+
+\maketitle              % typeset the title of the contribution
+%
+%\vspace{-6mm}
+\pagestyle{plain}
+
+
+
+
+
+\input{introduction}
+%\input{related-work}
+
+\input{survey-related-work}
+\input{preliminaries}
+\input{model}
+\input{the-protocol}
+\input{informal-sec-analysis}
+
+\input{sync}
+
+\input{system-feasibility}
+
+%\input{evaluation}
+\input{evaluation-long}
+\input{conclusion}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{ref}
+
+%%
+%% If your work has an appendix, this is the place to put it.
+
+\clearpage
+\appendices
+
+%\input{survey-related-work}
+
+% \input{notation-Table-}
+
+\input{forward-PRF-extra}
+
+\input{model-long}
+
+
+
+
+%
+\input{proof}
+%
+\input{longer-protocol}
+%\input{short-related-work}
+
+%\input{sync}
+%\input{system-feasibility}
+
+
+%\input{evaluation-long}
+
+
+\end{document}

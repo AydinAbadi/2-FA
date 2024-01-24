@@ -1,0 +1,61 @@
+%!TEX root = main.tex
+
+\begin{table*} [!ht]
+
+\begin{center}
+%\vspace{-3mm}
+\caption{ \small Comparison of efficient 2FA protocols.}  \label{comparisonTable} 
+%\vspace{-3mm}
+\renewcommand{\arraystretch}{1}
+\scalebox{1}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|} 
+\hline
+
+{\cellcolor{gray!70}\scriptsize {Features}} &\cellcolor{gray!70}{\scriptsize {Operation}}&\cellcolor{gray!70}{ \scriptsize {Our Protocol}}&\cellcolor{gray!70}{\scriptsize{\cite{WangW18}}}&\cellcolor{gray!70} {\scriptsize{\cite{JareckiJKSS21}}}&\cellcolor{gray!70} {\scriptsize{\cite{MatsuoMY11}}}  \\
+\hline
+
+\multirow{2}{*}{\scriptsize Computation cost}
+
+
+&\scriptsize{Sym-key}&\cellcolor{gray!20}\scriptsize$18$&\cellcolor{gray!20}\scriptsize$19$&\cellcolor{gray!20}\scriptsize $7$&\cellcolor{gray!20}\scriptsize$9$\\
+
+
+\cline{2-6}
+
+&\scriptsize {Expo.}&\cellcolor{gray!20}\scriptsize {$0$}&\cellcolor{gray!20}\scriptsize$5$&\cellcolor{gray!20}\scriptsize$12$&\cellcolor{gray!20}\scriptsize$0$\\
+
+\hline
+
+\scriptsize  Communication cost&$-$&\cellcolor{gray!20}\scriptsize$2804$-bit&\cellcolor{gray!20}\scriptsize$3136$-bit&\cellcolor{gray!20}\scriptsize$3900$-bit&\cellcolor{gray!20}\scriptsize$896$-bit\\
+
+\hline 
+\scriptsize Not  multiple PINs&$-$&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}&\cellcolor{gray!20}\scriptsize\textcolor{blue}\checkmark & \cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}\\
+\hline
+\scriptsize Not modular expo.  &$-$&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}\\ 
+
+\hline
+
+\scriptsize Not  trusted terminal or chipset&$-$&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}& \cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}\\ 
+
+\hline
+
+\scriptsize Considering Corrupt Server/Token&$-$&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize{\textcolor{blue}\checkmark}&\cellcolor{gray!20}\scriptsize\textcolor{red}{$\times$}\\ 
+
+\hline
+
+
+\scriptsize Security assumption  &$-$&\cellcolor{gray!20}\scriptsize{Standard}&\cellcolor{gray!20}\scriptsize{Random oracle}&\cellcolor{gray!20}\scriptsize{Random oracle}&\cellcolor{gray!20}\scriptsize{Standard}\\ 
+
+\hline
+\end{tabular}
+}
+%\renewcommand{\arraystretch}{1}
+%\end{footnotesize}
+\end{center}
+%}
+  %\vspace{-2.5mm}
+\end{table*}
+
+
+
+
