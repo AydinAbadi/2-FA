@@ -7,7 +7,7 @@ These properties must be assured even when the PIN is small enough to be brute-f
 
 We achieve this goal through (a) performing the PIN verification only on the server, which imposes a rate limit on verification, (b) encrypting every sensitive message exchanged between the server and user using key-evolving symmetric-key encryption (\ie, a combination of forward-secure pseudorandom bit generator and authenticated encryption), and (c) protecting against server compromise, by never directly sending the PIN to the server. 
 
-The confidentiality of PINs (e.g., in the case of the server breach) is crucial, as often people use their PINs for multiple purposes and in different places \cite{MurdochBAABHSS16}.  In the real world, users' credentials are sometimes leaked to the public or sold on the black market by hackers who have breached servers \cite{ThomasPYRKIBPPB19}. Thus, the leakage of PINs can have serious repercussions for people.   
+The confidentiality of PINs (e.g., in the case of the server breach) is crucial, as often people use their PINs for multiple purposes and in different places \cite{MurdochBAABHSS16}.  In the real world, users' credentials are sometimes leaked to the public or sold on the black market by hackers who have breached servers \cite{ThomasPYRKIBPPB19}. %Thus, the leakage of PINs can have serious repercussions for people.   
 
 
 Our protocol consists of three phases: (i) a setup phase, performed only once when the hardware token is manufactured, (ii) an enrolment phase for setting or changing a user's PIN, and (iii) an authentication phase in which the actual authentication is performed. As we already stated, each party has a unique (public) ID. 
@@ -69,7 +69,7 @@ If the challenge does match, the server stores the verifier, $\VS{\verifier}$,  
 
 Finally, the token discards the challenge, \VC{\keyt_{\sss 1}}, PIN, and \VC{\verifier} so that the PIN can no longer be recovered from the token. Note, the token can re-generate \VC{\verifier} using \VC{\salt} when the user types in their PIN again. The server also discards the challenge and \VC{\keyt{\sss 1}} as they are no longer needed. Following the successful completion of this phase, the server stores the verifier corresponding to the user's PIN, and the server and token will have synchronized their state.
 
-\vspace{-2mm}
+%\vspace{-2mm}
 \subsection{Authentication Phase}
 \label{sec:authentication}
 

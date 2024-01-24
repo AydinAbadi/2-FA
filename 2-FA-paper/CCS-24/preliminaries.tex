@@ -10,7 +10,7 @@
  
  We assume the token is not penetrated by an adversary in the (very short) period when the inputs of $\mathtt{Discard}(.)$ are set and when  $\mathtt{Discard}(.)$ is executed. %We refer readers to \cite{ReardonBC13} for a survey of secure data deletion approaches. 
  %
-  We also assume that a user will not use its hardware token after it has been stolen. All 2FA schemes that depend on hardware tokens ``implicitly'' rest on the assumption that a user will not use a token that has been stolen at some time. Without it, an attacker could steal a token, extract its content, modify the token to retain the user's PIN, and return it to the user. Subsequently, when the user employs the compromised token and enters their PIN, the adversary regains access to the token and obtains both authentication factors. Table \ref{notation-table} presents a summary of notations used in this paper. 
+  We also assume that a user will not use its hardware token after it has been stolen. All 2FA schemes that depend on hardware tokens ``implicitly'' rest on this assumption. Without it, an attacker could steal a token, extract its content, modify the token to retain the user's PIN, and return it to the user. Subsequently, when the user employs the compromised token and enters their PIN, the adversary regains access to the token and obtains both authentication factors. Table \ref{notation-table} presents a summary of notations used in this paper. 
  
 
  \input{notation-Table-}

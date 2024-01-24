@@ -11,7 +11,7 @@ This is particularly the case in our proposed protocol because
 if one side advances too far, it is by design impossible for it to
 move backward. 
 
-Specifically, we must provide assurance that the server state remains at the same state as the token's state, or that the server is ahead of the token, \ie, $\VS{\counter} \geq \VC{\counter}$. Then, as challenge messages always contain the current value of the server's counter, the token is always able to catch up with the server. We achieve this via three approaches.  Firstly, by requiring the FS-PRG's state to advance with the counter, such that the counter is consistent with the state. Secondly, by requiring that the token never advances its state directly, but only advances to the point that the server currently is at. Thirdly, by requiring the token only to advance its state in response to an authenticated challenge from the server.%; hence, an adversary is not able to advance the state ahead of what the server intends.
+Specifically, we must provide assurance that the server's state remains at the same as the token's state, or that the server is ahead of the token, \ie, $\VS{\counter} \geq \VC{\counter}$. Then, as challenge messages always contain the current value of the server's counter, the token is always able to catch up with the server. We achieve this via three approaches.  Firstly, by requiring the FS-PRG's state to advance with the counter, such that the counter is consistent with the state. Secondly, by requiring that the token never advances its state directly, but only advances to the point that the server currently is at. Thirdly, by requiring the token only to advance its state in response to an authenticated challenge from the server.%; hence, an adversary is not able to advance the state ahead of what the server intends.
 
 
 The protocol takes into account the case where messages are dropped.
@@ -20,7 +20,7 @@ Response messages are not involved in advancing the forward-secure state; theref
 Nevertheless, this would not cause any issues, because the server's next challenge message will include the new value of the counter and the token will advance its state until it matches the server's state. Hence, in the authentication phase (in Figure \ref{fig:auth}), inequality $\VS{\counter} \geq \VC{\counter}$ must hold in the following three cases:  
 
 
-\begin{itemize}
+\begin{itemize}[leftmargin=5.5mm]
 %
 \item[$\bullet$] \textbf{Case 1: no messages are dropped.} This is a trivial case and boils down to the correctness and security of the authentication protocol  (presented in Figure \ref{fig:auth}). Specifically, in this case, inequality  $\VS{\counter} \geq \VC{\counter}$ always holds because the token advances its state only after it receives a valid challenge from the server that has already advanced its state. An adversary would be able to convince the token to advance its state (before the server does so) if it could generate a valid encrypted challenge; however, its probability of success is negligible in the security parameter, due to the security of Authenticated Encryption (AE). 
 %

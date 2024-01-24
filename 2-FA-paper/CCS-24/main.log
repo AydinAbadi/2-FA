@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  24 JAN 2024 13:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.9.22)  24 JAN 2024 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2133,7 +2133,7 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 Package prettyref Warning: Reference format app undefined on input line 42.
 
 ) (./model.tex [4.4]
-<setup.pdf, id=292, 950.59138pt x 342.31888pt>
+<setup.pdf, id=293, 950.59138pt x 342.31888pt>
 File: setup.pdf Graphic file (type pdf)
 <use setup.pdf>
 Package pdftex.def Info: setup.pdf  used on input line 26.
@@ -2176,7 +2176,7 @@ Overfull \hbox (15.31439pt too wide) in paragraph at lines 35--37
 
 Class acmart Warning: A possible image without description on input line 43.
 
-[5.5 <./setup.pdf>]) (./short-enrolment.tex
+) [5.5 <./setup.pdf>] (./short-enrolment.tex
 Overfull \hbox (12.63443pt too wide) detected at line 84
 []
  []
@@ -2189,12 +2189,7 @@ Overfull \hbox (16.13443pt too wide) in paragraph at lines 84--86
 
 Class acmart Warning: A possible image without description on input line 92.
 
-) [6.6]
-
-Class acmart Warning: \vspace should only be used to provide space above/below 
-surrounding objects on input line 72.
-
-(./short-authentication.tex
+) [6.6] (./short-authentication.tex
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 8.0pt on input line 99.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
@@ -2223,10 +2218,16 @@ Overfull \hbox (5.44853pt too wide) in paragraph at lines 99--100
 []$[]$ \T1/LinuxLibertineT-TLF/m/n/9 (-20) As we
  []
 
-) (./sync.tex [9.9]
+) (./sync.tex
 Overfull \hbox (2.74185pt too wide) in paragraph at lines 20--21
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) Nevertheless, this would not cause any is
 -sues, be-cause the server's
+ []
+
+[9.9]
+Overfull \hbox (1.33751pt too wide) in paragraph at lines 29--31
+\LMS/ntxsy/m/n/9 ¹\OML/nxlmi/m/it/9 U[]; []\LMS/ntxsy/m/n/9 º$ \T1/LinuxLiberti
+neT-TLF/m/n/9 (-20) again. In Case 3, both the to-ken and server
  []
 
 ) (./system-feasibility.tex) (./evaluation-long.tex (./evaluation-table.tex
@@ -2469,11 +2470,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 51881 strings out of 480608
- 1101620 string characters out of 5903630
- 1641002 words of memory out of 5000000
+ 51875 strings out of 480608
+ 1101467 string characters out of 5903630
+ 1641001 words of memory out of 5000000
  65543 multiletter control sequences out of 15000+600000
- 853828 words of font info for 557 fonts, out of 8000000 for 9000
+ 853086 words of font info for 553 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,33n,100p,1109b,1904s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
@@ -2520,7 +2521,7 @@ ic/newtx/txexs.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx
 /txmiaX.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/txsy
 a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/newtx/txsys.pfb></
 usr/local/texlive/2020/texmf-dist/fonts/type1/public/esvect/vect9.pfb>
-Output written on main.pdf (20 pages, 733923 bytes).
+Output written on main.pdf (20 pages, 733697 bytes).
 PDF statistics:
  1147 PDF objects out of 1200 (max. 8388607)
  961 compressed objects within 10 object streams
